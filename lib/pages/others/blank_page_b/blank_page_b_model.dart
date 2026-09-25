@@ -1,0 +1,28 @@
+import '/components/custom_mobile_app_bar/custom_mobile_app_bar_widget.dart';
+import '/components/mobile_navigation_bar/mobile_navigation_bar_widget.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'blank_page_b_widget.dart' show BlankPageBWidget;
+import 'package:flutter/material.dart';
+
+class BlankPageBModel extends FlutterFlowModel<BlankPageBWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  // Model for MobileNavigationBar component.
+  late MobileNavigationBarModel mobileNavigationBarModel;
+  // Model for CustomMobileAppBar component.
+  late CustomMobileAppBarModel customMobileAppBarModel;
+
+  @override
+  void initState(BuildContext context) {
+    mobileNavigationBarModel =
+        createModel(context, () => MobileNavigationBarModel());
+    customMobileAppBarModel =
+        createModel(context, () => CustomMobileAppBarModel());
+  }
+
+  @override
+  void dispose() {
+    mobileNavigationBarModel.dispose();
+    customMobileAppBarModel.dispose();
+  }
+}

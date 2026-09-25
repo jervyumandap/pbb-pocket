@@ -1,0 +1,26 @@
+// Automatic FlutterFlow imports
+import '/backend/schema/structs/index.dart';
+import '/backend/schema/enums/enums.dart';
+import '/backend/supabase/supabase.dart';
+import '/actions/actions.dart' as action_blocks;
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'index.dart'; // Imports other custom actions
+import '/flutter_flow/custom_functions.dart'; // Imports custom functions
+import 'package:flutter/material.dart';
+// Begin custom action code
+// DO NOT REMOVE OR MODIFY THE CODE ABOVE!
+
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
+Future<void> saveBiometricPreferenceSecurely(bool isEnabled) async {
+  const storage = FlutterSecureStorage();
+
+  // We store it as a string because secure_storage only accepts strings
+  await storage.write(
+    key: 'biometric_enabled',
+    value: isEnabled.toString(), // Stores 'true' or 'false'
+  );
+}
+// Set your action name, define your arguments and return parameter,
+// and then add the boilerplate code using the green button on the right!

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <key>CFBundleDisplayName</key>
+    <string>PBB Pocket Dev</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>PBB Pocket</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(FLUTTER_BUILD_NAME)</string>
+    <key>CFBundleSignature</key>
+    <string>????</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>pbbpocket.com</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>pbbpocket</string>
+        </array>
+      </dict>
+    </array>
+    <key>FlutterDeepLinkingEnabled</key>
+    <true/>
+    <key>CFBundleVersion</key>
+    <string>$(FLUTTER_BUILD_NUMBER)</string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>NSCameraUsageDescription</key>
+    <string>In order to scan QR codes, this app requires pesmission to access the camera.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app requires access to your photo library to allow you to upload images and scan QR codes from your gallery.</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>This app requires permissions to perform a biometrics verification.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app requires permissions to use the microphone.</string>
+    <key>NSContactsUsageDescription</key>
+    <string>This app requires access to your contacts to help you connect with other users</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app needs your location to provide location-based services and features.</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>This app uses Bluetooth to ensure a secure connection and verify device integrity during transactions.</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>his app requires calendar access to help you keep track of important transaction dates and reminders.</string>
+    <key>PermissionGroupNotification</key>
+    <string>We need notification access to send you real-time updates regarding your account activities and security alerts.</string>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>This identifier will be used to deliver personalized security and fraud prevention features.</string>
+    <key>NSContactsUsageDescription</key>
+    <string>Access to contacts is required to identify potential fraudulent activity.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Access to photo library is required to verify device security and scan documents.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>This app requires camera access for security verification and QR code scanning.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Your location is used to verify that transactions are being made from a secure area.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>We need access to save screenshots</string>
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
+    <key>UIMainStoryboardFile</key>
+    <string>Main</string>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationPortraitUpsideDown</string>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <false/>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+      <key>NSAllowsLocalNetworking</key>
+      <true/>
+    </dict>
+  </dict>
+</plist>
