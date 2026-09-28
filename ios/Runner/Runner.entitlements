@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>com.apple.developer.associated-domains</key>
+    <array>
+      <string>webcredentials:whitebank.ai</string>
+      <string>webcredentials:sitpocket.pbb.com.ph</string>
+      <string>webcredentials:uatpocket.pbb.com.ph</string>
+      <string>webcredentials:apiuatpocket.pbb.com.ph</string>
+      <string>webcredentials:enterprise-apac.flutterflow.app</string>
+    </array>
+  </dict>
+</plist>

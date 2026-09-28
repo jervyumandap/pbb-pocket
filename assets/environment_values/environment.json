@@ -1,0 +1,19 @@
+{
+  "BASEURL": "https://dpwtwyggzciqgwklrmrb.supabase.co",
+"APIKEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwd3R3eWdnemNpcWd3a2xybXJiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4OTkzMDcsImV4cCI6MjA4MDQ3NTMwN30.GzDxd6sZXwLLIYxohTs2vVJ3_8zyKu5kIFqN_zUdlDY",
+"ANONKEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwd3R3eWdnemNpcWd3a2xybXJiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4OTkzMDcsImV4cCI6MjA4MDQ3NTMwN30.GzDxd6sZXwLLIYxohTs2vVJ3_8zyKu5kIFqN_zUdlDY",
+"PBBBaseURL": "https://lumine.pbb.com.ph",
+"SERVICEKEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwd3R3eWdnemNpcWd3a2xybXJiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NDg5OTMwNywiZXhwIjoyMDgwNDc1MzA3fQ.sSu5oujmPUq1Zo2f1kzPD4Wfq_wV06RaNa-YGJ2NBPM",
+"WBPBASEURL": "https://whitebank-retail-core-dev.fly.dev",
+"apiKeyAndroid": "AIzaSyAPMEpd9laGx1UA0_haB9qQIPhc2HVuWUU",
+"appIdAndroid": "1:750819153189:android:4cbc6d5b9d987a9e11b6cc",
+"apiKeyIOS": "AIzaSyCBLDhtmZ2wvDRPWmUVUi2e7Bg8vjGDfVc",
+"appIdIOS": "1:750819153189:ios:c1d32c8b3c8bc82b11b6cc",
+"messagingSenderId": "750819153189",
+"projectId": "willow-2123e",
+"EnvName": "DEV",
+"DEVICEIDKEY": "device_id_dev",
+"AppInitializedKey": "app_initialized_dev",
+"PaygilantDomain": "poc-ap1.paygilant.com",
+"PaygilantClientKey": "3238baaafa4a"
+}

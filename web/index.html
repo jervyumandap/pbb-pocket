@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    Alternatively, build your application passing the --base-href parameter
+    specifying the new root path of your web app.
+
+    Fore more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="PBB Pocket Dev">
+
+  <!-- Existing Passkeys SDK -->
+<script
+  src="https://github.com/corbado/flutter-passkeys/releases/download/2.4.0/bundle.js"
+  type="application/javascript"
+></script>
+
+
+<!-- === Paygilant Web SDK: session-id bridge ===
+     Paygilant calls window.sfCallback(id) when ready; we mirror it into
+     localStorage so the Flutter app can read it without JS interop.        -->
+<script type="text/javascript">
+  (function () {
+    function store(id) {
+      if (id && id !== 'no_session_id') {
+        try { window.localStorage.setItem('pg_fms_sid', id); } catch (e) {}
+      }
+    }
+    window.sfCallback = function (id) { store(id); };          // push
+    var tries = 0;                                            // pull fallback
+    var iv = setInterval(function () {
+      tries++;
+      if (typeof window.sfGetSessionId === 'function') { store(window.sfGetSessionId()); }
+      if (tries > 60) clearInterval(iv);                      // ~30s cap
+    }, 500);
+  })();
+</script>
+
+
+<!-- === Paygilant Web SDK loader (from Paygilant's guide) === -->
+<script type="text/javascript">
+  !(function (w, d) {
+    var s = d.createElement("script"),
+        qp = "r=" + Math.random() + "&t=" + (new Date()).getTime();
+    s.src = "https://eu-1.sfserv.net/3238baaafa4a/main.js?" + qp;
+    s.type = "text/javascript"; s.async = true;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })(window, document);
+</script>
+
+
+<!-- Application wrapper -->
+<script>
+window.getPaygilantSessionId = function () {
+  if (typeof window.sfGetSessionId === "function") {
+    return window.sfGetSessionId();
+  }
+  return null;
+};
+</script>
+
+  <meta name="robots" content="noindex" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="Logo.png" sizes="any"/>
+  
+
+  <!-- Open Graph & SEO tags -->
+  <meta property="og:title" content="PBB Pocket Dev" />
+  <meta property="og:description" content="Built with FlutterFlow." />
+  <meta property="og:image" content="/assets/assets/images/Logo.png" /> 
+  <meta name="twitter:title" content="PBB Pocket Dev" />
+  <meta name="twitter:description" content="Built with FlutterFlow." />
+  <meta name="twitter:image" content="/assets/assets/images/Logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <title> PBB Pocket Dev </title>
+  <meta name="description" content="Built with FlutterFlow." />
+    
+
+  <!-- Status Bar color in Safari browser (iOS) and PWA -->
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f1f4f8">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#f1f4f8">
+
+  <link rel="manifest" href="manifest.json">
+  
+</head>
+<body>
+  
+  
+    <script src='https://cdn.jsdelivr.net/npm/pdfjs-dist@4.6.82/build/pdf.min.mjs' type='module'></script>
+  <script type='module'>
+  var { pdfjsLib } = globalThis;
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.6.82/build/pdf.worker.mjs';
+
+  var pdfRenderOptions = {
+    cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.6.82/cmaps/',
+    cMapPacked: true,
+  }
+  </script>
+        
+  
+  
+  
+  <script>
+    {{flutter_bootstrap_js}}
+  </script>
+</body>
+</html>
