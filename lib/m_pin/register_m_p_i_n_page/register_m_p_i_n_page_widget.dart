@@ -213,7 +213,7 @@ class _RegisterMPINPageWidgetState extends State<RegisterMPINPageWidget>
                       contentPadding: EdgeInsetsDirectional.fromSTEB(
                           12.0, 17.0, 12.0, 17.0),
                       hoverColor: FlutterFlowTheme.of(context).formElementHover,
-                      suffixIcon: InkWell(
+                      suffixIcon: Semantics(identifier: 'register_mpin_password_visibility', label: 'Show password', container: true, button: true, child: InkWell(
                         onTap: () async {
                           safeSetState(() =>
                               _model.textFieldPasswordVisibility =
@@ -226,7 +226,7 @@ class _RegisterMPINPageWidgetState extends State<RegisterMPINPageWidget>
                               : Icons.visibility_off_outlined,
                           size: 22,
                         ),
-                      ),
+                      )),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily:
@@ -308,7 +308,7 @@ class _RegisterMPINPageWidgetState extends State<RegisterMPINPageWidget>
                       contentPadding: EdgeInsetsDirectional.fromSTEB(
                           12.0, 17.0, 12.0, 17.0),
                       hoverColor: FlutterFlowTheme.of(context).formElementHover,
-                      suffixIcon: InkWell(
+                      suffixIcon: Semantics(identifier: 'register_mpin_confirm_password_visibility', label: 'Show confirm password', container: true, button: true, child: InkWell(
                         onTap: () async {
                           safeSetState(() =>
                               _model.textFieldConfirmPasswordVisibility =
@@ -321,7 +321,7 @@ class _RegisterMPINPageWidgetState extends State<RegisterMPINPageWidget>
                               : Icons.visibility_off_outlined,
                           size: 22,
                         ),
-                      ),
+                      )),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily:

@@ -63,21 +63,19 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
 
     return Align(
       alignment: AlignmentDirectional(
-          valueOrDefault<double>(
-            () {
-              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                return 0.0;
-              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                return 0.0;
-              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                return 1.0;
-              } else {
-                return 1.0;
-              }
-            }(),
-            0.0,
-          ),
-          1.0),
+        valueOrDefault<double>(() {
+          if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+            return 0.0;
+          } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+            return 0.0;
+          } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+            return 1.0;
+          } else {
+            return 1.0;
+          }
+        }(), 0.0),
+        1.0,
+      ),
       child: Container(
         width: () {
           if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
@@ -104,8 +102,8 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(valueOrDefault<double>(
-              () {
+            topLeft: Radius.circular(
+              valueOrDefault<double>(() {
                 if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
                   return 32.0;
                 } else if (MediaQuery.sizeOf(context).width <
@@ -117,11 +115,10 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                 } else {
                   return 0.0;
                 }
-              }(),
-              0.0,
-            )),
-            topRight: Radius.circular(valueOrDefault<double>(
-              () {
+              }(), 0.0),
+            ),
+            topRight: Radius.circular(
+              valueOrDefault<double>(() {
                 if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
                   return 32.0;
                 } else if (MediaQuery.sizeOf(context).width <
@@ -133,9 +130,8 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                 } else {
                   return 0.0;
                 }
-              }(),
-              0.0,
-            )),
+              }(), 0.0),
+            ),
           ),
         ),
         alignment: AlignmentDirectional(0.0, 1.0),
@@ -152,8 +148,12 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                      0.0,
+                      0.0,
+                      0.0,
+                      16.0,
+                    ),
                     child: Container(
                       width: 29.0,
                       height: 6.0,
@@ -171,28 +171,34 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                   Text(
                     'Edit Nickname',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                          color: Color(0xFF383839),
-                          fontSize: 18.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w600,
-                          useGoogleFonts:
-                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                        ),
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                      color: Color(0xFF383839),
+                      fontSize: 18.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.w600,
+                      useGoogleFonts: !FlutterFlowTheme.of(
+                        context,
+                      ).bodyMediumIsCustom,
+                    ),
                   ),
-                  InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      Navigator.pop(context);
-                    },
-                    child: Icon(
-                      Icons.close,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      size: 24.0,
+                  Semantics(
+                    identifier: 'edit_nickname_close_button',
+                    label: 'Close nickname editor',
+                    container: true,
+                    button: true,
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.close,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 24.0,
+                      ),
                     ),
                   ),
                 ],
@@ -204,14 +210,14 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                   child: Text(
                     'Edit your account nickname to easily identify your accounts.',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                          color: Color(0xFF444C66),
-                          fontSize: 16.0,
-                          letterSpacing: 0.0,
-                          useGoogleFonts:
-                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                        ),
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                      color: Color(0xFF444C66),
+                      fontSize: 16.0,
+                      letterSpacing: 0.0,
+                      useGoogleFonts: !FlutterFlowTheme.of(
+                        context,
+                      ).bodyMediumIsCustom,
+                    ),
                   ),
                 ),
               ),
@@ -240,46 +246,58 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    FlutterFlowRadioButton(
-                      options: ['Remove account nickname'].toList(),
-                      onChanged: (val) async {
-                        safeSetState(() {});
-                        safeSetState(() {
-                          _model.accountNameTextfieldModel.textController
-                              ?.clear();
-                        });
-                        _model.radioButtonClicked = !_model.radioButtonClicked;
-                        safeSetState(() {});
-                      },
-                      controller: _model.radioButtonValueController ??=
-                          FormFieldController<String>(null),
-                      optionHeight: 32.0,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .labelMedium
-                          .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).labelMediumFamily,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .labelMediumIsCustom,
-                          ),
-                      selectedTextStyle: FlutterFlowTheme.of(context)
-                          .bodyMedium
-                          .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .bodyMediumIsCustom,
-                          ),
-                      buttonPosition: RadioButtonPosition.left,
-                      direction: Axis.vertical,
-                      radioButtonColor: FlutterFlowTheme.of(context).primary,
-                      inactiveRadioButtonColor:
-                          FlutterFlowTheme.of(context).secondaryText,
-                      toggleable: true,
-                      horizontalAlignment: WrapAlignment.start,
-                      verticalAlignment: WrapCrossAlignment.start,
+                    MergeSemantics(
+                      child: Semantics(
+                        identifier: 'edit_nickname_remove_radio',
+                        child: FlutterFlowRadioButton(
+                          options: ['Remove account nickname'].toList(),
+                          onChanged: (val) async {
+                            safeSetState(() {});
+                            safeSetState(() {
+                              _model.accountNameTextfieldModel.textController
+                                  ?.clear();
+                            });
+                            _model.radioButtonClicked =
+                                !_model.radioButtonClicked;
+                            safeSetState(() {});
+                          },
+                          controller: _model.radioButtonValueController ??=
+                              FormFieldController<String>(null),
+                          optionHeight: 32.0,
+                          textStyle: FlutterFlowTheme.of(context).labelMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(
+                                  context,
+                                ).labelMediumFamily,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: !FlutterFlowTheme.of(
+                                  context,
+                                ).labelMediumIsCustom,
+                              ),
+                          selectedTextStyle: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(
+                                  context,
+                                ).bodyMediumFamily,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: !FlutterFlowTheme.of(
+                                  context,
+                                ).bodyMediumIsCustom,
+                              ),
+                          buttonPosition: RadioButtonPosition.left,
+                          direction: Axis.vertical,
+                          radioButtonColor: FlutterFlowTheme.of(
+                            context,
+                          ).primary,
+                          inactiveRadioButtonColor: FlutterFlowTheme.of(
+                            context,
+                          ).secondaryText,
+                          toggleable: true,
+                          horizontalAlignment: WrapAlignment.start,
+                          verticalAlignment: WrapCrossAlignment.start,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -322,14 +340,18 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                             buttonWidth: 166.0,
                             buttonHeight: 48.0,
                             buttonColor: FlutterFlowTheme.of(context).primary,
-                            textColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                            textColor: FlutterFlowTheme.of(
+                              context,
+                            ).secondaryBackground,
                             fontSize: 14.0,
                             borderRadius: 16.0,
                             childPadding: 16.0,
-                            buttonDisabledOption: (_model.accountNameTextfieldModel
-                                            .textController.text ==
-                                        '') &&
+                            buttonDisabledOption:
+                                (_model
+                                        .accountNameTextfieldModel
+                                        .textController
+                                        .text ==
+                                    '') &&
                                 !_model.radioButtonClicked,
                             callback: () async {
                               var _shouldSetState = false;
@@ -338,8 +360,10 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                                     !_model.formKey.currentState!.validate()) {
                                   return;
                                 }
-                                if (_model.accountNameTextfieldModel
-                                        .textController.text ==
+                                if (_model
+                                        .accountNameTextfieldModel
+                                        .textController
+                                        .text ==
                                     FFAppState().alias) {
                                   await showDialog(
                                     context: context,
@@ -348,13 +372,12 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                                         elevation: 0,
                                         insetPadding: EdgeInsets.zero,
                                         backgroundColor: Colors.transparent,
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
+                                        alignment: AlignmentDirectional(
+                                          0.0,
+                                          0.0,
+                                        ).resolve(Directionality.of(context)),
                                         child: WebViewAware(
-                                          child:
-                                              CustomInformationalDialogWidget(
+                                          child: CustomInformationalDialogWidget(
                                             message:
                                                 'This is already the account alias.',
                                             primaryButtonTitle: 'Close',
@@ -375,27 +398,34 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                               _model.apiResult8rv = await WhitebankGroupAPIGroup
                                   .patchAliasCall
                                   .call(
-                                accountNumber: FFAppState()
-                                    .currentAccountV2
-                                    .fullAccountNumber,
-                                alias: _model.radioButtonClicked
-                                    ? widget.accountType?.name
-                                    : _model.accountNameTextfieldModel
-                                        .textController.text,
-                                accessToken: currentAuthenticationToken,
-                                baseURL: FFDevEnvironmentValues().WBPBASEURL,
-                              );
+                                    accountNumber: FFAppState()
+                                        .currentAccountV2
+                                        .fullAccountNumber,
+                                    alias: _model.radioButtonClicked
+                                        ? widget.accountType?.name
+                                        : _model
+                                              .accountNameTextfieldModel
+                                              .textController
+                                              .text,
+                                    accessToken: currentAuthenticationToken,
+                                    baseURL:
+                                        FFDevEnvironmentValues().WBPBASEURL,
+                                  );
 
                               _shouldSetState = true;
                               if ((_model.apiResult8rv?.succeeded ?? true)) {
                                 FFAppState().alias = _model.radioButtonClicked
                                     ? widget.accountType!.name
-                                    : _model.accountNameTextfieldModel
-                                        .textController.text;
+                                    : _model
+                                          .accountNameTextfieldModel
+                                          .textController
+                                          .text;
                                 FFAppState().updateCurrentAccountV2Struct(
                                   (e) => e
-                                    ..alias = _model.accountNameTextfieldModel
-                                        .textController.text,
+                                    ..alias = _model
+                                        .accountNameTextfieldModel
+                                        .textController
+                                        .text,
                                 );
                                 FFAppState().update(() {});
                                 Navigator.pop(context);
@@ -409,8 +439,9 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                                   builder: (context) {
                                     return WebViewAware(
                                       child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
+                                        padding: MediaQuery.viewInsetsOf(
+                                          context,
+                                        ),
                                         child: CustomMobileBottomSheetWidget(
                                           textTitle:
                                               'Changes saved successfully.',
@@ -424,8 +455,9 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                                   },
                                 ).then((value) => safeSetState(() {}));
 
-                                await action_blocks
-                                    .getAccountsWithBalance(context);
+                                await action_blocks.getAccountsWithBalance(
+                                  context,
+                                );
                                 safeSetState(() {});
                               } else {
                                 await showDialog(
@@ -435,8 +467,10 @@ class _EditAliasComponentWidgetState extends State<EditAliasComponentWidget> {
                                       elevation: 0,
                                       insetPadding: EdgeInsets.zero,
                                       backgroundColor: Colors.transparent,
-                                      alignment: AlignmentDirectional(0.0, 0.0)
-                                          .resolve(Directionality.of(context)),
+                                      alignment: AlignmentDirectional(
+                                        0.0,
+                                        0.0,
+                                      ).resolve(Directionality.of(context)),
                                       child: WebViewAware(
                                         child: CustomInformationalDialogWidget(
                                           message:

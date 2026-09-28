@@ -611,7 +611,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .formElementHover,
-                                                          suffixIcon: InkWell(
+                                                          suffixIcon: Semantics(identifier: 'login_password_visibility', label: 'Show password', container: true, button: true, child: InkWell(
                                                             onTap: () async {
                                                               safeSetState(() =>
                                                                   _model.textFieldPwVisibility =
@@ -632,7 +632,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                   .skyDark,
                                                               size: 16.0,
                                                             ),
-                                                          ),
+                                                          )),
                                                         ),
                                                         style: FlutterFlowTheme
                                                                 .of(context)

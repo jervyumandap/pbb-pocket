@@ -382,7 +382,7 @@ class _QrScannerOverlayNewState extends State<QrScannerOverlayNew> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              FlutterFlowIconButton(
+                              MergeSemantics(child: Semantics(identifier: 'qr_scanner_back', label: 'Back', child: FlutterFlowIconButton(
                                 borderRadius: 100,
                                 buttonSize: 40,
                                 fillColor: Color(0x80FFFFFF),
@@ -394,7 +394,7 @@ class _QrScannerOverlayNewState extends State<QrScannerOverlayNew> {
                                 onPressed: () async {
                                   context.safePop();
                                 },
-                              ),
+                              ))),
                               Text(
                                 'Scan QR to pay',
                                 style: FlutterFlowTheme.of(context)

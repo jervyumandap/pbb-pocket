@@ -218,7 +218,7 @@ class _TransactionLimitItemComponentWidgetState
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
-                      child: TextFormField(
+                      child: Semantics(label: '${widget.transactionLimit?.displayName ?? ''} daily limit', child: TextFormField(
                         controller:
                             _model.textFieldUpdatedAmount2ndTextController,
                         focusNode: _model.textFieldUpdatedAmount2ndFocusNode,
@@ -344,7 +344,7 @@ class _TransactionLimitItemComponentWidgetState
                         validator: _model
                             .textFieldUpdatedAmount2ndTextControllerValidator
                             .asValidator(context),
-                      ),
+                      )),
                     ),
                     if (_model.isDailyLimit)
                       Align(
@@ -365,7 +365,7 @@ class _TransactionLimitItemComponentWidgetState
                       ),
                     Container(
                       width: double.infinity,
-                      child: TextFormField(
+                      child: Semantics(label: '${widget.transactionLimit?.displayName ?? ''} per-transaction limit', child: TextFormField(
                         controller: _model.textFieldUpdatedAmountTextController,
                         focusNode: _model.textFieldUpdatedAmountFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
@@ -488,7 +488,7 @@ class _TransactionLimitItemComponentWidgetState
                         validator: _model
                             .textFieldUpdatedAmountTextControllerValidator
                             .asValidator(context),
-                      ),
+                      )),
                     ),
                     if (_model.isTransacLimit)
                       Align(
