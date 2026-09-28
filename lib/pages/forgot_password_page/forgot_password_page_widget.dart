@@ -421,7 +421,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                               hoverColor:
                                                   FlutterFlowTheme.of(context)
                                                       .formElementHover,
-                                              suffixIcon: InkWell(
+                                              suffixIcon: Semantics(identifier: 'forgot_password_password_visibility', label: 'Show password', container: true, button: true, child: InkWell(
                                                 onTap: () async {
                                                   safeSetState(() => _model
                                                           .textFieldPasswordVisibility =
@@ -438,7 +438,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                           .visibility_off_outlined,
                                                   size: 22,
                                                 ),
-                                              ),
+                                              )),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -562,7 +562,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                               hoverColor:
                                                   FlutterFlowTheme.of(context)
                                                       .formElementHover,
-                                              suffixIcon: InkWell(
+                                              suffixIcon: Semantics(identifier: 'forgot_password_confirm_password_visibility', label: 'Show confirm password', container: true, button: true, child: InkWell(
                                                 onTap: () async {
                                                   safeSetState(() => _model
                                                           .textFieldConfirmPasswordVisibility =
@@ -579,7 +579,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                           .visibility_off_outlined,
                                                   size: 22,
                                                 ),
-                                              ),
+                                              )),
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
