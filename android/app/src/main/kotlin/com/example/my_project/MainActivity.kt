@@ -1,4 +1,4 @@
-package com.pbbpocket.appdev
+package com.pbb.pocket
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 

@@ -325,8 +325,6 @@ export '/loans/loan_details_page/loan_details_page_widget.dart'
     show LoanDetailsPageWidget;
 export '/pages/auth/landing_page/landing_page_widget.dart'
     show LandingPageWidget;
-export '/account_detail_page/account_detail_page_widget.dart'
-    show AccountDetailPageWidget;
 export '/pay_bills/pay_bills_page/pay_bills_page_widget.dart'
     show PayBillsPageWidget;
 export '/pages/others/dashboard/dashboard_widget.dart' show DashboardWidget;
@@ -341,3 +339,5 @@ export '/time_deposit/open_time_deposit_details_page/open_time_deposit_details_p
     show OpenTimeDepositDetailsPageWidget;
 export '/account_verification_page/account_verification_page_widget.dart'
     show AccountVerificationPageWidget;
+export '/account_detail_page/account_detail_page_widget.dart'
+    show AccountDetailPageWidget;

@@ -1686,22 +1686,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => LandingPageWidget(),
         ),
         FFRoute(
-          name: AccountDetailPageWidget.routeName,
-          path: AccountDetailPageWidget.routePath,
-          builder: (context, params) => AccountDetailPageWidget(
-            account: params.getParam(
-              'account',
-              ParamType.DataStruct,
-              isList: false,
-              structBuilder: AccountsStruct.fromSerializableMap,
-            ),
-            rootPage: params.getParam(
-              'rootPage',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
           name: PayBillsPageWidget.routeName,
           path: PayBillsPageWidget.routePath,
           requireAuth: true,
@@ -1803,6 +1787,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             ),
             deviceId: params.getParam(
               'deviceId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: AccountDetailPageWidget.routeName,
+          path: AccountDetailPageWidget.routePath,
+          builder: (context, params) => AccountDetailPageWidget(
+            account: params.getParam(
+              'account',
+              ParamType.DataStruct,
+              isList: false,
+              structBuilder: AccountsStruct.fromSerializableMap,
+            ),
+            rootPage: params.getParam(
+              'rootPage',
               ParamType.String,
             ),
           ),

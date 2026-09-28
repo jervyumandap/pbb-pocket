@@ -2,10 +2,8 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pay_bills/p_b_components/save_biller_success_bottom_sheet/save_biller_success_bottom_sheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'save_biller_bottom_sheet_model.dart';
 export 'save_biller_bottom_sheet_model.dart';
 
@@ -803,26 +801,20 @@ class _SaveBillerBottomSheetWidgetState
                                             label: 'Save-Button',
                                             child: FFButtonWidget(
                                               onPressed: () async {
-                                                await showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return WebViewAware(
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            SaveBillerSuccessBottomSheetWidget(
-                                                          callBack: () async {},
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
-                                                ).then((value) =>
-                                                    safeSetState(() {}));
+                                                await widget.callBack?.call(
+                                                  WBSavedBillerStruct(
+                                                    biller: widget.biller,
+                                                    nickname: _model
+                                                        .nicknameTextFieldWebTextController
+                                                        .text,
+                                                    accountNumber: FFAppState()
+                                                        .PaybillsInitiateModelAppState
+                                                        .accountNumber,
+                                                    accountHolderName: FFAppState()
+                                                        .PaybillsInitiateModelAppState
+                                                        .accountHolderName,
+                                                  ),
+                                                );
                                               },
                                               text: 'Save',
                                               options: FFButtonOptions(

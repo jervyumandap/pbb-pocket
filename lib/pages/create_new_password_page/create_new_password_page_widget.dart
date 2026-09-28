@@ -430,7 +430,7 @@ class _CreateNewPasswordPageWidgetState
                                                                           context)
                                                                       .formElementHover,
                                                               suffixIcon:
-                                                                  Semantics(identifier: 'change_password_current_visibility', label: 'Show current password', container: true, button: true, child: InkWell(
+                                                                  InkWell(
                                                                 onTap:
                                                                     () async {
                                                                   safeSetState(() =>
@@ -449,7 +449,7 @@ class _CreateNewPasswordPageWidgetState
                                                                           .visibility_off_outlined,
                                                                   size: 22,
                                                                 ),
-                                                              )),
+                                                              ),
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -820,7 +820,7 @@ class _CreateNewPasswordPageWidgetState
                                                                 FlutterFlowTheme.of(
                                                                         context)
                                                                     .formElementHover,
-                                                            suffixIcon: Semantics(identifier: 'change_password_new_visibility', label: 'Show new password', container: true, button: true, child: InkWell(
+                                                            suffixIcon: InkWell(
                                                               onTap: () async {
                                                                 safeSetState(() =>
                                                                     _model.newPasswordTextFieldVisibility =
@@ -838,7 +838,7 @@ class _CreateNewPasswordPageWidgetState
                                                                         .visibility_off_outlined,
                                                                 size: 22,
                                                               ),
-                                                            )),
+                                                            ),
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1041,7 +1041,7 @@ class _CreateNewPasswordPageWidgetState
                                                                 FlutterFlowTheme.of(
                                                                         context)
                                                                     .formElementHover,
-                                                            suffixIcon: Semantics(identifier: 'change_password_confirm_visibility', label: 'Show confirm password', container: true, button: true, child: InkWell(
+                                                            suffixIcon: InkWell(
                                                               onTap: () async {
                                                                 safeSetState(() =>
                                                                     _model.confirmPasswordTextFieldVisibility =
@@ -1059,7 +1059,7 @@ class _CreateNewPasswordPageWidgetState
                                                                         .visibility_off_outlined,
                                                                 size: 22,
                                                               ),
-                                                            )),
+                                                            ),
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)

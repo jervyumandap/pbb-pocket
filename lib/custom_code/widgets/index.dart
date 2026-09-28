@@ -8,12 +8,10 @@ export 'flutter_q_r_i_s_widget.dart' show FlutterQRISWidget;
 export 'custom_radio_button_only.dart' show CustomRadioButtonOnly;
 export 'pbb_universal_text_field.dart' show PbbUniversalTextField;
 export 'collapsing_login_header.dart' show CollapsingLoginHeader;
-export 'label_value_dropdown.dart' show LabelValueDropdown;
 export 'curved_card_deck_v2.dart' show CurvedCardDeckV2;
 export 'pbb_transaction_limit_text_field.dart'
     show PbbTransactionLimitTextField;
 export 'curved_card_deck.dart' show CurvedCardDeck;
-export 'qr_scanner_overlay_new.dart' show QrScannerOverlayNew;
 export 'qr_scanner_overlay.dart' show QrScannerOverlay;
 export 'slide_menu_layout.dart' show SlideMenuLayout;
 export 'scroll_listener.dart' show ScrollListener;
@@ -21,3 +19,5 @@ export 'markdown_viewer.dart' show MarkdownViewer;
 export 'network_video_player.dart' show NetworkVideoPlayer;
 export 'billers_dropdown.dart' show BillersDropdown;
 export 'expanding_amount_input.dart' show ExpandingAmountInput;
+export 'label_value_dropdown.dart' show LabelValueDropdown;
+export 'qr_scanner_overlay_new.dart' show QrScannerOverlayNew;

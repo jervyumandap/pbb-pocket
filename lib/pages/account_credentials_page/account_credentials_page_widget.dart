@@ -1278,7 +1278,7 @@ class _AccountCredentialsPageWidgetState
                                                                           context)
                                                                       .formElementHover,
                                                               suffixIcon:
-                                                                  Semantics(identifier: 'account_credentials_password_visibility', label: 'Show password', container: true, button: true, child: InkWell(
+                                                                  InkWell(
                                                                 onTap:
                                                                     () async {
                                                                   safeSetState(() =>
@@ -1297,7 +1297,7 @@ class _AccountCredentialsPageWidgetState
                                                                           .visibility_off_outlined,
                                                                   size: 22,
                                                                 ),
-                                                              )),
+                                                              ),
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -1508,7 +1508,7 @@ class _AccountCredentialsPageWidgetState
                                                                         FlutterFlowTheme.of(context)
                                                                             .formElementHover,
                                                                     suffixIcon:
-                                                                        Semantics(identifier: 'account_credentials_confirm_password_visibility', label: 'Show confirm password', container: true, button: true, child: InkWell(
+                                                                        InkWell(
                                                                       onTap:
                                                                           () async {
                                                                         safeSetState(() =>
@@ -1526,7 +1526,7 @@ class _AccountCredentialsPageWidgetState
                                                                         size:
                                                                             22,
                                                                       ),
-                                                                    )),
+                                                                    ),
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)

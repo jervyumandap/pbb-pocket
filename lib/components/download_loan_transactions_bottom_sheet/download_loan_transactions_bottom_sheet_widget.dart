@@ -1,5 +1,6 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/schema/enums/enums.dart';
+import '/components/downloading_loan_indicator_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'download_loan_transactions_bottom_sheet_model.dart';
 export 'download_loan_transactions_bottom_sheet_model.dart';
 
@@ -646,47 +648,48 @@ class _DownloadLoanTransactionsBottomSheetWidgetState
                                         onPressed: (_model.fileType == null)
                                             ? null
                                             : () async {
-                                                if (_model.fileType ==
-                                                    FileType.PDF) {
-                                                  await actions
-                                                      .downloadLoanStatementPdf(
-                                                    currentUserData!
-                                                        .user.fullName,
-                                                    'Branch Name',
-                                                    'Branch Address',
-                                                    widget.accountName!,
-                                                    widget.accountNumber!,
-                                                    widget.currency!,
-                                                    widget.accountType!,
-                                                    widget.loanAccountNumber!,
-                                                    functions
-                                                        .mapAccountTransactions(
-                                                            widget.data!
-                                                                .toList())
-                                                        .toList(),
-                                                    widget.fromDate!,
-                                                    widget.toDate!,
-                                                  );
-                                                } else {
-                                                  await actions
-                                                      .downloadJsonAsCsv(
-                                                    functions
-                                                        .mapAccountTransactions(
-                                                            widget.data!
-                                                                .toList())
-                                                        .toList(),
-                                                    '${currentUserData?.user.fullName}_${dateTimeFormat(
-                                                      "MM-dd-yyyy-HH:mm:ss",
-                                                      getCurrentTimestamp,
-                                                      locale:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                    )}',
-                                                  );
-                                                }
-
                                                 Navigator.pop(context);
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            DownloadingLoanIndicatorComponentWidget(
+                                                          data: widget.data!,
+                                                          fromDate:
+                                                              widget.fromDate!,
+                                                          toDate:
+                                                              widget.toDate!,
+                                                          fileType:
+                                                              _model.fileType!,
+                                                          accountType: widget
+                                                              .accountType!,
+                                                          accountNumber: widget
+                                                              .accountNumber!,
+                                                          loanAccountNumber: widget
+                                                              .loanAccountNumber!,
+                                                          currency:
+                                                              widget.currency!,
+                                                          accountName: widget
+                                                              .accountName!,
+                                                          title:
+                                                              'Downloading. . .',
+                                                          message:
+                                                              'Downloading your transactions. Please wait.',
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
                                               },
                                         text: valueOrDefault<String>(
                                           widget.submitButtonTitle,

@@ -214,7 +214,7 @@ class _LoginWithUsernameComponentWidgetState
                   contentPadding:
                       EdgeInsetsDirectional.fromSTEB(12.0, 17.0, 12.0, 17.0),
                   hoverColor: FlutterFlowTheme.of(context).formElementHover,
-                  suffixIcon: Semantics(identifier: 'login_username_password_visibility', label: 'Show password', container: true, button: true, child: InkWell(
+                  suffixIcon: InkWell(
                     onTap: () async {
                       safeSetState(() => _model.textFieldPwVisibility =
                           !_model.textFieldPwVisibility);
@@ -227,7 +227,7 @@ class _LoginWithUsernameComponentWidgetState
                       color: FlutterFlowTheme.of(context).skyDark,
                       size: 16.0,
                     ),
-                  )),
+                  ),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,

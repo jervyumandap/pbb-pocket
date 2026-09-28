@@ -1729,3 +1729,17 @@ bool isFormValid(
   final error = validateAmount(amount, limitsJson, typeKey);
   return error.isEmpty;
 }
+
+String? longStringEllipsisAccountDetails(String? accountNickname) {
+  if (accountNickname == null || accountNickname.isEmpty) {
+    return accountNickname;
+  }
+
+  const int maxCharacters = 20;
+
+  if (accountNickname.length <= maxCharacters) {
+    return accountNickname;
+  }
+
+  return '${accountNickname.substring(0, maxCharacters)}...';
+}

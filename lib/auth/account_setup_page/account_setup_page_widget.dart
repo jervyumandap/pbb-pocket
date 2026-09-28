@@ -520,7 +520,7 @@ class _AccountSetupPageWidgetState extends State<AccountSetupPageWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .formElementHover,
-                                                          suffixIcon: Semantics(identifier: 'account_setup_password_visibility', label: 'Show password', container: true, button: true, child: InkWell(
+                                                          suffixIcon: InkWell(
                                                             onTap: () async {
                                                               safeSetState(() =>
                                                                   _model.textFieldPasswordVisibility =
@@ -538,7 +538,7 @@ class _AccountSetupPageWidgetState extends State<AccountSetupPageWidget>
                                                                       .visibility_off_outlined,
                                                               size: 22,
                                                             ),
-                                                          )),
+                                                          ),
                                                         ),
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -694,7 +694,7 @@ class _AccountSetupPageWidgetState extends State<AccountSetupPageWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .formElementHover,
-                                                          suffixIcon: Semantics(identifier: 'account_setup_confirm_password_visibility', label: 'Show confirm password', container: true, button: true, child: InkWell(
+                                                          suffixIcon: InkWell(
                                                             onTap: () async {
                                                               safeSetState(() =>
                                                                   _model.textFieldConfirmPasswordVisibility =
@@ -712,7 +712,7 @@ class _AccountSetupPageWidgetState extends State<AccountSetupPageWidget>
                                                                       .visibility_off_outlined,
                                                               size: 22,
                                                             ),
-                                                          )),
+                                                          ),
                                                         ),
                                                         style: FlutterFlowTheme
                                                                 .of(context)

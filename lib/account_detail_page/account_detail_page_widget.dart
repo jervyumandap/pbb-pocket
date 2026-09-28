@@ -917,7 +917,7 @@ class _AccountDetailPageWidgetState extends State<AccountDetailPageWidget> {
                                                                               String>(
                                                                             FFAppState().currentAccountV2.alias == 'test'
                                                                                 ? widget.account?.accountType?.name
-                                                                                : FFAppState().currentAccountV2.alias,
+                                                                                : functions.longStringEllipsisAccountDetails(FFAppState().currentAccountV2.alias),
                                                                             'Educational Funds',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -963,7 +963,10 @@ class _AccountDetailPageWidgetState extends State<AccountDetailPageWidget> {
                                                                                       child: EditAliasComponentWidget(
                                                                                         accountType: widget.account?.accountType,
                                                                                         accountOrder: widget.account?.sortOrder,
-                                                                                        accountNickname: FFAppState().currentAccountV2.alias,
+                                                                                        accountNickname: valueOrDefault<String>(
+                                                                                          FFAppState().currentAccountV2.alias == 'test' ? widget.account?.accountType?.name : FFAppState().currentAccountV2.alias,
+                                                                                          'Educational Funds',
+                                                                                        ),
                                                                                       ),
                                                                                     ),
                                                                                   ),
@@ -1023,10 +1026,14 @@ class _AccountDetailPageWidgetState extends State<AccountDetailPageWidget> {
                                                                     child: Text(
                                                                       valueOrDefault<
                                                                           String>(
-                                                                        widget
-                                                                            .account
-                                                                            ?.accountName,
-                                                                        'Samantha Cruz',
+                                                                        functions
+                                                                            .longStringEllipsisAccountDetails(valueOrDefault<String>(
+                                                                          widget
+                                                                              .account
+                                                                              ?.accountName,
+                                                                          'Samantha Cruz',
+                                                                        )),
+                                                                        'Account Name',
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)

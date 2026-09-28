@@ -382,19 +382,24 @@ class _QrScannerOverlayNewState extends State<QrScannerOverlayNew> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              MergeSemantics(child: Semantics(identifier: 'qr_scanner_back', label: 'Back', child: FlutterFlowIconButton(
-                                borderRadius: 100,
-                                buttonSize: 40,
-                                fillColor: Color(0x80FFFFFF),
-                                icon: Icon(
-                                  Icons.arrow_back,
-                                  color: FlutterFlowTheme.of(context).info,
-                                  size: 24,
-                                ),
-                                onPressed: () async {
-                                  context.safePop();
-                                },
-                              ))),
+                              MergeSemantics(
+                                  child: Semantics(
+                                      identifier: 'qr_scanner_back',
+                                      label: 'Back',
+                                      child: FlutterFlowIconButton(
+                                        borderRadius: 100,
+                                        buttonSize: 40,
+                                        fillColor: Color(0x80FFFFFF),
+                                        icon: Icon(
+                                          Icons.arrow_back,
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
+                                          size: 24,
+                                        ),
+                                        onPressed: () async {
+                                          context.safePop();
+                                        },
+                                      ))),
                               Text(
                                 'Scan QR to pay',
                                 style: FlutterFlowTheme.of(context)

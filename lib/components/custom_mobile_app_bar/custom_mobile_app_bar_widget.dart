@@ -26,11 +26,11 @@ class CustomMobileAppBarWidget extends StatefulWidget {
     bool? isTitleLeftAlign,
     this.titleLeftAlign,
     Color? textLeftAlignColor,
-  }) : this.titleColor = titleColor ?? const Color(0xFF1E1E1E),
-       this.buttonColor = buttonColor ?? const Color(0xFF00A8CF),
-       this.buttonWithoutBackground = buttonWithoutBackground ?? false,
-       this.isTitleLeftAlign = isTitleLeftAlign ?? false,
-       this.textLeftAlignColor = textLeftAlignColor ?? const Color(0xFF364153);
+  })  : this.titleColor = titleColor ?? const Color(0xFF1E1E1E),
+        this.buttonColor = buttonColor ?? const Color(0xFF00A8CF),
+        this.buttonWithoutBackground = buttonWithoutBackground ?? false,
+        this.isTitleLeftAlign = isTitleLeftAlign ?? false,
+        this.textLeftAlignColor = textLeftAlignColor ?? const Color(0xFF364153);
 
   final String? pageTitle;
   final Widget? rightButtonIcon;
@@ -88,8 +88,13 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
         desktop: false,
       ),
       child: Container(
-        height: valueOrDefault<double>(FFAppConstants.MobileAppBarHeight, 95.0),
-        decoration: BoxDecoration(color: widget.backgroudColor),
+        height: valueOrDefault<double>(
+          FFAppConstants.MobileAppBarHeight,
+          95.0,
+        ),
+        decoration: BoxDecoration(
+          color: widget.backgroudColor,
+        ),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(16.0, 40.0, 16.0, 0.0),
           child: Stack(
@@ -102,22 +107,25 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
                 children: [
                   if (widget.pageTitle != null && widget.pageTitle != '')
                     Text(
-                      valueOrDefault<String>(widget.pageTitle, 'Page Title'),
-                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                        font: GoogleFonts.manrope(
-                          fontWeight: FontWeight.bold,
-                          fontStyle: FlutterFlowTheme.of(
-                            context,
-                          ).titleSmall.fontStyle,
-                        ),
-                        color: widget.titleColor,
-                        fontSize: 16.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FlutterFlowTheme.of(
-                          context,
-                        ).titleSmall.fontStyle,
+                      valueOrDefault<String>(
+                        widget.pageTitle,
+                        'Page Title',
                       ),
+                      style: FlutterFlowTheme.of(context).titleSmall.override(
+                            font: GoogleFonts.manrope(
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .fontStyle,
+                            ),
+                            color: widget.titleColor,
+                            fontSize: 16.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
                     ),
                 ],
               ),
@@ -134,10 +142,7 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
                       children: [
                         if (widget.buttonWithoutBackground)
                           Semantics(
-                            identifier: 'back_button',
-                            label: 'Back',
-                            container: true,
-                            button: true,
+                            label: 'Back Button',
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -153,19 +158,15 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
                             !widget.buttonWithoutBackground)
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                              1.0,
-                              0.0,
-                              0.0,
-                              0.0,
-                            ),
-                            child: MergeSemantics(
-                              child: Semantics(
-                                identifier: 'back_button',
-                                label: 'Back',
-                                child: Container(
-                                  width: 40.0,
-                                  height: 40.0,
-                                  decoration: BoxDecoration(),
+                                1.0, 0.0, 0.0, 0.0),
+                            child: Semantics(
+                              label: 'back_button',
+                              child: Container(
+                                width: 40.0,
+                                height: 40.0,
+                                decoration: BoxDecoration(),
+                                child: Semantics(
+                                  label: 'second_back_button',
                                   child: FlutterFlowIconButton(
                                     borderRadius: 100.0,
                                     buttonSize: double.infinity,
@@ -190,21 +191,22 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
                                 widget.titleLeftAlign,
                                 '-',
                               ),
-                              style: FlutterFlowTheme.of(context).titleSmall
+                              style: FlutterFlowTheme.of(context)
+                                  .titleSmall
                                   .override(
                                     font: GoogleFonts.manrope(
                                       fontWeight: FontWeight.bold,
-                                      fontStyle: FlutterFlowTheme.of(
-                                        context,
-                                      ).titleSmall.fontStyle,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
                                     ),
                                     color: widget.textLeftAlignColor,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    fontStyle: FlutterFlowTheme.of(
-                                      context,
-                                    ).titleSmall.fontStyle,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
                                   ),
                             ),
                           ),
@@ -223,21 +225,19 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
                               width: 40.0,
                               height: 40.0,
                               decoration: BoxDecoration(),
-                              child: MergeSemantics(
-                                child: Semantics(
-                                  identifier: 'appbar_mid_right_button',
-                                  child: FlutterFlowIconButton(
-                                    borderRadius: 100.0,
-                                    buttonSize: double.infinity,
-                                    fillColor: valueOrDefault<Color>(
-                                      widget.buttonColor,
-                                      FlutterFlowTheme.of(context).primary,
-                                    ),
-                                    icon: widget.midRightButtonIcon!,
-                                    onPressed: () async {
-                                      await widget.midRightButtonAction?.call();
-                                    },
+                              child: Semantics(
+                                label: 'MidRightIconButton',
+                                child: FlutterFlowIconButton(
+                                  borderRadius: 100.0,
+                                  buttonSize: double.infinity,
+                                  fillColor: valueOrDefault<Color>(
+                                    widget.buttonColor,
+                                    FlutterFlowTheme.of(context).primary,
                                   ),
+                                  icon: widget.midRightButtonIcon!,
+                                  onPressed: () async {
+                                    await widget.midRightButtonAction?.call();
+                                  },
                                 ),
                               ),
                             ),
@@ -253,21 +253,19 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
                               width: 40.0,
                               height: 40.0,
                               decoration: BoxDecoration(),
-                              child: MergeSemantics(
-                                child: Semantics(
-                                  identifier: 'appbar_right_button',
-                                  child: FlutterFlowIconButton(
-                                    borderRadius: 100.0,
-                                    buttonSize: double.infinity,
-                                    fillColor: valueOrDefault<Color>(
-                                      widget.buttonColor,
-                                      FlutterFlowTheme.of(context).primary,
-                                    ),
-                                    icon: widget.rightButtonIcon!,
-                                    onPressed: () async {
-                                      await widget.rightButtonAction?.call();
-                                    },
+                              child: Semantics(
+                                label: 'RightIconButton',
+                                child: FlutterFlowIconButton(
+                                  borderRadius: 100.0,
+                                  buttonSize: double.infinity,
+                                  fillColor: valueOrDefault<Color>(
+                                    widget.buttonColor,
+                                    FlutterFlowTheme.of(context).primary,
                                   ),
+                                  icon: widget.rightButtonIcon!,
+                                  onPressed: () async {
+                                    await widget.rightButtonAction?.call();
+                                  },
                                 ),
                               ),
                             ),

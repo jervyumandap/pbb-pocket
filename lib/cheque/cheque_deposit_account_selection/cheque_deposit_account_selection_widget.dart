@@ -143,11 +143,7 @@ class _ChequeDepositAccountSelectionWidgetState
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0,
-                            0.0,
-                            0.0,
-                            16.0,
-                          ),
+                              0.0, 0.0, 0.0, 16.0),
                           child: Container(
                             width: 29.0,
                             height: 6.0,
@@ -167,11 +163,7 @@ class _ChequeDepositAccountSelectionWidgetState
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0,
-                                    0.0,
-                                    0.0,
-                                    9.0,
-                                  ),
+                                      0.0, 0.0, 0.0, 9.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -183,38 +175,30 @@ class _ChequeDepositAccountSelectionWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: FlutterFlowTheme.of(
-                                                context,
-                                              ).bodyMediumFamily,
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
                                               color: Color(0xFF383839),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                               useGoogleFonts:
-                                                  !FlutterFlowTheme.of(
-                                                    context,
-                                                  ).bodyMediumIsCustom,
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
                                             ),
                                       ),
-                                      Semantics(
-                                        identifier:
-                                            'cheque_account_close_button',
-                                        label: 'Close account list',
-                                        container: true,
-                                        button: true,
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Icon(
-                                            Icons.close_sharp,
-                                            color: Color(0xFF252525),
-                                            size: 24.0,
-                                          ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Icon(
+                                          Icons.close_sharp,
+                                          color: Color(0xFF252525),
+                                          size: 24.0,
                                         ),
                                       ),
                                     ],
@@ -228,33 +212,27 @@ class _ChequeDepositAccountSelectionWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: FlutterFlowTheme.of(
-                                            context,
-                                          ).bodyMediumFamily,
-                                          color: FlutterFlowTheme.of(
-                                            context,
-                                          ).validTextColor1,
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .validTextColor1,
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: !FlutterFlowTheme.of(
-                                            context,
-                                          ).bodyMediumIsCustom,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .bodyMediumIsCustom,
                                         ),
                                   ),
                                 ),
                               ],
                             ).animateOnPageLoad(
-                              animationsMap['columnOnPageLoadAnimation']!,
-                            ),
+                                animationsMap['columnOnPageLoadAnimation']!),
                             Container(
                               decoration: BoxDecoration(),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0,
-                                  25.0,
-                                  0.0,
-                                  0.0,
-                                ),
+                                    0.0, 25.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -272,7 +250,8 @@ class _ChequeDepositAccountSelectionWidgetState
                                           itemCount: accounts.length,
                                           separatorBuilder: (_, __) =>
                                               SizedBox(height: 17.0),
-                                          itemBuilder: (context, accountsIndex) {
+                                          itemBuilder:
+                                              (context, accountsIndex) {
                                             final accountsItem =
                                                 accounts[accountsIndex];
                                             return InkWell(
@@ -290,11 +269,9 @@ class _ChequeDepositAccountSelectionWidgetState
                                               },
                                               child: AccountCardWidget(
                                                 key: Key(
-                                                  'Keyyna_${accountsIndex}_of_${accounts.length}',
-                                                ),
+                                                    'Keyyna_${accountsIndex}_of_${accounts.length}'),
                                                 accountName: accountsItem
-                                                    .accountType
-                                                    ?.name,
+                                                    .accountType?.name,
                                                 accountNumber: accountsItem
                                                     .maskedAccountNumber,
                                                 accountBalance: accountsItem
@@ -302,16 +279,16 @@ class _ChequeDepositAccountSelectionWidgetState
                                                 currency: accountsItem.currency,
                                               ),
                                             ).animateOnPageLoad(
-                                              animationsMap['accountCardOnPageLoadAnimation']!,
+                                              animationsMap[
+                                                  'accountCardOnPageLoadAnimation']!,
                                               effects: [
                                                 FadeEffect(
                                                   curve: Curves.easeInOut,
                                                   delay: functions
                                                       .multiplyAnimation(
-                                                        accountsIndex,
-                                                        50,
-                                                        200,
-                                                      )!
+                                                          accountsIndex,
+                                                          50,
+                                                          200)!
                                                       .toDouble()
                                                       .ms,
                                                   duration: 300.0.ms,
@@ -322,18 +299,16 @@ class _ChequeDepositAccountSelectionWidgetState
                                                   curve: Curves.easeInOut,
                                                   delay: functions
                                                       .subtractAnimation(
-                                                        accountsIndex,
-                                                        50,
-                                                        500,
-                                                      )!
+                                                          accountsIndex,
+                                                          50,
+                                                          500)!
                                                       .toDouble()
                                                       .ms,
                                                   duration: functions
                                                       .multiplyAnimation(
-                                                        accountsIndex,
-                                                        50,
-                                                        300,
-                                                      )!
+                                                          accountsIndex,
+                                                          50,
+                                                          300)!
                                                       .toDouble()
                                                       .ms,
                                                   begin: Offset(0.0, 100.0),
@@ -343,23 +318,21 @@ class _ChequeDepositAccountSelectionWidgetState
                                                   curve: Curves.easeInOut,
                                                   delay: functions
                                                       .multiplyAnimation(
-                                                        accountsIndex,
-                                                        150,
-                                                        300,
-                                                      )!
+                                                          accountsIndex,
+                                                          150,
+                                                          300)!
                                                       .toDouble()
                                                       .ms,
                                                   duration: functions
                                                       .multiplyAnimation(
-                                                        accountsIndex,
-                                                        100,
-                                                        600,
-                                                      )!
+                                                          accountsIndex,
+                                                          100,
+                                                          600)!
                                                       .toDouble()
                                                       .ms,
                                                   color: FlutterFlowTheme.of(
-                                                    context,
-                                                  ).primary,
+                                                          context)
+                                                      .primary,
                                                   begin: 1.0,
                                                   end: 0.0,
                                                 ),
@@ -367,18 +340,16 @@ class _ChequeDepositAccountSelectionWidgetState
                                                   curve: Curves.easeInOut,
                                                   delay: functions
                                                       .multiplyAnimation(
-                                                        accountsIndex,
-                                                        50,
-                                                        400,
-                                                      )!
+                                                          accountsIndex,
+                                                          50,
+                                                          400)!
                                                       .toDouble()
                                                       .ms,
                                                   duration: functions
                                                       .multiplyAnimation(
-                                                        accountsIndex,
-                                                        50,
-                                                        600,
-                                                      )!
+                                                          accountsIndex,
+                                                          50,
+                                                          600)!
                                                       .toDouble()
                                                       .ms,
                                                   begin: Offset(0.0, 1.0),
@@ -403,7 +374,11 @@ class _ChequeDepositAccountSelectionWidgetState
               ),
             ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
           ),
-        if (responsiveVisibility(context: context, phone: false, tablet: false))
+        if (responsiveVisibility(
+          context: context,
+          phone: false,
+          tablet: false,
+        ))
           Align(
             alignment: AlignmentDirectional(1.0, 1.0),
             child: Container(
@@ -422,12 +397,8 @@ class _ChequeDepositAccountSelectionWidgetState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                          0.0,
-                          0.0,
-                          0.0,
-                          9.0,
-                        ),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 9.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -435,77 +406,64 @@ class _ChequeDepositAccountSelectionWidgetState
                             Text(
                               'Select Account',
                               textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context).bodyMedium
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(
-                                      context,
-                                    ).bodyMediumFamily,
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
                                     color: Color(0xFF383839),
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
-                                    useGoogleFonts: !FlutterFlowTheme.of(
-                                      context,
-                                    ).bodyMediumIsCustom,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
                                   ),
                             ),
-                            Semantics(
-                              identifier: 'cheque_account_close_button',
-                              label: 'Close account list',
-                              container: true,
-                              button: true,
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  Navigator.pop(context);
-                                },
-                                child: Icon(
-                                  Icons.close_sharp,
-                                  color: Color(0xFF252525),
-                                  size: 24.0,
-                                ),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(
+                                Icons.close_sharp,
+                                color: Color(0xFF252525),
+                                size: 24.0,
                               ),
                             ),
                           ],
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                          0.0,
-                          0.0,
-                          0.0,
-                          25.0,
-                        ),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 25.0),
                         child: Text(
                           'Select the account you want to send\nmoney from.',
                           textAlign: TextAlign.start,
-                          style: FlutterFlowTheme.of(context).bodyMedium
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(
-                                  context,
-                                ).bodyMediumFamily,
-                                color: FlutterFlowTheme.of(
-                                  context,
-                                ).validTextColor1,
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                color: FlutterFlowTheme.of(context)
+                                    .validTextColor1,
                                 fontSize: 14.0,
                                 letterSpacing: 0.0,
-                                useGoogleFonts: !FlutterFlowTheme.of(
-                                  context,
-                                ).bodyMediumIsCustom,
+                                useGoogleFonts: !FlutterFlowTheme.of(context)
+                                    .bodyMediumIsCustom,
                               ),
                         ),
                       ),
                       Builder(
                         builder: (context) {
-                          final accounts = FFAppState().AccountsState
-                              .where(
-                                (e) =>
-                                    (e.availableBalance > 0.0) ||
-                                    (e.availableBalance > 0.0),
-                              )
+                          final accounts = FFAppState()
+                              .AccountsState
+                              .where((e) =>
+                                  (e.availableBalance > 0.0) ||
+                                  (e.availableBalance > 0.0))
                               .toList();
 
                           return ListView.separated(
@@ -553,11 +511,10 @@ class _ChequeDepositAccountSelectionWidgetState
                                     } else {
                                       FFAppState()
                                           .updateFundTransferiniatedResponseStruct(
-                                            (e) => e
-                                              ..sourceAccountNumber =
-                                                  accountsItem
-                                                      .fullAccountNumber,
-                                          );
+                                        (e) => e
+                                          ..sourceAccountNumber =
+                                              accountsItem.fullAccountNumber,
+                                      );
                                       FFAppState().update(() {});
 
                                       context.pushNamed(
@@ -589,19 +546,19 @@ class _ChequeDepositAccountSelectionWidgetState
                                       'changeAccount') {
                                     FFAppState()
                                         .updateFundTransferiniatedResponseStruct(
-                                          (e) => e
-                                            ..sourceAccountNumber =
-                                                accountsItem.fullAccountNumber,
-                                        );
+                                      (e) => e
+                                        ..sourceAccountNumber =
+                                            accountsItem.fullAccountNumber,
+                                    );
                                     FFAppState().update(() {});
                                   } else {
                                     Navigator.pop(context);
                                     FFAppState()
                                         .updateFundTransferiniatedResponseStruct(
-                                          (e) => e
-                                            ..sourceAccountNumber =
-                                                accountsItem.fullAccountNumber,
-                                        );
+                                      (e) => e
+                                        ..sourceAccountNumber =
+                                            accountsItem.fullAccountNumber,
+                                    );
                                     FFAppState().update(() {});
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
@@ -611,18 +568,16 @@ class _ChequeDepositAccountSelectionWidgetState
                                         return WebViewAware(
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
-                                              context,
-                                            ),
+                                                context),
                                             child:
                                                 FundTransferModeOptionsWidget(
-                                                  accountNumber: accountsItem
-                                                      .fullAccountNumber,
-                                                  accountType: accountsItem
-                                                      .accountType
-                                                      ?.name,
-                                                  isFromFavorites:
-                                                      widget.isFromFavorites,
-                                                ),
+                                              accountNumber: accountsItem
+                                                  .fullAccountNumber,
+                                              accountType: accountsItem
+                                                  .accountType?.name,
+                                              isFromFavorites:
+                                                  widget.isFromFavorites,
+                                            ),
                                           ),
                                         );
                                       },
@@ -633,8 +588,7 @@ class _ChequeDepositAccountSelectionWidgetState
                                 },
                                 child: AccountCardWidget(
                                   key: Key(
-                                    'Key0ds_${accountsIndex}_of_${accounts.length}',
-                                  ),
+                                      'Key0ds_${accountsIndex}_of_${accounts.length}'),
                                   accountName: accountsItem.accountType?.name,
                                   accountNumber: accountsItem.accountNumber,
                                   accountBalance: accountsItem.availableBalance,

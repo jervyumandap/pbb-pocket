@@ -108,7 +108,7 @@ class _ViewTransactionPageWidgetState extends State<ViewTransactionPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Semantics(
-                                  label: 'Payment status: ${widget.status}',
+                                  label: 'ConditionalBuilder Status Image',
                                   child: Builder(
                                     builder: (context) {
                                       if (widget.status == 'COMPLETED') {

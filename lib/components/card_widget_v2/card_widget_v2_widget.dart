@@ -21,11 +21,11 @@ class CardWidgetV2Widget extends StatefulWidget {
     bool? isEmpty,
     double? cardSpacing,
     this.currency,
-  }) : this.title = title ?? 'Savings Account *** 123',
-       this.subtitle = subtitle ?? 'Available Balance',
-       this.balance = balance ?? '₱200,000.00',
-       this.isEmpty = isEmpty ?? false,
-       this.cardSpacing = cardSpacing ?? 0.0;
+  })  : this.title = title ?? 'Savings Account *** 123',
+        this.subtitle = subtitle ?? 'Available Balance',
+        this.balance = balance ?? '₱200,000.00',
+        this.isEmpty = isEmpty ?? false,
+        this.cardSpacing = cardSpacing ?? 0.0;
 
   final String title;
   final String subtitle;
@@ -77,11 +77,13 @@ class _CardWidgetV2WidgetState extends State<CardWidgetV2Widget> {
 
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(
-        0.0,
-        0.0,
-        valueOrDefault<double>(widget.cardSpacing, 0.0),
-        0.0,
-      ),
+          0.0,
+          0.0,
+          valueOrDefault<double>(
+            widget.cardSpacing,
+            0.0,
+          ),
+          0.0),
       child: Stack(
         children: [
           Opacity(
@@ -93,7 +95,9 @@ class _CardWidgetV2WidgetState extends State<CardWidgetV2Widget> {
                 color: FlutterFlowTheme.of(context).primaryBackground,
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: Image.asset('assets/images/card-background.png').image,
+                  image: Image.asset(
+                    'assets/images/card-background.png',
+                  ).image,
                 ),
                 borderRadius: BorderRadius.circular(16.0),
               ),
@@ -133,11 +137,7 @@ class _CardWidgetV2WidgetState extends State<CardWidgetV2Widget> {
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                            24.0,
-                            12.0,
-                            24.0,
-                            12.0,
-                          ),
+                              24.0, 12.0, 24.0, 12.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -153,44 +153,42 @@ class _CardWidgetV2WidgetState extends State<CardWidgetV2Widget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0,
-                                          0.0,
-                                          0.0,
-                                          12.0,
-                                        ),
+                                            0.0, 0.0, 0.0, 12.0),
                                         child: Container(
                                           width: 180.0,
                                           height: 36.0,
                                           decoration: BoxDecoration(),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                              -1.0,
-                                              0.0,
-                                            ),
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Text(
-                                              '${valueOrDefault<String>(widget.title2, '-')} ${widget.title}',
+                                              '${valueOrDefault<String>(
+                                                widget.title2,
+                                                '-',
+                                              )} ${widget.title}',
                                               style:
-                                                  FlutterFlowTheme.of(
-                                                    context,
-                                                  ).bodyMedium.override(
-                                                    font: GoogleFonts.inter(
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                context,
-                                                              )
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                    ),
-                                                    color: Colors.white,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                          context,
-                                                        ).bodyMedium.fontStyle,
-                                                  ),
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -216,16 +214,18 @@ class _CardWidgetV2WidgetState extends State<CardWidgetV2Widget> {
                                         .override(
                                           font: GoogleFonts.inter(
                                             fontWeight: FontWeight.w500,
-                                            fontStyle: FlutterFlowTheme.of(
-                                              context,
-                                            ).labelSmall.fontStyle,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmall
+                                                    .fontStyle,
                                           ),
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
-                                          fontStyle: FlutterFlowTheme.of(
-                                            context,
-                                          ).labelSmall.fontStyle,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelSmall
+                                                  .fontStyle,
                                         ),
                                   ),
                                   Align(
@@ -251,33 +251,34 @@ class _CardWidgetV2WidgetState extends State<CardWidgetV2Widget> {
                                                       textAlign: TextAlign.end,
                                                       style:
                                                           FlutterFlowTheme.of(
-                                                            context,
-                                                          ).displaySmall.override(
-                                                            font: GoogleFonts.inter(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                        context,
-                                                                      )
+                                                                  context)
+                                                              .displaySmall
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
                                                                       .displaySmall
                                                                       .fontStyle,
-                                                            ),
-                                                            color: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).secondaryBackground,
-                                                            fontSize: 24.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                      context,
-                                                                    )
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                fontSize: 24.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
                                                                     .displaySmall
                                                                     .fontStyle,
-                                                          ),
+                                                              ),
                                                     );
                                                   } else {
                                                     return Text(
@@ -285,33 +286,34 @@ class _CardWidgetV2WidgetState extends State<CardWidgetV2Widget> {
                                                       textAlign: TextAlign.end,
                                                       style:
                                                           FlutterFlowTheme.of(
-                                                            context,
-                                                          ).displaySmall.override(
-                                                            font: GoogleFonts.inter(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              fontStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                        context,
-                                                                      )
+                                                                  context)
+                                                              .displaySmall
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
                                                                       .displaySmall
                                                                       .fontStyle,
-                                                            ),
-                                                            color: FlutterFlowTheme.of(
-                                                              context,
-                                                            ).secondaryBackground,
-                                                            fontSize: 24.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                      context,
-                                                                    )
+                                                                ),
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                fontSize: 24.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
                                                                     .displaySmall
                                                                     .fontStyle,
-                                                          ),
+                                                              ),
                                                     );
                                                   }
                                                 },
@@ -320,70 +322,54 @@ class _CardWidgetV2WidgetState extends State<CardWidgetV2Widget> {
                                                 builder: (context) {
                                                   if (FFAppState()
                                                       .isBalanceVisible) {
-                                                    return Semantics(
-                                                      identifier:
-                                                          'dashboard_show_balance',
-                                                      label: 'Hide balance',
-                                                      container: true,
-                                                      button: true,
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          FFAppState()
-                                                                  .isBalanceVisible =
-                                                              !(FFAppState()
-                                                                      .isBalanceVisible ??
-                                                                  true);
-                                                          FFAppState().update(
-                                                            () {},
-                                                          );
-                                                        },
-                                                        child: FaIcon(
-                                                          FontAwesomeIcons.eye,
-                                                          color: Colors.white,
-                                                          size: 17.0,
-                                                        ),
+                                                    return InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        FFAppState()
+                                                                .isBalanceVisible =
+                                                            !(FFAppState()
+                                                                    .isBalanceVisible ??
+                                                                true);
+                                                        FFAppState()
+                                                            .update(() {});
+                                                      },
+                                                      child: FaIcon(
+                                                        FontAwesomeIcons.eye,
+                                                        color: Colors.white,
+                                                        size: 17.0,
                                                       ),
                                                     );
                                                   } else {
-                                                    return Semantics(
-                                                      identifier:
-                                                          'dashboard_show_balance',
-                                                      label: 'Show balance',
-                                                      container: true,
-                                                      button: true,
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          FFAppState()
-                                                                  .isBalanceVisible =
-                                                              !(FFAppState()
-                                                                      .isBalanceVisible ??
-                                                                  true);
-                                                          FFAppState().update(
-                                                            () {},
-                                                          );
-                                                        },
-                                                        child: FaIcon(
-                                                          FontAwesomeIcons
-                                                              .solidEyeSlash,
-                                                          color: Colors.white,
-                                                          size: 17.0,
-                                                        ),
+                                                    return InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        FFAppState()
+                                                                .isBalanceVisible =
+                                                            !(FFAppState()
+                                                                    .isBalanceVisible ??
+                                                                true);
+                                                        FFAppState()
+                                                            .update(() {});
+                                                      },
+                                                      child: FaIcon(
+                                                        FontAwesomeIcons
+                                                            .solidEyeSlash,
+                                                        color: Colors.white,
+                                                        size: 17.0,
                                                       ),
                                                     );
                                                   }
@@ -402,9 +388,9 @@ class _CardWidgetV2WidgetState extends State<CardWidgetV2Widget> {
                                               padding: EdgeInsets.all(2.0),
                                               child: Icon(
                                                 Icons.arrow_forward_sharp,
-                                                color: FlutterFlowTheme.of(
-                                                  context,
-                                                ).secondaryBackground,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
                                                 size: 16.0,
                                               ),
                                             ),
@@ -426,38 +412,32 @@ class _CardWidgetV2WidgetState extends State<CardWidgetV2Widget> {
                   Align(
                     alignment: AlignmentDirectional(1.0, 1.0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                        0.0,
-                        0.0,
-                        20.0,
-                        20.0,
-                      ),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 20.0),
                       child: Text(
                         'There are currently \nno accounts linked to your \nuser profile. Please connect an account to continue.',
                         textAlign: TextAlign.end,
-                        style: FlutterFlowTheme.of(context).displaySmall
-                            .override(
-                              fontFamily: FlutterFlowTheme.of(
-                                context,
-                              ).displaySmallFamily,
-                              color: () {
-                                if (widget.accountType ==
-                                    BankAccountType.CHECKING) {
-                                  return Colors.white;
-                                } else if (widget.accountType ==
-                                    BankAccountType.SAVINGS) {
-                                  return Color(0xFF5A5A5A);
-                                } else {
-                                  return Color(0xFF025C5F);
-                                }
-                              }(),
-                              fontSize: 12.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.bold,
-                              useGoogleFonts: !FlutterFlowTheme.of(
-                                context,
-                              ).displaySmallIsCustom,
-                            ),
+                        style:
+                            FlutterFlowTheme.of(context).displaySmall.override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .displaySmallFamily,
+                                  color: () {
+                                    if (widget.accountType ==
+                                        BankAccountType.CHECKING) {
+                                      return Colors.white;
+                                    } else if (widget.accountType ==
+                                        BankAccountType.SAVINGS) {
+                                      return Color(0xFF5A5A5A);
+                                    } else {
+                                      return Color(0xFF025C5F);
+                                    }
+                                  }(),
+                                  fontSize: 12.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .displaySmallIsCustom,
+                                ),
                       ),
                     ),
                   ),

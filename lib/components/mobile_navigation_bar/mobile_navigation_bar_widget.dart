@@ -760,10 +760,7 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(29.0, 0.0, 16.0, 16.0),
                       child: Semantics(
-                        identifier: 'dashboard_menu_toggle',
-                        label: 'Open main menu',
-                        container: true,
-                        button: true,
+                        label: 'Side Drawer Toggle Button',
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -782,6 +779,7 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Semantics(
+                                  label: 'toggle_drawer_Icon',
                                   child: FaIcon(
                                     FontAwesomeIcons.bars,
                                     color: Color(0xFF606A85),
@@ -835,8 +833,8 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  MergeSemantics(child: Semantics(
-                                    identifier: 'nav_home',
+                                  Semantics(
+                                    label: 'IconButtonBadge-Home',
                                     child: wrapWithModel(
                                       model: _model.iconButtonBadgeHomeModel,
                                       updateCallback: () => safeSetState(() {}),
@@ -885,9 +883,9 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                                         },
                                       ),
                                     ),
-                                  )),
-                                  MergeSemantics(child: Semantics(
-                                    identifier: 'nav_loans',
+                                  ),
+                                  Semantics(
+                                    label: 'IconButtonBadge-Loans',
                                     child: wrapWithModel(
                                       model: _model.iconButtonBadgeInboxModel,
                                       updateCallback: () => safeSetState(() {}),
@@ -954,7 +952,7 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                                         },
                                       ),
                                     ),
-                                  )),
+                                  ),
                                   Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
@@ -963,8 +961,8 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                                       decoration: BoxDecoration(),
                                     ),
                                   ),
-                                  MergeSemantics(child: Semantics(
-                                    identifier: 'nav_notifications',
+                                  Semantics(
+                                    label: 'IconButtonBadge-Notifications',
                                     child: wrapWithModel(
                                       model:
                                           _model.iconButtonBadgeRecipientsModel,
@@ -1016,9 +1014,9 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                                         },
                                       ),
                                     ),
-                                  )),
-                                  MergeSemantics(child: Semantics(
-                                    identifier: 'nav_profile',
+                                  ),
+                                  Semantics(
+                                    label: 'IconButtonBadge-Profile',
                                     child: wrapWithModel(
                                       model: _model.iconButtonBadgeProfileModel,
                                       updateCallback: () => safeSetState(() {}),
@@ -1068,7 +1066,7 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                                         },
                                       ),
                                     ),
-                                  )),
+                                  ),
                                 ],
                               ),
                             ),

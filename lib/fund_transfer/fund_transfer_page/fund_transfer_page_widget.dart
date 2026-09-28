@@ -919,7 +919,6 @@ class _FundTransferPageWidgetState extends State<FundTransferPageWidget> {
                                                                       ),
                                                                       child:
                                                                           Checkbox(
-                                                                        semanticLabel: 'Transfer to own account',
                                                                         value: _model.checkboxValue ??=
                                                                             false,
                                                                         onChanged:
@@ -1051,7 +1050,7 @@ class _FundTransferPageWidgetState extends State<FundTransferPageWidget> {
                                                                             final accountsItem =
                                                                                 accounts[accountsIndex];
                                                                             return Semantics(
-                                                                              identifier: 'fund_transfer_own_account_${accountsIndex}',
+                                                                              label: 'fund_transfer_own_accounts_dropdown',
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 children: [

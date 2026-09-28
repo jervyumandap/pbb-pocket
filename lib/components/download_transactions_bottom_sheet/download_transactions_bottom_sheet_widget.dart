@@ -1,5 +1,6 @@
 import '/auth/custom_auth/auth_util.dart';
 import '/backend/schema/enums/enums.dart';
+import '/components/downloading_indicator_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'download_transactions_bottom_sheet_model.dart';
 export 'download_transactions_bottom_sheet_model.dart';
 
@@ -636,53 +638,35 @@ class _DownloadTransactionsBottomSheetWidgetState
                                             ? null
                                             : () async {
                                                 Navigator.pop(context);
-                                                if (_model.fileType ==
-                                                    FileType.PDF) {
-                                                  await actions
-                                                      .downloadAccountStatementPdf(
-                                                    currentUserData!
-                                                        .user.fullName,
-                                                    'Branch Name',
-                                                    'Branch Address',
-                                                    FFAppState()
-                                                        .currentAccountV2
-                                                        .accountName,
-                                                    FFAppState()
-                                                        .currentAccountV2
-                                                        .fullAccountNumber,
-                                                    FFAppState()
-                                                        .currentAccountV2
-                                                        .currency,
-                                                    FFAppState()
-                                                        .currentAccountV2
-                                                        .accountType!
-                                                        .name,
-                                                    functions
-                                                        .mapAccountTransactions(
-                                                            widget.data!
-                                                                .toList())
-                                                        .toList(),
-                                                    widget.fromDate!,
-                                                    widget.toDate!,
-                                                  );
-                                                } else {
-                                                  await actions
-                                                      .downloadJsonAsCsv(
-                                                    functions
-                                                        .mapAccountTransactions(
-                                                            widget.data!
-                                                                .toList())
-                                                        .toList(),
-                                                    '${currentUserData?.user.fullName}_${dateTimeFormat(
-                                                      "MM-dd-yyyy-HH:mm:ss",
-                                                      getCurrentTimestamp,
-                                                      locale:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                    )}',
-                                                  );
-                                                }
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            DownloadingIndicatorComponentWidget(
+                                                          title: 'Downloading',
+                                                          message:
+                                                              'Downloading your transactions. Please wait.',
+                                                          data: widget.data!,
+                                                          fromDate:
+                                                              widget.fromDate!,
+                                                          toDate:
+                                                              widget.toDate!,
+                                                          fileType:
+                                                              _model.fileType!,
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
                                               },
                                         text: valueOrDefault<String>(
                                           widget.submitButtonTitle,
