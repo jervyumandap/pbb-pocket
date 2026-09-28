@@ -46,21 +46,19 @@ class _ChequeDepositFormPageWidgetState
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await action_blocks.refreshSessionActionBlock(context);
-      _model.apiResulthnv =
-          await WhitebankGroupAPIGroup.retailTimeDepositProductsCall.call(
-        baseURL: FFDevEnvironmentValues().WBPBASEURL,
-        accessToken: currentAuthenticationToken,
-      );
+      _model.apiResulthnv = await WhitebankGroupAPIGroup
+          .retailTimeDepositProductsCall
+          .call(
+            baseURL: FFDevEnvironmentValues().WBPBASEURL,
+            accessToken: currentAuthenticationToken,
+          );
 
       if ((_model.apiResulthnv?.succeeded ?? true) != false) {
         _model.products = TimeDepositProductsModelStruct.maybeFromMap(
-            (_model.apiResulthnv?.jsonBody ?? ''));
-        safeSetState(() {});
-        await Future.delayed(
-          Duration(
-            milliseconds: 1000,
-          ),
+          (_model.apiResulthnv?.jsonBody ?? ''),
         );
+        safeSetState(() {});
+        await Future.delayed(Duration(milliseconds: 1000));
         _model.isLoading = false;
         safeSetState(() {});
       } else {
@@ -78,8 +76,9 @@ class _ChequeDepositFormPageWidgetState
   void dispose() {
     // On page dispose action.
     () async {
-      FFAppState().accountListOrder =
-          FFAppState().AccountsState.toList().cast<AccountsStruct>();
+      FFAppState().accountListOrder = FFAppState().AccountsState
+          .toList()
+          .cast<AccountsStruct>();
       FFAppState().update(() {});
     }();
 
@@ -105,52 +104,45 @@ class _ChequeDepositFormPageWidgetState
             if (!_model.isLoading)
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(
-                    valueOrDefault<double>(
-                      () {
-                        if (MediaQuery.sizeOf(context).width <
-                            kBreakpointSmall) {
-                          return 0.0;
-                        } else if (MediaQuery.sizeOf(context).width <
-                            kBreakpointMedium) {
-                          return 0.0;
-                        } else if (MediaQuery.sizeOf(context).width <
-                            kBreakpointLarge) {
-                          return (FFAppState().isDrawerOpen
-                              ? valueOrDefault<double>(
-                                  FFAppConstants.maxDrawerWidth,
-                                  260.0,
-                                )
-                              : FFAppConstants.minDrawerWidth);
-                        } else {
-                          return (FFAppState().isDrawerOpen
-                              ? valueOrDefault<double>(
-                                  FFAppConstants.maxDrawerWidth,
-                                  260.0,
-                                )
-                              : FFAppConstants.minDrawerWidth);
-                        }
-                      }(),
-                      270.0,
-                    ),
-                    valueOrDefault<double>(
-                      () {
-                        if (MediaQuery.sizeOf(context).width <
-                            kBreakpointSmall) {
-                          return 0.0;
-                        } else if (MediaQuery.sizeOf(context).width <
-                            kBreakpointMedium) {
-                          return 0.0;
-                        } else if (MediaQuery.sizeOf(context).width <
-                            kBreakpointLarge) {
-                          return FFAppConstants.WebAppBarHeight;
-                        } else {
-                          return FFAppConstants.WebAppBarHeight;
-                        }
-                      }(),
-                      72.0,
-                    ),
-                    0.0,
-                    0.0),
+                  valueOrDefault<double>(() {
+                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                      return 0.0;
+                    } else if (MediaQuery.sizeOf(context).width <
+                        kBreakpointMedium) {
+                      return 0.0;
+                    } else if (MediaQuery.sizeOf(context).width <
+                        kBreakpointLarge) {
+                      return (FFAppState().isDrawerOpen
+                          ? valueOrDefault<double>(
+                              FFAppConstants.maxDrawerWidth,
+                              260.0,
+                            )
+                          : FFAppConstants.minDrawerWidth);
+                    } else {
+                      return (FFAppState().isDrawerOpen
+                          ? valueOrDefault<double>(
+                              FFAppConstants.maxDrawerWidth,
+                              260.0,
+                            )
+                          : FFAppConstants.minDrawerWidth);
+                    }
+                  }(), 270.0),
+                  valueOrDefault<double>(() {
+                    if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                      return 0.0;
+                    } else if (MediaQuery.sizeOf(context).width <
+                        kBreakpointMedium) {
+                      return 0.0;
+                    } else if (MediaQuery.sizeOf(context).width <
+                        kBreakpointLarge) {
+                      return FFAppConstants.WebAppBarHeight;
+                    } else {
+                      return FFAppConstants.WebAppBarHeight;
+                    }
+                  }(), 72.0),
+                  0.0,
+                  0.0,
+                ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,9 +161,7 @@ class _ChequeDepositFormPageWidgetState
                         midRightButtonIcon: null,
                         buttonColor: Colors.transparent,
                         buttonWithoutBackground: true,
-                        btnWOBgIcon: Icon(
-                          Icons.arrow_back,
-                        ),
+                        btnWOBgIcon: Icon(Icons.arrow_back),
                         btnWOBgColor: FlutterFlowTheme.of(context).primaryText,
                         btnWOBgIconSize: 24.0,
                         isTitleLeftAlign: true,
@@ -188,7 +178,11 @@ class _ChequeDepositFormPageWidgetState
                         alignment: AlignmentDirectional(0.0, -1.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
+                            16.0,
+                            0.0,
+                            16.0,
+                            0.0,
+                          ),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -197,7 +191,11 @@ class _ChequeDepositFormPageWidgetState
                                 alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 16.0, 0.0),
+                                    0.0,
+                                    0.0,
+                                    16.0,
+                                    0.0,
+                                  ),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -208,16 +206,17 @@ class _ChequeDepositFormPageWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
+                                              fontFamily: FlutterFlowTheme.of(
+                                                context,
+                                              ).bodyMediumFamily,
                                               color: Color(0xFF002C75),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                               useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .bodyMediumIsCustom,
+                                                  !FlutterFlowTheme.of(
+                                                    context,
+                                                  ).bodyMediumIsCustom,
                                             ),
                                       ),
                                     ].divide(SizedBox(height: 8.0)),
@@ -226,7 +225,11 @@ class _ChequeDepositFormPageWidgetState
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 16.0, 0.0, 0.0),
+                                  0.0,
+                                  16.0,
+                                  0.0,
+                                  0.0,
+                                ),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -248,7 +251,8 @@ class _ChequeDepositFormPageWidgetState
                                             },
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
-                                                  context),
+                                                context,
+                                              ),
                                               child:
                                                   ChequeDepositAccountSelectionWidget(),
                                             ),
@@ -260,8 +264,9 @@ class _ChequeDepositFormPageWidgetState
                                   child: Container(
                                     width: double.infinity,
                                     decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      color: FlutterFlowTheme.of(
+                                        context,
+                                      ).secondaryBackground,
                                       borderRadius: BorderRadius.circular(16.0),
                                       border: Border.all(
                                         color: Color(0xFFCCE3E4),
@@ -279,9 +284,13 @@ class _ChequeDepositFormPageWidgetState
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 12.0, 0.0),
+                                                padding:
+                                                    EdgeInsetsDirectional.fromSTEB(
+                                                      0.0,
+                                                      0.0,
+                                                      12.0,
+                                                      0.0,
+                                                    ),
                                                 child: Container(
                                                   width: 42.0,
                                                   height: 42.0,
@@ -289,7 +298,8 @@ class _ChequeDepositFormPageWidgetState
                                                     color: Color(0xFFE3F4F4),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            14.0),
+                                                          14.0,
+                                                        ),
                                                   ),
                                                   child: Icon(
                                                     Icons.wallet_sharp,
@@ -318,33 +328,34 @@ class _ChequeDepositFormPageWidgetState
                                                                       ?.maskedAccountNumber !=
                                                                   ''
                                                           ? FFAppState()
-                                                              .ChequeEligibleAccountsState
-                                                              .firstOrNull
-                                                              ?.accountType
-                                                              ?.name
+                                                                .ChequeEligibleAccountsState
+                                                                .firstOrNull
+                                                                ?.accountType
+                                                                ?.name
                                                           : FFAppState()
-                                                              .SelectedChequeAccountState
-                                                              .accountType
-                                                              ?.name,
+                                                                .SelectedChequeAccountState
+                                                                .accountType
+                                                                ?.name,
                                                       '-',
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
+                                                    style:
+                                                        FlutterFlowTheme.of(
+                                                          context,
+                                                        ).bodyMedium.override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color:
-                                                              Color(0xFF002C75),
+                                                                context,
+                                                              ).bodyMediumFamily,
+                                                          color: Color(
+                                                            0xFF002C75,
+                                                          ),
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                           useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
+                                                              !FlutterFlowTheme.of(
+                                                                context,
+                                                              ).bodyMediumIsCustom,
                                                         ),
                                                   ),
                                                   Text(
@@ -359,36 +370,26 @@ class _ChequeDepositFormPageWidgetState
                                                                       .firstOrNull
                                                                       ?.maskedAccountNumber !=
                                                                   ''
-                                                          ? '${FFAppState().ChequeEligibleAccountsState.firstOrNull?.maskedAccountNumber} ·  ${'${FFAppState().ChequeEligibleAccountsState.firstOrNull?.currency}${formatNumber(
-                                                              FFAppState()
-                                                                  .ChequeEligibleAccountsState
-                                                                  .firstOrNull
-                                                                  ?.availableBalance,
-                                                              formatType:
-                                                                  FormatType
-                                                                      .decimal,
-                                                              decimalType:
-                                                                  DecimalType
-                                                                      .periodDecimal,
-                                                            )}'}'
+                                                          ? '${FFAppState().ChequeEligibleAccountsState.firstOrNull?.maskedAccountNumber} ·  ${'${FFAppState().ChequeEligibleAccountsState.firstOrNull?.currency}${formatNumber(FFAppState().ChequeEligibleAccountsState.firstOrNull?.availableBalance, formatType: FormatType.decimal, decimalType: DecimalType.periodDecimal)}'}'
                                                           : '${FFAppState().SelectedChequeAccountState.maskedAccountNumber} ·  ${'${FFAppState().SelectedChequeAccountState.currency}${FFAppState().SelectedChequeAccountState.availableBalance.toString()}'}',
                                                       '-',
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
+                                                    style:
+                                                        FlutterFlowTheme.of(
+                                                          context,
+                                                        ).bodyMedium.override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color:
-                                                              Color(0xFF939FA3),
+                                                                context,
+                                                              ).bodyMediumFamily,
+                                                          color: Color(
+                                                            0xFF939FA3,
+                                                          ),
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
+                                                              !FlutterFlowTheme.of(
+                                                                context,
+                                                              ).bodyMediumIsCustom,
                                                         ),
                                                   ),
                                                 ].divide(SizedBox(height: 4.0)),
@@ -399,9 +400,13 @@ class _ChequeDepositFormPageWidgetState
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 12.0, 0.0),
+                                                padding:
+                                                    EdgeInsetsDirectional.fromSTEB(
+                                                      0.0,
+                                                      0.0,
+                                                      12.0,
+                                                      0.0,
+                                                    ),
                                                 child: Container(
                                                   width: 28.0,
                                                   height: 28.0,
@@ -409,7 +414,8 @@ class _ChequeDepositFormPageWidgetState
                                                     color: Color(0xFFE3F4F4),
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            10.0),
+                                                          10.0,
+                                                        ),
                                                   ),
                                                   child: Icon(
                                                     Icons
@@ -429,21 +435,25 @@ class _ChequeDepositFormPageWidgetState
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 24.0, 0.0, 16.0),
+                                  0.0,
+                                  24.0,
+                                  0.0,
+                                  16.0,
+                                ),
                                 child: Text(
                                   'Number of Cheque Book',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
+                                  style: FlutterFlowTheme.of(context).bodyMedium
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
+                                        fontFamily: FlutterFlowTheme.of(
+                                          context,
+                                        ).bodyMediumFamily,
                                         color: Color(0xFF002C75),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodyMediumIsCustom,
+                                        useGoogleFonts: !FlutterFlowTheme.of(
+                                          context,
+                                        ).bodyMediumIsCustom,
                                       ),
                                 ),
                               ),
@@ -472,16 +482,19 @@ class _ChequeDepositFormPageWidgetState
                                                 return WebViewAware(
                                                   child: GestureDetector(
                                                     onTap: () {
-                                                      FocusScope.of(context)
-                                                          .unfocus();
+                                                      FocusScope.of(
+                                                        context,
+                                                      ).unfocus();
                                                       FocusManager
-                                                          .instance.primaryFocus
+                                                          .instance
+                                                          .primaryFocus
                                                           ?.unfocus();
                                                     },
                                                     child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
+                                                      padding:
+                                                          MediaQuery.viewInsetsOf(
+                                                            context,
+                                                          ),
                                                       child:
                                                           BookletSelectionComponentWidget(),
                                                     ),
@@ -489,7 +502,8 @@ class _ChequeDepositFormPageWidgetState
                                                 );
                                               },
                                             ).then(
-                                                (value) => safeSetState(() {}));
+                                              (value) => safeSetState(() {}),
+                                            );
                                           },
                                           child: Container(
                                             width: double.infinity,
@@ -498,9 +512,9 @@ class _ChequeDepositFormPageWidgetState
                                               maxHeight: 56.0,
                                             ),
                                             decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
+                                              color: FlutterFlowTheme.of(
+                                                context,
+                                              ).secondaryBackground,
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                               border: Border.all(
@@ -509,9 +523,13 @@ class _ChequeDepositFormPageWidgetState
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
+                                              padding:
+                                                  EdgeInsetsDirectional.fromSTEB(
+                                                    16.0,
+                                                    0.0,
+                                                    16.0,
+                                                    0.0,
+                                                  ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -520,28 +538,27 @@ class _ChequeDepositFormPageWidgetState
                                                 children: [
                                                   Text(
                                                     valueOrDefault<String>(
-                                                      valueOrDefault<
-                                                              String>(
-                                                              FFAppState()
-                                                                  .selectedNumOfBooklet
-                                                                  .toString(),
-                                                              '1',
-                                                            ),
+                                                      valueOrDefault<String>(
+                                                        FFAppState()
+                                                            .selectedNumOfBooklet
+                                                            .toString(),
+                                                        '1',
+                                                      ),
                                                       '1',
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
+                                                    style:
+                                                        FlutterFlowTheme.of(
+                                                          context,
+                                                        ).bodyMedium.override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                                context,
+                                                              ).bodyMediumFamily,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
+                                                              !FlutterFlowTheme.of(
+                                                                context,
+                                                              ).bodyMediumIsCustom,
                                                         ),
                                                   ),
                                                   Icon(
@@ -560,21 +577,32 @@ class _ChequeDepositFormPageWidgetState
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
+                                      12.0,
+                                      0.0,
+                                      0.0,
+                                      0.0,
+                                    ),
                                     child: Container(
                                       width: 190.0,
                                       height: 20.0,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).secondaryBackground,
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
+                                        alignment: AlignmentDirectional(
+                                          -1.0,
+                                          0.0,
+                                        ),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 0.0, 0.0),
+                                                5.0,
+                                                0.0,
+                                                0.0,
+                                                0.0,
+                                              ),
                                           child: Text(
                                             'Choose number of cheque book',
                                             style: FlutterFlowTheme.of(context)
@@ -582,14 +610,14 @@ class _ChequeDepositFormPageWidgetState
                                                 .override(
                                                   fontFamily:
                                                       FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
+                                                        context,
+                                                      ).bodyMediumFamily,
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts:
                                                       !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
+                                                        context,
+                                                      ).bodyMediumIsCustom,
                                                 ),
                                           ),
                                         ),
@@ -600,21 +628,25 @@ class _ChequeDepositFormPageWidgetState
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 24.0, 0.0, 16.0),
+                                  0.0,
+                                  24.0,
+                                  0.0,
+                                  16.0,
+                                ),
                                 child: Text(
                                   'Remarks',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
+                                  style: FlutterFlowTheme.of(context).bodyMedium
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
+                                        fontFamily: FlutterFlowTheme.of(
+                                          context,
+                                        ).bodyMediumFamily,
                                         color: Color(0xFF002C75),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodyMediumIsCustom,
+                                        useGoogleFonts: !FlutterFlowTheme.of(
+                                          context,
+                                        ).bodyMediumIsCustom,
                                       ),
                                 ),
                               ),
@@ -634,10 +666,12 @@ class _ChequeDepositFormPageWidgetState
                                             maxHeight: 56.0,
                                           ),
                                           decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).secondaryBackground,
+                                            borderRadius: BorderRadius.circular(
+                                              8.0,
+                                            ),
                                             border: Border.all(
                                               color: Color(0xFFD4D4D4),
                                               width: 1.0,
@@ -650,143 +684,163 @@ class _ChequeDepositFormPageWidgetState
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          6.0, 6.0, 6.0, 6.0),
+                                                  padding:
+                                                      EdgeInsetsDirectional.fromSTEB(
+                                                        6.0,
+                                                        6.0,
+                                                        6.0,
+                                                        6.0,
+                                                      ),
                                                   child: Container(
                                                     width: 200.0,
-                                                    child: TextFormField(
-                                                      controller: _model
-                                                          .remarksTextFieldTextController,
-                                                      focusNode: _model
-                                                          .remarksTextFieldFocusNode,
-                                                      onChanged: (_) =>
-                                                          EasyDebounce.debounce(
-                                                        '_model.remarksTextFieldTextController',
-                                                        Duration(
-                                                            milliseconds: 200),
-                                                        () =>
-                                                            safeSetState(() {}),
-                                                      ),
-                                                      autofocus: false,
-                                                      enabled: true,
-                                                      obscureText: false,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        isDense: true,
-                                                        labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMediumIsCustom,
+                                                    child: Semantics(
+                                                      identifier:
+                                                          'cheque_remarks_field',
+                                                      label: 'Remarks',
+                                                      child: TextFormField(
+                                                        controller: _model
+                                                            .remarksTextFieldTextController,
+                                                        focusNode: _model
+                                                            .remarksTextFieldFocusNode,
+                                                        onChanged: (_) =>
+                                                            EasyDebounce.debounce(
+                                                              '_model.remarksTextFieldTextController',
+                                                              Duration(
+                                                                milliseconds:
+                                                                    200,
+                                                              ),
+                                                              () =>
+                                                                  safeSetState(
+                                                                    () {},
+                                                                  ),
+                                                            ),
+                                                        autofocus: false,
+                                                        enabled: true,
+                                                        obscureText: false,
+                                                        decoration: InputDecoration(
+                                                          isDense: true,
+                                                          labelStyle:
+                                                              FlutterFlowTheme.of(
+                                                                context,
+                                                              ).labelMedium.override(
+                                                                fontFamily:
+                                                                    FlutterFlowTheme.of(
+                                                                      context,
+                                                                    ).labelMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                      context,
+                                                                    ).labelMediumIsCustom,
+                                                              ),
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                context,
+                                                              ).labelMedium.override(
+                                                                fontFamily:
+                                                                    FlutterFlowTheme.of(
+                                                                      context,
+                                                                    ).labelMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                      context,
+                                                                    ).labelMediumIsCustom,
+                                                              ),
+                                                          enabledBorder:
+                                                              OutlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                      color: Color(
+                                                                        0x00000000,
+                                                                      ),
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                borderRadius:
+                                                                    BorderRadius.circular(
+                                                                      8.0,
+                                                                    ),
+                                                              ),
+                                                          focusedBorder:
+                                                              OutlineInputBorder(
+                                                                borderSide:
+                                                                    BorderSide(
+                                                                      color: Color(
+                                                                        0x00000000,
+                                                                      ),
+                                                                      width:
+                                                                          1.0,
+                                                                    ),
+                                                                borderRadius:
+                                                                    BorderRadius.circular(
+                                                                      8.0,
+                                                                    ),
+                                                              ),
+                                                          errorBorder: OutlineInputBorder(
+                                                            borderSide: BorderSide(
+                                                              color:
+                                                                  FlutterFlowTheme.of(
+                                                                    context,
+                                                                  ).error,
+                                                              width: 1.0,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius.circular(
+                                                                  8.0,
                                                                 ),
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMediumIsCustom,
+                                                          ),
+                                                          focusedErrorBorder:
+                                                              OutlineInputBorder(
+                                                                borderSide: BorderSide(
+                                                                  color:
+                                                                      FlutterFlowTheme.of(
+                                                                        context,
+                                                                      ).error,
+                                                                  width: 1.0,
                                                                 ),
-                                                        enabledBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Color(
-                                                                0x00000000),
-                                                            width: 1.0,
+                                                                borderRadius:
+                                                                    BorderRadius.circular(
+                                                                      8.0,
+                                                                    ),
+                                                              ),
+                                                          filled: true,
+                                                          fillColor: Color(
+                                                            0x00FFFFFF,
                                                           ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
                                                         ),
-                                                        focusedBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Color(
-                                                                0x00000000),
-                                                            width: 1.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                        errorBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .error,
-                                                            width: 1.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                        focusedErrorBorder:
-                                                            OutlineInputBorder(
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .error,
-                                                            width: 1.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                        filled: true,
-                                                        fillColor:
-                                                            Color(0x00FFFFFF),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                              context,
+                                                            ).bodyMedium.override(
+                                                              fontFamily:
+                                                                  FlutterFlowTheme.of(
+                                                                    context,
+                                                                  ).bodyMediumFamily,
+                                                              color: Color(
+                                                                0xFF1E1E1E,
+                                                              ),
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              useGoogleFonts:
+                                                                  !FlutterFlowTheme.of(
+                                                                    context,
+                                                                  ).bodyMediumIsCustom,
+                                                            ),
+                                                        cursorColor:
+                                                            FlutterFlowTheme.of(
+                                                              context,
+                                                            ).primaryText,
+                                                        enableInteractiveSelection:
+                                                            true,
+                                                        validator: _model
+                                                            .remarksTextFieldTextControllerValidator
+                                                            .asValidator(
+                                                              context,
+                                                            ),
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                            color: Color(
-                                                                0xFF1E1E1E),
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
-                                                      cursorColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryText,
-                                                      enableInteractiveSelection:
-                                                          true,
-                                                      validator: _model
-                                                          .remarksTextFieldTextControllerValidator
-                                                          .asValidator(context),
                                                     ),
                                                   ),
                                                 ),
@@ -799,21 +853,32 @@ class _ChequeDepositFormPageWidgetState
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 0.0, 0.0),
+                                      12.0,
+                                      0.0,
+                                      0.0,
+                                      0.0,
+                                    ),
                                     child: Container(
                                       width: 60.0,
                                       height: 20.0,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                        color: FlutterFlowTheme.of(
+                                          context,
+                                        ).secondaryBackground,
                                       ),
                                       child: Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
+                                        alignment: AlignmentDirectional(
+                                          -1.0,
+                                          0.0,
+                                        ),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 0.0, 0.0, 0.0),
+                                                5.0,
+                                                0.0,
+                                                0.0,
+                                                0.0,
+                                              ),
                                           child: Text(
                                             'Remarks',
                                             style: FlutterFlowTheme.of(context)
@@ -821,14 +886,14 @@ class _ChequeDepositFormPageWidgetState
                                                 .override(
                                                   fontFamily:
                                                       FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
+                                                        context,
+                                                      ).bodyMediumFamily,
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts:
                                                       !FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumIsCustom,
+                                                        context,
+                                                      ).bodyMediumIsCustom,
                                                 ),
                                           ),
                                         ),
@@ -839,7 +904,11 @@ class _ChequeDepositFormPageWidgetState
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 40.0, 0.0, 0.0),
+                                  0.0,
+                                  40.0,
+                                  0.0,
+                                  0.0,
+                                ),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
@@ -860,8 +929,9 @@ class _ChequeDepositFormPageWidgetState
                                           width: 15.0,
                                           height: 15.0,
                                           decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                            color: FlutterFlowTheme.of(
+                                              context,
+                                            ).secondaryBackground,
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                               color: Color(0xFFE17100),
@@ -879,16 +949,16 @@ class _ChequeDepositFormPageWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
+                                                fontFamily: FlutterFlowTheme.of(
+                                                  context,
+                                                ).bodyMediumFamily,
                                                 color: Color(0xFFBB4D00),
                                                 fontSize: 12.0,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
+                                                      context,
+                                                    ).bodyMediumIsCustom,
                                               ),
                                         ),
                                       ].divide(SizedBox(width: 10.0)),
@@ -900,8 +970,9 @@ class _ChequeDepositFormPageWidgetState
                                 width: 100.0,
                                 height: 100.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                  color: FlutterFlowTheme.of(
+                                    context,
+                                  ).secondaryBackground,
                                 ),
                               ),
                             ],
@@ -910,8 +981,12 @@ class _ChequeDepositFormPageWidgetState
                       ),
                     ),
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 54.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                        16.0,
+                        0.0,
+                        16.0,
+                        54.0,
+                      ),
                       child: wrapWithModel(
                         model: _model.primaryButtonComponentModel,
                         updateCallback: () => safeSetState(() {}),
@@ -920,45 +995,50 @@ class _ChequeDepositFormPageWidgetState
                           buttonWidth: double.infinity,
                           buttonHeight: 48.0,
                           buttonColor: FlutterFlowTheme.of(context).primary,
-                          textColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
+                          textColor: FlutterFlowTheme.of(
+                            context,
+                          ).secondaryBackground,
                           fontSize: 16.0,
                           borderRadius: 16.0,
                           borderColor: FlutterFlowTheme.of(context).primary,
                           childPadding: 16.0,
-                          buttonDisabledOption: _model.remarksTextFieldTextController.text == '',
+                          buttonDisabledOption:
+                              _model.remarksTextFieldTextController.text == '',
                           callback: () async {
                             FFAppState().chequeBookPrepareResponseState =
                                 ChequePrepareSuccessModelStruct(
-                              accountNumber: valueOrDefault<String>(
-                                FFAppState()
-                                                .ChequeEligibleAccountsState
-                                                .firstOrNull
-                                                ?.maskedAccountNumber !=
-                                            null &&
-                                        FFAppState()
-                                                .ChequeEligibleAccountsState
-                                                .firstOrNull
-                                                ?.maskedAccountNumber !=
-                                            ''
-                                    ? FFAppState()
-                                        .ChequeEligibleAccountsState
-                                        .firstOrNull
-                                        ?.accountNumber
-                                    : FFAppState()
-                                        .SelectedChequeAccountState
-                                        .accountNumber,
-                                '-',
-                              ),
-                              bookletCount: FFAppState().selectedNumOfBooklet,
-                              remarks:
-                                  _model.remarksTextFieldTextController.text,
-                              idempotencyKey: functions.createUuid(),
-                            );
+                                  accountNumber: valueOrDefault<String>(
+                                    FFAppState()
+                                                    .ChequeEligibleAccountsState
+                                                    .firstOrNull
+                                                    ?.maskedAccountNumber !=
+                                                null &&
+                                            FFAppState()
+                                                    .ChequeEligibleAccountsState
+                                                    .firstOrNull
+                                                    ?.maskedAccountNumber !=
+                                                ''
+                                        ? FFAppState()
+                                              .ChequeEligibleAccountsState
+                                              .firstOrNull
+                                              ?.accountNumber
+                                        : FFAppState()
+                                              .SelectedChequeAccountState
+                                              .accountNumber,
+                                    '-',
+                                  ),
+                                  bookletCount:
+                                      FFAppState().selectedNumOfBooklet,
+                                  remarks: _model
+                                      .remarksTextFieldTextController
+                                      .text,
+                                  idempotencyKey: functions.createUuid(),
+                                );
                             safeSetState(() {});
 
                             context.pushNamed(
-                                ChequeDepositConfirmPageWidget.routeName);
+                              ChequeDepositConfirmPageWidget.routeName,
+                            );
                           },
                         ),
                       ),
@@ -970,9 +1050,7 @@ class _ChequeDepositFormPageWidgetState
               wrapWithModel(
                 model: _model.loadingStateComponentModel,
                 updateCallback: () => safeSetState(() {}),
-                child: LoadingStateComponentWidget(
-                  isFinished: false,
-                ),
+                child: LoadingStateComponentWidget(isFinished: false),
               ),
             wrapWithModel(
               model: _model.customWebAppBarModel,
@@ -984,11 +1062,7 @@ class _ChequeDepositFormPageWidgetState
                 rightButtonAction: () async {},
               ),
             ),
-            if (true &&
-                responsiveVisibility(
-                  context: context,
-                  phone: false,
-                ))
+            if (true && responsiveVisibility(context: context, phone: false))
               Align(
                 alignment: AlignmentDirectional(-1.0, 0.0),
                 child: wrapWithModel(

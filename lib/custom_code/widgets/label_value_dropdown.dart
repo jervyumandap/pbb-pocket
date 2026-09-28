@@ -315,10 +315,10 @@ class _AlphaGroupedSheetState extends State<_AlphaGroupedSheet> {
                       ),
                     ),
                   ),
-                  GestureDetector(
+                  Semantics(identifier: 'fund_transfer_bank_close_button', label: 'Close bank list', container: true, button: true, child: GestureDetector(
                     onTap: () => Navigator.pop(context),
                     child: const Icon(Icons.close, color: Color(0xFF383839)),
-                  ),
+                  )),
                 ],
               ),
             ),

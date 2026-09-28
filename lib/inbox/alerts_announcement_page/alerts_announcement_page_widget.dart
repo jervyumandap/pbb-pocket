@@ -539,8 +539,7 @@ class _AlertsAnnouncementPageWidgetState
                                                                     items[
                                                                         itemsIndex];
                                                                 return Semantics(
-                                                                  label:
-                                                                      'InboxItemComponent',
+                                                                  identifier: 'inbox_item_${itemsIndex}',
                                                                   child:
                                                                       InboxItemComponentWidget(
                                                                     key: Key(
