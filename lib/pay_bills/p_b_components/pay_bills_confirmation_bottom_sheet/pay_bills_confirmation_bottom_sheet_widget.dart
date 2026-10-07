@@ -220,7 +220,8 @@ class _PayBillsConfirmationBottomSheetWidgetState
                                   children: [
                                     Flexible(
                                       child: Semantics(
-                                        label: 'Account-Number-Text',
+                                        label:
+                                            'Account-Number-Destination-Text',
                                         child: Text(
                                           valueOrDefault<String>(
                                             widget.submitParameters
@@ -421,7 +422,7 @@ class _PayBillsConfirmationBottomSheetWidgetState
                                                     ),
                                                     Semantics(
                                                       label:
-                                                          'Account-Number-Text',
+                                                          'Account-Number-Source-Text',
                                                       child: Text(
                                                         functions.maskAccountNumber(
                                                             FFAppState()
@@ -2658,7 +2659,8 @@ class _PayBillsConfirmationBottomSheetWidgetState
                                   children: [
                                     Flexible(
                                       child: Semantics(
-                                        label: 'Account-Number-Text',
+                                        label:
+                                            'Account-Number-Destination-Text',
                                         child: Text(
                                           valueOrDefault<String>(
                                             widget.submitParameters
@@ -2761,7 +2763,7 @@ class _PayBillsConfirmationBottomSheetWidgetState
                                         ),
                                         Flexible(
                                           child: Semantics(
-                                            label: 'Account-Number-Text',
+                                            label: 'Account-Number-Biller-Text',
                                             child: Text(
                                               valueOrDefault<String>(
                                                 widget.submitParameters
@@ -2880,7 +2882,7 @@ class _PayBillsConfirmationBottomSheetWidgetState
                                                   ),
                                                   Semantics(
                                                     label:
-                                                        'Account-Number-Text',
+                                                        'Account-Number-Source-Text',
                                                     child: Text(
                                                       FFAppState()
                                                           .payingSourceAccountAppState

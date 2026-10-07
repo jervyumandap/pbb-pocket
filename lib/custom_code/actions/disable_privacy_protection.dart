@@ -12,25 +12,18 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<List<dynamic>> mergeAccountsWithBalances(
-  List<dynamic> accounts,
-  List<dynamic> balances,
-) async {
-  // STEP 1: Convert balances list into a map
-  final Map<String, dynamic> balanceMap = {
-    for (final b in balances) b['accountNumber']: b,
-  };
+import 'package:flutter/foundation.dart';
+import 'package:screen_protector/screen_protector.dart';
 
-  // STEP 2: Merge
-  return accounts.map((acc) {
-    final match = balanceMap[acc['fullAccountNumber']];
+Future disablePrivacyProtection() async {
+  if (kIsWeb) {
+    return;
+  }
 
-    return {
-      ...acc,
-      'availableBalance': match != null ? match['availableBalance'] : 0,
-      'currentBalance': match != null ? match['currentBalance'] : 0,
-    };
-  }).toList();
+  await ScreenProtector.preventScreenshotOff();
+
+  await ScreenProtector.protectDataLeakageOff();
 }
+
 // Set your action name, define your arguments and return parameter,
-// and then add the boilerplate code using the green button on the right!
+// and then add the boilerplate code using the `</>` button on the right!

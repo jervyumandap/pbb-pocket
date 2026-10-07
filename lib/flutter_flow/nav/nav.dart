@@ -90,11 +90,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               : LandingPageWidget(),
         ),
         FFRoute(
-          name: CheckStatusViewWidget.routeName,
-          path: CheckStatusViewWidget.routePath,
-          builder: (context, params) => CheckStatusViewWidget(),
-        ),
-        FFRoute(
           name: QuickSendViewUserPageWidget.routeName,
           path: QuickSendViewUserPageWidget.routePath,
           builder: (context, params) => QuickSendViewUserPageWidget(),
@@ -716,20 +711,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => RecoveryMpinPageWidget(),
         ),
         FFRoute(
-          name: TransferMoneySuccessfulWidget.routeName,
-          path: TransferMoneySuccessfulWidget.routePath,
-          builder: (context, params) => TransferMoneySuccessfulWidget(
-            ownAccountName: params.getParam(
-              'ownAccountName',
-              ParamType.String,
-            ),
-            isFromFavorite: params.getParam(
-              'isFromFavorite',
-              ParamType.bool,
-            ),
-          ),
-        ),
-        FFRoute(
           name: LoanFailedPageWidget.routeName,
           path: LoanFailedPageWidget.routePath,
           builder: (context, params) => LoanFailedPageWidget(
@@ -937,11 +918,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => TimeDepositSuccessPageWidget(),
         ),
         FFRoute(
-          name: AccountEnrollmentWelcomePageWidget.routeName,
-          path: AccountEnrollmentWelcomePageWidget.routePath,
-          builder: (context, params) => AccountEnrollmentWelcomePageWidget(),
-        ),
-        FFRoute(
           name: BillsPaymentTransactionsPageWidget.routeName,
           path: BillsPaymentTransactionsPageWidget.routePath,
           builder: (context, params) => BillsPaymentTransactionsPageWidget(),
@@ -1035,11 +1011,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => OpenTimeDepositConfirmationPageWidget(),
         ),
         FFRoute(
-          name: SafetyDepositPageWidget.routeName,
-          path: SafetyDepositPageWidget.routePath,
-          builder: (context, params) => SafetyDepositPageWidget(),
-        ),
-        FFRoute(
           name: ChequeDepositFormPageWidget.routeName,
           path: ChequeDepositFormPageWidget.routePath,
           builder: (context, params) => ChequeDepositFormPageWidget(),
@@ -1115,11 +1086,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => ReportProblemsOtherWidget(),
         ),
         FFRoute(
-          name: ApplyTrustProductPageWidget.routeName,
-          path: ApplyTrustProductPageWidget.routePath,
-          builder: (context, params) => ApplyTrustProductPageWidget(),
-        ),
-        FFRoute(
           name: ReportProblemsDisputeWidget.routeName,
           path: ReportProblemsDisputeWidget.routePath,
           requireAuth: true,
@@ -1193,11 +1159,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: DebitCardReplacementPageWidget.routeName,
-          path: DebitCardReplacementPageWidget.routePath,
-          builder: (context, params) => DebitCardReplacementPageWidget(),
-        ),
-        FFRoute(
           name: SplashPageWidget.routeName,
           path: SplashPageWidget.routePath,
           builder: (context, params) => SplashPageWidget(),
@@ -1251,39 +1212,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: AlertsAnnouncementPageWidget.routeName,
-          path: AlertsAnnouncementPageWidget.routePath,
-          requireAuth: true,
-          builder: (context, params) => AlertsAnnouncementPageWidget(),
-        ),
-        FFRoute(
           name: TermsAndConditionPageWidget.routeName,
           path: TermsAndConditionPageWidget.routePath,
           builder: (context, params) => TermsAndConditionPageWidget(),
-        ),
-        FFRoute(
-          name: AccountValidationSuccessPageWidget.routeName,
-          path: AccountValidationSuccessPageWidget.routePath,
-          builder: (context, params) => AccountValidationSuccessPageWidget(
-            sessionToken: params.getParam(
-              'sessionToken',
-              ParamType.String,
-            ),
-            accountNumber: params.getParam(
-              'accountNumber',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: AccountCredentialsPageWidget.routeName,
-          path: AccountCredentialsPageWidget.routePath,
-          builder: (context, params) => AccountCredentialsPageWidget(
-            sessionToken: params.getParam(
-              'sessionToken',
-              ParamType.String,
-            ),
-          ),
         ),
         FFRoute(
           name: ChequeInquiryPageWidget.routeName,
@@ -1294,23 +1225,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: ForgotPasswordPageWidget.routeName,
           path: ForgotPasswordPageWidget.routePath,
           builder: (context, params) => ForgotPasswordPageWidget(),
-        ),
-        FFRoute(
-          name: ChequeDepositPageWidget.routeName,
-          path: ChequeDepositPageWidget.routePath,
-          builder: (context, params) => ChequeDepositPageWidget(),
-        ),
-        FFRoute(
-          name: ReportProblemsPageWidget.routeName,
-          path: ReportProblemsPageWidget.routePath,
-          requireAuth: true,
-          builder: (context, params) => ReportProblemsPageWidget(),
-        ),
-        FFRoute(
-          name: ManageLoansPageWidget.routeName,
-          path: ManageLoansPageWidget.routePath,
-          requireAuth: true,
-          builder: (context, params) => ManageLoansPageWidget(),
         ),
         FFRoute(
           name: ActivityHistoryWidget.routeName,
@@ -1328,11 +1242,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           path: TransactionHistoryV2Widget.routePath,
           requireAuth: true,
           builder: (context, params) => TransactionHistoryV2Widget(),
-        ),
-        FFRoute(
-          name: ServiceRequestTrackerPageWidget.routeName,
-          path: ServiceRequestTrackerPageWidget.routePath,
-          builder: (context, params) => ServiceRequestTrackerPageWidget(),
         ),
         FFRoute(
           name: PayLoanAmountPageWidget.routeName,
@@ -1354,25 +1263,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             url: params.getParam(
               'url',
               ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: QRPaymentHistoryPageWidget.routeName,
-          path: QRPaymentHistoryPageWidget.routePath,
-          requireAuth: true,
-          builder: (context, params) => QRPaymentHistoryPageWidget(),
-        ),
-        FFRoute(
-          name: QRScannerPageWidget.routeName,
-          path: QRScannerPageWidget.routePath,
-          requireAuth: true,
-          builder: (context, params) => QRScannerPageWidget(
-            account: params.getParam(
-              'account',
-              ParamType.DataStruct,
-              isList: false,
-              structBuilder: AccountsStruct.fromSerializableMap,
             ),
           ),
         ),
@@ -1407,42 +1297,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: SavedDevicesWidget.routeName,
-          path: SavedDevicesWidget.routePath,
-          builder: (context, params) => SavedDevicesWidget(),
-        ),
-        FFRoute(
-          name: CreateNewPasswordPageWidget.routeName,
-          path: CreateNewPasswordPageWidget.routePath,
-          builder: (context, params) => CreateNewPasswordPageWidget(
-            purpose: params.getParam<VerificationType>(
-              'purpose',
-              ParamType.Enum,
-            ),
-            resetToken: params.getParam(
-              'resetToken',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
           name: ChequeInquiryResultPageWidget.routeName,
           path: ChequeInquiryResultPageWidget.routePath,
           builder: (context, params) => ChequeInquiryResultPageWidget(),
-        ),
-        FFRoute(
-          name: CreateMpinPageWidget.routeName,
-          path: CreateMpinPageWidget.routePath,
-          builder: (context, params) => CreateMpinPageWidget(
-            isUpdating: params.getParam(
-              'isUpdating',
-              ParamType.bool,
-            ),
-            resetToken: params.getParam(
-              'resetToken',
-              ParamType.String,
-            ),
-          ),
         ),
         FFRoute(
           name: PersonalInformationPageWidget.routeName,
@@ -1468,33 +1325,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           name: TransactionLimitsPageWidget.routeName,
           path: TransactionLimitsPageWidget.routePath,
           builder: (context, params) => TransactionLimitsPageWidget(),
-        ),
-        FFRoute(
-          name: ReceiveGenerateQRPageWidget.routeName,
-          path: ReceiveGenerateQRPageWidget.routePath,
-          requireAuth: true,
-          builder: (context, params) => ReceiveGenerateQRPageWidget(
-            account: params.getParam(
-              'account',
-              ParamType.DataStruct,
-              isList: false,
-              structBuilder: AccountsStruct.fromSerializableMap,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: ChangeMPinPageWidget.routeName,
-          path: ChangeMPinPageWidget.routePath,
-          builder: (context, params) => ChangeMPinPageWidget(
-            isUpdating: params.getParam(
-              'isUpdating',
-              ParamType.bool,
-            ),
-            mpin: params.getParam(
-              'mpin',
-              ParamType.String,
-            ),
-          ),
         ),
         FFRoute(
           name: MPINPageWidget.routeName,
@@ -1578,38 +1408,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => ManageLoansPageCopyWidget(),
         ),
         FFRoute(
-          name: UserProfilePageWidget.routeName,
-          path: UserProfilePageWidget.routePath,
-          requireAuth: true,
-          builder: (context, params) => UserProfilePageWidget(),
-        ),
-        FFRoute(
-          name: AccountValidationPageWidget.routeName,
-          path: AccountValidationPageWidget.routePath,
-          builder: (context, params) => AccountValidationPageWidget(
-            module: params.getParam(
-              'module',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: FundTransferOptionsPageWidget.routeName,
-          path: FundTransferOptionsPageWidget.routePath,
-          builder: (context, params) => FundTransferOptionsPageWidget(
-            isAccountSelected: params.getParam(
-              'isAccountSelected',
-              ParamType.bool,
-            ),
-            account: params.getParam(
-              'account',
-              ParamType.DataStruct,
-              isList: false,
-              structBuilder: AccountsStruct.fromSerializableMap,
-            ),
-          ),
-        ),
-        FFRoute(
           name: PayBillsAmountPageWidget.routeName,
           path: PayBillsAmountPageWidget.routePath,
           requireAuth: true,
@@ -1660,25 +1458,176 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
+          name: RecoveryPasswordPageWidget.routeName,
+          path: RecoveryPasswordPageWidget.routePath,
+          builder: (context, params) => RecoveryPasswordPageWidget(
+            purpose: params.getParam<VerificationType>(
+              'purpose',
+              ParamType.Enum,
+            ),
+          ),
+        ),
+        FFRoute(
           name: OpenTimeDepositProductSelectionPageWidget.routeName,
           path: OpenTimeDepositProductSelectionPageWidget.routePath,
           builder: (context, params) =>
               OpenTimeDepositProductSelectionPageWidget(),
         ),
         FFRoute(
-          name: ManageTermDepositPageWidget.routeName,
-          path: ManageTermDepositPageWidget.routePath,
-          builder: (context, params) => ManageTermDepositPageWidget(),
+          name: OpenTimeDepositDetailsPageWidget.routeName,
+          path: OpenTimeDepositDetailsPageWidget.routePath,
+          builder: (context, params) => OpenTimeDepositDetailsPageWidget(
+            product: params.getParam(
+              'product',
+              ParamType.DataStruct,
+              isList: false,
+              structBuilder: ProductsStruct.fromSerializableMap,
+            ),
+          ),
         ),
         FFRoute(
-          name: LoanDetailsPageWidget.routeName,
-          path: LoanDetailsPageWidget.routePath,
-          builder: (context, params) => LoanDetailsPageWidget(
-            loanAccountNumber: params.getParam(
-              'loanAccountNumber',
+          name: CheckStatusViewWidget.routeName,
+          path: CheckStatusViewWidget.routePath,
+          builder: (context, params) => CheckStatusViewWidget(),
+        ),
+        FFRoute(
+          name: QRPaymentHistoryPageWidget.routeName,
+          path: QRPaymentHistoryPageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => QRPaymentHistoryPageWidget(),
+        ),
+        FFRoute(
+          name: ReceiveGenerateQRPageWidget.routeName,
+          path: ReceiveGenerateQRPageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => ReceiveGenerateQRPageWidget(
+            account: params.getParam(
+              'account',
+              ParamType.DataStruct,
+              isList: false,
+              structBuilder: AccountsStruct.fromSerializableMap,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: SafetyDepositPageWidget.routeName,
+          path: SafetyDepositPageWidget.routePath,
+          builder: (context, params) => SafetyDepositPageWidget(),
+        ),
+        FFRoute(
+          name: ApplyTrustProductPageWidget.routeName,
+          path: ApplyTrustProductPageWidget.routePath,
+          builder: (context, params) => ApplyTrustProductPageWidget(),
+        ),
+        FFRoute(
+          name: AlertsAnnouncementPageWidget.routeName,
+          path: AlertsAnnouncementPageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => AlertsAnnouncementPageWidget(),
+        ),
+        FFRoute(
+          name: AccountValidationSuccessPageWidget.routeName,
+          path: AccountValidationSuccessPageWidget.routePath,
+          builder: (context, params) => AccountValidationSuccessPageWidget(
+            sessionToken: params.getParam(
+              'sessionToken',
+              ParamType.String,
+            ),
+            accountNumber: params.getParam(
+              'accountNumber',
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: AccountCredentialsPageWidget.routeName,
+          path: AccountCredentialsPageWidget.routePath,
+          builder: (context, params) => AccountCredentialsPageWidget(
+            sessionToken: params.getParam(
+              'sessionToken',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ChequeDepositPageWidget.routeName,
+          path: ChequeDepositPageWidget.routePath,
+          builder: (context, params) => ChequeDepositPageWidget(),
+        ),
+        FFRoute(
+          name: ReportProblemsPageWidget.routeName,
+          path: ReportProblemsPageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => ReportProblemsPageWidget(),
+        ),
+        FFRoute(
+          name: ServiceRequestTrackerPageWidget.routeName,
+          path: ServiceRequestTrackerPageWidget.routePath,
+          builder: (context, params) => ServiceRequestTrackerPageWidget(),
+        ),
+        FFRoute(
+          name: QRScannerPageWidget.routeName,
+          path: QRScannerPageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => QRScannerPageWidget(
+            account: params.getParam(
+              'account',
+              ParamType.DataStruct,
+              isList: false,
+              structBuilder: AccountsStruct.fromSerializableMap,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: CreateNewPasswordPageWidget.routeName,
+          path: CreateNewPasswordPageWidget.routePath,
+          builder: (context, params) => CreateNewPasswordPageWidget(
+            purpose: params.getParam<VerificationType>(
+              'purpose',
+              ParamType.Enum,
+            ),
+            resetToken: params.getParam(
+              'resetToken',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: UserProfilePageWidget.routeName,
+          path: UserProfilePageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => UserProfilePageWidget(),
+        ),
+        FFRoute(
+          name: AccountValidationPageWidget.routeName,
+          path: AccountValidationPageWidget.routePath,
+          builder: (context, params) => AccountValidationPageWidget(
+            module: params.getParam(
+              'module',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: FundTransferOptionsPageWidget.routeName,
+          path: FundTransferOptionsPageWidget.routePath,
+          builder: (context, params) => FundTransferOptionsPageWidget(
+            isAccountSelected: params.getParam(
+              'isAccountSelected',
+              ParamType.bool,
+            ),
+            account: params.getParam(
+              'account',
+              ParamType.DataStruct,
+              isList: false,
+              structBuilder: AccountsStruct.fromSerializableMap,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ManageTermDepositPageWidget.routeName,
+          path: ManageTermDepositPageWidget.routePath,
+          builder: (context, params) => ManageTermDepositPageWidget(),
         ),
         FFRoute(
           name: LandingPageWidget.routeName,
@@ -1710,19 +1659,77 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: RecoveryPasswordPageWidget.routeName,
-          path: RecoveryPasswordPageWidget.routePath,
-          builder: (context, params) => RecoveryPasswordPageWidget(
-            purpose: params.getParam<VerificationType>(
-              'purpose',
-              ParamType.Enum,
+          name: LoginPageWidget.routeName,
+          path: LoginPageWidget.routePath,
+          builder: (context, params) => LoginPageWidget(),
+        ),
+        FFRoute(
+          name: InvestmentSummaryPageWidget.routeName,
+          path: InvestmentSummaryPageWidget.routePath,
+          builder: (context, params) => InvestmentSummaryPageWidget(),
+        ),
+        FFRoute(
+          name: AccountDetailPageWidget.routeName,
+          path: AccountDetailPageWidget.routePath,
+          builder: (context, params) => AccountDetailPageWidget(
+            account: params.getParam(
+              'account',
+              ParamType.DataStruct,
+              isList: false,
+              structBuilder: AccountsStruct.fromSerializableMap,
+            ),
+            rootPage: params.getParam(
+              'rootPage',
+              ParamType.String,
             ),
           ),
         ),
         FFRoute(
-          name: LoginPageWidget.routeName,
-          path: LoginPageWidget.routePath,
-          builder: (context, params) => LoginPageWidget(),
+          name: AccountVerificationPageWidget.routeName,
+          path: AccountVerificationPageWidget.routePath,
+          builder: (context, params) => AccountVerificationPageWidget(
+            sessionToken: params.getParam(
+              'sessionToken',
+              ParamType.String,
+            ),
+            purpose: params.getParam<VerificationType>(
+              'purpose',
+              ParamType.Enum,
+            ),
+            deviceId: params.getParam(
+              'deviceId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: AccountEnrollmentWelcomePageWidget.routeName,
+          path: AccountEnrollmentWelcomePageWidget.routePath,
+          builder: (context, params) => AccountEnrollmentWelcomePageWidget(),
+        ),
+        FFRoute(
+          name: ChangeMPinPageWidget.routeName,
+          path: ChangeMPinPageWidget.routePath,
+          builder: (context, params) => ChangeMPinPageWidget(
+            isUpdating: params.getParam(
+              'isUpdating',
+              ParamType.bool,
+            ),
+            mpin: params.getParam(
+              'mpin',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: LoanDetailsPageWidget.routeName,
+          path: LoanDetailsPageWidget.routePath,
+          builder: (context, params) => LoanDetailsPageWidget(
+            loanAccountNumber: params.getParam(
+              'loanAccountNumber',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: FundTransferPageWidget.routeName,
@@ -1757,55 +1764,48 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: InvestmentSummaryPageWidget.routeName,
-          path: InvestmentSummaryPageWidget.routePath,
-          builder: (context, params) => InvestmentSummaryPageWidget(),
+          name: ManageLoansPageWidget.routeName,
+          path: ManageLoansPageWidget.routePath,
+          requireAuth: true,
+          builder: (context, params) => ManageLoansPageWidget(),
         ),
         FFRoute(
-          name: OpenTimeDepositDetailsPageWidget.routeName,
-          path: OpenTimeDepositDetailsPageWidget.routePath,
-          builder: (context, params) => OpenTimeDepositDetailsPageWidget(
-            product: params.getParam(
-              'product',
-              ParamType.DataStruct,
-              isList: false,
-              structBuilder: ProductsStruct.fromSerializableMap,
+          name: CreateMpinPageWidget.routeName,
+          path: CreateMpinPageWidget.routePath,
+          builder: (context, params) => CreateMpinPageWidget(
+            isUpdating: params.getParam(
+              'isUpdating',
+              ParamType.bool,
             ),
-          ),
-        ),
-        FFRoute(
-          name: AccountVerificationPageWidget.routeName,
-          path: AccountVerificationPageWidget.routePath,
-          builder: (context, params) => AccountVerificationPageWidget(
-            sessionToken: params.getParam(
-              'sessionToken',
-              ParamType.String,
-            ),
-            purpose: params.getParam<VerificationType>(
-              'purpose',
-              ParamType.Enum,
-            ),
-            deviceId: params.getParam(
-              'deviceId',
+            resetToken: params.getParam(
+              'resetToken',
               ParamType.String,
             ),
           ),
         ),
         FFRoute(
-          name: AccountDetailPageWidget.routeName,
-          path: AccountDetailPageWidget.routePath,
-          builder: (context, params) => AccountDetailPageWidget(
-            account: params.getParam(
-              'account',
-              ParamType.DataStruct,
-              isList: false,
-              structBuilder: AccountsStruct.fromSerializableMap,
-            ),
-            rootPage: params.getParam(
-              'rootPage',
+          name: DebitCardReplacementPageWidget.routeName,
+          path: DebitCardReplacementPageWidget.routePath,
+          builder: (context, params) => DebitCardReplacementPageWidget(),
+        ),
+        FFRoute(
+          name: TransferMoneySuccessfulWidget.routeName,
+          path: TransferMoneySuccessfulWidget.routePath,
+          builder: (context, params) => TransferMoneySuccessfulWidget(
+            ownAccountName: params.getParam(
+              'ownAccountName',
               ParamType.String,
             ),
+            isFromFavorite: params.getParam(
+              'isFromFavorite',
+              ParamType.bool,
+            ),
           ),
+        ),
+        FFRoute(
+          name: SavedDevicesWidget.routeName,
+          path: SavedDevicesWidget.routePath,
+          builder: (context, params) => SavedDevicesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

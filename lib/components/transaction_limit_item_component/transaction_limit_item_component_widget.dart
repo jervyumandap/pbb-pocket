@@ -240,23 +240,34 @@ class _TransactionLimitItemComponentWidgetState
                               );
                             });
                             _model.isDailyLimit = functions.isMaxLimitExceeded(
-                                formatNumber(
-                                  widget.currentLimit,
-                                  formatType: FormatType.decimal,
-                                  decimalType: DecimalType.periodDecimal,
-                                ),
-                                _model.textFieldUpdatedAmount2ndTextController
-                                    .text)!;
+                                    widget
+                                        .transactionLimit?.bankLimits.maxAmount
+                                        .toString(),
+                                    _model
+                                        .textFieldUpdatedAmount2ndTextController
+                                        .text)! ||
+                                functions.isMaxLimitExceeded(
+                                    _model
+                                        .textFieldUpdatedAmount2ndTextController
+                                        .text,
+                                    _model.textFieldUpdatedAmountTextController
+                                        .text)!;
                             safeSetState(() {});
                             await widget.callback2?.call(
                               functions.isMaxLimitExceeded(
-                                  formatNumber(
-                                    widget.currentLimit,
-                                    formatType: FormatType.decimal,
-                                    decimalType: DecimalType.periodDecimal,
-                                  ),
-                                  _model.textFieldUpdatedAmount2ndTextController
-                                      .text)!,
+                                      widget.transactionLimit?.bankLimits
+                                          .maxAmount
+                                          .toString(),
+                                      _model
+                                          .textFieldUpdatedAmount2ndTextController
+                                          .text)! ||
+                                  functions.isMaxLimitExceeded(
+                                      _model
+                                          .textFieldUpdatedAmount2ndTextController
+                                          .text,
+                                      _model
+                                          .textFieldUpdatedAmountTextController
+                                          .text)!,
                             );
                           },
                         ),
@@ -350,7 +361,13 @@ class _TransactionLimitItemComponentWidgetState
                       Align(
                         alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Text(
-                          'Limit exceeds maximum allowed.',
+                          functions.isMaxLimitExceeded(
+                                  _model.textFieldUpdatedAmount2ndTextController
+                                      .text,
+                                  _model.textFieldUpdatedAmountTextController
+                                      .text)!
+                              ? 'Daily limit exceeds minimum allowed.'
+                              : 'Limit exceeds maximum allowed.',
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
@@ -378,11 +395,19 @@ class _TransactionLimitItemComponentWidgetState
                                         .textFieldUpdatedAmountTextController
                                         .text));
                             _model.updatePage(() {});
-                            _model.isTransacLimit =
+                            _model
+                                .isTransacLimit = functions.isMaxLimitExceeded(
+                                    formatNumber(
+                                      widget.currentLimit,
+                                      formatType: FormatType.decimal,
+                                      decimalType: DecimalType.periodDecimal,
+                                    ),
+                                    _model.textFieldUpdatedAmountTextController
+                                        .text)! ||
                                 functions.isMaxLimitExceeded(
-                                    widget
-                                        .transactionLimit?.bankLimits.maxAmount
-                                        .toString(),
+                                    _model
+                                        .textFieldUpdatedAmount2ndTextController
+                                        .text,
                                     _model.textFieldUpdatedAmountTextController
                                         .text)!;
                             safeSetState(() {});
@@ -396,11 +421,21 @@ class _TransactionLimitItemComponentWidgetState
                             });
                             await widget.callback?.call(
                               functions.isMaxLimitExceeded(
-                                  widget
-                                      .transactionLimit?.bankLimits.maxAmount
-                                      .toString(),
-                                  _model.textFieldUpdatedAmountTextController
-                                      .text)!,
+                                      formatNumber(
+                                        widget.currentLimit,
+                                        formatType: FormatType.decimal,
+                                        decimalType: DecimalType.periodDecimal,
+                                      ),
+                                      _model
+                                          .textFieldUpdatedAmountTextController
+                                          .text)! ||
+                                  functions.isMaxLimitExceeded(
+                                      _model
+                                          .textFieldUpdatedAmount2ndTextController
+                                          .text,
+                                      _model
+                                          .textFieldUpdatedAmountTextController
+                                          .text)!,
                             );
                           },
                         ),

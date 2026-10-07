@@ -57,6 +57,7 @@ class _CreateNewPasswordPageWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
       await action_blocks.refreshSessionActionBlock(context);
     });
 

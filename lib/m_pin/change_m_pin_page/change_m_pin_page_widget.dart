@@ -581,7 +581,7 @@ class _ChangeMPinPageWidgetState extends State<ChangeMPinPageWidget>
                                           children: [
                                             Flexible(
                                               child: Semantics(
-                                                label: 'Header-Text',
+                                                label: 'Header-Text Re-enter',
                                                 child: Text(
                                                   'Re-enter your ${valueOrDefault<String>(
                                                     FFAppState()

@@ -58,6 +58,7 @@ class _CreateMpinPageWidgetState extends State<CreateMpinPageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
       _model.retrievePublicKeyOutput = await actions.retrieveStoredData(
         'device_public_key',
       );
@@ -597,7 +598,7 @@ class _CreateMpinPageWidgetState extends State<CreateMpinPageWidget>
                                       children: [
                                         Flexible(
                                           child: Semantics(
-                                            label: 'Header-Text',
+                                            label: 'Header-Text Re-enter',
                                             child: Text(
                                               'Re-enter your ${valueOrDefault<String>(
                                                 FFAppState()

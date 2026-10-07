@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_web_view.dart';
 import '/actions/actions.dart' as action_blocks;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'web_view_page_model.dart';
 export 'web_view_page_model.dart';
 
@@ -130,29 +131,32 @@ class _WebViewPageWidgetState extends State<WebViewPageWidget> {
                   ),
                 ),
               ),
-              Semantics(
-                label: 'CustomMobileAppBar',
-                child: wrapWithModel(
-                  model: _model.customMobileAppBarModel,
-                  updateCallback: () => safeSetState(() {}),
-                  child: CustomMobileAppBarWidget(
-                    pageTitle: 'Login',
-                    rightButtonIcon: null,
-                    leftButtonIcon: Icon(
-                      Icons.chevron_left_rounded,
-                      color: FlutterFlowTheme.of(context).primary,
-                      size: 24.0,
+              PointerInterceptor(
+                intercepting: isWeb,
+                child: Semantics(
+                  label: 'CustomMobileAppBar',
+                  child: wrapWithModel(
+                    model: _model.customMobileAppBarModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: CustomMobileAppBarWidget(
+                      pageTitle: 'Login',
+                      rightButtonIcon: null,
+                      leftButtonIcon: Icon(
+                        Icons.chevron_left_rounded,
+                        color: FlutterFlowTheme.of(context).primary,
+                        size: 24.0,
+                      ),
+                      midRightButtonIcon: null,
+                      backgroudColor: FlutterFlowTheme.of(context).primary,
+                      titleColor: Color(0x00DAF8FF),
+                      buttonColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      rightButtonAction: () async {},
+                      leftButtonAction: () async {
+                        context.safePop();
+                      },
+                      midRightButtonAction: () async {},
                     ),
-                    midRightButtonIcon: null,
-                    backgroudColor: FlutterFlowTheme.of(context).primary,
-                    titleColor: Color(0x00DAF8FF),
-                    buttonColor:
-                        FlutterFlowTheme.of(context).secondaryBackground,
-                    rightButtonAction: () async {},
-                    leftButtonAction: () async {
-                      context.safePop();
-                    },
-                    midRightButtonAction: () async {},
                   ),
                 ),
               ),

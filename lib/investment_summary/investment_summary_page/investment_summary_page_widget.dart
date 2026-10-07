@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/investment_summary/investment_summary_compoment/investment_summary_compoment_widget.dart';
 import '/service_request/service_request_date_range_bottom_sheet_copy/service_request_date_range_bottom_sheet_copy_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -41,6 +42,7 @@ class _InvestmentSummaryPageWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
       _model.apiResult3xzs =
           await WhitebankGroupAPIGroup.retailInvestmentsCall.call(
         baseURL: FFDevEnvironmentValues().WBPBASEURL,

@@ -47,6 +47,7 @@ class _LandingPageWidgetState extends State<LandingPageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
       await Future.wait([
         Future(() async {
           _model.getDeviceDetailsOuput = await actions.getDeviceDetails();

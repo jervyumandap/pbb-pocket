@@ -14,10 +14,12 @@ class TimeDepositAccountSelectionWidget extends StatefulWidget {
     super.key,
     this.transferDirection,
     bool? isFromFavorites,
+    required this.currency,
   }) : this.isFromFavorites = isFromFavorites ?? false;
 
   final String? transferDirection;
   final bool isFromFavorites;
+  final String? currency;
 
   @override
   State<TimeDepositAccountSelectionWidget> createState() =>

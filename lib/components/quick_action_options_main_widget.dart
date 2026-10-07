@@ -1,5 +1,6 @@
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
+import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -57,10 +58,10 @@ class _QuickActionOptionsMainWidgetState
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 400.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 100.0),
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -222,167 +223,160 @@ class _QuickActionOptionsMainWidgetState
               ),
             ),
           ),
-          Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 36.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      if (FFAppState().FeatureFlagsAppstate.retailTransfers) {
-                        context.pushNamed(
-                          FundTransferOptionsPageWidget.routeName,
-                          queryParameters: {
-                            'isAccountSelected': serializeParam(
-                              false,
-                              ParamType.bool,
-                            ),
-                          }.withoutNulls,
-                        );
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: (FFMainAxisAlignment.end).flutterValue,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 36.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    if (FFAppState().FeatureFlagsAppstate.retailTransfers) {
+                      context.pushNamed(
+                        FundTransferOptionsPageWidget.routeName,
+                        queryParameters: {
+                          'isAccountSelected': serializeParam(
+                            false,
+                            ParamType.bool,
+                          ),
+                        }.withoutNulls,
+                      );
 
-                        Navigator.pop(context);
-                      } else {
-                        await showModalBottomSheet(
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          context: context,
-                          builder: (context) {
-                            return WebViewAware(
-                              child: Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: FeatureFlagBottomSheetWidget(
-                                  callBack: () async {},
-                                ),
+                      Navigator.pop(context);
+                    } else {
+                      await showModalBottomSheet(
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        builder: (context) {
+                          return WebViewAware(
+                            child: Padding(
+                              padding: MediaQuery.viewInsetsOf(context),
+                              child: FeatureFlagBottomSheetWidget(
+                                callBack: () async {},
                               ),
-                            );
-                          },
-                        ).then((value) => safeSetState(() {}));
-                      }
-                    },
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: 100.0,
-                          height: 100.0,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: Image.asset(
-                                'assets/images/Frame_427318349_(1).png',
-                              ).image,
                             ),
-                            shape: BoxShape.circle,
+                          );
+                        },
+                      ).then((value) => safeSetState(() {}));
+                    }
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: Image.asset(
+                              'assets/images/Frame_427318349_(1).png',
+                            ).image,
                           ),
-                          child: Icon(
-                            Icons.compare_arrows_rounded,
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            size: 40.0,
-                          ),
+                          shape: BoxShape.circle,
                         ),
-                        Text(
-                          'Transfer',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: !FlutterFlowTheme.of(context)
-                                    .bodyMediumIsCustom,
-                              ),
+                        child: Icon(
+                          Icons.compare_arrows_rounded,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          size: 40.0,
                         ),
-                      ].divide(SizedBox(height: 8.0)),
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['columnOnPageLoadAnimation1']!),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 36.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      if (FFAppState()
-                          .FeatureFlagsAppstate
-                          .retailBillsPayment) {
-                        context.pushNamed(PayBillsPageWidget.routeName);
-
-                        Navigator.pop(context);
-                        return;
-                      } else {
-                        await showModalBottomSheet(
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          context: context,
-                          builder: (context) {
-                            return WebViewAware(
-                              child: Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: FeatureFlagBottomSheetWidget(
-                                  callBack: () async {},
-                                ),
-                              ),
-                            );
-                          },
-                        ).then((value) => safeSetState(() {}));
-
-                        return;
-                      }
-                    },
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: 100.0,
-                          height: 100.0,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: Image.asset(
-                                'assets/images/Frame_427318349_(1).png',
-                              ).image,
+                      ),
+                      Text(
+                        'Transfer',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .bodyMediumIsCustom,
                             ),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(
-                            Icons.payments_rounded,
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            size: 40.0,
-                          ),
-                        ),
-                        Text(
-                          'Bills Payment',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: !FlutterFlowTheme.of(context)
-                                    .bodyMediumIsCustom,
+                      ),
+                    ].divide(SizedBox(height: 8.0)),
+                  ),
+                ).animateOnPageLoad(
+                    animationsMap['columnOnPageLoadAnimation1']!),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 36.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    if (FFAppState().FeatureFlagsAppstate.retailBillsPayment) {
+                      context.pushNamed(PayBillsPageWidget.routeName);
+
+                      Navigator.pop(context);
+                      return;
+                    } else {
+                      await showModalBottomSheet(
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        builder: (context) {
+                          return WebViewAware(
+                            child: Padding(
+                              padding: MediaQuery.viewInsetsOf(context),
+                              child: FeatureFlagBottomSheetWidget(
+                                callBack: () async {},
                               ),
+                            ),
+                          );
+                        },
+                      ).then((value) => safeSetState(() {}));
+
+                      return;
+                    }
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: Image.asset(
+                              'assets/images/Frame_427318349_(1).png',
+                            ).image,
+                          ),
+                          shape: BoxShape.circle,
                         ),
-                      ].divide(SizedBox(height: 8.0)),
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['columnOnPageLoadAnimation2']!),
-                ),
+                        child: Icon(
+                          Icons.payments_rounded,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          size: 40.0,
+                        ),
+                      ),
+                      Text(
+                        'Bills Payment',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .bodyMediumIsCustom,
+                            ),
+                      ),
+                    ].divide(SizedBox(height: 8.0)),
+                  ),
+                ).animateOnPageLoad(
+                    animationsMap['columnOnPageLoadAnimation2']!),
+              ),
+              if (!isWeb)
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 64.0),
                   child: InkWell(
@@ -489,7 +483,9 @@ class _QuickActionOptionsMainWidgetState
                   ).animateOnPageLoad(
                       animationsMap['columnOnPageLoadAnimation3']!),
                 ),
-                InkWell(
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 58.0),
+                child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
                   hoverColor: Colors.transparent,
@@ -509,8 +505,8 @@ class _QuickActionOptionsMainWidgetState
                     ),
                   ),
                 ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),

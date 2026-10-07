@@ -208,7 +208,7 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Dashboard',
+                              label: 'SideMenuItemWidget Accounts',
                               child: wrapWithModel(
                                 model: _model
                                     .manageAccountsSideMenuItemWidgetModel,
@@ -500,7 +500,7 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Settings',
+                              label: 'SideMenuItemWidget Investments',
                               child: wrapWithModel(
                                 model:
                                     _model.investmentsSideMenuItemWidgetModel,
@@ -628,7 +628,7 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Cheque Book',
+                              label: 'SideMenuItemWidget Report Problem',
                               child: wrapWithModel(
                                 model: _model.loansSideMenuItemWidgetModel4,
                                 updateCallback: () => safeSetState(() {}),
@@ -687,7 +687,7 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Cheque Book',
+                              label: 'SideMenuItemWidget Trust Product',
                               child: wrapWithModel(
                                 model: _model.loansSideMenuItemWidgetModel5,
                                 updateCallback: () => safeSetState(() {}),
@@ -761,6 +761,7 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                           EdgeInsetsDirectional.fromSTEB(29.0, 0.0, 16.0, 16.0),
                       child: Semantics(
                         label: 'Side Drawer Toggle Button',
+                        container: true,
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,

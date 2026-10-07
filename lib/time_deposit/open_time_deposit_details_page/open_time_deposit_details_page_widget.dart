@@ -954,115 +954,187 @@ class _OpenTimeDepositDetailsPageWidgetState
                               ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Semantics(
-                          label: 'open_time_deposit_funding_source_card',
-                          child: Container(
-                            width: double.infinity,
-                            height: 72.0,
-                            decoration: BoxDecoration(
-                              color: Color(0x001E1E1E),
-                              borderRadius: BorderRadius.circular(16.0),
-                              border: Border.all(
-                                color: Color(0xFFDAE3E5),
-                                width: 1.0,
-                              ),
-                            ),
-                            child: Padding(
+                      Builder(
+                        builder: (context) {
+                          if ((FFAppState()
+                                  .AccountsState
+                                  .where((e) =>
+                                      e.currency == widget.product?.currency)
+                                  .toList()
+                                  .isNotEmpty) ==
+                              true) {
+                            return Padding(
                               padding: EdgeInsets.all(16.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 12.0, 0.0),
-                                        child: Container(
-                                          width: 42.0,
-                                          height: 42.0,
-                                          decoration: BoxDecoration(
-                                            gradient: LinearGradient(
-                                              colors: [
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary
-                                              ],
-                                              stops: [0.0, 1.0],
-                                              begin: AlignmentDirectional(
-                                                  0.0, -1.0),
-                                              end: AlignmentDirectional(0, 1.0),
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(14.0),
-                                          ),
-                                          child: Icon(
-                                            Icons.credit_card_sharp,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            size: 24.0,
-                                          ),
-                                        ),
-                                      ),
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            FFAppState()
-                                                            .selectedAccount
-                                                            .accountNumber !=
-                                                        ''
-                                                ? '${FFAppState().selectedAccount.accountType?.name} ${FFAppState().selectedAccount.accountNumber}'
-                                                : '${FFAppState().AccountsState.firstOrNull?.accountType?.name} ${FFAppState().AccountsState.firstOrNull?.accountNumber}',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
+                              child: Semantics(
+                                label: 'open_time_deposit_funding_source_card',
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 72.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x001E1E1E),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    border: Border.all(
+                                      color: Color(0xFFDAE3E5),
+                                      width: 1.0,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(16.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 12.0, 0.0),
+                                              child: Container(
+                                                width: 42.0,
+                                                height: 42.0,
+                                                decoration: BoxDecoration(
+                                                  gradient: LinearGradient(
+                                                    colors: [
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .bodyMediumFamily,
-                                                  color: Color(0xFF1A2536),
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
+                                                          .primary,
+                                                      FlutterFlowTheme.of(
                                                               context)
-                                                          .bodyMediumIsCustom,
+                                                          .secondary
+                                                    ],
+                                                    stops: [0.0, 1.0],
+                                                    begin: AlignmentDirectional(
+                                                        0.0, -1.0),
+                                                    end: AlignmentDirectional(
+                                                        0, 1.0),
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          14.0),
                                                 ),
-                                          ),
-                                          Text(
-                                            FFAppState()
-                                                            .selectedAccount
-                                                            .accountNumber !=
-                                                        ''
-                                                ? 'Available ${FFAppState().selectedAccount.currency} ${formatNumber(
-                                                    FFAppState()
-                                                        .selectedAccount
-                                                        .availableBalance,
-                                                    formatType:
-                                                        FormatType.decimal,
-                                                    decimalType: DecimalType
-                                                        .periodDecimal,
-                                                  )}'
-                                                : 'Available ${FFAppState().AccountsState.firstOrNull?.currency} ${formatNumber(
-                                                    FFAppState()
-                                                        .AccountsState
-                                                        .firstOrNull
-                                                        ?.availableBalance,
-                                                    formatType:
-                                                        FormatType.decimal,
-                                                    decimalType: DecimalType
-                                                        .periodDecimal,
-                                                  )}',
+                                                child: Icon(
+                                                  Icons.credit_card_sharp,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  size: 24.0,
+                                                ),
+                                              ),
+                                            ),
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  FFAppState()
+                                                                  .selectedAccount
+                                                                  .accountNumber !=
+                                                              ''
+                                                      ? '${FFAppState().selectedAccount.accountType?.name} ${FFAppState().selectedAccount.accountNumber}'
+                                                      : '${FFAppState().AccountsState.firstOrNull?.accountType?.name} ${FFAppState().AccountsState.firstOrNull?.accountNumber}',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            Color(0xFF1A2536),
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
+                                                      ),
+                                                ),
+                                                Text(
+                                                  FFAppState()
+                                                                  .selectedAccount
+                                                                  .accountNumber !=
+                                                              ''
+                                                      ? 'Available ${FFAppState().selectedAccount.currency} ${formatNumber(
+                                                          FFAppState()
+                                                              .selectedAccount
+                                                              .availableBalance,
+                                                          formatType: FormatType
+                                                              .decimal,
+                                                          decimalType:
+                                                              DecimalType
+                                                                  .periodDecimal,
+                                                        )}'
+                                                      : 'Available ${FFAppState().AccountsState.firstOrNull?.currency} ${formatNumber(
+                                                          FFAppState()
+                                                              .AccountsState
+                                                              .firstOrNull
+                                                              ?.availableBalance,
+                                                          formatType: FormatType
+                                                              .decimal,
+                                                          decimalType:
+                                                              DecimalType
+                                                                  .periodDecimal,
+                                                        )}',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            Color(0xFF939FA3),
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMediumIsCustom,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child:
+                                                        TimeDepositAccountSelectionWidget(
+                                                      currency: widget
+                                                          .product!.currency,
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: Text(
+                                            'CHANGE',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -1072,61 +1144,63 @@ class _OpenTimeDepositDetailsPageWidgetState
                                                           .bodyMediumFamily,
                                                   color: Color(0xFF939FA3),
                                                   letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
                                                   useGoogleFonts:
                                                       !FlutterFlowTheme.of(
                                                               context)
                                                           .bodyMediumIsCustom,
                                                 ),
                                           ),
-                                        ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          } else {
+                            return Padding(
+                              padding: EdgeInsets.all(16.0),
+                              child: Semantics(
+                                label: 'open_time_deposit_funding_source_card',
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 72.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x001E1E1E),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                    border: Border.all(
+                                      color: Color(0xFFDAE3E5),
+                                      width: 1.0,
+                                    ),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'No available accounts for this currency.',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
+                                              color: Color(0xFF939FA3),
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyMediumIsCustom,
+                                            ),
                                       ),
                                     ],
                                   ),
-                                  InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        enableDrag: false,
-                                        context: context,
-                                        builder: (context) {
-                                          return WebViewAware(
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child:
-                                                  TimeDepositAccountSelectionWidget(),
-                                            ),
-                                          );
-                                        },
-                                      ).then((value) => safeSetState(() {}));
-                                    },
-                                    child: Text(
-                                      'CHANGE',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            color: Color(0xFF939FA3),
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodyMediumIsCustom,
-                                          ),
-                                    ),
-                                  ),
-                                ],
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
+                            );
+                          }
+                        },
                       ),
                     ],
                   ),
@@ -1597,7 +1671,15 @@ class _OpenTimeDepositDetailsPageWidgetState
                           borderRadius: 16.0,
                           borderColor: FlutterFlowTheme.of(context).primary,
                           childPadding: 16.0,
-                          buttonDisabledOption: _model.isAmountInvalid,
+                          buttonDisabledOption: _model.isAmountInvalid! ||
+                              ((FFAppState()
+                                      .AccountsState
+                                      .where((e) =>
+                                          e.currency ==
+                                          widget.product?.currency)
+                                      .toList()
+                                      .isNotEmpty) ==
+                                  false),
                           callback: () async {
                             context.pushNamed(
                                 OpenTimeDepositConfirmationPageWidget

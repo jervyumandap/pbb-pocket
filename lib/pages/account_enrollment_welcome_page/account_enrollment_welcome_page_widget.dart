@@ -144,7 +144,7 @@ class _AccountEnrollmentWelcomePageWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Semantics(
-                                              label: 'Section header Text',
+                                              label: 'Section body Text',
                                               child: Text(
                                                 'Your account has been successfully created. Start exploring and enjoy the full experience.',
                                                 textAlign: TextAlign.center,

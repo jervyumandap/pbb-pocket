@@ -90,13 +90,19 @@ class _TransferMoneySuccessfulWidgetState
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           body: Stack(
             children: [
+              Container(
+                width: double.infinity,
+                height: double.infinity,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+              ),
               Opacity(
                 opacity: 0.2,
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: Image.asset(
@@ -212,11 +218,21 @@ class _TransferMoneySuccessfulWidgetState
                                       children: [
                                         Text(
                                           valueOrDefault<String>(
-                                            FFAppState()
-                                                    .FundTransferiniatedResponse
-                                                    .isScheduledTransfer
-                                                ? 'Transfer Scheduled'
-                                                : 'Transfer Successful',
+                                            () {
+                                              if (FFAppState()
+                                                  .FundTransferiniatedResponse
+                                                  .isScheduledTransfer) {
+                                                return 'Transfer Scheduled';
+                                              } else if (FFAppState()
+                                                      .FundTransferiniatedResponse
+                                                      .transferType ==
+                                                  TransactionTypeKey
+                                                      .PESONET.name) {
+                                                return 'Transfer submitted';
+                                              } else {
+                                                return 'Transfer Successful';
+                                              }
+                                            }(),
                                             'Transfer Successful',
                                           ),
                                           textAlign: TextAlign.center,
@@ -238,11 +254,21 @@ class _TransferMoneySuccessfulWidgetState
                                         ),
                                         Text(
                                           valueOrDefault<String>(
-                                            FFAppState()
-                                                    .FundTransferiniatedResponse
-                                                    .isScheduledTransfer
-                                                ? 'Will be sent on the scheduled date'
-                                                : 'Your money is on its way',
+                                            () {
+                                              if (FFAppState()
+                                                  .FundTransferiniatedResponse
+                                                  .isScheduledTransfer) {
+                                                return 'Will be sent on the scheduled date';
+                                              } else if (FFAppState()
+                                                      .FundTransferiniatedResponse
+                                                      .transferType ==
+                                                  TransactionTypeKey
+                                                      .PESONET.name) {
+                                                return 'Your transfer is being processed';
+                                              } else {
+                                                return 'Your money is on its way';
+                                              }
+                                            }(),
                                             'Your money is on its way',
                                           ),
                                           textAlign: TextAlign.center,
@@ -354,6 +380,102 @@ class _TransferMoneySuccessfulWidgetState
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
+                                            if ((valueOrDefault<String>(
+                                                      FFAppState()
+                                                          .FundTransferiniatedResponse
+                                                          .transferType,
+                                                      '---',
+                                                    ) ==
+                                                    TransactionTypeKey
+                                                        .PESONET.name) ||
+                                                (valueOrDefault<String>(
+                                                      FFAppState()
+                                                          .FundTransferiniatedResponse
+                                                          .transferType,
+                                                      '---',
+                                                    ) ==
+                                                    TransactionTypeKey
+                                                        .INSTAPAY.name))
+                                              Container(
+                                                decoration: BoxDecoration(),
+                                                child: Visibility(
+                                                  visible: FFAppState()
+                                                              .FundTransferiniatedResponse
+                                                              .referenceNumber !=
+                                                          '',
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(12.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          'Transfer Type',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                color: Color(
+                                                                    0xFF6A7282),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        ),
+                                                        Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            FFAppState()
+                                                                .FundTransferiniatedResponse
+                                                                .transferType,
+                                                            '---',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Color(
+                                                                    0xFF101828),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
                                             Container(
                                               decoration: BoxDecoration(),
                                               child: Visibility(
@@ -750,6 +872,81 @@ class _TransferMoneySuccessfulWidgetState
                                                           )),
                                                           '10/27/21',
                                                         ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
+                                                                  color: Color(
+                                                                      0xFF101828),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            if (FFAppState()
+                                                        .FundTransferiniatedResponse
+                                                        .remarks !=
+                                                    '')
+                                              Container(
+                                                decoration: BoxDecoration(),
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(12.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        'Remarks',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: Color(
+                                                                      0xFF6A7282),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                      ),
+                                                      Text(
+                                                        FFAppState()
+                                                            .FundTransferiniatedResponse
+                                                            .remarks,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)

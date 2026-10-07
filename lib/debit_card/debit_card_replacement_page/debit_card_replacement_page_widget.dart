@@ -53,6 +53,7 @@ class _DebitCardReplacementPageWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
       _model.isLoading = false;
       safeSetState(() {});
       await action_blocks.refreshSessionActionBlock(context);
@@ -1235,6 +1236,8 @@ class _DebitCardReplacementPageWidgetState
                                                 activeColor:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
+                                                semanticLabel:
+                                                    reasonForReplacementListviewItem,
                                                 onTap: () async {
                                                   if (_model
                                                           .selectedReasonIndex !=

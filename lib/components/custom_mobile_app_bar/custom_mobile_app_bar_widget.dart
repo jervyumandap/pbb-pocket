@@ -143,6 +143,7 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
                         if (widget.buttonWithoutBackground)
                           Semantics(
                             label: 'Back Button',
+                            container: true,
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,

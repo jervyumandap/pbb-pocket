@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class FFAppConstants {
-  static const String BuildVersionNumber = '0.0.12';
+  static const String BuildVersionNumber = '0.0.14';
   static const double maxDrawerWidth = 196.0;
   static const double minDrawerWidth = 80.0;
   static const Color ContextualColor1 = Color(4278796936);

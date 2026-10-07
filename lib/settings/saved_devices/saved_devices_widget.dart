@@ -91,12 +91,22 @@ class _SavedDevicesWidgetState extends State<SavedDevicesWidget> {
                               return 0.0;
                             } else if (MediaQuery.sizeOf(context).width <
                                 kBreakpointLarge) {
-                              return 36.0;
+                              return (FFAppState().isDrawerOpen
+                                  ? valueOrDefault<double>(
+                                      FFAppConstants.maxDrawerWidth,
+                                      260.0,
+                                    )
+                                  : FFAppConstants.minDrawerWidth);
                             } else {
-                              return 36.0;
+                              return (FFAppState().isDrawerOpen
+                                  ? valueOrDefault<double>(
+                                      FFAppConstants.maxDrawerWidth,
+                                      260.0,
+                                    )
+                                  : FFAppConstants.minDrawerWidth);
                             }
                           }(),
-                          0.0,
+                          270.0,
                         ),
                         valueOrDefault<double>(
                           () {
@@ -1668,7 +1678,10 @@ class _SavedDevicesWidgetState extends State<SavedDevicesWidget> {
                                             FFAppState().DeviceDetails.deviceId,
                                         deviceName:
                                             FFAppState().DeviceDetails.name,
-                                        pushToken: _model.fcmTokenOutput,
+                                        pushToken: valueOrDefault<String>(
+                                          _model.fcmTokenOutput,
+                                          'pushToken',
+                                        ),
                                         pushPlatform:
                                             FFAppState().DeviceDetails.os,
                                         deviceType:

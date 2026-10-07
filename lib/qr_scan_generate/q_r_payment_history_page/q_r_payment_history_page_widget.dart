@@ -599,7 +599,7 @@ class _QRPaymentHistoryPageWidgetState extends State<QRPaymentHistoryPageWidget>
                             child: CustomMobileAppBarWidget(
                               pageTitle: '',
                               rightButtonIcon: Icon(
-                                Icons.file_download_outlined,
+                                Icons.filter_list_rounded,
                                 color: Color(0xFF027377),
                                 size: 24.0,
                               ),
@@ -620,6 +620,7 @@ class _QRPaymentHistoryPageWidgetState extends State<QRPaymentHistoryPageWidget>
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
+                                  enableDrag: false,
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
@@ -632,29 +633,36 @@ class _QRPaymentHistoryPageWidgetState extends State<QRPaymentHistoryPageWidget>
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child:
-                                              DownloadTransactionsBottomSheetWidget(
-                                            data: (getJsonField(
-                                              containerRetailQRPaymentHistoryResponse
-                                                  .jsonBody,
-                                              r'''$.payments''',
-                                              true,
-                                            )!
-                                                        .toList()
-                                                        .map<WBQrPaymentsStruct?>(
-                                                            WBQrPaymentsStruct
-                                                                .maybeFromMap)
-                                                        .toList()
-                                                    as Iterable<
-                                                        WBQrPaymentsStruct?>)
-                                                .withoutNulls
-                                                .map((e) => e.toMap())
-                                                .toList(),
-                                            title: 'Download Transactions',
-                                            submitButtonTitle: 'Download',
-                                            cancelButtonTitle: 'Download',
-                                            cancelButtonAction: () async {},
+                                          child: DateRangeBottomSheetWidget(
+                                            cancelButtonAction: () async {
+                                              Navigator.pop(context);
+                                            },
                                             submitButtonAction: () async {},
+                                            selectedFilter:
+                                                (fromDate, toDate) async {
+                                              _model.filterFromDate =
+                                                  dateTimeFormat(
+                                                "yyyy-MM-dd",
+                                                fromDate,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              );
+                                              _model.filterToDate =
+                                                  dateTimeFormat(
+                                                "yyyy-MM-dd",
+                                                toDate,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              );
+                                              safeSetState(() {});
+                                              safeSetState(() => _model
+                                                  .apiRequestCompleter = null);
+                                              await _model
+                                                  .waitForApiRequestCompleted();
+                                              Navigator.pop(context);
+                                            },
                                           ),
                                         ),
                                       ),

@@ -1,6 +1,7 @@
 // Automatic FlutterFlow imports
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
+import '/flutter_flow/ff_builtin_enums.dart';
 import '/backend/supabase/supabase.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -25,6 +26,7 @@ class CustomRadioButtonOnly extends StatefulWidget {
     required this.onTap,
     this.size = 24.0,
     this.activeColor,
+    this.semanticLabel = '',
   });
 
   final double? width;
@@ -33,6 +35,7 @@ class CustomRadioButtonOnly extends StatefulWidget {
   final Future Function() onTap;
   final double size;
   final Color? activeColor;
+  final String semanticLabel;
 
   @override
   State<CustomRadioButtonOnly> createState() => _CustomRadioButtonOnlyState();
@@ -48,7 +51,7 @@ class _CustomRadioButtonOnlyState extends State<CustomRadioButtonOnly> {
     final double innerDotSize =
         widget.size * 0.5; // Dot is half the size of the ring
 
-    return GestureDetector(
+    final Widget radio = GestureDetector(
       onTap: () async {
         await widget.onTap();
       },
@@ -84,7 +87,21 @@ class _CustomRadioButtonOnlyState extends State<CustomRadioButtonOnly> {
         ),
       ),
     );
+
+    // Backward compatible: no label -> render exactly as before.
+    if (widget.semanticLabel.isEmpty) {
+      return radio;
+    }
+
+    // Labelled: expose the radio as a named, checkable radio (same semantics
+    // Flutter's Radio emits) so screen readers and automation can target it by
+    // its reason and hear its selected state.
+    return Semantics(
+      label: widget.semanticLabel,
+      checked: widget.isSelected,
+      inMutuallyExclusiveGroup: true,
+      container: true,
+      child: radio,
+    );
   }
 }
-// Set your widget name, define your parameter, and then add the
-// boilerplate code using the green button on the right!

@@ -63,6 +63,7 @@ class _AccountVerificationPageWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.enablePrivacyProtection();
       _model.isLoading = true;
       _model.sessionToken = widget.sessionToken;
       safeSetState(() {});
@@ -614,6 +615,9 @@ class _AccountVerificationPageWidgetState
                                                               .call(
                                                         sessionToken: widget
                                                             .sessionToken,
+                                                        baseURL:
+                                                            FFDevEnvironmentValues()
+                                                                .WBPBASEURL,
                                                       );
 
                                                       _shouldSetState = true;

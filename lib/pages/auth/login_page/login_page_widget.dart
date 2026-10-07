@@ -52,6 +52,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
       await Future.wait([
         Future(() async {
           _model.outputToken = await actions.checkRefreshToken();

@@ -64,3 +64,5 @@ export 'paygilant_logout.dart' show paygilantLogout;
 export 'listen_connectivity_changes.dart' show listenConnectivityChanges;
 export 'make_screenshot_and_share.dart' show makeScreenshotAndShare;
 export 'download_loan_statement_pdf.dart' show downloadLoanStatementPdf;
+export 'enable_privacy_protection.dart' show enablePrivacyProtection;
+export 'disable_privacy_protection.dart' show disablePrivacyProtection;

@@ -1892,7 +1892,7 @@ class _LoanDetailsPageWidgetState extends State<LoanDetailsPageWidget> {
                                                           builder: (context) =>
                                                               Semantics(
                                                             label:
-                                                                'loanDetails_transactionHistoryDowload_button',
+                                                                'loanDetails_transactionHistoryDownload_button',
                                                             child:
                                                                 FFButtonWidget(
                                                               onPressed:

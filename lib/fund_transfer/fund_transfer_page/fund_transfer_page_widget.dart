@@ -899,75 +899,71 @@ class _FundTransferPageWidgetState extends State<FundTransferPageWidget> {
                                                                       MainAxisSize
                                                                           .max,
                                                                   children: [
-                                                                    Theme(
-                                                                      data:
-                                                                          ThemeData(
-                                                                        checkboxTheme:
-                                                                            CheckboxThemeData(
-                                                                          visualDensity:
-                                                                              VisualDensity.compact,
-                                                                          materialTapTargetSize:
-                                                                              MaterialTapTargetSize.shrinkWrap,
-                                                                          shape:
-                                                                              RoundedRectangleBorder(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(4.0),
-                                                                          ),
-                                                                        ),
-                                                                        unselectedWidgetColor:
-                                                                            Color(0xFF002C75),
-                                                                      ),
+                                                                    Semantics(
+                                                                      label:
+                                                                          'Transfer to own account',
                                                                       child:
-                                                                          Checkbox(
-                                                                        value: _model.checkboxValue ??=
-                                                                            false,
-                                                                        onChanged:
-                                                                            (newValue) async {
-                                                                          safeSetState(() =>
-                                                                              _model.checkboxValue = newValue!);
-                                                                          if (newValue!) {
-                                                                            _model.fundTransferType =
-                                                                                TransactionTypeKey.OWN_ACCOUNT.name;
-                                                                            _model.checkBoxValue =
-                                                                                true;
-                                                                            _model.selectedAccountType =
-                                                                                FFAppState().AccountsState.where((e) => e.fullAccountNumber != widget.accountNumber).toList().firstOrNull?.accountType?.name;
-                                                                            _model.selectedAccountName =
-                                                                                FFAppState().AccountsState.where((e) => e.fullAccountNumber != widget.accountNumber).toList().firstOrNull?.accountType?.name;
-                                                                            safeSetState(() {});
-                                                                            FFAppState().updateFundTransferiniatedResponseStruct(
-                                                                              (e) => e..transferType = TransactionTypeKey.OWN_ACCOUNT.name,
-                                                                            );
-                                                                            safeSetState(() {});
-                                                                            safeSetState(() {
-                                                                              _model.accountNumberTextfieldModel.textController?.clear();
-                                                                              _model.accountNameTextfieldModel.textController?.clear();
-                                                                            });
-                                                                          } else {
-                                                                            _model.checkBoxValue =
-                                                                                false;
-                                                                            _model.fundTransferType =
-                                                                                TransactionTypeKey.INTRABANK.name;
-                                                                            _model.selectedAccountType =
-                                                                                null;
-                                                                            safeSetState(() {});
-                                                                            FFAppState().updateFundTransferiniatedResponseStruct(
-                                                                              (e) => e..transferType = TransactionTypeKey.INTRABANK.name,
-                                                                            );
-                                                                            safeSetState(() {});
-                                                                          }
-                                                                        },
-                                                                        side: (Color(0xFF002C75) !=
-                                                                                null)
-                                                                            ? BorderSide(
-                                                                                width: 2,
-                                                                                color: Color(0xFF002C75),
-                                                                              )
-                                                                            : null,
-                                                                        activeColor:
-                                                                            Color(0xFF0AACB2),
-                                                                        checkColor:
-                                                                            FlutterFlowTheme.of(context).info,
+                                                                          Theme(
+                                                                        data:
+                                                                            ThemeData(
+                                                                          checkboxTheme:
+                                                                              CheckboxThemeData(
+                                                                            visualDensity:
+                                                                                VisualDensity.compact,
+                                                                            materialTapTargetSize:
+                                                                                MaterialTapTargetSize.shrinkWrap,
+                                                                            shape:
+                                                                                RoundedRectangleBorder(
+                                                                              borderRadius: BorderRadius.circular(4.0),
+                                                                            ),
+                                                                          ),
+                                                                          unselectedWidgetColor:
+                                                                              Color(0xFF002C75),
+                                                                        ),
+                                                                        child:
+                                                                            Checkbox(
+                                                                          value: _model.checkboxValue ??=
+                                                                              false,
+                                                                          onChanged:
+                                                                              (newValue) async {
+                                                                            safeSetState(() =>
+                                                                                _model.checkboxValue = newValue!);
+                                                                            if (newValue!) {
+                                                                              _model.fundTransferType = TransactionTypeKey.OWN_ACCOUNT.name;
+                                                                              _model.checkBoxValue = true;
+                                                                              _model.selectedAccountType = FFAppState().AccountsState.where((e) => e.fullAccountNumber != widget.accountNumber).toList().firstOrNull?.accountType?.name;
+                                                                              _model.selectedAccountName = FFAppState().AccountsState.where((e) => e.fullAccountNumber != widget.accountNumber).toList().firstOrNull?.accountType?.name;
+                                                                              safeSetState(() {});
+                                                                              FFAppState().updateFundTransferiniatedResponseStruct(
+                                                                                (e) => e..transferType = TransactionTypeKey.OWN_ACCOUNT.name,
+                                                                              );
+                                                                              safeSetState(() {});
+                                                                              safeSetState(() {
+                                                                                _model.accountNumberTextfieldModel.textController?.clear();
+                                                                                _model.accountNameTextfieldModel.textController?.clear();
+                                                                              });
+                                                                            } else {
+                                                                              _model.checkBoxValue = false;
+                                                                              _model.fundTransferType = TransactionTypeKey.INTRABANK.name;
+                                                                              _model.selectedAccountType = null;
+                                                                              safeSetState(() {});
+                                                                              FFAppState().updateFundTransferiniatedResponseStruct(
+                                                                                (e) => e..transferType = TransactionTypeKey.INTRABANK.name,
+                                                                              );
+                                                                              safeSetState(() {});
+                                                                            }
+                                                                          },
+                                                                          side: (Color(0xFF002C75) != null)
+                                                                              ? BorderSide(
+                                                                                  width: 2,
+                                                                                  color: Color(0xFF002C75),
+                                                                                )
+                                                                              : null,
+                                                                          activeColor:
+                                                                              Color(0xFF0AACB2),
+                                                                          checkColor:
+                                                                              FlutterFlowTheme.of(context).info,
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                     Text(
@@ -1760,24 +1756,11 @@ class _FundTransferPageWidgetState extends State<FundTransferPageWidget> {
                                         }(),
                                         callback: () async {
                                           var _shouldSetState = false;
-                                          if (((FFAppState()
-                                                          .FundTransferiniatedResponse
-                                                          .transferType ==
-                                                      TransactionTypeKey
-                                                          .INTRABANK.name) ||
-                                                  (FFAppState()
-                                                          .FundTransferiniatedResponse
-                                                          .transferType ==
-                                                      TransactionTypeKey
-                                                          .OWN_ACCOUNT.name)) &&
-                                              (FFAppState()
-                                                  .AccountsState
-                                                  .where((e) =>
-                                                      e.fullAccountNumber !=
-                                                      widget.accountNumber)
-                                                  .toList()
-                                                  .isNotEmpty) &&
-                                              !_model.checkboxValue!) {
+                                          if (FFAppState()
+                                                  .FundTransferiniatedResponse
+                                                  .transferType ==
+                                              TransactionTypeKey
+                                                  .INTRABANK.name) {
                                             _model.validateTransfersAccount =
                                                 await WhitebankGroupAPIGroup
                                                     .retailTransfersValidateAccountCall

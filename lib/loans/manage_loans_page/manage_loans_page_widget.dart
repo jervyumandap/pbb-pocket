@@ -12,6 +12,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pay_bills/p_b_components/feature_flag_bottom_sheet/feature_flag_bottom_sheet_widget.dart';
 import '/actions/actions.dart' as action_blocks;
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -42,6 +43,7 @@ class _ManageLoansPageWidgetState extends State<ManageLoansPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
       FFAppState().LoanMonthlyModel = LoanMonthlyModelStruct();
       safeSetState(() {});
       await action_blocks.refreshSessionActionBlock(context);
@@ -798,7 +800,7 @@ class _ManageLoansPageWidgetState extends State<ManageLoansPageWidget> {
                     Align(
                       alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Semantics(
-                        label: 'manage_loans_menu_mobile_ navigationbar',
+                        label: 'manage_loans_menu_mobile_navigationbar',
                         child: wrapWithModel(
                           model: _model.mobileNavigationBarModel,
                           updateCallback: () => safeSetState(() {}),

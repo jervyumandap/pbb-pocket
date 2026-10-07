@@ -1,6 +1,7 @@
 // Automatic FlutterFlow imports
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
+import '/flutter_flow/ff_builtin_enums.dart';
 import '/backend/supabase/supabase.dart';
 import '/actions/actions.dart' as action_blocks;
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -72,7 +73,7 @@ class _QrScannerOverlayNewState extends State<QrScannerOverlayNew> {
   @override
   Widget build(BuildContext context) {
     bool isRestrictedEnv(String env) {
-      const restricted = ['SITMob', 'SITWeb', 'UATWeb', 'UATMob', 'UAT'];
+      const restricted = []; // ['SITMob', 'SITWeb', 'UATWeb', 'UATMob', 'UAT']
       return restricted.contains(env);
     }
 
@@ -178,16 +179,6 @@ class _QrScannerOverlayNewState extends State<QrScannerOverlayNew> {
                                   ),
                                 ),
                               ),
-
-                              // if (FFDevEnvironmentValues.currentEnvironment != 'SITMob' &&
-                              //     FFDevEnvironmentValues.currentEnvironment !=
-                              //         'SITWeb' &&
-                              //     FFDevEnvironmentValues.currentEnvironment !=
-                              //         'UATWeb' &&
-                              //     FFDevEnvironmentValues.currentEnvironment !=
-                              //         'UATMob')
-                              // to hide on SIT
-
                               if (!isRestrictedEnv(
                                   FFDevEnvironmentValues.currentEnvironment))
                                 FFButtonWidget(

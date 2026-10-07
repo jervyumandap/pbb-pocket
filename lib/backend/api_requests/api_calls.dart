@@ -115,8 +115,8 @@ class ValidateAccountNumberCall {
 
     final ffApiRequestBody = '''
 {
-"AccountNumber": "${escapeStringForJson(accountNumber)}",
-"DateOfBirth": "${escapeStringForJson(dateOfBirth)}"
+"AccountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+"DateOfBirth": ${dateOfBirth == null ? 'null' : '"${escapeStringForJson(dateOfBirth)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ValidateAccountNumber',
@@ -171,7 +171,7 @@ class OtpCall {
 "Header": {
 "ChannelCode": "CBXR",
 "OriginatingChannelCode": "CBXR",
-"CheckpointType": "${escapeStringForJson(checkpointType)}",
+"CheckpointType": ${checkpointType == null ? 'null' : '"${escapeStringForJson(checkpointType)}"'},
 "ReferenceNumber": "POSTMANTEST002"
 },
 "Body" : ${checkpoint}
@@ -221,8 +221,8 @@ class ValidateCIFCall {
 
     final ffApiRequestBody = '''
 {
-"CIF": "${escapeStringForJson(cifNo)}",
-"DateOfBirth": "${escapeStringForJson(dateOfBirth)}"
+"CIF": ${cifNo == null ? 'null' : '"${escapeStringForJson(cifNo)}"'},
+"DateOfBirth": ${dateOfBirth == null ? 'null' : '"${escapeStringForJson(dateOfBirth)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ValidateCIF',
@@ -400,8 +400,8 @@ class GetAccountBalanceCall {
 
     final ffApiRequestBody = '''
 {
-  "AccountNumber": "${escapeStringForJson(accountNumber)}",
-  "DateOfBirth": "${escapeStringForJson(dateOfBirth)}"
+  "AccountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "DateOfBirth": ${dateOfBirth == null ? 'null' : '"${escapeStringForJson(dateOfBirth)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Get Account Balance',
@@ -481,7 +481,7 @@ class SmsCall {
 {
     "Header": ${header},
     "Body": {
-        "${escapeStringForJson(checkpointKey)}": ${checkpointDetails}
+        ${checkpointKey == null ? 'null' : '"${escapeStringForJson(checkpointKey)}"'}: ${checkpointDetails}
     }
 }''';
     return ApiManager.instance.makeApiCall(
@@ -725,7 +725,7 @@ class TermDepositAccountDetailsCall {
 
     final ffApiRequestBody = '''
 {
-  "CIF": "${escapeStringForJson(cifNo)}"
+  "CIF": ${cifNo == null ? 'null' : '"${escapeStringForJson(cifNo)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Term Deposit Account Details',
@@ -772,7 +772,7 @@ class TermDepositFetchDetailsCall {
 
     final ffApiRequestBody = '''
 {
-  "CIF": "${escapeStringForJson(cifNo)}"
+  "CIF": ${cifNo == null ? 'null' : '"${escapeStringForJson(cifNo)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Term Deposit Fetch Details',
@@ -815,7 +815,7 @@ class LoanAccountHistoryCall {
 
     final ffApiRequestBody = '''
 {
-  "CIF": "${escapeStringForJson(cifNo)}"
+  "CIF": ${cifNo == null ? 'null' : '"${escapeStringForJson(cifNo)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Loan Account History',
@@ -858,7 +858,7 @@ class TermDepositHistoryCall {
 
     final ffApiRequestBody = '''
 {
-  "AccountNumber": "${escapeStringForJson(accountNumber)}"
+  "AccountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Term Deposit History',
@@ -980,8 +980,8 @@ class LoginCall {
 
     final ffApiRequestBody = '''
 {
-  "email": "${escapeStringForJson(email)}",
-  "password": "${escapeStringForJson(password)}"
+  "email": ${email == null ? 'null' : '"${escapeStringForJson(email)}"'},
+  "password": ${password == null ? 'null' : '"${escapeStringForJson(password)}"'}
 }
 ''';
     return ApiManager.instance.makeApiCall(
@@ -1036,11 +1036,11 @@ class RegisterUserCall {
 
     final ffApiRequestBody = '''
 {
-  "email": "${escapeStringForJson(email)}",
-  "password": "${escapeStringForJson(password)}",
+  "email": ${email == null ? 'null' : '"${escapeStringForJson(email)}"'},
+  "password": ${password == null ? 'null' : '"${escapeStringForJson(password)}"'},
  "data": {
-    "username": "${escapeStringForJson(username)}",
-    "cif_number": "${escapeStringForJson(cifNumber)}"
+    "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'},
+    "cif_number": ${cifNumber == null ? 'null' : '"${escapeStringForJson(cifNumber)}"'}
   }
 }
 ''';
@@ -1146,12 +1146,12 @@ class RegisterUserDetailsCall {
 
     final ffApiRequestBody = '''
 {
-  "uid": "${escapeStringForJson(uid)}",
-  "email": "${escapeStringForJson(email)}",
-  "mobile_number": "${mobileNumber}",
+  "uid": ${uid == null ? 'null' : '"${escapeStringForJson(uid)}"'},
+  "email": ${email == null ? 'null' : '"${escapeStringForJson(email)}"'},
+  "mobile_number": ${mobileNumber == null ? 'null' : '"${mobileNumber}"'},
   "status_id": ${statusId},
-  "gender": "${escapeStringForJson(gender)}",
-  "user_name": "${escapeStringForJson(userName)}"
+  "gender": ${gender == null ? 'null' : '"${escapeStringForJson(gender)}"'},
+  "user_name": ${userName == null ? 'null' : '"${escapeStringForJson(userName)}"'}
 }
 ''';
     return ApiManager.instance.makeApiCall(
@@ -1197,8 +1197,8 @@ class UserSecurityCall {
 
     final ffApiRequestBody = '''
 {
-  "user_id": "${escapeStringForJson(userId)}",
-  "biometric_enabled": "${biometricEnabled}"
+  "user_id": ${userId == null ? 'null' : '"${escapeStringForJson(userId)}"'},
+  "biometric_enabled": ${biometricEnabled == null ? 'null' : '"${biometricEnabled}"'}
 }
 ''';
     return ApiManager.instance.makeApiCall(
@@ -1401,20 +1401,20 @@ class RegisterUserProfileCall {
 
     final ffApiRequestBody = '''
 {
-  "first_name": "${escapeStringForJson(firstName)}",
-  "last_name": "${escapeStringForJson(lastName)}",
-  "middle_name": "${escapeStringForJson(middleName)}",
-  "suffix": "${escapeStringForJson(suffix)}",
-  "birth_date": "${escapeStringForJson(birthDate)}",
-  "gender": "${escapeStringForJson(gender)}",
-  "mobile_number": "${escapeStringForJson(mobileNumber)}",
-  "cif_number": "${escapeStringForJson(cifNumber)}",
-  "role": "${escapeStringForJson(role)}",
-  "full_name": "${escapeStringForJson(fullName)}",
+  "first_name": ${firstName == null ? 'null' : '"${escapeStringForJson(firstName)}"'},
+  "last_name": ${lastName == null ? 'null' : '"${escapeStringForJson(lastName)}"'},
+  "middle_name": ${middleName == null ? 'null' : '"${escapeStringForJson(middleName)}"'},
+  "suffix": ${suffix == null ? 'null' : '"${escapeStringForJson(suffix)}"'},
+  "birth_date": ${birthDate == null ? 'null' : '"${escapeStringForJson(birthDate)}"'},
+  "gender": ${gender == null ? 'null' : '"${escapeStringForJson(gender)}"'},
+  "mobile_number": ${mobileNumber == null ? 'null' : '"${escapeStringForJson(mobileNumber)}"'},
+  "cif_number": ${cifNumber == null ? 'null' : '"${escapeStringForJson(cifNumber)}"'},
+  "role": ${role == null ? 'null' : '"${escapeStringForJson(role)}"'},
+  "full_name": ${fullName == null ? 'null' : '"${escapeStringForJson(fullName)}"'},
   "status_id": ${statusId},
-  "country_code": "${escapeStringForJson(countryCode)}",
-  "uid": "${escapeStringForJson(uid)}",
-  "reference_number": "${escapeStringForJson(referenceNumber)}"
+  "country_code": ${countryCode == null ? 'null' : '"${escapeStringForJson(countryCode)}"'},
+  "uid": ${uid == null ? 'null' : '"${escapeStringForJson(uid)}"'},
+  "reference_number": ${referenceNumber == null ? 'null' : '"${escapeStringForJson(referenceNumber)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'RegisterUserProfile',
@@ -1468,8 +1468,8 @@ class SetupMPINCall {
 
     final ffApiRequestBody = '''
 {
-  "user_id": "${escapeStringForJson(userId)}",
-  "mpin_hash": "${escapeStringForJson(mpinHash)}"
+  "user_id": ${userId == null ? 'null' : '"${escapeStringForJson(userId)}"'},
+  "mpin_hash": ${mpinHash == null ? 'null' : '"${escapeStringForJson(mpinHash)}"'}
 }
 ''';
     return ApiManager.instance.makeApiCall(
@@ -1577,7 +1577,7 @@ class UpdateWrongInputAttempCall {
     final ffApiRequestBody = '''
 {
 "failed_attempts": ${failedAttempts},
-"locked_until": "${escapeStringForJson(lockedUntil)}"
+"locked_until": ${lockedUntil == null ? 'null' : '"${escapeStringForJson(lockedUntil)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateWrongInputAttemp',
@@ -1628,12 +1628,12 @@ class PostTrustedDevicesCall {
     final metadata = _serializeJson(metadataJson);
     final ffApiRequestBody = '''
 {
-"device_id": "${escapeStringForJson(deviceId)}",
-"device_os": "${escapeStringForJson(deviceOs)}",
-"os_version": "${escapeStringForJson(osVersion)}",
+"device_id": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+"device_os": ${deviceOs == null ? 'null' : '"${escapeStringForJson(deviceOs)}"'},
+"os_version": ${osVersion == null ? 'null' : '"${escapeStringForJson(osVersion)}"'},
 "metadata": "${metadata}",
-"device_model": "${escapeStringForJson(deviceModel)}",
-"user_id": "${escapeStringForJson(userId)}",
+"device_model": ${deviceModel == null ? 'null' : '"${escapeStringForJson(deviceModel)}"'},
+"user_id": ${userId == null ? 'null' : '"${escapeStringForJson(userId)}"'},
 "is_active": ${isActive}
 
 }''';
@@ -1721,7 +1721,7 @@ class CheckAccountLockCall {
     );
 
     final ffApiRequestBody = '''
-{"user_id": "${escapeStringForJson(userId)}"}''';
+{"user_id": ${userId == null ? 'null' : '"${escapeStringForJson(userId)}"'}}''';
     return ApiManager.instance.makeApiCall(
       callName: 'CheckAccountLock',
       apiUrl: '${baseUrl}/functions/v1/check-account-lock',
@@ -1811,8 +1811,8 @@ class GenerateRefreshTokenCall {
 
     final ffApiRequestBody = '''
 {
-  "device_id": "${escapeStringForJson(deviceId)}",
-  "refresh_token": "${escapeStringForJson(token)}"
+  "device_id": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "refresh_token": ${token == null ? 'null' : '"${escapeStringForJson(token)}"'}
 }
 ''';
     return ApiManager.instance.makeApiCall(
@@ -1864,9 +1864,9 @@ class LoginUsingUsernameCall {
 
     final ffApiRequestBody = '''
 {
-  "username": "${escapeStringForJson(username)}",
-  "password": "${escapeStringForJson(password)}",
-  "device_id": "${escapeStringForJson(deviceId)}"
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'},
+  "password": ${password == null ? 'null' : '"${escapeStringForJson(password)}"'},
+  "device_id": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'LoginUsingUsername',
@@ -1956,12 +1956,12 @@ class GetSMSCheckpointCall {
 
     final ffApiRequestBody = '''
 {
-  "type": "${type}",
+  "type": ${type == null ? 'null' : '"${type}"'},
   "countryCode": "+63",
-  "phone": "${phone}",
-  "validity": "${validity}",
-  "message": "${message}",
-  "pin": "${pin}"
+  "phone": ${phone == null ? 'null' : '"${phone}"'},
+  "validity": ${validity == null ? 'null' : '"${validity}"'},
+  "message": ${message == null ? 'null' : '"${message}"'},
+  "pin": ${pin == null ? 'null' : '"${pin}"'}
 }
 ''';
     return ApiManager.instance.makeApiCall(
@@ -2025,8 +2025,8 @@ class ForgotPasswordCall {
 
     final ffApiRequestBody = '''
 {
-  "email": "${escapeStringForJson(email)}",
-  "new_password": "${escapeStringForJson(newPassword)}"
+  "email": ${email == null ? 'null' : '"${escapeStringForJson(email)}"'},
+  "new_password": ${newPassword == null ? 'null' : '"${escapeStringForJson(newPassword)}"'}
 }
 ''';
     return ApiManager.instance.makeApiCall(
@@ -2111,7 +2111,7 @@ class UpdateMPinCall {
 
     final ffApiRequestBody = '''
 {
-  "mpin_hash": "${escapeStringForJson(mpinHash)}"
+  "mpin_hash": ${mpinHash == null ? 'null' : '"${escapeStringForJson(mpinHash)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateMPin',
@@ -2427,16 +2427,16 @@ class PostTransactionCall {
   "account_id": ${accountId},
   "amount": ${amount},
   "running_balance": ${runningBalance},
-  "reference_number": "${escapeStringForJson(referenceNumber)}",
-  "description": "${escapeStringForJson(description)}",
+  "reference_number": ${referenceNumber == null ? 'null' : '"${escapeStringForJson(referenceNumber)}"'},
+  "description": ${description == null ? 'null' : '"${escapeStringForJson(description)}"'},
   "metadata": {
     "invoice_id": ${invoiceId},
-    "notes": "${escapeStringForJson(notes)}"
+    "notes": ${notes == null ? 'null' : '"${escapeStringForJson(notes)}"'}
   },
-  "transaction_method": "${escapeStringForJson(transactionMethod)}",
-  "transaction_categeory": "${escapeStringForJson(transactionCategeory)}",
-  "transaction_type": "${escapeStringForJson(transactionType)}",
-  "payee": "${escapeStringForJson(payee)}",
+  "transaction_method": ${transactionMethod == null ? 'null' : '"${escapeStringForJson(transactionMethod)}"'},
+  "transaction_categeory": ${transactionCategeory == null ? 'null' : '"${escapeStringForJson(transactionCategeory)}"'},
+  "transaction_type": ${transactionType == null ? 'null' : '"${escapeStringForJson(transactionType)}"'},
+  "payee": ${payee == null ? 'null' : '"${escapeStringForJson(payee)}"'},
   "user_id": ${userId}
 }
 ''';
@@ -2578,9 +2578,9 @@ class AccountCheckerIfLinkedCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${method}",
-  "account_number": "${accountNumber}",
-  "cif_number": "${cifNumber}"
+  "method": ${method == null ? 'null' : '"${method}"'},
+  "account_number": ${accountNumber == null ? 'null' : '"${accountNumber}"'},
+  "cif_number": ${cifNumber == null ? 'null' : '"${cifNumber}"'}
 }
 ''';
     return ApiManager.instance.makeApiCall(
@@ -3278,7 +3278,7 @@ class RegistrationInitiateCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}"
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Registration Initiate',
@@ -3366,7 +3366,7 @@ class RegistrationValidateAccountCall {
     final personalDetails = _serializeJson(personalDetailsJson);
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}",
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'},
   "personalDetails": ${personalDetails}
 }''';
     return ApiManager.instance.makeApiCall(
@@ -3438,8 +3438,8 @@ class RegistrationInitiateWithValidationCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "birthDate": "${escapeStringForJson(birthDate)}"
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "birthDate": ${birthDate == null ? 'null' : '"${escapeStringForJson(birthDate)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Registration Initiate with Validation',
@@ -3550,7 +3550,7 @@ class RegistrationSendOtpCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}"
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Registration Send Otp',
@@ -3641,7 +3641,7 @@ class RegistrationResendOtpCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}"
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Registration Resend Otp',
@@ -3731,7 +3731,7 @@ class RecoveryMPINResendOtpCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}"
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Recovery MPIN Resend Otp',
@@ -3830,7 +3830,7 @@ class RecoveryPasswordResendOtpCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}"
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Recovery Password Resend Otp',
@@ -3926,8 +3926,8 @@ class RegistrationVerifyOtpCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}",
-  "otpCode": "${escapeStringForJson(otpCode)}"
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'},
+  "otpCode": ${otpCode == null ? 'null' : '"${escapeStringForJson(otpCode)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Registration Verify Otp',
@@ -4005,7 +4005,7 @@ class RegistrationValidateUsernameCall {
 
     final ffApiRequestBody = '''
 {
-  "username": "${escapeStringForJson(username)}"
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Registration Validate Username',
@@ -4098,18 +4098,18 @@ class RegistrationCreateCredentialsCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}",
-  "username": "${escapeStringForJson(username)}",
-  "password": "${escapeStringForJson(password)}",
-  "confirmPassword": "${escapeStringForJson(confirmPassword)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "deviceName": "${escapeStringForJson(deviceName)}",
-  "pushToken": "${escapeStringForJson(pushToken)}",
-  "pushPlatform": "${escapeStringForJson(pushPlatform)}",
-  "deviceType": "${escapeStringForJson(deviceType)}",
-  "osVersion": "${escapeStringForJson(osVersion)}",
-  "appVersion": "${escapeStringForJson(appVersion)}",
-  "devicePublicKey": "${escapeStringForJson(devicePublicKey)}"
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'},
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'},
+  "password": ${password == null ? 'null' : '"${escapeStringForJson(password)}"'},
+  "confirmPassword": ${confirmPassword == null ? 'null' : '"${escapeStringForJson(confirmPassword)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "deviceName": ${deviceName == null ? 'null' : '"${escapeStringForJson(deviceName)}"'},
+  "pushToken": ${pushToken == null ? 'null' : '"${escapeStringForJson(pushToken)}"'},
+  "pushPlatform": ${pushPlatform == null ? 'null' : '"${escapeStringForJson(pushPlatform)}"'},
+  "deviceType": ${deviceType == null ? 'null' : '"${escapeStringForJson(deviceType)}"'},
+  "osVersion": ${osVersion == null ? 'null' : '"${escapeStringForJson(osVersion)}"'},
+  "appVersion": ${appVersion == null ? 'null' : '"${escapeStringForJson(appVersion)}"'},
+  "devicePublicKey": ${devicePublicKey == null ? 'null' : '"${escapeStringForJson(devicePublicKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Registration Create Credentials',
@@ -4297,12 +4297,12 @@ class RetailLoginCall {
 
     final ffApiRequestBody = '''
 {
-  "username": "${escapeStringForJson(username)}",
-  "password": "${escapeStringForJson(password)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "deviceName": "${escapeStringForJson(deviceName)}",
-  "pushToken": "${escapeStringForJson(pushToken)}",
-  "pushPlatform": "${escapeStringForJson(pushPlatform)}"
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'},
+  "password": ${password == null ? 'null' : '"${escapeStringForJson(password)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "deviceName": ${deviceName == null ? 'null' : '"${escapeStringForJson(deviceName)}"'},
+  "pushToken": ${pushToken == null ? 'null' : '"${escapeStringForJson(pushToken)}"'},
+  "pushPlatform": ${pushPlatform == null ? 'null' : '"${escapeStringForJson(pushPlatform)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Login',
@@ -4459,7 +4459,7 @@ class RetailRefreshTokenCall {
 
     final ffApiRequestBody = '''
 {
-  "refreshToken": "${escapeStringForJson(refreshToken)}"
+  "refreshToken": ${refreshToken == null ? 'null' : '"${escapeStringForJson(refreshToken)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Refresh Token',
@@ -5077,8 +5077,8 @@ class RetailBillsPaymentValidateBillerAccountCall {
 
     final ffApiRequestBody = '''
 {
-  "billerId": "${escapeStringForJson(billerId)}",
-  "accountNumber": "${escapeStringForJson(accountNumber)}"
+  "billerId": ${billerId == null ? 'null' : '"${escapeStringForJson(billerId)}"'},
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Bills Payment Validate Biller Account',
@@ -5454,7 +5454,7 @@ class RetailBillPaymentSigningChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Bill Payment Signing Challenge',
@@ -5571,11 +5571,11 @@ class RetailBillPaymentConfirmSigningCall {
     final authenticatorResponse = _serializeJson(authenticatorResponseJson);
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Bill Payment Confirm Signing',
@@ -5736,7 +5736,7 @@ class RetailBillPaymentOTPConfirmCall {
 
     final ffApiRequestBody = '''
 {
-  "otp": "${escapeStringForJson(code)}"
+  "otp": ${code == null ? 'null' : '"${escapeStringForJson(code)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Bill Payment OTP Confirm',
@@ -5893,7 +5893,7 @@ class RetailBillPaymentCancelPendingCall {
 
     final ffApiRequestBody = '''
 {
-  "otp": "${escapeStringForJson(code)}"
+  "otp": ${code == null ? 'null' : '"${escapeStringForJson(code)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Bill Payment Cancel Pending',
@@ -6233,10 +6233,10 @@ class RetailSavedBillersAddCall {
 
     final ffApiRequestBody = '''
 {
-  "billerId": "${escapeStringForJson(billerId)}",
-  "nickname": "${escapeStringForJson(nickname)}",
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "accountHolderName": "${escapeStringForJson(accountHolderName)}"
+  "billerId": ${billerId == null ? 'null' : '"${escapeStringForJson(billerId)}"'},
+  "nickname": ${nickname == null ? 'null' : '"${escapeStringForJson(nickname)}"'},
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "accountHolderName": ${accountHolderName == null ? 'null' : '"${escapeStringForJson(accountHolderName)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Saved Billers Add',
@@ -6590,7 +6590,7 @@ class RetailSavedBillerUpdateCall {
 
     final ffApiRequestBody = '''
 {
-  "nickname": "${escapeStringForJson(nickname)}"
+  "nickname": ${nickname == null ? 'null' : '"${escapeStringForJson(nickname)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Saved Biller Update',
@@ -6777,9 +6777,9 @@ class RetailAuthBiometricRegisterCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "deviceName": "${escapeStringForJson(deviceName)}",
-  "publicKey": "${escapeStringForJson(publicKey)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "deviceName": ${deviceName == null ? 'null' : '"${escapeStringForJson(deviceName)}"'},
+  "publicKey": ${publicKey == null ? 'null' : '"${escapeStringForJson(publicKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Biometric Register',
@@ -6863,9 +6863,9 @@ class RetailAuthBiometricLoginCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "challenge": "${escapeStringForJson(challenge)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Biometric Login',
@@ -6939,7 +6939,7 @@ class RetailAuthBiometricChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Biometric Challenge',
@@ -7425,7 +7425,7 @@ class RetailQRPaymentDecodeCall {
 
     final ffApiRequestBody = '''
 {
-  "qrData": "${escapeStringForJson(qrData)}"
+  "qrData": ${qrData == null ? 'null' : '"${escapeStringForJson(qrData)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail QR Payment Decode',
@@ -7776,7 +7776,7 @@ class RetailQRPaymentOTPConfirmCall {
 
     final ffApiRequestBody = '''
 {
-  "otp": "${escapeStringForJson(otp)}"
+  "otp": ${otp == null ? 'null' : '"${escapeStringForJson(otp)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail QR Payment OTP Confirm',
@@ -7871,7 +7871,7 @@ class RetailQRPaymentSigningChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail QR Payment Signing Challenge',
@@ -7995,11 +7995,11 @@ class RetailQRPaymentMpinBioSigningCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail QR Payment MpinBio Signing',
@@ -8496,9 +8496,9 @@ class RetailQRPaymentGenerateCall {
     final requestBody = _serializeJson(requestBodyJson);
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
   "amount": ${amount},
-  "reference": "${escapeStringForJson(referenceNumber)}"
+  "reference": ${referenceNumber == null ? 'null' : '"${escapeStringForJson(referenceNumber)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail QR Payment Generate',
@@ -8831,7 +8831,7 @@ class RetailScheduledBPEditCall {
     final ffApiRequestBody = '''
 {
   "amount": ${amount},
-  "remarks": "${escapeStringForJson(remarks)}"
+  "remarks": ${remarks == null ? 'null' : '"${escapeStringForJson(remarks)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Scheduled BP Edit',
@@ -9355,11 +9355,11 @@ class RetailScheduledBPCreateCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Scheduled BP Create',
@@ -9998,14 +9998,14 @@ class InitiateFundTransferCall {
 
     final ffApiRequestBody = '''
 {
-  "transferType": "${escapeStringForJson(transferTypeE)}",
-  "sourceAccountNumber": "${escapeStringForJson(sourceAccountNumber)}",
-  "destinationAccountNumber": "${escapeStringForJson(destinationAccountNumber)}",
-  "destinationAccountHolderName": "${escapeStringForJson(destinationAccountHolderName)}",
-  "destinationBankCode": "${escapeStringForJson(destinationBankCode)}",
+  "transferType": ${transferTypeE == null ? 'null' : '"${escapeStringForJson(transferTypeE)}"'},
+  "sourceAccountNumber": ${sourceAccountNumber == null ? 'null' : '"${escapeStringForJson(sourceAccountNumber)}"'},
+  "destinationAccountNumber": ${destinationAccountNumber == null ? 'null' : '"${escapeStringForJson(destinationAccountNumber)}"'},
+  "destinationAccountHolderName": ${destinationAccountHolderName == null ? 'null' : '"${escapeStringForJson(destinationAccountHolderName)}"'},
+  "destinationBankCode": ${destinationBankCode == null ? 'null' : '"${escapeStringForJson(destinationBankCode)}"'},
   "amount": ${amount},
-  "currency": "${escapeStringForJson(currency)}",
-  "remarks": "${escapeStringForJson(remarks)}"}''';
+  "currency": ${currency == null ? 'null' : '"${escapeStringForJson(currency)}"'},
+  "remarks": ${remarks == null ? 'null' : '"${escapeStringForJson(remarks)}"'}}''';
     return ApiManager.instance.makeApiCall(
       callName: 'Initiate Fund Transfer',
       apiUrl: '${baseUrl}/retail/transfers',
@@ -10157,7 +10157,7 @@ class ConfirmTransactionCall {
 
     final ffApiRequestBody = '''
 {
-  "otp": "${escapeStringForJson(otp)}"
+  "otp": ${otp == null ? 'null' : '"${escapeStringForJson(otp)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Confirm Transaction',
@@ -10454,9 +10454,9 @@ class ValidateAccountCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "bankCode": "${escapeStringForJson(bankCode)}",
-  "transferType": "${escapeStringForJson(transferType)}"
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "bankCode": ${bankCode == null ? 'null' : '"${escapeStringForJson(bankCode)}"'},
+  "transferType": ${transferType == null ? 'null' : '"${escapeStringForJson(transferType)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Validate Account',
@@ -10800,10 +10800,10 @@ class RetailSettingsProfileUpdateCall {
 
     final ffApiRequestBody = '''
 {
-  "firstName": "${escapeStringForJson(firstName)}",
-  "lastName": "${escapeStringForJson(lastName)}",
-  "phone": "${escapeStringForJson(phone)}",
-  "avatar": "${escapeStringForJson(avatar)}"
+  "firstName": ${firstName == null ? 'null' : '"${escapeStringForJson(firstName)}"'},
+  "lastName": ${lastName == null ? 'null' : '"${escapeStringForJson(lastName)}"'},
+  "phone": ${phone == null ? 'null' : '"${escapeStringForJson(phone)}"'},
+  "avatar": ${avatar == null ? 'null' : '"${escapeStringForJson(avatar)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Profile Update',
@@ -10910,8 +10910,8 @@ class RetailSettingsPasswordChangeCall {
 
     final ffApiRequestBody = '''
 {
-  "currentPassword": "${escapeStringForJson(currentPassword)}",
-  "newPassword": "${escapeStringForJson(newPassword)}"
+  "currentPassword": ${currentPassword == null ? 'null' : '"${escapeStringForJson(currentPassword)}"'},
+  "newPassword": ${newPassword == null ? 'null' : '"${escapeStringForJson(newPassword)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Password Change',
@@ -10991,9 +10991,9 @@ class RetailSettingsPasswordChangeChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "currentPassword": "${escapeStringForJson(currentPassword)}",
-  "newPassword": "${escapeStringForJson(newPassword)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "currentPassword": ${currentPassword == null ? 'null' : '"${escapeStringForJson(currentPassword)}"'},
+  "newPassword": ${newPassword == null ? 'null' : '"${escapeStringForJson(newPassword)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Password Change Challenge',
@@ -11097,8 +11097,8 @@ class RetailSettingsPasswordChangeConfirmOtpCall {
 
     final ffApiRequestBody = '''
 {
-  "otp": "${escapeStringForJson(otp)}",
-  "sessionId": "${escapeStringForJson(sessionId)}"
+  "otp": ${otp == null ? 'null' : '"${escapeStringForJson(otp)}"'},
+  "sessionId": ${sessionId == null ? 'null' : '"${escapeStringForJson(sessionId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Password Change Confirm Otp',
@@ -11176,11 +11176,11 @@ class RetailSettingsPasswordChangeConfirmChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Password Change Confirm Challenge',
@@ -11256,9 +11256,9 @@ class RetailAuthUsernameRecoveryInitiateCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "idLastFourDigits": "${escapeStringForJson(idLastFourDigits)}",
-  "dateOfBirth": "${escapeStringForJson(dateOfBirth)}"
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "idLastFourDigits": ${idLastFourDigits == null ? 'null' : '"${escapeStringForJson(idLastFourDigits)}"'},
+  "dateOfBirth": ${dateOfBirth == null ? 'null' : '"${escapeStringForJson(dateOfBirth)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Username Recovery Initiate',
@@ -11350,8 +11350,8 @@ class RetailAuthUsernameRecoveryVerifyOtpCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}",
-  "otp": "${escapeStringForJson(otp)}"
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'},
+  "otp": ${otp == null ? 'null' : '"${escapeStringForJson(otp)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Username Recovery Verify Otp',
@@ -11432,10 +11432,10 @@ class RetailAuthPasswordRecoveryInitiateCall {
 
     final ffApiRequestBody = '''
 {
-  "username": "${escapeStringForJson(username)}",
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "email": "${escapeStringForJson(email)}",
-  "dateOfBirth": "${escapeStringForJson(dateOfBirth)}"
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'},
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "email": ${email == null ? 'null' : '"${escapeStringForJson(email)}"'},
+  "dateOfBirth": ${dateOfBirth == null ? 'null' : '"${escapeStringForJson(dateOfBirth)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Password Recovery Initiate',
@@ -11529,10 +11529,10 @@ class RetailAuthMpinRecoveryInitiateCall {
 
     final ffApiRequestBody = '''
 {
-  "username": "${escapeStringForJson(username)}",
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "email": "${escapeStringForJson(email)}",
-  "dateOfBirth": "${escapeStringForJson(dateOfBirth)}"
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'},
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "email": ${email == null ? 'null' : '"${escapeStringForJson(email)}"'},
+  "dateOfBirth": ${dateOfBirth == null ? 'null' : '"${escapeStringForJson(dateOfBirth)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Mpin Recovery Initiate',
@@ -11624,8 +11624,8 @@ class RetailAuthPasswordRecoveryVerifyOtpCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}",
-  "otp": "${escapeStringForJson(otp)}"
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'},
+  "otp": ${otp == null ? 'null' : '"${escapeStringForJson(otp)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Password Recovery Verify Otp',
@@ -11704,8 +11704,8 @@ class RetailAuthMpinRecoveryVerifyOtpCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}",
-  "otp": "${escapeStringForJson(otp)}"
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'},
+  "otp": ${otp == null ? 'null' : '"${escapeStringForJson(otp)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Mpin Recovery Verify Otp',
@@ -11785,9 +11785,9 @@ class RetailAuthPasswordRecoveryResetCall {
 
     final ffApiRequestBody = '''
 {
-  "resetToken": "${escapeStringForJson(resetToken)}",
-  "newPassword": "${escapeStringForJson(newPassword)}",
-  "confirmPassword": "${escapeStringForJson(confirmPassword)}"
+  "resetToken": ${resetToken == null ? 'null' : '"${escapeStringForJson(resetToken)}"'},
+  "newPassword": ${newPassword == null ? 'null' : '"${escapeStringForJson(newPassword)}"'},
+  "confirmPassword": ${confirmPassword == null ? 'null' : '"${escapeStringForJson(confirmPassword)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Password Recovery Reset',
@@ -11867,9 +11867,9 @@ class RetailAuthMpinRecoveryResetCall {
 
     final ffApiRequestBody = '''
 {
-  "resetToken": "${escapeStringForJson(resetToken)}",
-  "newMpin": "${escapeStringForJson(newMpin)}",
-  "confirmMpin": "${escapeStringForJson(confirmMpin)}"
+  "resetToken": ${resetToken == null ? 'null' : '"${escapeStringForJson(resetToken)}"'},
+  "newMpin": ${newMpin == null ? 'null' : '"${escapeStringForJson(newMpin)}"'},
+  "confirmMpin": ${confirmMpin == null ? 'null' : '"${escapeStringForJson(confirmMpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Mpin Recovery Reset',
@@ -12025,10 +12025,10 @@ class RetailAuthMpinLoginCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "mpin": "${escapeStringForJson(mpin)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Mpin Login',
@@ -12118,7 +12118,7 @@ class RetailAuthMpinChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Auth Mpin Challenge',
@@ -12261,8 +12261,8 @@ class RetailSettingsMpinSetCall {
     final jsonBody = _serializeJson(jsonBodyJson);
     final ffApiRequestBody = '''
 {
-  "mpin": "${escapeStringForJson(mpin)}",
-  "confirmMpin": "${escapeStringForJson(confirmMpin)}"
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'},
+  "confirmMpin": ${confirmMpin == null ? 'null' : '"${escapeStringForJson(confirmMpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Mpin Set',
@@ -12343,9 +12343,9 @@ class RetailSettingsMpinChangeCall {
 
     final ffApiRequestBody = '''
 {
-  "currentMpin": "${escapeStringForJson(currentMpin)}",
-  "newMpin": "${escapeStringForJson(newMpin)}",
-  "confirmNewMpin": "${escapeStringForJson(confirmNewMpin)}"
+  "currentMpin": ${currentMpin == null ? 'null' : '"${escapeStringForJson(currentMpin)}"'},
+  "newMpin": ${newMpin == null ? 'null' : '"${escapeStringForJson(newMpin)}"'},
+  "confirmNewMpin": ${confirmNewMpin == null ? 'null' : '"${escapeStringForJson(confirmNewMpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Mpin Change',
@@ -12422,10 +12422,10 @@ class RetailSettingsMpinVerifyCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "currentMpin": "${escapeStringForJson(currentMpin)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "currentMpin": ${currentMpin == null ? 'null' : '"${escapeStringForJson(currentMpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Mpin Verify',
@@ -12903,7 +12903,7 @@ class RetailSettingsNotificationPreferencesUpdateCall {
 {
   "preferences": [
     {
-      "eventType": "${escapeStringForJson(eventType)}",
+      "eventType": ${eventType == null ? 'null' : '"${escapeStringForJson(eventType)}"'},
       "enabled": ${enabled},
       "smsEnabled": ${smsEnabled},
       "emailEnabled": ${emailEnabled},
@@ -13318,8 +13318,8 @@ class RetailSettingsDeviceRemoveConfirmOTPCall {
 
     final ffApiRequestBody = '''
 {
-  "otp": "${escapeStringForJson(otp)}",
-  "sessionId": "${escapeStringForJson(sessionId)}"
+  "otp": ${otp == null ? 'null' : '"${escapeStringForJson(otp)}"'},
+  "sessionId": ${sessionId == null ? 'null' : '"${escapeStringForJson(sessionId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Device Remove Confirm OTP',
@@ -13399,13 +13399,13 @@ class RetailSettingsDeviceRegisterCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "deviceName": "${escapeStringForJson(deviceName)}",
-  "pushToken": "${escapeStringForJson(pushToken)}",
-  "pushPlatform": "${escapeStringForJson(pushPlatform)}",
-  "deviceType": "${escapeStringForJson(deviceType)}",
-  "osVersion": "${escapeStringForJson(osVersion)}",
-  "appVersion": "${escapeStringForJson(appVersion)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "deviceName": ${deviceName == null ? 'null' : '"${escapeStringForJson(deviceName)}"'},
+  "pushToken": ${pushToken == null ? 'null' : '"${escapeStringForJson(pushToken)}"'},
+  "pushPlatform": ${pushPlatform == null ? 'null' : '"${escapeStringForJson(pushPlatform)}"'},
+  "deviceType": ${deviceType == null ? 'null' : '"${escapeStringForJson(deviceType)}"'},
+  "osVersion": ${osVersion == null ? 'null' : '"${escapeStringForJson(osVersion)}"'},
+  "appVersion": ${appVersion == null ? 'null' : '"${escapeStringForJson(appVersion)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Device Register',
@@ -13513,8 +13513,8 @@ class RetailSettingsDevicePushNotifTokenCall {
 
     final ffApiRequestBody = '''
 {
-  "pushToken": "${escapeStringForJson(pushToken)}",
-  "pushPlatform": "${escapeStringForJson(pushPlatform)}"
+  "pushToken": ${pushToken == null ? 'null' : '"${escapeStringForJson(pushToken)}"'},
+  "pushPlatform": ${pushPlatform == null ? 'null' : '"${escapeStringForJson(pushPlatform)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Device Push Notif Token',
@@ -13668,9 +13668,9 @@ class RetailSettingsDeviceInitiateTrustConfirmOtpCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionId": "${escapeStringForJson(sessionId)}",
-  "otp": "${escapeStringForJson(otp)}",
-  "devicePublicKey": "${escapeStringForJson(devicePublicKey)}"
+  "sessionId": ${sessionId == null ? 'null' : '"${escapeStringForJson(sessionId)}"'},
+  "otp": ${otp == null ? 'null' : '"${escapeStringForJson(otp)}"'},
+  "devicePublicKey": ${devicePublicKey == null ? 'null' : '"${escapeStringForJson(devicePublicKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Device Initiate Trust Confirm Otp',
@@ -13813,7 +13813,7 @@ class RetailSettingsDeviceTrustRequestCall {
 
     final ffApiRequestBody = '''
 {
-  "devicePublicKey": "${escapeStringForJson(devicePublicKey)}"
+  "devicePublicKey": ${devicePublicKey == null ? 'null' : '"${escapeStringForJson(devicePublicKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Device Trust Request',
@@ -13965,7 +13965,7 @@ class RetailSettingsSigningChallengeForDeviceTrustApprovalCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Signing Challenge For Device Trust Approval',
@@ -14084,11 +14084,11 @@ class RetailSettingsDeviceTrustConfirmSigningCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Device Trust Confirm Signing',
@@ -14646,8 +14646,8 @@ class RetailSettingsTransactionLimitsUpdateConfirmOtpCall {
 
     final ffApiRequestBody = '''
 {
-  "otp": "${escapeStringForJson(otp)}",
-  "sessionId": "${escapeStringForJson(sessionId)}"
+  "otp": ${otp == null ? 'null' : '"${escapeStringForJson(otp)}"'},
+  "sessionId": ${sessionId == null ? 'null' : '"${escapeStringForJson(sessionId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Transaction Limits Update Confirm Otp',
@@ -14850,7 +14850,7 @@ class RetailSettingsDeactivateAccountConfirmCall {
 
     final ffApiRequestBody = '''
 {
-  "reason": "${escapeStringForJson(reason)}"
+  "reason": ${reason == null ? 'null' : '"${escapeStringForJson(reason)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Deactivate Account Confirm',
@@ -15541,9 +15541,9 @@ class TransferCryptoToOthersCall {
 
     final ffApiRequestBody = '''
 {
-  "toUsername": "${escapeStringForJson(toUsername)}",
-  "currency": "${escapeStringForJson(currency)}",
-  "amount": "${escapeStringForJson(amount)}"
+  "toUsername": ${toUsername == null ? 'null' : '"${escapeStringForJson(toUsername)}"'},
+  "currency": ${currency == null ? 'null' : '"${escapeStringForJson(currency)}"'},
+  "amount": ${amount == null ? 'null' : '"${escapeStringForJson(amount)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Transfer Crypto To Others',
@@ -15676,12 +15676,12 @@ class AddBeneficiariyCall {
 
     final ffApiRequestBody = '''
 {
-  "nickname": "${escapeStringForJson(nickname)}",
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "accountHolderName": "${escapeStringForJson(accountHolderName)}",
-  "bankCode": "${escapeStringForJson(bankCode)}",
-  "bankName": "${escapeStringForJson(bankName)}",
-  "transferType": "${escapeStringForJson(transferType)}"
+  "nickname": ${nickname == null ? 'null' : '"${escapeStringForJson(nickname)}"'},
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "accountHolderName": ${accountHolderName == null ? 'null' : '"${escapeStringForJson(accountHolderName)}"'},
+  "bankCode": ${bankCode == null ? 'null' : '"${escapeStringForJson(bankCode)}"'},
+  "bankName": ${bankName == null ? 'null' : '"${escapeStringForJson(bankName)}"'},
+  "transferType": ${transferType == null ? 'null' : '"${escapeStringForJson(transferType)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Add Beneficiariy',
@@ -15806,7 +15806,7 @@ class PatchAliasCall {
     );
 
     final ffApiRequestBody = '''
-{"alias": "${escapeStringForJson(alias)}"}''';
+{"alias": ${alias == null ? 'null' : '"${escapeStringForJson(alias)}"'}}''';
     return ApiManager.instance.makeApiCall(
       callName: 'Patch Alias',
       apiUrl: '${baseUrl}/retail/accounts/${accountNumber}/alias',
@@ -16058,7 +16058,7 @@ class RetailTransfersSigningChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Transfers Signing Challenge',
@@ -16134,14 +16134,14 @@ class RetailTransfersConfirmSigningCall {
     final authenticatorResponse = _serializeJson(authenticatorResponseJson);
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}",
-  "stepupToken": "${escapeStringForJson(stepupToken)}",
-  "transactionHash": "${escapeStringForJson(transactionHash)}",
-  "credentialId": "${escapeStringForJson(credentialId)}",
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'},
+  "stepupToken": ${stepupToken == null ? 'null' : '"${escapeStringForJson(stepupToken)}"'},
+  "transactionHash": ${transactionHash == null ? 'null' : '"${escapeStringForJson(transactionHash)}"'},
+  "credentialId": ${credentialId == null ? 'null' : '"${escapeStringForJson(credentialId)}"'},
   "authenticatorResponse": ${authenticatorResponse}
  
 }''';
@@ -16226,7 +16226,7 @@ class LimitsChallengeCall {
     final updates = _serializeJson(updatesJson, true);
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}",
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
   "updates": ${updates}
 }''';
     return ApiManager.instance.makeApiCall(
@@ -16297,11 +16297,11 @@ class LimitsChallengeConfirmCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Limits Challenge Confirm',
@@ -16373,7 +16373,7 @@ class RetailSettingsDeviceRemoveChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Device Remove Challenge',
@@ -16495,11 +16495,11 @@ class RetailSettingsDeviceRemoveConfirmCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Device Remove Confirm',
@@ -16565,7 +16565,7 @@ class MpinChangeChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
@@ -16648,13 +16648,13 @@ class MpinChangeConfirmCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "currentMpin": "${escapeStringForJson(currentMpin)}",
-  "newMpin": "${escapeStringForJson(newMpin)}",
-  "confirmMpin": "${escapeStringForJson(confirmMpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "currentMpin": ${currentMpin == null ? 'null' : '"${escapeStringForJson(currentMpin)}"'},
+  "newMpin": ${newMpin == null ? 'null' : '"${escapeStringForJson(newMpin)}"'},
+  "confirmMpin": ${confirmMpin == null ? 'null' : '"${escapeStringForJson(confirmMpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Mpin Change Confirm',
@@ -16738,20 +16738,20 @@ class ScheduleTransferSigningChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "transferType": "${escapeStringForJson(transferType)}",
-  "sourceAccountNumber": "${escapeStringForJson(sourceAccountNumber)}",
-  "destinationAccountNumber": "${escapeStringForJson(destinationAccountNumber)}",
-  "destinationBankCode": "${escapeStringForJson(destinationBankCode)}",
+  "transferType": ${transferType == null ? 'null' : '"${escapeStringForJson(transferType)}"'},
+  "sourceAccountNumber": ${sourceAccountNumber == null ? 'null' : '"${escapeStringForJson(sourceAccountNumber)}"'},
+  "destinationAccountNumber": ${destinationAccountNumber == null ? 'null' : '"${escapeStringForJson(destinationAccountNumber)}"'},
+  "destinationBankCode": ${destinationBankCode == null ? 'null' : '"${escapeStringForJson(destinationBankCode)}"'},
   "amount": ${amount},
-  "currency": "${escapeStringForJson(currency)}",
-  "remarks": "${escapeStringForJson(remarks)}",
-  "frequency": "${escapeStringForJson(frequency)}",
-  "startDate": "${escapeStringForJson(startDate)}",
-  "endCondition": "${escapeStringForJson(endCondition)}",
-  "endDate": "${escapeStringForJson(endDate)}",
-  "destinationAccountHolderName": "${escapeStringForJson(destinationAccountHolderName)}",
+  "currency": ${currency == null ? 'null' : '"${escapeStringForJson(currency)}"'},
+  "remarks": ${remarks == null ? 'null' : '"${escapeStringForJson(remarks)}"'},
+  "frequency": ${frequency == null ? 'null' : '"${escapeStringForJson(frequency)}"'},
+  "startDate": ${startDate == null ? 'null' : '"${escapeStringForJson(startDate)}"'},
+  "endCondition": ${endCondition == null ? 'null' : '"${escapeStringForJson(endCondition)}"'},
+  "endDate": ${endDate == null ? 'null' : '"${escapeStringForJson(endDate)}"'},
+  "destinationAccountHolderName": ${destinationAccountHolderName == null ? 'null' : '"${escapeStringForJson(destinationAccountHolderName)}"'},
   "maxOccurrences": ${maxOccurrences},
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
@@ -16867,15 +16867,15 @@ class RetailScheduledTransferConfirmCall {
     final authenticatorResponse = _serializeJson(authenticatorResponseJson);
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}",
-  "operationId": "${escapeStringForJson(operationId)}",
-  "stepupToken": "${escapeStringForJson(stepupToken)}",
-  "transactionHash": "${escapeStringForJson(transactionHash)}",
-  "credentialId": "${escapeStringForJson(credentialId)}",
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'},
+  "operationId": ${operationId == null ? 'null' : '"${escapeStringForJson(operationId)}"'},
+  "stepupToken": ${stepupToken == null ? 'null' : '"${escapeStringForJson(stepupToken)}"'},
+  "transactionHash": ${transactionHash == null ? 'null' : '"${escapeStringForJson(transactionHash)}"'},
+  "credentialId": ${credentialId == null ? 'null' : '"${escapeStringForJson(credentialId)}"'},
   "authenticatorResponse": ${authenticatorResponse}
   
 }''';
@@ -17489,11 +17489,11 @@ class RetailLoansPaymentCall {
     final ffApiRequestBody = '''
 {
   "amount": ${amount},
-  "sourceAccountNumber": "${escapeStringForJson(sourceAccountNumber)}",
-  "sourceAccountName": "${escapeStringForJson(sourceAccountName)}",
-  "currency": "${escapeStringForJson(currency)}",
-  "remarks": "${escapeStringForJson(remarks)}",
-  "idempotencyKey": "${escapeStringForJson(idempotencyKey)}"
+  "sourceAccountNumber": ${sourceAccountNumber == null ? 'null' : '"${escapeStringForJson(sourceAccountNumber)}"'},
+  "sourceAccountName": ${sourceAccountName == null ? 'null' : '"${escapeStringForJson(sourceAccountName)}"'},
+  "currency": ${currency == null ? 'null' : '"${escapeStringForJson(currency)}"'},
+  "remarks": ${remarks == null ? 'null' : '"${escapeStringForJson(remarks)}"'},
+  "idempotencyKey": ${idempotencyKey == null ? 'null' : '"${escapeStringForJson(idempotencyKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Loans Payment',
@@ -17540,7 +17540,7 @@ class RetailLoanPaymentSigningChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Loan Payment Signing Challenge',
@@ -17634,11 +17634,11 @@ class RetailLoanConfirmPaymentCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Loan Confirm Payment ',
@@ -17794,7 +17794,7 @@ class RetailLoanPaymentCancelCall {
 
     final ffApiRequestBody = '''
 {
-  "loanAccountNumber ": "${escapeStringForJson(loanAccountNumber)}"
+  "loanAccountNumber ": ${loanAccountNumber == null ? 'null' : '"${escapeStringForJson(loanAccountNumber)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Loan Payment Cancel',
@@ -17956,15 +17956,15 @@ class RetailTimeDepositsConfirmCall {
     final authenticatorResponse = _serializeJson(authenticatorResponseJson);
     final ffApiRequestBody = '''
 {
-  "openingId": "${escapeStringForJson(openingId)}",
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}",
-  "stepupToken": "${escapeStringForJson(stepupToken)}",
-  "transactionHash": "${escapeStringForJson(transactionHash)}",
-  "credentialId": "${escapeStringForJson(credentialId)}",
+  "openingId": ${openingId == null ? 'null' : '"${escapeStringForJson(openingId)}"'},
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'},
+  "stepupToken": ${stepupToken == null ? 'null' : '"${escapeStringForJson(stepupToken)}"'},
+  "transactionHash": ${transactionHash == null ? 'null' : '"${escapeStringForJson(transactionHash)}"'},
+  "credentialId": ${credentialId == null ? 'null' : '"${escapeStringForJson(credentialId)}"'},
   "authenticatorResponse": ${authenticatorResponse}
 
 }''';
@@ -18045,12 +18045,12 @@ class RetailTimeDepositsChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "productCode": "${escapeStringForJson(productCode)}",
+  "productCode": ${productCode == null ? 'null' : '"${escapeStringForJson(productCode)}"'},
   "amount": ${amount},
   "termDays": ${termDays},
-  "sourceAccountNumber": "${escapeStringForJson(sourceAccountNumber)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "idempotencyKey": "${escapeStringForJson(idempotencyKey)}"
+  "sourceAccountNumber": ${sourceAccountNumber == null ? 'null' : '"${escapeStringForJson(sourceAccountNumber)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "idempotencyKey": ${idempotencyKey == null ? 'null' : '"${escapeStringForJson(idempotencyKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Time Deposits Challenge',
@@ -18259,7 +18259,7 @@ class RetailGenPasskeyRegistrationOptionsCall {
 
     final ffApiRequestBody = '''
 {
-  "passkeyName": "${escapeStringForJson(passkeyName)}"
+  "passkeyName": ${passkeyName == null ? 'null' : '"${escapeStringForJson(passkeyName)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Gen Passkey Registration Options',
@@ -18339,12 +18339,12 @@ class RetailVerifyPasskeyRegistrationCall {
     final response = _serializeJson(responseJson);
     final ffApiRequestBody = '''
 {
-  "id": "${escapeStringForJson(id)}",
-  "rawId": "${escapeStringForJson(rawId)}",
-  "type": "${escapeStringForJson(type)}",
+  "id": ${id == null ? 'null' : '"${escapeStringForJson(id)}"'},
+  "rawId": ${rawId == null ? 'null' : '"${escapeStringForJson(rawId)}"'},
+  "type": ${type == null ? 'null' : '"${escapeStringForJson(type)}"'},
   "response": ${response},
-  "authenticatorAttachment": "${escapeStringForJson(authenticatorAttachment)}",
-  "passkeyName": "${escapeStringForJson(passkeyName)}"
+  "authenticatorAttachment": ${authenticatorAttachment == null ? 'null' : '"${escapeStringForJson(authenticatorAttachment)}"'},
+  "passkeyName": ${passkeyName == null ? 'null' : '"${escapeStringForJson(passkeyName)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Verify Passkey Registration',
@@ -18418,7 +18418,7 @@ class RetailGenPasskeyAuthOptionsCall {
 
     final ffApiRequestBody = '''
 {
-  "username": "${escapeStringForJson(username)}"
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Gen Passkey Auth Options',
@@ -18498,12 +18498,12 @@ class RetailVerifyPasskeyAuthCall {
     final response = _serializeJson(responseJson);
     final ffApiRequestBody = '''
 {
-  "id": "${escapeStringForJson(id)}",
-  "rawId": "${escapeStringForJson(rawId)}",
-  "type": "${escapeStringForJson(type)}",
+  "id": ${id == null ? 'null' : '"${escapeStringForJson(id)}"'},
+  "rawId": ${rawId == null ? 'null' : '"${escapeStringForJson(rawId)}"'},
+  "type": ${type == null ? 'null' : '"${escapeStringForJson(type)}"'},
   "response": ${response},
-  "authenticatorAttachment": "${escapeStringForJson(authenticatorAttachment)}",
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "authenticatorAttachment": ${authenticatorAttachment == null ? 'null' : '"${escapeStringForJson(authenticatorAttachment)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Verify Passkey Auth',
@@ -18679,7 +18679,7 @@ class RetailRenamePasskeyCredentialCall {
 
     final ffApiRequestBody = '''
 {
-  "name": "${escapeStringForJson(name)}"
+  "name": ${name == null ? 'null' : '"${escapeStringForJson(name)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Rename Passkey Credential',
@@ -18825,11 +18825,11 @@ class RetailGenStepupAuthOptionsCall {
 
     final ffApiRequestBody = '''
 {
-  "transactionType": "${escapeStringForJson(transactionType)}",
-  "transactionId": "${escapeStringForJson(transactionId)}",
+  "transactionType": ${transactionType == null ? 'null' : '"${escapeStringForJson(transactionType)}"'},
+  "transactionId": ${transactionId == null ? 'null' : '"${escapeStringForJson(transactionId)}"'},
   "amount": ${amount},
-  "currency": "${escapeStringForJson(currency)}",
-  "context": "${escapeStringForJson(context)}"
+  "currency": ${currency == null ? 'null' : '"${escapeStringForJson(currency)}"'},
+  "context": ${context == null ? 'null' : '"${escapeStringForJson(context)}"'}
 }''';
     return FFApiInterceptor.makeApiCall(
       // ignore: prefer_const_constructors - can be mutated by interceptors
@@ -19083,7 +19083,7 @@ class RetailGenPasskeyRecoveryOptionsCall {
 
     final ffApiRequestBody = '''
 {
-  "passkeyName": "${escapeStringForJson(passkeyName)}"
+  "passkeyName": ${passkeyName == null ? 'null' : '"${escapeStringForJson(passkeyName)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Gen Passkey Recovery Options',
@@ -19484,9 +19484,9 @@ class RetailPasskeyLoginWithRecoveryCodeCall {
 
     final ffApiRequestBody = '''
 {
-  "identifier": "${escapeStringForJson(identifier)}",
-  "recoveryCode": "${escapeStringForJson(recoveryCode)}",
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "identifier": ${identifier == null ? 'null' : '"${escapeStringForJson(identifier)}"'},
+  "recoveryCode": ${recoveryCode == null ? 'null' : '"${escapeStringForJson(recoveryCode)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Passkey Login With Recovery Code',
@@ -19561,8 +19561,8 @@ class RetailPasskeyRecoveryInitiateCall {
 
     final ffApiRequestBody = '''
 {
-  "email": "${escapeStringForJson(email)}",
-  "username": "${escapeStringForJson(username)}"
+  "email": ${email == null ? 'null' : '"${escapeStringForJson(email)}"'},
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Passkey Recovery Initiate',
@@ -19659,8 +19659,8 @@ class RetailPasskeyRecoveryVerifyOTPCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}",
-  "otp": "${escapeStringForJson(otp)}"
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'},
+  "otp": ${otp == null ? 'null' : '"${escapeStringForJson(otp)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Passkey Recovery Verify OTP',
@@ -19757,8 +19757,8 @@ class RetailPasskeyRecoveryVerifyCodeCall {
 
     final ffApiRequestBody = '''
 {
-  "sessionToken": "${escapeStringForJson(sessionToken)}",
-  "otp": "${escapeStringForJson(otp)}"
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'},
+  "otp": ${otp == null ? 'null' : '"${escapeStringForJson(otp)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Passkey Recovery Verify Code',
@@ -20037,8 +20037,8 @@ class RetailPasskeyAuthLoginStepupOptionsCall {
 
     final ffApiRequestBody = '''
 {
-  "pendingLoginToken": "${escapeStringForJson(pendingLoginToken)}",
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "pendingLoginToken": ${pendingLoginToken == null ? 'null' : '"${escapeStringForJson(pendingLoginToken)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Passkey Auth Login Stepup Options',
@@ -20123,17 +20123,17 @@ class RetailPasskeyAuthLoginStepupConfirmCall {
     final response = _serializeJson(responseJson);
     final ffApiRequestBody = '''
 {
-  "pendingLoginToken": "${escapeStringForJson(pendingLoginToken)}",
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}",
-  "id": "${escapeStringForJson(id)}",
-  "rawId": "${escapeStringForJson(rawId)}",
-  "type": "${escapeStringForJson(type)}",
+  "pendingLoginToken": ${pendingLoginToken == null ? 'null' : '"${escapeStringForJson(pendingLoginToken)}"'},
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'},
+  "id": ${id == null ? 'null' : '"${escapeStringForJson(id)}"'},
+  "rawId": ${rawId == null ? 'null' : '"${escapeStringForJson(rawId)}"'},
+  "type": ${type == null ? 'null' : '"${escapeStringForJson(type)}"'},
   "response": ${response},
-  "authenticatorAttachment": "${escapeStringForJson(authenticatorAttachment)}"
+  "authenticatorAttachment": ${authenticatorAttachment == null ? 'null' : '"${escapeStringForJson(authenticatorAttachment)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Passkey Auth Login Stepup Confirm',
@@ -20413,10 +20413,10 @@ class RetailChequebookPrepareCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
   "bookletCount": ${bookletCount},
-  "deliveryBranch": "${escapeStringForJson(deliveryBranch)}",
-  "idempotencyKey": "${escapeStringForJson(idempotencyKey)}"
+  "deliveryBranch": ${deliveryBranch == null ? 'null' : '"${escapeStringForJson(deliveryBranch)}"'},
+  "idempotencyKey": ${idempotencyKey == null ? 'null' : '"${escapeStringForJson(idempotencyKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Chequebook Prepare',
@@ -20490,7 +20490,7 @@ class RetailChequebookConfirmSigningCall {
 
     final ffApiRequestBody = '''
 {
-  "pendingRequestId": "${escapeStringForJson(pendingRequestId)}"
+  "pendingRequestId": ${pendingRequestId == null ? 'null' : '"${escapeStringForJson(pendingRequestId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Chequebook Confirm Signing',
@@ -20636,10 +20636,10 @@ class RetailChequebookRequestSubmitCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
   "bookletCount": ${bookletCount},
-  "remarks": "${escapeStringForJson(remarks)}",
-  "idempotencyKey": "${escapeStringForJson(idempotencyKey)}"
+  "remarks": ${remarks == null ? 'null' : '"${escapeStringForJson(remarks)}"'},
+  "idempotencyKey": ${idempotencyKey == null ? 'null' : '"${escapeStringForJson(idempotencyKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Chequebook Request Submit',
@@ -20815,7 +20815,7 @@ class RetailKillSwitchActivateChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Kill Switch Activate Challenge',
@@ -20894,14 +20894,14 @@ class RetailKillSwitchActivateConfirmCall {
     final authenticatorResponse = _serializeJson(authenticatorResponseJson);
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}",
-  "stepupToken": "${escapeStringForJson(stepupToken)}",
-  "transactionHash": "${escapeStringForJson(transactionHash)}",
-  "credentialId": "${escapeStringForJson(credentialId)}",
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'},
+  "stepupToken": ${stepupToken == null ? 'null' : '"${escapeStringForJson(stepupToken)}"'},
+  "transactionHash": ${transactionHash == null ? 'null' : '"${escapeStringForJson(transactionHash)}"'},
+  "credentialId": ${credentialId == null ? 'null' : '"${escapeStringForJson(credentialId)}"'},
   "authenticatorResponse": ${authenticatorResponse}
 }''';
     return ApiManager.instance.makeApiCall(
@@ -21130,13 +21130,13 @@ class RetailReportSuspiciousReportCall {
     final attachmentUrls = _serializeJson(attachmentUrlsJson);
     final ffApiRequestBody = '''
 {
-  "reportType": "${escapeStringForJson(reportType)}",
-  "description": "${escapeStringForJson(description)}",
-  "submissionSource": "${escapeStringForJson(submissionSource)}",
+  "reportType": ${reportType == null ? 'null' : '"${escapeStringForJson(reportType)}"'},
+  "description": ${description == null ? 'null' : '"${escapeStringForJson(description)}"'},
+  "submissionSource": ${submissionSource == null ? 'null' : '"${escapeStringForJson(submissionSource)}"'},
   "attachmentUrls": [
     ${attachmentUrls}
   ],
-  "idempotencyKey": "${escapeStringForJson(idempotencyKey)}"
+  "idempotencyKey": ${idempotencyKey == null ? 'null' : '"${escapeStringForJson(idempotencyKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Report Suspicious Report',
@@ -21427,7 +21427,7 @@ class RetailContentHubArticleEventsCall {
 
     final ffApiRequestBody = '''
 {
-  "eventType": "${escapeStringForJson(eventType)}",
+  "eventType": ${eventType == null ? 'null' : '"${escapeStringForJson(eventType)}"'},
   "dwellMs": ${dwellMs}
 }''';
     return ApiManager.instance.makeApiCall(
@@ -21509,15 +21509,15 @@ class RetailReportDisputesChallengeCall {
     final evidenceUrls = _serializeJson(evidenceUrlsJson);
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "transactionType": "${escapeStringForJson(transactionType)}",
-  "transactionReference": "${escapeStringForJson(transactionReference)}",
-  "category": "${escapeStringForJson(category)}",
-  "description": "${escapeStringForJson(description)}",
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "transactionType": ${transactionType == null ? 'null' : '"${escapeStringForJson(transactionType)}"'},
+  "transactionReference": ${transactionReference == null ? 'null' : '"${escapeStringForJson(transactionReference)}"'},
+  "category": ${category == null ? 'null' : '"${escapeStringForJson(category)}"'},
+  "description": ${description == null ? 'null' : '"${escapeStringForJson(description)}"'},
   "evidenceUrls": [
     ${evidenceUrls}
   ],
-  "idempotencyKey": "${escapeStringForJson(idempotencyKey)}"
+  "idempotencyKey": ${idempotencyKey == null ? 'null' : '"${escapeStringForJson(idempotencyKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Report Disputes Challenge',
@@ -21570,16 +21570,16 @@ class RetailReportDisputesChallengeWithTransactionIDCall {
     final evidenceUrls = _serializeJson(evidenceUrlsJson);
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "transactionType": "${escapeStringForJson(transactionType)}",
-  "transactionId": "${escapeStringForJson(transactionId)}",
-  "transactionReference": "${escapeStringForJson(transactionReference)}",
-  "category": "${escapeStringForJson(category)}",
-  "description": "${escapeStringForJson(description)}",
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "transactionType": ${transactionType == null ? 'null' : '"${escapeStringForJson(transactionType)}"'},
+  "transactionId": ${transactionId == null ? 'null' : '"${escapeStringForJson(transactionId)}"'},
+  "transactionReference": ${transactionReference == null ? 'null' : '"${escapeStringForJson(transactionReference)}"'},
+  "category": ${category == null ? 'null' : '"${escapeStringForJson(category)}"'},
+  "description": ${description == null ? 'null' : '"${escapeStringForJson(description)}"'},
   "evidenceUrls": [
     ${evidenceUrls}
   ],
-  "idempotencyKey": "${escapeStringForJson(idempotencyKey)}"
+  "idempotencyKey": ${idempotencyKey == null ? 'null' : '"${escapeStringForJson(idempotencyKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Report Disputes Challenge With TransactionID',
@@ -21628,11 +21628,11 @@ class RetailReportDisputeChallengeSigningCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Report Dispute Challenge Signing',
@@ -21780,9 +21780,9 @@ class RetailStopChequePrepareCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "chequeNumber": "${escapeStringForJson(chequeNumber)}",
-  "reason": "${escapeStringForJson(reason)}"
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "chequeNumber": ${chequeNumber == null ? 'null' : '"${escapeStringForJson(chequeNumber)}"'},
+  "reason": ${reason == null ? 'null' : '"${escapeStringForJson(reason)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Stop Cheque Prepare',
@@ -21828,7 +21828,7 @@ class RetailStopChequeSigningChallengeCall {
 
     final ffApiRequestBody = '''
 {
-  "deviceId": "${escapeStringForJson(deviceId)}"
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Stop Cheque Signing Challenge',
@@ -21878,11 +21878,11 @@ class RetailStopChequeConfirmSigningCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "challenge": "${escapeStringForJson(challenge)}",
-  "signature": "${escapeStringForJson(signature)}",
-  "mpin": "${escapeStringForJson(mpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Stop Cheque Confirm Signing',
@@ -21931,10 +21931,10 @@ class RetailConfirmSigningPasskeyCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "stepupToken": "${escapeStringForJson(stepupToken)}",
-  "transactionHash": "${escapeStringForJson(transactionHash)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "stepupToken": ${stepupToken == null ? 'null' : '"${escapeStringForJson(stepupToken)}"'},
+  "transactionHash": ${transactionHash == null ? 'null' : '"${escapeStringForJson(transactionHash)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Confirm Signing Passkey',
@@ -22029,11 +22029,11 @@ class RetailScheduledTransferConfirmPasskeyCall {
     final requestBody = _serializeJson(requestBodyJson);
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "operationId": "${escapeStringForJson(operationId)}",
-  "stepupToken": "${escapeStringForJson(stepupToken)}",
-  "transactionHash": "${escapeStringForJson(transactionHash)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "operationId": ${operationId == null ? 'null' : '"${escapeStringForJson(operationId)}"'},
+  "stepupToken": ${stepupToken == null ? 'null' : '"${escapeStringForJson(stepupToken)}"'},
+  "transactionHash": ${transactionHash == null ? 'null' : '"${escapeStringForJson(transactionHash)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Scheduled Transfer Confirm Passkey',
@@ -22082,11 +22082,11 @@ class MpinChangeConfirmPasskeyCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "currentMpin": "${escapeStringForJson(currentMpin)}",
-  "newMpin": "${escapeStringForJson(newMpin)}",
-  "confirmMpin": "${escapeStringForJson(confirmMpin)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "currentMpin": ${currentMpin == null ? 'null' : '"${escapeStringForJson(currentMpin)}"'},
+  "newMpin": ${newMpin == null ? 'null' : '"${escapeStringForJson(newMpin)}"'},
+  "confirmMpin": ${confirmMpin == null ? 'null' : '"${escapeStringForJson(confirmMpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Mpin Change Confirm Passkey',
@@ -22134,10 +22134,10 @@ class RetailKillSwitchActivateConfirmPasskeyCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "stepupToken": "${escapeStringForJson(stepupToken)}",
-  "transactionHash": "${escapeStringForJson(transactionHash)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "stepupToken": ${stepupToken == null ? 'null' : '"${escapeStringForJson(stepupToken)}"'},
+  "transactionHash": ${transactionHash == null ? 'null' : '"${escapeStringForJson(transactionHash)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Kill Switch Activate Confirm Passkey',
@@ -22186,11 +22186,11 @@ class LimitsChallengeConfirmPasskeyCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "stepupToken": "${escapeStringForJson(stepupToken)}",
-  "transactionHash": "${escapeStringForJson(transactionHash)}",
-  "operationId": "${escapeStringForJson(operationId)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "stepupToken": ${stepupToken == null ? 'null' : '"${escapeStringForJson(stepupToken)}"'},
+  "transactionHash": ${transactionHash == null ? 'null' : '"${escapeStringForJson(transactionHash)}"'},
+  "operationId": ${operationId == null ? 'null' : '"${escapeStringForJson(operationId)}"'}
 }
 ''';
     return ApiManager.instance.makeApiCall(
@@ -22240,11 +22240,11 @@ class RetailConfirmLoanPaymentPasskeyCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(biometric)}",
-  "stepupToken": "${escapeStringForJson(stepupToken)}",
-  "transactionHash": "${escapeStringForJson(transactionHash)}",
-  "loanAccountNumber": "${escapeStringForJson(loanAccountNumber)}",
-  "paymentId": "${escapeStringForJson(paymentId)}"
+  "method": ${biometric == null ? 'null' : '"${escapeStringForJson(biometric)}"'},
+  "stepupToken": ${stepupToken == null ? 'null' : '"${escapeStringForJson(stepupToken)}"'},
+  "transactionHash": ${transactionHash == null ? 'null' : '"${escapeStringForJson(transactionHash)}"'},
+  "loanAccountNumber": ${loanAccountNumber == null ? 'null' : '"${escapeStringForJson(loanAccountNumber)}"'},
+  "paymentId": ${paymentId == null ? 'null' : '"${escapeStringForJson(paymentId)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Confirm Loan Payment Passkey',
@@ -22292,9 +22292,9 @@ class RetailSettingsPasswordChangeConfirmPasskeyCall {
 
     final ffApiRequestBody = '''
 {
-  "method": "${escapeStringForJson(method)}",
-  "transactionHash": "${escapeStringForJson(transactionHash)}",
-  "stepupToken": "${escapeStringForJson(stepupToken)}"
+  "method": ${method == null ? 'null' : '"${escapeStringForJson(method)}"'},
+  "transactionHash": ${transactionHash == null ? 'null' : '"${escapeStringForJson(transactionHash)}"'},
+  "stepupToken": ${stepupToken == null ? 'null' : '"${escapeStringForJson(stepupToken)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Settings Password Change Confirm  Passkey',
@@ -22342,10 +22342,10 @@ class RetailSafetyDepositBoxRequestsCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "branchId": "${escapeStringForJson(branchId)}",
-  "boxSize": "${escapeStringForJson(boxSize)}",
-  "idempotencyKey": "${escapeStringForJson(idempotencyKey)}"
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "branchId": ${branchId == null ? 'null' : '"${escapeStringForJson(branchId)}"'},
+  "boxSize": ${boxSize == null ? 'null' : '"${escapeStringForJson(boxSize)}"'},
+  "idempotencyKey": ${idempotencyKey == null ? 'null' : '"${escapeStringForJson(idempotencyKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Safety Deposit Box Requests',
@@ -22593,11 +22593,11 @@ class RetailCardReplacementRequestsCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "cardNumber": "${escapeStringForJson(cardNumber)}",
-  "cardHolderName": "${escapeStringForJson(cardHolderName)}",
-  "replacementReason": "${escapeStringForJson(replacementReason)}",
-  "idempotencyKey": "${escapeStringForJson(idempotencyKey)}"
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "cardNumber": ${cardNumber == null ? 'null' : '"${escapeStringForJson(cardNumber)}"'},
+  "cardHolderName": ${cardHolderName == null ? 'null' : '"${escapeStringForJson(cardHolderName)}"'},
+  "replacementReason": ${replacementReason == null ? 'null' : '"${escapeStringForJson(replacementReason)}"'},
+  "idempotencyKey": ${idempotencyKey == null ? 'null' : '"${escapeStringForJson(idempotencyKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Card Replacement Requests',
@@ -22772,10 +22772,10 @@ class RetailLoanInquireSRCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "loanType": "${escapeStringForJson(loanType)}",
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "loanType": ${loanType == null ? 'null' : '"${escapeStringForJson(loanType)}"'},
   "hasPbbLoan": ${hasPBBLoan},
-  "idempotencyKey": "${escapeStringForJson(idempotencyKey)}"
+  "idempotencyKey": ${idempotencyKey == null ? 'null' : '"${escapeStringForJson(idempotencyKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Loan Inquire SR',
@@ -22944,15 +22944,15 @@ class RetailServiceRequestTrustProductSubmitCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}",
-  "nationality": "${escapeStringForJson(nationality)}",
-  "investibleFunds": "${escapeStringForJson(investibleFunds)}",
-  "investmentObjective": "${escapeStringForJson(investmentObjective)}",
-  "investmentHorizon": "${escapeStringForJson(investmentHorizon)}",
-  "investmentAllocation": "${escapeStringForJson(investmentAllocation)}",
-  "riskTolerance": "${escapeStringForJson(riskTolerance)}",
-  "netWorthLast2Years": "${escapeStringForJson(netWorthLast2Years)}",
-  "idempotencyKey": "${escapeStringForJson(idempotencyKey)}"
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'},
+  "nationality": ${nationality == null ? 'null' : '"${escapeStringForJson(nationality)}"'},
+  "investibleFunds": ${investibleFunds == null ? 'null' : '"${escapeStringForJson(investibleFunds)}"'},
+  "investmentObjective": ${investmentObjective == null ? 'null' : '"${escapeStringForJson(investmentObjective)}"'},
+  "investmentHorizon": ${investmentHorizon == null ? 'null' : '"${escapeStringForJson(investmentHorizon)}"'},
+  "investmentAllocation": ${investmentAllocation == null ? 'null' : '"${escapeStringForJson(investmentAllocation)}"'},
+  "riskTolerance": ${riskTolerance == null ? 'null' : '"${escapeStringForJson(riskTolerance)}"'},
+  "netWorthLast2Years": ${netWorthLast2Years == null ? 'null' : '"${escapeStringForJson(netWorthLast2Years)}"'},
+  "idempotencyKey": ${idempotencyKey == null ? 'null' : '"${escapeStringForJson(idempotencyKey)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Service Request Trust ProductSubmit',
@@ -23189,10 +23189,10 @@ class MpinChangeSetNewPinCall {
 
     final ffApiRequestBody = '''
 {
-  "changeToken": "${escapeStringForJson(changeToken)}",
-  "deviceId": "${escapeStringForJson(deviceId)}",
-  "newMpin": "${escapeStringForJson(newMpin)}",
-  "confirmMpin": "${escapeStringForJson(confirmMpin)}"
+  "changeToken": ${changeToken == null ? 'null' : '"${escapeStringForJson(changeToken)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "newMpin": ${newMpin == null ? 'null' : '"${escapeStringForJson(newMpin)}"'},
+  "confirmMpin": ${confirmMpin == null ? 'null' : '"${escapeStringForJson(confirmMpin)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Mpin Change Set New Pin',
@@ -23238,7 +23238,7 @@ class UpdateBeneficiaryCall {
 
     final ffApiRequestBody = '''
 {
-  "nickname": "${escapeStringForJson(nickname)}"
+  "nickname": ${nickname == null ? 'null' : '"${escapeStringForJson(nickname)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Update Beneficiary',
@@ -23322,7 +23322,7 @@ class RetailTransfersValidateAccountCall {
 
     final ffApiRequestBody = '''
 {
-  "accountNumber": "${escapeStringForJson(accountNumber)}"
+  "accountNumber": ${accountNumber == null ? 'null' : '"${escapeStringForJson(accountNumber)}"'}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Retail Transfers Validate Account',

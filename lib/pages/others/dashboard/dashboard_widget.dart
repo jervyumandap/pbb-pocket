@@ -48,6 +48,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.enablePrivacyProtection();
       await Future.delayed(
         Duration(
           milliseconds: 300,

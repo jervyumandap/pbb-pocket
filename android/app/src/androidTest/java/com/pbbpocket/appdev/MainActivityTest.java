@@ -1,4 +1,4 @@
-package com.pbb.pocket;
+package com.pbbpocket.appdev;
 
 import androidx.test.rule.ActivityTestRule;
 import dev.flutter.plugins.integration_test.FlutterTestRunner;

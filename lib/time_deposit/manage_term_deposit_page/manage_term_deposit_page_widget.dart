@@ -12,6 +12,7 @@ import '/components/primary_button_component/primary_button_component_widget.dar
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/actions/actions.dart' as action_blocks;
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -44,6 +45,7 @@ class _ManageTermDepositPageWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
       await action_blocks.refreshSessionActionBlock(context);
       safeSetState(() {});
       _model.apiResultv7f =

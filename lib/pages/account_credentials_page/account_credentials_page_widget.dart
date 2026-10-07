@@ -16,6 +16,7 @@ import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -52,6 +53,11 @@ class _AccountCredentialsPageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => AccountCredentialsPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
+    });
 
     _model.usernameTextFieldTextController ??= TextEditingController();
     _model.usernameTextFieldFocusNode ??= FocusNode();

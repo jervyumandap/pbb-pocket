@@ -249,6 +249,7 @@ class _LoginWithUsernameComponentWidgetState
           children: [
             Expanded(
               child: Semantics(
+                label: 'Log In',
                 onTapHint: 'login fields',
                 child: FFButtonWidget(
                   onPressed: () async {

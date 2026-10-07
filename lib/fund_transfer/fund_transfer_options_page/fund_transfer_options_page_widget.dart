@@ -13,6 +13,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/fund_transfer/fund_transfer_account_selection/fund_transfer_account_selection_widget.dart';
 import '/fund_transfer/fund_transfer_mode_options/fund_transfer_mode_options_widget.dart';
 import '/actions/actions.dart' as action_blocks;
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
@@ -57,6 +58,7 @@ class _FundTransferOptionsPageWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
       await action_blocks.refreshSessionActionBlock(context);
       _model.apiResultj46 =
           await WhitebankGroupAPIGroup.getBeneficiariesCall.call(

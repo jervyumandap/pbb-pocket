@@ -20,6 +20,7 @@ import '/pay_bills/p_b_components/modify_biller_bottom_sheet/modify_biller_botto
 import '/pay_bills/p_b_components/pay_bills_source_account_bottom_sheet/pay_bills_source_account_bottom_sheet_widget.dart';
 import '/pay_bills/p_b_components/save_biller_success_bottom_sheet/save_biller_success_bottom_sheet_widget.dart';
 import '/actions/actions.dart' as action_blocks;
+import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
@@ -66,6 +67,7 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
       await action_blocks.refreshSessionActionBlock(context);
       safeSetState(() {});
       await _model.getBillerList(context);

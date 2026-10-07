@@ -298,11 +298,6 @@ class _OpenTimeDepositProductSelectionPageWidgetState
                                                           children: [
                                                             if ((FFAppState()
                                                                     .AccountsState
-                                                                    .where((e) =>
-                                                                        e.currency ==
-                                                                        timeDepositProductListItem
-                                                                            .currency)
-                                                                    .toList()
                                                                     .isNotEmpty) ==
                                                                 true)
                                                               wrapWithModel(

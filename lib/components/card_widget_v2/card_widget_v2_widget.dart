@@ -322,54 +322,64 @@ class _CardWidgetV2WidgetState extends State<CardWidgetV2Widget> {
                                                 builder: (context) {
                                                   if (FFAppState()
                                                       .isBalanceVisible) {
-                                                    return InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        FFAppState()
-                                                                .isBalanceVisible =
-                                                            !(FFAppState()
-                                                                    .isBalanceVisible ??
-                                                                true);
-                                                        FFAppState()
-                                                            .update(() {});
-                                                      },
-                                                      child: FaIcon(
-                                                        FontAwesomeIcons.eye,
-                                                        color: Colors.white,
-                                                        size: 17.0,
+                                                    return Semantics(
+                                                      label:
+                                                          'Show or hide balance',
+                                                      container: true,
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          FFAppState()
+                                                                  .isBalanceVisible =
+                                                              !(FFAppState()
+                                                                      .isBalanceVisible ??
+                                                                  true);
+                                                          FFAppState()
+                                                              .update(() {});
+                                                        },
+                                                        child: FaIcon(
+                                                          FontAwesomeIcons.eye,
+                                                          color: Colors.white,
+                                                          size: 17.0,
+                                                        ),
                                                       ),
                                                     );
                                                   } else {
-                                                    return InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        FFAppState()
-                                                                .isBalanceVisible =
-                                                            !(FFAppState()
-                                                                    .isBalanceVisible ??
-                                                                true);
-                                                        FFAppState()
-                                                            .update(() {});
-                                                      },
-                                                      child: FaIcon(
-                                                        FontAwesomeIcons
-                                                            .solidEyeSlash,
-                                                        color: Colors.white,
-                                                        size: 17.0,
+                                                    return Semantics(
+                                                      label:
+                                                          'Show or hide balance',
+                                                      container: true,
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          FFAppState()
+                                                                  .isBalanceVisible =
+                                                              !(FFAppState()
+                                                                      .isBalanceVisible ??
+                                                                  true);
+                                                          FFAppState()
+                                                              .update(() {});
+                                                        },
+                                                        child: FaIcon(
+                                                          FontAwesomeIcons
+                                                              .solidEyeSlash,
+                                                          color: Colors.white,
+                                                          size: 17.0,
+                                                        ),
                                                       ),
                                                     );
                                                   }

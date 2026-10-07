@@ -49,6 +49,7 @@ class _SafetyDepositPageWidgetState extends State<SafetyDepositPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.disablePrivacyProtection();
       await action_blocks.refreshSessionActionBlock(context);
       _model.isLoading = false;
       safeSetState(() {});
