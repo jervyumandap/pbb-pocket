@@ -260,8 +260,9 @@ class _RecoveryUsernamePageWidgetState extends State<RecoveryUsernamePageWidget>
                                               children: [
                                                 Expanded(
                                                   child: Semantics(
-                                                    label:
-                                                        'Account-Number-TextField',
+                                                    label: 'Account number',
+                                                    identifier:
+                                                        'recovery_username_account_number',
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
@@ -440,7 +441,9 @@ class _RecoveryUsernamePageWidgetState extends State<RecoveryUsernamePageWidget>
                                               children: [
                                                 Expanded(
                                                   child: Semantics(
-                                                    label: 'ID-TextField',
+                                                    label: 'Reference ID',
+                                                    identifier:
+                                                        'recovery_username_reference_id',
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
@@ -615,8 +618,11 @@ class _RecoveryUsernamePageWidgetState extends State<RecoveryUsernamePageWidget>
                                               ].divide(SizedBox(width: 17.0)),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'CustomDateLabelPickerWidget',
+                                              label: 'Select date',
+                                              button: true,
+                                              container: true,
+                                              identifier:
+                                                  'recovery_username_date_picker',
                                               child: wrapWithModel(
                                                 model: _model
                                                     .customDateLabelPickerWidgetModel,
@@ -744,7 +750,8 @@ class _RecoveryUsernamePageWidgetState extends State<RecoveryUsernamePageWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 20.0, 60.0),
                               child: Semantics(
-                                label: 'Validate-Button',
+                                button: true,
+                                identifier: 'recovery_username_validate',
                                 child: FFButtonWidget(
                                   onPressed: () {
                                     print('Validate-Button pressed ...');

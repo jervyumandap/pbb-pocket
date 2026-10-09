@@ -361,7 +361,8 @@ class _VerifyMpinPageWidgetState extends State<VerifyMpinPageWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 20.0, 60.0),
                               child: Semantics(
-                                label: 'Verify-Button',
+                                button: true,
+                                identifier: 'verify_button',
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     FFAppState().currentMpinToChangeAppState =

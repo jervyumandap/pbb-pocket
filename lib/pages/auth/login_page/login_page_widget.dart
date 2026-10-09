@@ -320,7 +320,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       ),
                                             ),
                                             Semantics(
-                                              label: 'login_username_field',
+                                              label: 'Username',
+                                              identifier:
+                                                  'login_username_input',
                                               child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
@@ -475,8 +477,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 16.0),
                                                   child: Semantics(
-                                                    label:
-                                                        'login_password_field',
+                                                    label: 'Password',
+                                                    identifier:
+                                                        'login_password_input',
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
@@ -775,7 +778,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             ),
                                             Builder(
                                               builder: (context) => Semantics(
-                                                label: 'Login_Button',
+                                                label: 'Log in',
+                                                button: true,
+                                                container: true,
+                                                identifier:
+                                                    'login_submit_button',
                                                 child: wrapWithModel(
                                                   model: _model
                                                       .primaryButtonComponentModel,
@@ -1364,7 +1371,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             ),
                                             Builder(
                                               builder: (context) => Semantics(
-                                                label: 'Passkey_Login_Button',
+                                                label: 'Log in with passkey',
+                                                button: true,
+                                                identifier:
+                                                    'login_passkey_button',
                                                 child: FFButtonWidget(
                                                   onPressed:
                                                       (_model.textFieldUsernameTextController
@@ -2027,8 +2037,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   ),
                                                 ),
                                                 Semantics(
-                                                  label:
-                                                      'TextField_Username_Web',
+                                                  label: 'Username',
+                                                  identifier:
+                                                      'login_username_web_input',
                                                   child: Container(
                                                     width: double.infinity,
                                                     child: TextFormField(
@@ -2181,8 +2192,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   ),
                                                 ),
                                                 Semantics(
-                                                  label:
-                                                      'TextField_Password_Web',
+                                                  label: 'Password',
+                                                  identifier:
+                                                      'login_password_web_input',
                                                   child: Container(
                                                     width: double.infinity,
                                                     child: TextFormField(
@@ -2434,7 +2446,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 Builder(
                                                   builder: (context) =>
                                                       Semantics(
-                                                    label: 'Login_Button_Web',
+                                                    label: 'Log in',
+                                                    button: true,
+                                                    identifier:
+                                                        'login_submit_web_button',
                                                     child: FFButtonWidget(
                                                       onPressed: ((_model.textFieldUsernameWebTextController
                                                                           .text ==
@@ -3009,7 +3024,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                     builder: (context) =>
                                                         Semantics(
                                                       label:
-                                                          'Passkey_Login_Web',
+                                                          'Log in with passkey',
+                                                      button: true,
+                                                      identifier:
+                                                          'login_passkey_web_button',
                                                       child: FFButtonWidget(
                                                         onPressed: (_model.textFieldUsernameWebTextController
                                                                         .text ==

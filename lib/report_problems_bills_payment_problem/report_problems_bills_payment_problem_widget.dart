@@ -349,8 +349,10 @@ class _ReportProblemsBillsPaymentProblemWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportBills_transferType_component',
+                                                  label: 'Report transfer type',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportbills_transfertype_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -511,8 +513,9 @@ class _ReportProblemsBillsPaymentProblemWidgetState
                                               ].divide(SizedBox(height: 5.0)),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'reportBills_details_textfield',
+                                              label: 'Additional details',
+                                              identifier:
+                                                  'reportbills_details_textfield',
                                               child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
@@ -657,7 +660,9 @@ class _ReportProblemsBillsPaymentProblemWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 50.0),
                                 child: Semantics(
-                                  label: 'reportBills_submit_button',
+                                  label: 'Report submit',
+                                  button: true,
+                                  identifier: 'reportbills_submit_button',
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       if (_model.informationSelected == null) {

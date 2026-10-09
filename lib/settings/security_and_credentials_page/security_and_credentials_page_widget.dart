@@ -371,7 +371,9 @@ class _SecurityAndCredentialsPageWidgetState
                                                                 (context) =>
                                                                     Semantics(
                                                               label:
-                                                                  'Biometric_Switch',
+                                                                  'Biometrics',
+                                                              identifier:
+                                                                  'biometric_switch',
                                                               child: Switch
                                                                   .adaptive(
                                                                 value: _model
@@ -880,7 +882,10 @@ class _SecurityAndCredentialsPageWidgetState
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Semantics(
-                                                  label: 'Change_Password_Row',
+                                                  label: 'Change password',
+                                                  container: true,
+                                                  identifier:
+                                                      'change_password_row',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -1004,7 +1009,10 @@ class _SecurityAndCredentialsPageWidgetState
                                                   ),
                                                 if (isAndroid || isiOS)
                                                   Semantics(
-                                                    label: 'Change_Mpin_Row',
+                                                    label: 'Change MPIN',
+                                                    container: true,
+                                                    identifier:
+                                                        'change_mpin_row',
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -1150,7 +1158,9 @@ class _SecurityAndCredentialsPageWidgetState
                                                   color: Color(0x1A00727D),
                                                 ),
                                                 Semantics(
-                                                  label: 'Passkey_Row',
+                                                  label: 'Passkey',
+                                                  container: true,
+                                                  identifier: 'passkey_row',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,

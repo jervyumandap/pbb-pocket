@@ -438,35 +438,59 @@ class _PayBillPageWidgetState extends State<PayBillPageWidget>
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Expanded(
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              _model.isFavoritesSelected =
-                                                  false;
-                                              safeSetState(() {});
-                                            },
-                                            text: 'Billers',
-                                            options: FFButtonOptions(
-                                              width: 165.0,
-                                              height: 40.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: valueOrDefault<Color>(
-                                                _model.isFavoritesSelected
-                                                    ? Color(0xFFE2E8F0)
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                              ),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    font: GoogleFonts.inter(
+                                          child: Semantics(
+                                            button: true,
+                                            identifier: 'pay_bill_button',
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                _model.isFavoritesSelected =
+                                                    false;
+                                                safeSetState(() {});
+                                              },
+                                              text: 'Billers',
+                                              options: FFButtonOptions(
+                                                width: 165.0,
+                                                height: 40.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: valueOrDefault<Color>(
+                                                  _model.isFavoritesSelected
+                                                      ? Color(0xFFE2E8F0)
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleSmall
+                                                    .override(
+                                                      font: GoogleFonts.inter(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        _model.isFavoritesSelected
+                                                            ? Color(0xFF0F172B)
+                                                            : Color(0xFF45556C),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
                                                       fontStyle:
@@ -475,59 +499,67 @@ class _PayBillPageWidgetState extends State<PayBillPageWidget>
                                                               .titleSmall
                                                               .fontStyle,
                                                     ),
-                                                    color:
-                                                        valueOrDefault<Color>(
-                                                      _model.isFavoritesSelected
-                                                          ? Color(0xFF0F172B)
-                                                          : Color(0xFF45556C),
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                    ),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                              elevation: 0.0,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
                                             ),
                                           ),
                                         ),
                                         Expanded(
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              _model.isFavoritesSelected = true;
-                                              safeSetState(() {});
-                                            },
-                                            text: 'Favorites',
-                                            options: FFButtonOptions(
-                                              width: 165.0,
-                                              height: 40.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: valueOrDefault<Color>(
-                                                !_model.isFavoritesSelected
-                                                    ? Color(0xFFE2E8F0)
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                              ),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleSmall
-                                                  .override(
-                                                    font: GoogleFonts.inter(
+                                          child: Semantics(
+                                            button: true,
+                                            identifier: 'pay_bill_button_2',
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                _model.isFavoritesSelected =
+                                                    true;
+                                                safeSetState(() {});
+                                              },
+                                              text: 'Favorites',
+                                              options: FFButtonOptions(
+                                                width: 165.0,
+                                                height: 40.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: valueOrDefault<Color>(
+                                                  !_model.isFavoritesSelected
+                                                      ? Color(0xFFE2E8F0)
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground,
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                                ),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleSmall
+                                                    .override(
+                                                      font: GoogleFonts.inter(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        !_model.isFavoritesSelected
+                                                            ? Color(0xFF0F172B)
+                                                            : Color(0xFF45556C),
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                      ),
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
                                                       fontStyle:
@@ -536,27 +568,10 @@ class _PayBillPageWidgetState extends State<PayBillPageWidget>
                                                               .titleSmall
                                                               .fontStyle,
                                                     ),
-                                                    color:
-                                                        valueOrDefault<Color>(
-                                                      !_model.isFavoritesSelected
-                                                          ? Color(0xFF0F172B)
-                                                          : Color(0xFF45556C),
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                    ),
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmall
-                                                            .fontStyle,
-                                                  ),
-                                              elevation: 0.0,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -971,78 +986,81 @@ class _PayBillPageWidgetState extends State<PayBillPageWidget>
                                                                 MainAxisSize
                                                                     .max,
                                                             children: [
-                                                              Theme(
-                                                                data: ThemeData(
-                                                                  checkboxTheme:
-                                                                      CheckboxThemeData(
-                                                                    visualDensity:
-                                                                        VisualDensity
-                                                                            .compact,
-                                                                    materialTapTargetSize:
-                                                                        MaterialTapTargetSize
-                                                                            .shrinkWrap,
-                                                                    shape:
-                                                                        RoundedRectangleBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              4.0),
+                                                              Semantics(
+                                                                identifier:
+                                                                    'pay_bill_checkbox',
+                                                                child: Theme(
+                                                                  data:
+                                                                      ThemeData(
+                                                                    checkboxTheme:
+                                                                        CheckboxThemeData(
+                                                                      visualDensity:
+                                                                          VisualDensity
+                                                                              .compact,
+                                                                      materialTapTargetSize:
+                                                                          MaterialTapTargetSize
+                                                                              .shrinkWrap,
+                                                                      shape:
+                                                                          RoundedRectangleBorder(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(4.0),
+                                                                      ),
                                                                     ),
+                                                                    unselectedWidgetColor:
+                                                                        Color(
+                                                                            0xFF002C75),
                                                                   ),
-                                                                  unselectedWidgetColor:
-                                                                      Color(
-                                                                          0xFF002C75),
-                                                                ),
-                                                                child: Checkbox(
-                                                                  value: _model
-                                                                          .checkboxValue ??=
-                                                                      false,
-                                                                  onChanged:
-                                                                      (newValue) async {
-                                                                    safeSetState(() =>
-                                                                        _model.checkboxValue =
-                                                                            newValue!);
-                                                                    if (newValue!) {
-                                                                      _model.fundTransferType =
-                                                                          'OWN_ACCOUNT';
-                                                                      _model.checkBoxValue =
-                                                                          true;
-                                                                      safeSetState(
-                                                                          () {});
-                                                                      safeSetState(
-                                                                          () {
-                                                                        _model
-                                                                            .accountNumberTextfieldModel
-                                                                            .textController
-                                                                            ?.clear();
-                                                                        _model
-                                                                            .accountNameTextfieldModel
-                                                                            .textController
-                                                                            ?.clear();
-                                                                      });
-                                                                    } else {
-                                                                      _model.checkBoxValue =
-                                                                          false;
-                                                                      safeSetState(
-                                                                          () {});
-                                                                    }
-                                                                  },
-                                                                  side: (Color(
-                                                                              0xFF002C75) !=
-                                                                          null)
-                                                                      ? BorderSide(
-                                                                          width:
-                                                                              2,
-                                                                          color:
-                                                                              Color(0xFF002C75),
-                                                                        )
-                                                                      : null,
-                                                                  activeColor:
-                                                                      Color(
-                                                                          0xFF0AACB2),
-                                                                  checkColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .info,
+                                                                  child:
+                                                                      Checkbox(
+                                                                    value: _model
+                                                                            .checkboxValue ??=
+                                                                        false,
+                                                                    onChanged:
+                                                                        (newValue) async {
+                                                                      safeSetState(() =>
+                                                                          _model.checkboxValue =
+                                                                              newValue!);
+                                                                      if (newValue!) {
+                                                                        _model.fundTransferType =
+                                                                            'OWN_ACCOUNT';
+                                                                        _model.checkBoxValue =
+                                                                            true;
+                                                                        safeSetState(
+                                                                            () {});
+                                                                        safeSetState(
+                                                                            () {
+                                                                          _model
+                                                                              .accountNumberTextfieldModel
+                                                                              .textController
+                                                                              ?.clear();
+                                                                          _model
+                                                                              .accountNameTextfieldModel
+                                                                              .textController
+                                                                              ?.clear();
+                                                                        });
+                                                                      } else {
+                                                                        _model.checkBoxValue =
+                                                                            false;
+                                                                        safeSetState(
+                                                                            () {});
+                                                                      }
+                                                                    },
+                                                                    side: (Color(0xFF002C75) !=
+                                                                            null)
+                                                                        ? BorderSide(
+                                                                            width:
+                                                                                2,
+                                                                            color:
+                                                                                Color(0xFF002C75),
+                                                                          )
+                                                                        : null,
+                                                                    activeColor:
+                                                                        Color(
+                                                                            0xFF0AACB2),
+                                                                    checkColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .info,
+                                                                  ),
                                                                 ),
                                                               ),
                                                               Text(
@@ -2345,52 +2363,60 @@ class _PayBillPageWidgetState extends State<PayBillPageWidget>
                                               ),
                                             ].divide(SizedBox(width: 16.0)),
                                           ),
-                                          FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
-                                            },
-                                            text: 'Change',
-                                            icon: Icon(
-                                              Icons.chevron_right,
-                                              size: 16.0,
+                                          Semantics(
+                                            button: true,
+                                            identifier: 'pay_bill_button_3',
+                                            child: FFButtonWidget(
+                                              onPressed: () {
+                                                print('Button pressed ...');
+                                              },
+                                              text: 'Change',
+                                              icon: Icon(
+                                                Icons.chevron_right,
+                                                size: 16.0,
+                                              ),
+                                              options: FFButtonOptions(
+                                                height: 30.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 8.0, 16.0, 8.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                iconColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .whiteText,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .menuHover,
+                                                      fontSize: 12.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumIsCustom,
+                                                    ),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(20.0),
+                                              ),
+                                              showLoadingIndicator: false,
                                             ),
-                                            options: FFButtonOptions(
-                                              height: 30.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      16.0, 8.0, 16.0, 8.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .whiteText,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .menuHover,
-                                                    fontSize: 12.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w600,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumIsCustom,
-                                                  ),
-                                              elevation: 0.0,
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            showLoadingIndicator: false,
                                           ),
                                         ],
                                       ),
@@ -2441,153 +2467,152 @@ class _PayBillPageWidgetState extends State<PayBillPageWidget>
                                             scrollDirection: Axis.vertical,
                                             children: [
                                               Builder(
-                                                builder: (context) => InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder: (dialogContext) {
-                                                        return Dialog(
-                                                          elevation: 0,
-                                                          insetPadding:
-                                                              EdgeInsets.zero,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          alignment: AlignmentDirectional(
-                                                                  1.0, -1.0)
-                                                              .resolve(
-                                                                  Directionality.of(
-                                                                      context)),
-                                                          child: WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                              onTap: () {
-                                                                FocusScope.of(
-                                                                        dialogContext)
-                                                                    .unfocus();
-                                                                FocusManager
-                                                                    .instance
-                                                                    .primaryFocus
-                                                                    ?.unfocus();
-                                                              },
+                                                builder: (context) => Semantics(
+                                                  container: true,
+                                                  identifier:
+                                                      'pay_bill_send_money_via',
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (dialogContext) {
+                                                          return Dialog(
+                                                            elevation: 0,
+                                                            insetPadding:
+                                                                EdgeInsets.zero,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            alignment: AlignmentDirectional(
+                                                                    1.0, -1.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                            child: WebViewAware(
                                                               child:
-                                                                  SendViaComponentWidget(),
+                                                                  GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          dialogContext)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child:
+                                                                    SendViaComponentWidget(),
+                                                              ),
                                                             ),
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
-                                                  },
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width: 40.0,
-                                                            height: 40.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .formElementHover,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          50.0),
-                                                            ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Icon(
-                                                                Icons.person,
+                                                          );
+                                                        },
+                                                      );
+                                                    },
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Container(
+                                                              width: 40.0,
+                                                              height: 40.0,
+                                                              decoration:
+                                                                  BoxDecoration(
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryText,
-                                                                size: 24.0,
+                                                                    .formElementHover,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            50.0),
+                                                              ),
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child: Icon(
+                                                                  Icons.person,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  size: 24.0,
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Text(
-                                                                'Send Money Via:',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .titleMediumFamily,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .neutral3,
-                                                                      fontSize:
-                                                                          16.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .titleMediumIsCustom,
-                                                                    ),
-                                                              ),
-                                                              Text(
-                                                                'Select Channel',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .neutral3,
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyMediumIsCustom,
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ].divide(SizedBox(
-                                                            width: 16.0)),
-                                                      ),
-                                                    ],
+                                                            Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  'Send Money Via:',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).titleMediumFamily,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .neutral3,
+                                                                        fontSize:
+                                                                            16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).titleMediumIsCustom,
+                                                                      ),
+                                                                ),
+                                                                Text(
+                                                                  'Select Channel',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .neutral3,
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                      ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ].divide(SizedBox(
+                                                              width: 16.0)),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -3049,90 +3074,98 @@ class _PayBillPageWidgetState extends State<PayBillPageWidget>
                                                   CrossAxisAlignment.end,
                                               children: [
                                                 Builder(
-                                                  builder: (context) => InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (dialogContext) {
-                                                          return Dialog(
-                                                            elevation: 0,
-                                                            insetPadding:
-                                                                EdgeInsets.zero,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            alignment: AlignmentDirectional(
-                                                                    1.0, -1.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                            child: WebViewAware(
+                                                  builder: (context) =>
+                                                      Semantics(
+                                                    container: true,
+                                                    identifier: 'pay_bill_edit',
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (dialogContext) {
+                                                            return Dialog(
+                                                              elevation: 0,
+                                                              insetPadding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              alignment: AlignmentDirectional(
+                                                                      1.0, -1.0)
+                                                                  .resolve(
+                                                                      Directionality.of(
+                                                                          context)),
                                                               child:
-                                                                  GestureDetector(
-                                                                onTap: () {
-                                                                  FocusScope.of(
-                                                                          dialogContext)
-                                                                      .unfocus();
-                                                                  FocusManager
-                                                                      .instance
-                                                                      .primaryFocus
-                                                                      ?.unfocus();
-                                                                },
+                                                                  WebViewAware(
                                                                 child:
-                                                                    SendMoneyComponentWidget(),
+                                                                    GestureDetector(
+                                                                  onTap: () {
+                                                                    FocusScope.of(
+                                                                            dialogContext)
+                                                                        .unfocus();
+                                                                    FocusManager
+                                                                        .instance
+                                                                        .primaryFocus
+                                                                        ?.unfocus();
+                                                                  },
+                                                                  child:
+                                                                      SendMoneyComponentWidget(),
+                                                                ),
                                                               ),
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
-                                                    },
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Icon(
-                                                          Icons
-                                                              .mode_edit_outline,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          size: 18.0,
-                                                        ),
-                                                        Text(
-                                                          'Edit',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                                fontSize: 16.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMediumIsCustom,
-                                                              ),
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          width: 10.0)),
+                                                            );
+                                                          },
+                                                        );
+                                                      },
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Icon(
+                                                            Icons
+                                                                .mode_edit_outline,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            size: 18.0,
+                                                          ),
+                                                          Text(
+                                                            'Edit',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                          ),
+                                                        ].divide(SizedBox(
+                                                            width: 10.0)),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -3167,93 +3200,99 @@ class _PayBillPageWidgetState extends State<PayBillPageWidget>
                                             MainAxisAlignment.end,
                                         children: [
                                           Builder(
-                                            builder: (context) =>
-                                                FFButtonWidget(
-                                              onPressed: () async {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder: (dialogContext) {
-                                                    return Dialog(
-                                                      elevation: 0,
-                                                      insetPadding:
-                                                          EdgeInsets.zero,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                                  1.0, -1.0)
-                                                              .resolve(
-                                                                  Directionality.of(
-                                                                      context)),
-                                                      child: WebViewAware(
-                                                        child: GestureDetector(
-                                                          onTap: () {
-                                                            FocusScope.of(
-                                                                    dialogContext)
-                                                                .unfocus();
-                                                            FocusManager
-                                                                .instance
-                                                                .primaryFocus
-                                                                ?.unfocus();
-                                                          },
+                                            builder: (context) => Semantics(
+                                              button: true,
+                                              identifier: 'pay_bill_button_4',
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder: (dialogContext) {
+                                                      return Dialog(
+                                                        elevation: 0,
+                                                        insetPadding:
+                                                            EdgeInsets.zero,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                    1.0, -1.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                        child: WebViewAware(
                                                           child:
-                                                              SendMoneyComponentWidget(
-                                                            fundTransferType:
-                                                                widget
-                                                                    .fundTransferType,
+                                                              GestureDetector(
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      dialogContext)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
+                                                            child:
+                                                                SendMoneyComponentWidget(
+                                                              fundTransferType:
+                                                                  widget
+                                                                      .fundTransferType,
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                              },
-                                              text: 'Add Recipient',
-                                              icon: Icon(
-                                                Icons.chevron_right,
-                                                size: 16.0,
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                                text: 'Add Recipient',
+                                                icon: Icon(
+                                                  Icons.chevron_right,
+                                                  size: 16.0,
+                                                ),
+                                                options: FFButtonOptions(
+                                                  height: 30.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 8.0, 16.0, 8.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  iconColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .whiteText,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .menuHover,
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            useGoogleFonts:
+                                                                !FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumIsCustom,
+                                                          ),
+                                                  elevation: 0.0,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20.0),
+                                                ),
+                                                showLoadingIndicator: false,
                                               ),
-                                              options: FFButtonOptions(
-                                                height: 30.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 8.0, 16.0, 8.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                iconColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .whiteText,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .menuHover,
-                                                      fontSize: 12.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumIsCustom,
-                                                    ),
-                                                elevation: 0.0,
-                                                borderRadius:
-                                                    BorderRadius.circular(20.0),
-                                              ),
-                                              showLoadingIndicator: false,
                                             ),
                                           ),
                                         ].divide(SizedBox(width: 12.0)),
@@ -3271,159 +3310,23 @@ class _PayBillPageWidgetState extends State<PayBillPageWidget>
                           children: [
                             Align(
                               alignment: AlignmentDirectional(0.0, 0.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  context.safePop();
-                                  _model.onSelectedSendMoneyVia = false;
-                                  safeSetState(() {});
-                                },
-                                text: 'Cancel',
-                                options: FFButtonOptions(
-                                  width: 260.0,
-                                  height: 50.0,
-                                  padding: EdgeInsets.all(8.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFFC6D1D1),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleMediumFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .whiteText,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .titleMediumIsCustom,
-                                      ),
-                                  elevation: 0.0,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                showLoadingIndicator: false,
-                              ),
-                            ),
-                            if (_model.transactionActionState)
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Builder(
-                                  builder: (context) => FFButtonWidget(
-                                    onPressed: () async {
-                                      var _shouldSetState = false;
-                                      _model.otpBlock = await action_blocks.otp(
-                                        context,
-                                        checkpoint: 'OTP',
-                                        phoneNumber:
-                                            currentUserData?.user.mobileNumber,
-                                      );
-                                      _shouldSetState = true;
-                                      if (_model.otpBlock == 'false') {
-                                        if (_shouldSetState)
-                                          safeSetState(() {});
-                                        return;
-                                      }
-
-                                      await showDialog(
-                                        context: context,
-                                        builder: (dialogContext) {
-                                          return Dialog(
-                                            elevation: 0,
-                                            insetPadding: EdgeInsets.zero,
-                                            backgroundColor: Colors.transparent,
-                                            alignment: AlignmentDirectional(
-                                                    0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                            child: WebViewAware(
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  FocusScope.of(dialogContext)
-                                                      .unfocus();
-                                                  FocusManager
-                                                      .instance.primaryFocus
-                                                      ?.unfocus();
-                                                },
-                                                child:
-                                                    OTPVerificationComponentWidget(
-                                                  callbackResendOTP:
-                                                      () async {},
-                                                  callbackClose: () async {},
-                                                  callbackSuccess: () async {},
-                                                  callbackConfirm: () async {},
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      );
-
-                                      _model.transactionPayload = null;
-                                      safeSetState(() {});
-                                      if (_shouldSetState) safeSetState(() {});
-                                    },
-                                    text: 'Confirm Before Submitting',
-                                    options: FFButtonOptions(
-                                      width: 400.2,
-                                      height: 50.0,
-                                      padding: EdgeInsets.all(8.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleMediumFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .alternate,
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .titleMediumIsCustom,
-                                          ),
-                                      elevation: 0.0,
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    showLoadingIndicator: false,
-                                  ).animateOnActionTrigger(
-                                      animationsMap[
-                                          'buttonOnActionTriggerAnimation']!,
-                                      hasBeenTriggered: hasButtonTriggered),
-                                ),
-                              ),
-                            if (!_model.transactionActionState)
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Semantics(
+                                button: true,
+                                identifier: 'pay_bill_button_5',
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    _model.referenceNumber13v2 =
-                                        await actions.genReferenceNumber(
-                                      FFAppState().IsInstaPayChannelSelected,
-                                    );
-                                    _model.transactionActionState = true;
-                                    safeSetState(() {});
-
+                                    context.safePop();
+                                    _model.onSelectedSendMoneyVia = false;
                                     safeSetState(() {});
                                   },
-                                  text: 'Continue',
+                                  text: 'Cancel',
                                   options: FFButtonOptions(
-                                    width: 400.2,
+                                    width: 260.0,
                                     height: 50.0,
                                     padding: EdgeInsets.all(8.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
+                                    color: Color(0xFFC6D1D1),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
@@ -3443,6 +3346,165 @@ class _PayBillPageWidgetState extends State<PayBillPageWidget>
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   showLoadingIndicator: false,
+                                ),
+                              ),
+                            ),
+                            if (_model.transactionActionState)
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Builder(
+                                  builder: (context) => Semantics(
+                                    button: true,
+                                    identifier: 'pay_bill_submit_confirmation',
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        var _shouldSetState = false;
+                                        _model.otpBlock =
+                                            await action_blocks.otp(
+                                          context,
+                                          checkpoint: 'OTP',
+                                          phoneNumber: currentUserData
+                                              ?.user.mobileNumber,
+                                        );
+                                        _shouldSetState = true;
+                                        if (_model.otpBlock == 'false') {
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+
+                                        await showDialog(
+                                          context: context,
+                                          builder: (dialogContext) {
+                                            return Dialog(
+                                              elevation: 0,
+                                              insetPadding: EdgeInsets.zero,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              alignment:
+                                                  AlignmentDirectional(0.0, 0.0)
+                                                      .resolve(
+                                                          Directionality.of(
+                                                              context)),
+                                              child: WebViewAware(
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    FocusScope.of(dialogContext)
+                                                        .unfocus();
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        ?.unfocus();
+                                                  },
+                                                  child:
+                                                      OTPVerificationComponentWidget(
+                                                    callbackResendOTP:
+                                                        () async {},
+                                                    callbackClose: () async {},
+                                                    callbackSuccess:
+                                                        () async {},
+                                                    callbackConfirm:
+                                                        () async {},
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        );
+
+                                        _model.transactionPayload = null;
+                                        safeSetState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                      },
+                                      text: 'Confirm Before Submitting',
+                                      options: FFButtonOptions(
+                                        width: 400.2,
+                                        height: 50.0,
+                                        padding: EdgeInsets.all(8.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMediumFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .titleMediumIsCustom,
+                                            ),
+                                        elevation: 0.0,
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      showLoadingIndicator: false,
+                                    ),
+                                  ).animateOnActionTrigger(
+                                      animationsMap[
+                                          'buttonOnActionTriggerAnimation']!,
+                                      hasBeenTriggered: hasButtonTriggered),
+                                ),
+                              ),
+                            if (!_model.transactionActionState)
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Semantics(
+                                  button: true,
+                                  identifier: 'pay_bill_button_6',
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      _model.referenceNumber13v2 =
+                                          await actions.genReferenceNumber(
+                                        FFAppState().IsInstaPayChannelSelected,
+                                      );
+                                      _model.transactionActionState = true;
+                                      safeSetState(() {});
+
+                                      safeSetState(() {});
+                                    },
+                                    text: 'Continue',
+                                    options: FFButtonOptions(
+                                      width: 400.2,
+                                      height: 50.0,
+                                      padding: EdgeInsets.all(8.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMediumFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .whiteText,
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w500,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .titleMediumIsCustom,
+                                          ),
+                                      elevation: 0.0,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    showLoadingIndicator: false,
+                                  ),
                                 ),
                               ),
                           ].divide(SizedBox(width: 20.0)),

@@ -157,104 +157,120 @@ class _PayBillsOverviewPageWidgetState
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 16.0, 16.0, 8.0),
-                                    child: TextFormField(
-                                      controller: _model.textController1,
-                                      focusNode: _model.textFieldFocusNode1,
-                                      autofocus: false,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        isDense: true,
-                                        labelText: 'Search biller here.',
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .labelLarge
+                                    child: Semantics(
+                                      identifier: 'pb_overview_input',
+                                      child: TextFormField(
+                                        controller: _model.textController1,
+                                        focusNode: _model.textFieldFocusNode1,
+                                        autofocus: false,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          isDense: true,
+                                          labelText: 'Search biller here.',
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelLarge
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelLargeFamily,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelLargeIsCustom,
+                                              ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMediumFamily,
+                                                color: Color(0xFF72777A),
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelMediumIsCustom,
+                                              ),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .neutral10,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          filled: true,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .base0,
+                                          contentPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 17.0, 12.0, 17.0),
+                                          hoverColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .formElementHover,
+                                          suffixIcon: Icon(
+                                            Icons.search_rounded,
+                                          ),
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
                                             .override(
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
-                                                      .labelLargeFamily,
+                                                      .bodyMediumFamily,
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               useGoogleFonts:
                                                   !FlutterFlowTheme.of(context)
-                                                      .labelLargeIsCustom,
+                                                      .bodyMediumIsCustom,
                                             ),
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMediumFamily,
-                                              color: Color(0xFF72777A),
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .labelMediumIsCustom,
-                                            ),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .neutral10,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        filled: true,
-                                        fillColor:
-                                            FlutterFlowTheme.of(context).base0,
-                                        contentPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                12.0, 17.0, 12.0, 17.0),
-                                        hoverColor: FlutterFlowTheme.of(context)
-                                            .formElementHover,
-                                        suffixIcon: Icon(
-                                          Icons.search_rounded,
-                                        ),
+                                        cursorColor:
+                                            FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                        enableInteractiveSelection: true,
+                                        validator: _model
+                                            .textController1Validator
+                                            .asValidator(context),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodyMediumIsCustom,
-                                          ),
-                                      cursorColor: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                      enableInteractiveSelection: true,
-                                      validator: _model.textController1Validator
-                                          .asValidator(context),
                                     ),
                                   ),
                                   Column(
@@ -530,117 +546,131 @@ class _PayBillsOverviewPageWidgetState
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return WebViewAware(
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        FocusScope.of(context)
-                                                            .unfocus();
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      },
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            AddToFavoritesBillerComponentWidget(),
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
-                                            },
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Container(
-                                                      width: 55.0,
-                                                      height: 55.0,
-                                                      decoration: BoxDecoration(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(
-                                                                    100.0),
-                                                      ),
-                                                      child: Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Icon(
-                                                          Icons.calendar_month,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          size: 30.0,
+                                          Semantics(
+                                            container: true,
+                                            identifier:
+                                                'pb_overview_scheduled_bill_payments',
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              AddToFavoritesBillerComponentWidget(),
                                                         ),
                                                       ),
-                                                    ),
-                                                    Text(
-                                                      'Scheduled Bill Payments',
-                                                      textAlign:
-                                                          TextAlign.start,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumIsCustom,
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              },
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Container(
+                                                        width: 55.0,
+                                                        height: 55.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      100.0),
+                                                        ),
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Icon(
+                                                            Icons
+                                                                .calendar_month,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            size: 30.0,
                                                           ),
-                                                    ),
-                                                  ].divide(
-                                                      SizedBox(width: 12.0)),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                12.0, 0.0),
-                                                    child: Icon(
-                                                      Icons.add_circle_rounded,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      size: 24.0,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Scheduled Bill Payments',
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(width: 12.0)),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  12.0,
+                                                                  0.0),
+                                                      child: Icon(
+                                                        Icons
+                                                            .add_circle_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        size: 24.0,
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ].divide(SizedBox(width: 24.0)),
+                                                ].divide(SizedBox(width: 24.0)),
+                                              ),
                                             ),
                                           ),
                                         ].divide(SizedBox(height: 18.0)),
@@ -884,241 +914,253 @@ class _PayBillsOverviewPageWidgetState
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
-                                                    },
-                                                    text: 'Favorites',
-                                                    icon: Icon(
-                                                      Icons
-                                                          .check_circle_outline,
-                                                      size: 15.0,
-                                                    ),
-                                                    options: FFButtonOptions(
-                                                      height: 36.0,
-                                                      padding:
-                                                          EdgeInsets.all(8.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .tertiary,
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                fontSize: 18.0,
-                                                                letterSpacing:
+                                                  Semantics(
+                                                    button: true,
+                                                    identifier:
+                                                        'pb_overview_button',
+                                                    child: FFButtonWidget(
+                                                      onPressed: () {
+                                                        print(
+                                                            'Button pressed ...');
+                                                      },
+                                                      text: 'Favorites',
+                                                      icon: Icon(
+                                                        Icons
+                                                            .check_circle_outline,
+                                                        size: 15.0,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        height: 36.0,
+                                                        padding:
+                                                            EdgeInsets.all(8.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
                                                                     0.0,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMediumIsCustom,
-                                                              ),
-                                                      elevation: 0.0,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              18.0),
-                                                    ),
-                                                  ),
-                                                  FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
-                                                    },
-                                                    text: 'Schedule',
-                                                    icon: Icon(
-                                                      Icons.schedule,
-                                                      size: 15.0,
-                                                    ),
-                                                    options: FFButtonOptions(
-                                                      height: 36.0,
-                                                      padding:
-                                                          EdgeInsets.all(8.0),
-                                                      iconPadding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      textStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                                fontSize: 18.0,
-                                                                letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts:
-                                                                    !FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMediumIsCustom,
-                                                              ),
-                                                      elevation: 0.0,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              18.0),
-                                                    ),
-                                                  ),
-                                                ].divide(SizedBox(width: 12.0)),
-                                              ),
-                                              Container(
-                                                width: 400.0,
-                                                child: TextFormField(
-                                                  controller:
-                                                      _model.textController2,
-                                                  focusNode: _model
-                                                      .textFieldFocusNode2,
-                                                  autofocus: false,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    labelText:
-                                                        'Search billers...',
-                                                    labelStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily,
-                                                              fontSize: 18.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumIsCustom,
-                                                            ),
-                                                    hintStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumIsCustom,
-                                                            ),
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                                    0.0,
+                                                                    0.0),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .secondaryText,
-                                                        width: 0.3,
+                                                                .tertiary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  fontSize:
+                                                                      18.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                        elevation: 0.0,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(18.0),
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
                                                     ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
+                                                  ),
+                                                  Semantics(
+                                                    button: true,
+                                                    identifier:
+                                                        'pb_overview_button_2',
+                                                    child: FFButtonWidget(
+                                                      onPressed: () {
+                                                        print(
+                                                            'Button pressed ...');
+                                                      },
+                                                      text: 'Schedule',
+                                                      icon: Icon(
+                                                        Icons.schedule,
+                                                        size: 15.0,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        height: 36.0,
+                                                        padding:
+                                                            EdgeInsets.all(8.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                        width: 0.3,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    errorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
+                                                        textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .error,
-                                                        width: 0.3,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                  fontSize:
+                                                                      18.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                        elevation: 0.0,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(18.0),
                                                       ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 0.3,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    contentPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(20.0, 0.0,
-                                                                0.0, 0.0),
-                                                    suffixIcon: Icon(
-                                                      Icons.search_rounded,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
                                                     ),
                                                   ),
-                                                  style:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
+                                                ].divide(SizedBox(width: 12.0)),
+                                              ),
+                                              Semantics(
+                                                identifier:
+                                                    'pb_overview_input_2',
+                                                child: Container(
+                                                  width: 400.0,
+                                                  child: TextFormField(
+                                                    controller:
+                                                        _model.textController2,
+                                                    focusNode: _model
+                                                        .textFieldFocusNode2,
+                                                    autofocus: false,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      labelText:
+                                                          'Search billers...',
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily,
-                                                            fontSize: 18.0,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
+                                                                    .labelMediumFamily,
+                                                                fontSize: 18.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMediumIsCustom,
+                                                              ),
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
-                                                  cursorColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  validator: _model
-                                                      .textController2Validator
-                                                      .asValidator(context),
+                                                                    .labelMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMediumIsCustom,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          width: 0.3,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          width: 0.3,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 0.3,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 0.3,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  20.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      suffixIcon: Icon(
+                                                        Icons.search_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                      ),
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMediumIsCustom,
+                                                        ),
+                                                    cursorColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    validator: _model
+                                                        .textController2Validator
+                                                        .asValidator(context),
+                                                  ),
                                                 ),
                                               ),
                                               ListView(
@@ -1250,128 +1292,126 @@ class _PayBillsOverviewPageWidgetState
                                                               child:
                                                                   ImageWithTextColumnComponentWidget(),
                                                             ),
-                                                            Container(
-                                                              width: 500.0,
-                                                              child:
-                                                                  TextFormField(
-                                                                controller: _model
-                                                                    .textController3,
-                                                                focusNode: _model
-                                                                    .textFieldFocusNode3,
-                                                                autofocus:
-                                                                    false,
-                                                                obscureText:
-                                                                    false,
-                                                                decoration:
-                                                                    InputDecoration(
-                                                                  labelText:
-                                                                      'Customer Account No.',
-                                                                  labelStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).labelMediumFamily,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                                                            Semantics(
+                                                              identifier:
+                                                                  'pb_overview_input_3',
+                                                              child: Container(
+                                                                width: 500.0,
+                                                                child:
+                                                                    TextFormField(
+                                                                  controller: _model
+                                                                      .textController3,
+                                                                  focusNode: _model
+                                                                      .textFieldFocusNode3,
+                                                                  autofocus:
+                                                                      false,
+                                                                  obscureText:
+                                                                      false,
+                                                                  decoration:
+                                                                      InputDecoration(
+                                                                    labelText:
+                                                                        'Customer Account No.',
+                                                                    labelStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                                                                        ),
+                                                                    hintStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                                                                        ),
+                                                                    enabledBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                        width:
+                                                                            0.3,
                                                                       ),
-                                                                  hintStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).labelMediumFamily,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).labelMediumIsCustom,
-                                                                      ),
-                                                                  enabledBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                      width:
-                                                                          0.3,
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
                                                                     ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            12.0),
+                                                                    focusedBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        width:
+                                                                            0.3,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                    errorBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .error,
+                                                                        width:
+                                                                            0.3,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                    focusedErrorBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .error,
+                                                                        width:
+                                                                            0.3,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                    contentPadding:
+                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                            20.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                   ),
-                                                                  focusedBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                      ),
+                                                                  cursorColor:
+                                                                      FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
-                                                                      width:
-                                                                          0.3,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            12.0),
-                                                                  ),
-                                                                  errorBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .error,
-                                                                      width:
-                                                                          0.3,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            12.0),
-                                                                  ),
-                                                                  focusedErrorBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .error,
-                                                                      width:
-                                                                          0.3,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            12.0),
-                                                                  ),
-                                                                  contentPadding:
-                                                                      EdgeInsetsDirectional.fromSTEB(
-                                                                          20.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                  validator: _model
+                                                                      .textController3Validator
+                                                                      .asValidator(
+                                                                          context),
                                                                 ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyMediumIsCustom,
-                                                                    ),
-                                                                cursorColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                validator: _model
-                                                                    .textController3Validator
-                                                                    .asValidator(
-                                                                        context),
                                                               ),
                                                             ),
                                                             Column(
@@ -1379,118 +1419,116 @@ class _PayBillsOverviewPageWidgetState
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
-                                                                Container(
-                                                                  width: 500.0,
+                                                                Semantics(
+                                                                  identifier:
+                                                                      'pb_overview_input_4',
                                                                   child:
-                                                                      TextFormField(
-                                                                    controller:
-                                                                        _model
-                                                                            .textController4,
-                                                                    focusNode:
-                                                                        _model
-                                                                            .textFieldFocusNode4,
-                                                                    autofocus:
-                                                                        false,
-                                                                    obscureText:
-                                                                        false,
-                                                                    decoration:
-                                                                        InputDecoration(
-                                                                      labelText:
-                                                                          'Amount',
-                                                                      labelStyle: FlutterFlowTheme.of(
+                                                                      Container(
+                                                                    width:
+                                                                        500.0,
+                                                                    child:
+                                                                        TextFormField(
+                                                                      controller:
+                                                                          _model
+                                                                              .textController4,
+                                                                      focusNode:
+                                                                          _model
+                                                                              .textFieldFocusNode4,
+                                                                      autofocus:
+                                                                          false,
+                                                                      obscureText:
+                                                                          false,
+                                                                      decoration:
+                                                                          InputDecoration(
+                                                                        labelText:
+                                                                            'Amount',
+                                                                        labelStyle: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                                                                            ),
+                                                                        hintStyle: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                                                                            ),
+                                                                        enabledBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                            width:
+                                                                                0.3,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(12.0),
+                                                                        ),
+                                                                        focusedBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            width:
+                                                                                0.3,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(12.0),
+                                                                        ),
+                                                                        errorBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).error,
+                                                                            width:
+                                                                                0.3,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(12.0),
+                                                                        ),
+                                                                        focusedErrorBorder:
+                                                                            OutlineInputBorder(
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).error,
+                                                                            width:
+                                                                                0.3,
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(12.0),
+                                                                        ),
+                                                                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                            20.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .labelMedium
+                                                                          .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                                                                                !FlutterFlowTheme.of(context).bodyMediumIsCustom,
                                                                           ),
-                                                                      hintStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .labelMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).labelMediumFamily,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).labelMediumIsCustom,
-                                                                          ),
-                                                                      enabledBorder:
-                                                                          OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryText,
-                                                                          width:
-                                                                              0.3,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(12.0),
-                                                                      ),
-                                                                      focusedBorder:
-                                                                          OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          width:
-                                                                              0.3,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(12.0),
-                                                                      ),
-                                                                      errorBorder:
-                                                                          OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).error,
-                                                                          width:
-                                                                              0.3,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(12.0),
-                                                                      ),
-                                                                      focusedErrorBorder:
-                                                                          OutlineInputBorder(
-                                                                        borderSide:
-                                                                            BorderSide(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).error,
-                                                                          width:
-                                                                              0.3,
-                                                                        ),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(12.0),
-                                                                      ),
-                                                                      contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                                                          20.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      cursorColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primary,
+                                                                      validator: _model
+                                                                          .textController4Validator
+                                                                          .asValidator(
+                                                                              context),
                                                                     ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                        ),
-                                                                    cursorColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                    validator: _model
-                                                                        .textController4Validator
-                                                                        .asValidator(
-                                                                            context),
                                                                   ),
                                                                 ),
                                                                 Align(
@@ -1525,107 +1563,109 @@ class _PayBillsOverviewPageWidgetState
                                                               context: context,
                                                               tablet: false,
                                                             ))
-                                                              FFButtonWidget(
-                                                                onPressed:
-                                                                    () async {
-                                                                  if (MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .width <=
-                                                                      800.0) {
-                                                                    await showModalBottomSheet(
-                                                                      isScrollControlled:
-                                                                          true,
-                                                                      backgroundColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      enableDrag:
-                                                                          false,
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (context) {
-                                                                        return WebViewAware(
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap:
-                                                                                () {
-                                                                              FocusScope.of(context).unfocus();
-                                                                              FocusManager.instance.primaryFocus?.unfocus();
-                                                                            },
+                                                              Semantics(
+                                                                button: true,
+                                                                identifier:
+                                                                    'pb_overview_button_3',
+                                                                child:
+                                                                    FFButtonWidget(
+                                                                  onPressed:
+                                                                      () async {
+                                                                    if (MediaQuery.sizeOf(context)
+                                                                            .width <=
+                                                                        800.0) {
+                                                                      await showModalBottomSheet(
+                                                                        isScrollControlled:
+                                                                            true,
+                                                                        backgroundColor:
+                                                                            Colors.transparent,
+                                                                        enableDrag:
+                                                                            false,
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (context) {
+                                                                          return WebViewAware(
                                                                             child:
-                                                                                Padding(
-                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                              child: ConfirmBillsPaymentComponentWidget(
-                                                                                isMobile: true,
-                                                                                callback: () async {
-                                                                                  Navigator.pop(context);
-                                                                                },
+                                                                                GestureDetector(
+                                                                              onTap: () {
+                                                                                FocusScope.of(context).unfocus();
+                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                              },
+                                                                              child: Padding(
+                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                child: ConfirmBillsPaymentComponentWidget(
+                                                                                  isMobile: true,
+                                                                                  callback: () async {
+                                                                                    Navigator.pop(context);
+                                                                                  },
+                                                                                ),
                                                                               ),
                                                                             ),
+                                                                          );
+                                                                        },
+                                                                      ).then((value) =>
+                                                                          safeSetState(
+                                                                              () {}));
+                                                                    } else {
+                                                                      _model.paymentBillState =
+                                                                          'ConfirmationOfPayment';
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    }
+                                                                  },
+                                                                  text:
+                                                                      'Continue',
+                                                                  options:
+                                                                      FFButtonOptions(
+                                                                    width:
+                                                                        500.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    iconAlignment:
+                                                                        IconAlignment
+                                                                            .end,
+                                                                    iconPadding:
+                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    color: Color(
+                                                                        0xFF00A8CF),
+                                                                    textStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.inter(
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).titleSmall.fontStyle,
                                                                           ),
-                                                                        );
-                                                                      },
-                                                                    ).then((value) =>
-                                                                        safeSetState(
-                                                                            () {}));
-                                                                  } else {
-                                                                    _model.paymentBillState =
-                                                                        'ConfirmationOfPayment';
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  }
-                                                                },
-                                                                text:
-                                                                    'Continue',
-                                                                options:
-                                                                    FFButtonOptions(
-                                                                  width: 500.0,
-                                                                  height: 50.0,
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  iconAlignment:
-                                                                      IconAlignment
-                                                                          .end,
-                                                                  iconPadding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  color: Color(
-                                                                      0xFF00A8CF),
-                                                                  textStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).info,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                           fontStyle: FlutterFlowTheme.of(context)
                                                                               .titleSmall
                                                                               .fontStyle,
                                                                         ),
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .titleSmall
-                                                                            .fontStyle,
-                                                                      ),
-                                                                  elevation:
-                                                                      0.0,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8.0),
+                                                                    elevation:
+                                                                        0.0,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
                                                                 ),
                                                               ),
                                                           ].divide(SizedBox(

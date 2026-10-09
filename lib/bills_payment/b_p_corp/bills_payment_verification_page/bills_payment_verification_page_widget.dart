@@ -316,151 +316,211 @@ class _BillsPaymentVerificationPageWidgetState
                                         .asValidator(context),
                                   ),
                                   Builder(
-                                    builder: (context) => FFButtonWidget(
-                                      onPressed: () async {
-                                        _model.updateOtpValidityDetailsStruct(
-                                          (e) => e
-                                            ..pin =
-                                                _model.pinCodeController!.text,
-                                        );
-                                        safeSetState(() {});
-                                        _model.verifyOtpAuthTokenResponse =
-                                            await PbbGroup.oauthTokenCall.call(
-                                          channelCode: 'cbxr',
-                                          originatingChannelCode: 'cbxr',
-                                          grantType: 'password',
-                                          checkPoint: 'verifyotp',
-                                          baseURL: 'https://lumine.pbb.com.ph',
-                                        );
-
-                                        if ((_model.verifyOtpAuthTokenResponse
-                                                ?.succeeded ??
-                                            true)) {
-                                          _model.verifyOtpResponse =
-                                              await PbbGroup.smsCall.call(
-                                            headerJson:
-                                                _model.verifyOtpHeader?.toMap(),
-                                            oAuthaccessToken: PbbGroup
-                                                .oauthTokenCall
-                                                .accesstoken(
-                                              (_model.verifyOtpAuthTokenResponse
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ),
-                                            checkpointDetailsJson: _model
-                                                .otpValidityDetails
-                                                ?.toMap(),
+                                    builder: (context) => Semantics(
+                                      button: true,
+                                      identifier: 'bp_verification_login',
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          _model.updateOtpValidityDetailsStruct(
+                                            (e) => e
+                                              ..pin = _model
+                                                  .pinCodeController!.text,
+                                          );
+                                          safeSetState(() {});
+                                          _model.verifyOtpAuthTokenResponse =
+                                              await PbbGroup.oauthTokenCall
+                                                  .call(
+                                            channelCode: 'cbxr',
+                                            originatingChannelCode: 'cbxr',
+                                            grantType: 'password',
+                                            checkPoint: 'verifyotp',
                                             baseURL:
                                                 'https://lumine.pbb.com.ph',
-                                            checkpointKey: 'ValidityDetails',
                                           );
 
-                                          if (SMSResponseStruct.maybeFromMap(
-                                                      (_model.verifyOtpResponse
-                                                              ?.jsonBody ??
-                                                          ''))
-                                                  ?.messageDetails
-                                                  .statusMessage ==
-                                              'valid') {
-                                            _model.timerValidityController
-                                                .onStopTimer();
-                                            _model.bpValidationOAuthTokenResponse2 =
-                                                await PbbGroup.oauthTokenCall
-                                                    .call(
-                                              channelCode: 'cbxr',
-                                              originatingChannelCode: 'cbxr',
-                                              grantType: 'password',
+                                          if ((_model.verifyOtpAuthTokenResponse
+                                                  ?.succeeded ??
+                                              true)) {
+                                            _model.verifyOtpResponse =
+                                                await PbbGroup.smsCall.call(
+                                              headerJson: _model.verifyOtpHeader
+                                                  ?.toMap(),
+                                              oAuthaccessToken: PbbGroup
+                                                  .oauthTokenCall
+                                                  .accesstoken(
+                                                (_model.verifyOtpAuthTokenResponse
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              checkpointDetailsJson: _model
+                                                  .otpValidityDetails
+                                                  ?.toMap(),
                                               baseURL:
-                                                  'https://uat-bp.pbb.com.ph',
-                                              checkPoint: 'verifyotp',
+                                                  'https://lumine.pbb.com.ph',
+                                              checkpointKey: 'ValidityDetails',
                                             );
 
-                                            if ((_model
-                                                    .bpValidationOAuthTokenResponse2
-                                                    ?.succeeded ??
-                                                true)) {
-                                              // -> billspaymentPaybills API
-                                              _model.bpPayBillsResponse2 =
+                                            if (SMSResponseStruct.maybeFromMap(
+                                                        (_model.verifyOtpResponse
+                                                                ?.jsonBody ??
+                                                            ''))
+                                                    ?.messageDetails
+                                                    .statusMessage ==
+                                                'valid') {
+                                              _model.timerValidityController
+                                                  .onStopTimer();
+                                              _model.bpValidationOAuthTokenResponse2 =
                                                   await PbbGroup.oauthTokenCall
-                                                      .call();
+                                                      .call(
+                                                channelCode: 'cbxr',
+                                                originatingChannelCode: 'cbxr',
+                                                grantType: 'password',
+                                                baseURL:
+                                                    'https://uat-bp.pbb.com.ph',
+                                                checkPoint: 'verifyotp',
+                                              );
 
-                                              if ((_model.bpPayBillsResponse2
+                                              if ((_model
+                                                      .bpValidationOAuthTokenResponse2
                                                       ?.succeeded ??
                                                   true)) {
-                                                context.pushNamed(
-                                                  BillsPaymentTransactionSummaryPageWidget
-                                                      .routeName,
-                                                  queryParameters: {
-                                                    'billsHeader':
-                                                        serializeParam(
-                                                      widget.billsHeader,
-                                                      ParamType.DataStruct,
-                                                    ),
-                                                    'billsBody': serializeParam(
-                                                      widget.billsBody,
-                                                      ParamType.DataStruct,
-                                                    ),
-                                                    'bpPaybillsResponseDetails':
-                                                        serializeParam(
-                                                      ResponseDetailsStruct(),
-                                                      ParamType.DataStruct,
-                                                    ),
-                                                    'bpFieldsModel':
-                                                        serializeParam(
-                                                      widget.bpFieldsModel,
-                                                      ParamType.DataStruct,
-                                                    ),
-                                                  }.withoutNulls,
-                                                  extra: <String, dynamic>{
-                                                    '__transition_info__':
-                                                        TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 0),
-                                                    ),
-                                                  },
-                                                );
-                                              } else {
-                                                context.pushNamed(
-                                                  BillsPaymentTransactionSummaryPageWidget
-                                                      .routeName,
-                                                  queryParameters: {
-                                                    'billsHeader':
-                                                        serializeParam(
-                                                      widget.billsHeader,
-                                                      ParamType.DataStruct,
-                                                    ),
-                                                    'billsBody': serializeParam(
-                                                      widget.billsBody,
-                                                      ParamType.DataStruct,
-                                                    ),
-                                                    'bpPaybillsResponseDetails':
-                                                        serializeParam(
-                                                      ResponseDetailsStruct(
-                                                        message:
-                                                            'Payment unsuccessful!',
+                                                // -> billspaymentPaybills API
+                                                _model.bpPayBillsResponse2 =
+                                                    await PbbGroup
+                                                        .oauthTokenCall
+                                                        .call();
+
+                                                if ((_model.bpPayBillsResponse2
+                                                        ?.succeeded ??
+                                                    true)) {
+                                                  context.pushNamed(
+                                                    BillsPaymentTransactionSummaryPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'billsHeader':
+                                                          serializeParam(
+                                                        widget.billsHeader,
+                                                        ParamType.DataStruct,
                                                       ),
-                                                      ParamType.DataStruct,
-                                                    ),
-                                                    'bpFieldsModel':
-                                                        serializeParam(
-                                                      widget.bpFieldsModel,
-                                                      ParamType.DataStruct,
-                                                    ),
-                                                  }.withoutNulls,
-                                                  extra: <String, dynamic>{
-                                                    '__transition_info__':
-                                                        TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 0),
-                                                    ),
+                                                      'billsBody':
+                                                          serializeParam(
+                                                        widget.billsBody,
+                                                        ParamType.DataStruct,
+                                                      ),
+                                                      'bpPaybillsResponseDetails':
+                                                          serializeParam(
+                                                        ResponseDetailsStruct(),
+                                                        ParamType.DataStruct,
+                                                      ),
+                                                      'bpFieldsModel':
+                                                          serializeParam(
+                                                        widget.bpFieldsModel,
+                                                        ParamType.DataStruct,
+                                                      ),
+                                                    }.withoutNulls,
+                                                    extra: <String, dynamic>{
+                                                      '__transition_info__':
+                                                          TransitionInfo(
+                                                        hasTransition: true,
+                                                        transitionType:
+                                                            PageTransitionType
+                                                                .fade,
+                                                        duration: Duration(
+                                                            milliseconds: 0),
+                                                      ),
+                                                    },
+                                                  );
+                                                } else {
+                                                  context.pushNamed(
+                                                    BillsPaymentTransactionSummaryPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'billsHeader':
+                                                          serializeParam(
+                                                        widget.billsHeader,
+                                                        ParamType.DataStruct,
+                                                      ),
+                                                      'billsBody':
+                                                          serializeParam(
+                                                        widget.billsBody,
+                                                        ParamType.DataStruct,
+                                                      ),
+                                                      'bpPaybillsResponseDetails':
+                                                          serializeParam(
+                                                        ResponseDetailsStruct(
+                                                          message:
+                                                              'Payment unsuccessful!',
+                                                        ),
+                                                        ParamType.DataStruct,
+                                                      ),
+                                                      'bpFieldsModel':
+                                                          serializeParam(
+                                                        widget.bpFieldsModel,
+                                                        ParamType.DataStruct,
+                                                      ),
+                                                    }.withoutNulls,
+                                                    extra: <String, dynamic>{
+                                                      '__transition_info__':
+                                                          TransitionInfo(
+                                                        hasTransition: true,
+                                                        transitionType:
+                                                            PageTransitionType
+                                                                .fade,
+                                                        duration: Duration(
+                                                            milliseconds: 0),
+                                                      ),
+                                                    },
+                                                  );
+                                                }
+                                              } else {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder: (dialogContext) {
+                                                    return Dialog(
+                                                      elevation: 0,
+                                                      insetPadding:
+                                                          EdgeInsets.zero,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                      child: WebViewAware(
+                                                        child: GestureDetector(
+                                                          onTap: () {
+                                                            FocusScope.of(
+                                                                    dialogContext)
+                                                                .unfocus();
+                                                            FocusManager
+                                                                .instance
+                                                                .primaryFocus
+                                                                ?.unfocus();
+                                                          },
+                                                          child:
+                                                              CustomInformationalDialogWidget(
+                                                            message: PbbGroup
+                                                                .oauthTokenCall
+                                                                .errorMessage(
+                                                              (_model.bpValidationOAuthTokenResponse2
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )!,
+                                                            primaryButtonTitle:
+                                                                'Dismiss',
+                                                            primaryButtonAction:
+                                                                () async {
+                                                              Navigator.pop(
+                                                                  context);
+                                                            },
+                                                            secondaryButtonAction:
+                                                                () async {},
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    );
                                                   },
                                                 );
                                               }
@@ -492,17 +552,21 @@ class _BillsPaymentVerificationPageWidgetState
                                                         },
                                                         child:
                                                             CustomInformationalDialogWidget(
-                                                          message: PbbGroup
-                                                              .oauthTokenCall
-                                                              .errorMessage(
-                                                            (_model.bpValidationOAuthTokenResponse2
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!,
+                                                          message: SMSResponseStruct
+                                                                  .maybeFromMap((_model
+                                                                          .verifyOtpResponse
+                                                                          ?.jsonBody ??
+                                                                      ''))!
+                                                              .messageDetails
+                                                              .statusMessage,
                                                           primaryButtonTitle:
                                                               'Dismiss',
                                                           primaryButtonAction:
                                                               () async {
+                                                            _model
+                                                                .pinCodeController
+                                                                ?.clear();
+
                                                             Navigator.pop(
                                                                 context);
                                                           },
@@ -515,90 +579,40 @@ class _BillsPaymentVerificationPageWidgetState
                                                 },
                                               );
                                             }
-                                          } else {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (dialogContext) {
-                                                return Dialog(
-                                                  elevation: 0,
-                                                  insetPadding: EdgeInsets.zero,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                              0.0, 0.0)
-                                                          .resolve(
-                                                              Directionality.of(
-                                                                  context)),
-                                                  child: WebViewAware(
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        FocusScope.of(
-                                                                dialogContext)
-                                                            .unfocus();
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      },
-                                                      child:
-                                                          CustomInformationalDialogWidget(
-                                                        message: SMSResponseStruct
-                                                                .maybeFromMap((_model
-                                                                        .verifyOtpResponse
-                                                                        ?.jsonBody ??
-                                                                    ''))!
-                                                            .messageDetails
-                                                            .statusMessage,
-                                                        primaryButtonTitle:
-                                                            'Dismiss',
-                                                        primaryButtonAction:
-                                                            () async {
-                                                          _model
-                                                              .pinCodeController
-                                                              ?.clear();
-
-                                                          Navigator.pop(
-                                                              context);
-                                                        },
-                                                        secondaryButtonAction:
-                                                            () async {},
-                                                      ),
-                                                    ),
-                                                  ),
-                                                );
-                                              },
-                                            );
                                           }
-                                        }
 
-                                        safeSetState(() {});
-                                      },
-                                      text: 'Continue',
-                                      options: FFButtonOptions(
-                                        width: double.infinity,
-                                        height: 44.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmallFamily,
-                                              color: Colors.white,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .titleSmallIsCustom,
-                                            ),
-                                        elevation: 0.0,
-                                        borderRadius:
-                                            BorderRadius.circular(16.0),
+                                          safeSetState(() {});
+                                        },
+                                        text: 'Continue',
+                                        options: FFButtonOptions(
+                                          width: double.infinity,
+                                          height: 44.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmallFamily,
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    !FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleSmallIsCustom,
+                                              ),
+                                          elevation: 0.0,
+                                          borderRadius:
+                                              BorderRadius.circular(16.0),
+                                        ),
                                       ),
                                     ),
                                   ),

@@ -708,595 +708,82 @@ class _TransactionLimitsPageWidgetState
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Expanded(
-                                        child: FFButtonWidget(
-                                          onPressed:
-                                              !(_model.updatedList.isNotEmpty)
-                                                  ? null
-                                                  : () async {
-                                                      _model
-                                                          .fetchedTransactionLimits = (WhitebankGroupAPIGroup
-                                                                  .retailSettingsTransactionLimitsCall
-                                                                  .limits(
-                                                                    (_model.getTransactionLimitsResponse
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  )!
-                                                                  .toList()
-                                                                  .map<LimitsStruct?>(
-                                                                      LimitsStruct
-                                                                          .maybeFromMap)
-                                                                  .toList()
-                                                              as Iterable<
-                                                                  LimitsStruct?>)
-                                                          .withoutNulls
-                                                          .toList()
-                                                          .cast<LimitsStruct>();
-                                                      _model.updatedList = [];
-                                                      _model.resetKey =
-                                                          _model.resetKey! + 1;
-                                                      safeSetState(() {});
-                                                      await Future.delayed(
-                                                        Duration(
-                                                          milliseconds: 50,
-                                                        ),
-                                                      );
-                                                      _model.getTransactionLimitsResponseV2 =
-                                                          await WhitebankGroupAPIGroup
-                                                              .retailSettingsTransactionLimitsCall
-                                                              .call(
-                                                        accessToken:
-                                                            currentAuthenticationToken,
-                                                        baseURL:
-                                                            FFDevEnvironmentValues()
-                                                                .WBPBASEURL,
-                                                      );
-
-                                                      if ((_model
-                                                              .getTransactionLimitsResponseV2
-                                                              ?.succeeded ??
-                                                          true)) {
-                                                        _model.fetchedTransactionLimits =
-                                                            (getJsonField(
-                                                          (_model.getTransactionLimitsResponseV2
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                          r'''$.limits''',
-                                                          true,
-                                                        )!
-                                                                        .toList()
-                                                                        .map<LimitsStruct?>(LimitsStruct
-                                                                            .maybeFromMap)
-                                                                        .toList()
-                                                                    as Iterable<
-                                                                        LimitsStruct?>)
-                                                                .withoutNulls
-                                                                .toList()
-                                                                .cast<
-                                                                    LimitsStruct>();
-                                                        safeSetState(() {});
-                                                      }
-
-                                                      safeSetState(() {});
-                                                    },
-                                          text: 'Cancel',
-                                          options: FFButtonOptions(
-                                            width: 170.0,
-                                            height: 48.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: Colors.white,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyLarge
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyLargeFamily,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      fontSize: 16.0,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyLargeIsCustom,
-                                                    ),
-                                            elevation: 0.0,
-                                            borderSide: BorderSide(
-                                              color: valueOrDefault<Color>(
-                                                !(_model.updatedList.isNotEmpty)
-                                                    ? FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                              ),
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
-                                            disabledTextColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Builder(
-                                          builder: (context) => FFButtonWidget(
-                                            onPressed: (!(_model.updatedList
-                                                        .isNotEmpty) ||
-                                                    (_model.updatedList
-                                                        .where((e) =>
-                                                            (e.maxAmount ==
-                                                                0.0) ||
-                                                            (e.dailyLimit ==
-                                                                0.0))
-                                                        .toList()
-                                                        .isNotEmpty) ||
-                                                    (_model
-                                                        .fetchedTransactionLimits
-                                                        .where((e) =>
-                                                            e.isMaxedInvalid ==
-                                                            true)
-                                                        .toList()
-                                                        .isNotEmpty) ||
-                                                    (_model
-                                                        .fetchedTransactionLimits
-                                                        .where((e) =>
-                                                            e.isDailyInvalid ==
-                                                            true)
-                                                        .toList()
-                                                        .isNotEmpty))
+                                        child: Semantics(
+                                          button: true,
+                                          identifier: 'txn_limits_button',
+                                          child: FFButtonWidget(
+                                            onPressed: !(_model
+                                                    .updatedList.isNotEmpty)
                                                 ? null
                                                 : () async {
-                                                    var _shouldSetState = false;
-                                                    _model.apiResultyq5 =
+                                                    _model.fetchedTransactionLimits =
+                                                        (WhitebankGroupAPIGroup
+                                                                    .retailSettingsTransactionLimitsCall
+                                                                    .limits(
+                                                                      (_model.getTransactionLimitsResponse
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )!
+                                                                    .toList()
+                                                                    .map<LimitsStruct?>(
+                                                                        LimitsStruct
+                                                                            .maybeFromMap)
+                                                                    .toList()
+                                                                as Iterable<
+                                                                    LimitsStruct?>)
+                                                            .withoutNulls
+                                                            .toList()
+                                                            .cast<
+                                                                LimitsStruct>();
+                                                    _model.updatedList = [];
+                                                    _model.resetKey =
+                                                        _model.resetKey! + 1;
+                                                    safeSetState(() {});
+                                                    await Future.delayed(
+                                                      Duration(
+                                                        milliseconds: 50,
+                                                      ),
+                                                    );
+                                                    _model.getTransactionLimitsResponseV2 =
                                                         await WhitebankGroupAPIGroup
-                                                            .limitsChallengeCall
+                                                            .retailSettingsTransactionLimitsCall
                                                             .call(
-                                                      updatesJson: _model
-                                                          .updatedList
-                                                          .map((e) => e.toMap())
-                                                          .toList(),
-                                                      deviceId: FFAppState()
-                                                          .DeviceDetails
-                                                          .deviceId,
                                                       accessToken:
                                                           currentAuthenticationToken,
                                                       baseURL:
                                                           FFDevEnvironmentValues()
                                                               .WBPBASEURL,
-                                                      fmsSessionId:
-                                                          currentUserData
-                                                              ?.fmsSessionId,
                                                     );
 
-                                                    _shouldSetState = true;
-                                                    if ((_model.apiResultyq5
+                                                    if ((_model
+                                                            .getTransactionLimitsResponseV2
                                                             ?.succeeded ??
                                                         true)) {
-                                                      if (SigningChallengeStruct.maybeFromMap((_model.apiResultyq5?.jsonBody ?? ''))?.preferredMethod == null ||
-                                                          SigningChallengeStruct.maybeFromMap((_model.apiResultyq5?.jsonBody ?? ''))
-                                                                  ?.preferredMethod ==
-                                                              '') {
-                                                        context.goNamed(
-                                                          PayTransferFailedPageWidget
-                                                              .routeName,
-                                                          queryParameters: {
-                                                            'route':
-                                                                serializeParam(
-                                                              'limits',
-                                                              ParamType.String,
-                                                            ),
-                                                            'isLocked':
-                                                                serializeParam(
-                                                              false,
-                                                              ParamType.bool,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
-
-                                                        if (_shouldSetState)
-                                                          safeSetState(() {});
-                                                        return;
-                                                      } else if ((isWeb == true) &&
-                                                          (SigningChallengeStruct.maybeFromMap((_model.apiResultyq5?.jsonBody ?? ''))
-                                                                  ?.availableMethods
-                                                                  .contains(SigningAvailableMethods
-                                                                      .passkey
-                                                                      .name) ==
-                                                              true)) {
-                                                        _model.fundTransferConfirmSigningPKPayload =
-                                                            await action_blocks
-                                                                .createConfirmSigningPKPayload(
-                                                          context,
-                                                          stepupOptionsPayload:
-                                                              WBStepupAuthOptionsPayloadStruct(
-                                                            transactionType:
-                                                                PasskeyTransactionType
-                                                                    .limit_change
-                                                                    .name,
-                                                            transactionId:
-                                                                getJsonField(
-                                                              (_model.apiResultyq5
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                              r'''$.operationId''',
-                                                            ).toString(),
-                                                            context: functions
-                                                                .buildLimitChangeContext(_model
-                                                                    .updatedList
-                                                                    .map((e) =>
-                                                                        e.toMap())
-                                                                    .toList()),
-                                                          ),
-                                                        );
-                                                        _shouldSetState = true;
-                                                        _model.confirmPasskey =
-                                                            await WhitebankGroupAPIGroup
-                                                                .limitsChallengeConfirmPasskeyCall
-                                                                .call(
-                                                          method:
-                                                              SigningAvailableMethods
-                                                                  .passkey.name,
-                                                          deviceId: FFAppState()
-                                                              .DeviceDetails
-                                                              .deviceId,
-                                                          baseURL:
-                                                              FFDevEnvironmentValues()
-                                                                  .WBPBASEURL,
-                                                          accessToken:
-                                                              currentAuthenticationToken,
-                                                          stepupToken: _model
-                                                              .fundTransferConfirmSigningPKPayload
-                                                              ?.data
-                                                              .stepupToken,
-                                                          transactionHash: _model
-                                                              .fundTransferConfirmSigningPKPayload
-                                                              ?.data
-                                                              .transactionHash,
-                                                          operationId:
-                                                              getJsonField(
-                                                            (_model.apiResultyq5
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                            r'''$.operationId''',
-                                                          ).toString(),
-                                                          fmsSessionId:
-                                                              currentUserData
-                                                                  ?.fmsSessionId,
-                                                        );
-
-                                                        _shouldSetState = true;
-                                                        if ((_model
-                                                                .confirmPasskey
-                                                                ?.succeeded ??
-                                                            true)) {
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            enableDrag: false,
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                                  onTap: () {
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus();
-                                                                    FocusManager
-                                                                        .instance
-                                                                        .primaryFocus
-                                                                        ?.unfocus();
-                                                                  },
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
-                                                                    child:
-                                                                        CustomMobileBottomSheetWidget(
-                                                                      textTitle:
-                                                                          'Daily limit updated successfully',
-                                                                      btnText:
-                                                                          'Okay',
-                                                                      btnCallback:
-                                                                          () async {
-                                                                        Navigator.pop(
-                                                                            context);
-                                                                      },
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            },
-                                                          ).then((value) =>
-                                                              safeSetState(
-                                                                  () {}));
-
-                                                          FFAppState()
-                                                                  .shouldRefreshTransactions =
-                                                              true;
-                                                          safeSetState(() {});
-                                                        } else {
-                                                          context.goNamed(
-                                                            PayTransferFailedPageWidget
-                                                                .routeName,
-                                                            queryParameters: {
-                                                              'route':
-                                                                  serializeParam(
-                                                                'limits',
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                              'isLocked':
-                                                                  serializeParam(
-                                                                false,
-                                                                ParamType.bool,
-                                                              ),
-                                                            }.withoutNulls,
-                                                          );
-                                                        }
-                                                      } else if ((SigningChallengeStruct.maybeFromMap((_model.apiResultyq5?.jsonBody ?? ''))
-                                                                  ?.preferredMethod ==
-                                                              SigningAvailableMethods
-                                                                  .biometric
-                                                                  .name) &&
-                                                          !isWeb) {
-                                                        _model.createSignatureOutput =
-                                                            await actions
-                                                                .createSignature(
-                                                          SigningChallengeStruct
-                                                                  .maybeFromMap((_model
-                                                                          .apiResultyq5
-                                                                          ?.jsonBody ??
-                                                                      ''))!
-                                                              .challenge,
-                                                        );
-                                                        _shouldSetState = true;
-                                                        _model.confirm =
-                                                            await WhitebankGroupAPIGroup
-                                                                .limitsChallengeConfirmCall
-                                                                .call(
-                                                          method:
-                                                              SigningAvailableMethods
-                                                                  .biometric
-                                                                  .name,
-                                                          deviceId: FFAppState()
-                                                              .DeviceDetails
-                                                              .deviceId,
-                                                          challenge: SigningChallengeStruct
-                                                                  .maybeFromMap((_model
-                                                                          .apiResultyq5
-                                                                          ?.jsonBody ??
-                                                                      ''))
-                                                              ?.challenge,
-                                                          signature: _model
-                                                              .createSignatureOutput,
-                                                          accessToken:
-                                                              currentAuthenticationToken,
-                                                          mpin: '',
-                                                          baseURL:
-                                                              FFDevEnvironmentValues()
-                                                                  .WBPBASEURL,
-                                                          fmsSessionId:
-                                                              currentUserData
-                                                                  ?.fmsSessionId,
-                                                        );
-
-                                                        _shouldSetState = true;
-                                                        if ((_model.confirm
-                                                                ?.succeeded ??
-                                                            true)) {
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            enableDrag: false,
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                                  onTap: () {
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus();
-                                                                    FocusManager
-                                                                        .instance
-                                                                        .primaryFocus
-                                                                        ?.unfocus();
-                                                                  },
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
-                                                                    child:
-                                                                        CustomMobileBottomSheetWidget(
-                                                                      textTitle:
-                                                                          'Daily limit updated successfully',
-                                                                      btnText:
-                                                                          'Okay',
-                                                                      btnCallback:
-                                                                          () async {
-                                                                        Navigator.pop(
-                                                                            context);
-                                                                      },
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            },
-                                                          ).then((value) =>
-                                                              safeSetState(
-                                                                  () {}));
-
-                                                          FFAppState()
-                                                                  .shouldRefreshTransactions =
-                                                              true;
-                                                          safeSetState(() {});
-                                                        } else {
-                                                          context.goNamed(
-                                                            PayTransferFailedPageWidget
-                                                                .routeName,
-                                                            queryParameters: {
-                                                              'route':
-                                                                  serializeParam(
-                                                                'limits',
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                              'isLocked':
-                                                                  serializeParam(
-                                                                false,
-                                                                ParamType.bool,
-                                                              ),
-                                                            }.withoutNulls,
-                                                          );
-                                                        }
-                                                      } else if ((SigningChallengeStruct.maybeFromMap((_model.apiResultyq5?.jsonBody ?? ''))
-                                                                  ?.preferredMethod ==
-                                                              SigningAvailableMethods
-                                                                  .mpin.name) &&
-                                                          !isWeb) {
-                                                        context.pushNamed(
-                                                          MPINPageWidget
-                                                              .routeName,
-                                                          queryParameters: {
-                                                            'forAuth':
-                                                                serializeParam(
-                                                              false,
-                                                              ParamType.bool,
-                                                            ),
-                                                            'challenge':
-                                                                serializeParam(
-                                                              SigningChallengeStruct
-                                                                      .maybeFromMap(
-                                                                          (_model.apiResultyq5?.jsonBody ??
-                                                                              ''))
-                                                                  ?.challenge,
-                                                              ParamType.String,
-                                                            ),
-                                                            'usage':
-                                                                serializeParam(
-                                                              MpinUsage
-                                                                  .SETTING_LIMITS,
-                                                              ParamType.Enum,
-                                                            ),
-                                                            'updateLimits':
-                                                                serializeParam(
-                                                              _model.updatedList
-                                                                  .map((e) =>
-                                                                      e.toMap())
-                                                                  .toList(),
-                                                              ParamType.JSON,
-                                                              isList: true,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      } else {
-                                                        Navigator.pop(context);
-
-                                                        context.goNamed(
-                                                          PayTransferFailedPageWidget
-                                                              .routeName,
-                                                          queryParameters: {
-                                                            'route':
-                                                                serializeParam(
-                                                              'limits',
-                                                              ParamType.String,
-                                                            ),
-                                                            'isLocked':
-                                                                serializeParam(
-                                                              false,
-                                                              ParamType.bool,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      }
-                                                    } else {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (dialogContext) {
-                                                          return Dialog(
-                                                            elevation: 0,
-                                                            insetPadding:
-                                                                EdgeInsets.zero,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            alignment: AlignmentDirectional(
-                                                                    0.0, 0.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                            child: WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                                onTap: () {
-                                                                  FocusScope.of(
-                                                                          dialogContext)
-                                                                      .unfocus();
-                                                                  FocusManager
-                                                                      .instance
-                                                                      .primaryFocus
-                                                                      ?.unfocus();
-                                                                },
-                                                                child:
-                                                                    CustomInformationalDialogWidget(
-                                                                  message:
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                    functions.beautifyErrorMessage(WhitebankGroupAPIGroup
-                                                                        .limitsChallengeCall
-                                                                        .message(
-                                                                          (_model.apiResultyq5?.jsonBody ??
-                                                                              ''),
-                                                                        )
-                                                                        .toString()),
-                                                                    'Something went wrong',
-                                                                  ),
-                                                                  primaryButtonTitle:
-                                                                      'Close',
-                                                                  primaryButtonAction:
-                                                                      () async {
-                                                                    Navigator.pop(
-                                                                        context);
-                                                                  },
-                                                                  secondaryButtonAction:
-                                                                      () async {},
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
+                                                      _model.fetchedTransactionLimits =
+                                                          (getJsonField(
+                                                        (_model.getTransactionLimitsResponseV2
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                        r'''$.limits''',
+                                                        true,
+                                                      )!
+                                                                      .toList()
+                                                                      .map<LimitsStruct?>(
+                                                                          LimitsStruct
+                                                                              .maybeFromMap)
+                                                                      .toList()
+                                                                  as Iterable<
+                                                                      LimitsStruct?>)
+                                                              .withoutNulls
+                                                              .toList()
+                                                              .cast<
+                                                                  LimitsStruct>();
+                                                      safeSetState(() {});
                                                     }
 
-                                                    _model.updatedList = [];
                                                     safeSetState(() {});
-                                                    if (_shouldSetState)
-                                                      safeSetState(() {});
                                                   },
-                                            text: 'Save',
+                                            text: 'Cancel',
                                             options: FFButtonOptions(
                                               width: 170.0,
                                               height: 48.0,
@@ -1305,9 +792,7 @@ class _TransactionLimitsPageWidgetState
                                                       16.0, 0.0, 16.0, 0.0),
                                               iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                              color: Colors.white,
                                               textStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyLarge
@@ -1318,7 +803,7 @@ class _TransactionLimitsPageWidgetState
                                                             .bodyLargeFamily,
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .info,
+                                                        .primary,
                                                     fontSize: 16.0,
                                                     letterSpacing: 0.0,
                                                     useGoogleFonts:
@@ -1327,11 +812,557 @@ class _TransactionLimitsPageWidgetState
                                                             .bodyLargeIsCustom,
                                                   ),
                                               elevation: 0.0,
+                                              borderSide: BorderSide(
+                                                color: valueOrDefault<Color>(
+                                                  !(_model.updatedList
+                                                          .isNotEmpty)
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryText
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                                ),
+                                              ),
                                               borderRadius:
                                                   BorderRadius.circular(16.0),
-                                              disabledColor: Color(0xFFDAE3E5),
                                               disabledTextColor:
-                                                  Color(0xFF939FA3),
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Builder(
+                                          builder: (context) => Semantics(
+                                            button: true,
+                                            identifier: 'txn_limits_button_2',
+                                            child: FFButtonWidget(
+                                              onPressed: (!(_model.updatedList
+                                                          .isNotEmpty) ||
+                                                      (_model.updatedList
+                                                          .where((e) =>
+                                                              (e.maxAmount ==
+                                                                  0.0) ||
+                                                              (e.dailyLimit ==
+                                                                  0.0))
+                                                          .toList()
+                                                          .isNotEmpty) ||
+                                                      (_model
+                                                          .fetchedTransactionLimits
+                                                          .where((e) =>
+                                                              e.isMaxedInvalid ==
+                                                              true)
+                                                          .toList()
+                                                          .isNotEmpty) ||
+                                                      (_model
+                                                          .fetchedTransactionLimits
+                                                          .where((e) =>
+                                                              e.isDailyInvalid ==
+                                                              true)
+                                                          .toList()
+                                                          .isNotEmpty))
+                                                  ? null
+                                                  : () async {
+                                                      var _shouldSetState =
+                                                          false;
+                                                      _model.apiResultyq5 =
+                                                          await WhitebankGroupAPIGroup
+                                                              .limitsChallengeCall
+                                                              .call(
+                                                        updatesJson: _model
+                                                            .updatedList
+                                                            .map((e) =>
+                                                                e.toMap())
+                                                            .toList(),
+                                                        deviceId: FFAppState()
+                                                            .DeviceDetails
+                                                            .deviceId,
+                                                        accessToken:
+                                                            currentAuthenticationToken,
+                                                        baseURL:
+                                                            FFDevEnvironmentValues()
+                                                                .WBPBASEURL,
+                                                        fmsSessionId:
+                                                            currentUserData
+                                                                ?.fmsSessionId,
+                                                      );
+
+                                                      _shouldSetState = true;
+                                                      if ((_model.apiResultyq5
+                                                              ?.succeeded ??
+                                                          true)) {
+                                                        if (SigningChallengeStruct.maybeFromMap((_model.apiResultyq5?.jsonBody ?? ''))?.preferredMethod ==
+                                                                null ||
+                                                            SigningChallengeStruct.maybeFromMap((_model.apiResultyq5?.jsonBody ?? ''))
+                                                                    ?.preferredMethod ==
+                                                                '') {
+                                                          context.goNamed(
+                                                            PayTransferFailedPageWidget
+                                                                .routeName,
+                                                            queryParameters: {
+                                                              'route':
+                                                                  serializeParam(
+                                                                'limits',
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'isLocked':
+                                                                  serializeParam(
+                                                                false,
+                                                                ParamType.bool,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+
+                                                          if (_shouldSetState)
+                                                            safeSetState(() {});
+                                                          return;
+                                                        } else if ((isWeb == true) &&
+                                                            (SigningChallengeStruct.maybeFromMap((_model.apiResultyq5?.jsonBody ?? ''))
+                                                                    ?.availableMethods
+                                                                    .contains(SigningAvailableMethods
+                                                                        .passkey
+                                                                        .name) ==
+                                                                true)) {
+                                                          _model.fundTransferConfirmSigningPKPayload =
+                                                              await action_blocks
+                                                                  .createConfirmSigningPKPayload(
+                                                            context,
+                                                            stepupOptionsPayload:
+                                                                WBStepupAuthOptionsPayloadStruct(
+                                                              transactionType:
+                                                                  PasskeyTransactionType
+                                                                      .limit_change
+                                                                      .name,
+                                                              transactionId:
+                                                                  getJsonField(
+                                                                (_model.apiResultyq5
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                                r'''$.operationId''',
+                                                              ).toString(),
+                                                              context: functions
+                                                                  .buildLimitChangeContext(_model
+                                                                      .updatedList
+                                                                      .map((e) =>
+                                                                          e.toMap())
+                                                                      .toList()),
+                                                            ),
+                                                          );
+                                                          _shouldSetState =
+                                                              true;
+                                                          _model.confirmPasskey =
+                                                              await WhitebankGroupAPIGroup
+                                                                  .limitsChallengeConfirmPasskeyCall
+                                                                  .call(
+                                                            method:
+                                                                SigningAvailableMethods
+                                                                    .passkey
+                                                                    .name,
+                                                            deviceId: FFAppState()
+                                                                .DeviceDetails
+                                                                .deviceId,
+                                                            baseURL:
+                                                                FFDevEnvironmentValues()
+                                                                    .WBPBASEURL,
+                                                            accessToken:
+                                                                currentAuthenticationToken,
+                                                            stepupToken: _model
+                                                                .fundTransferConfirmSigningPKPayload
+                                                                ?.data
+                                                                .stepupToken,
+                                                            transactionHash: _model
+                                                                .fundTransferConfirmSigningPKPayload
+                                                                ?.data
+                                                                .transactionHash,
+                                                            operationId:
+                                                                getJsonField(
+                                                              (_model.apiResultyq5
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                              r'''$.operationId''',
+                                                            ).toString(),
+                                                            fmsSessionId:
+                                                                currentUserData
+                                                                    ?.fmsSessionId,
+                                                          );
+
+                                                          _shouldSetState =
+                                                              true;
+                                                          if ((_model
+                                                                  .confirmPasskey
+                                                                  ?.succeeded ??
+                                                              true)) {
+                                                            await showModalBottomSheet(
+                                                              isScrollControlled:
+                                                                  true,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              enableDrag: false,
+                                                              context: context,
+                                                              builder:
+                                                                  (context) {
+                                                                return WebViewAware(
+                                                                  child:
+                                                                      GestureDetector(
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          CustomMobileBottomSheetWidget(
+                                                                        textTitle:
+                                                                            'Daily limit updated successfully',
+                                                                        btnText:
+                                                                            'Okay',
+                                                                        btnCallback:
+                                                                            () async {
+                                                                          Navigator.pop(
+                                                                              context);
+                                                                        },
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ).then((value) =>
+                                                                safeSetState(
+                                                                    () {}));
+
+                                                            FFAppState()
+                                                                    .shouldRefreshTransactions =
+                                                                true;
+                                                            safeSetState(() {});
+                                                          } else {
+                                                            context.goNamed(
+                                                              PayTransferFailedPageWidget
+                                                                  .routeName,
+                                                              queryParameters: {
+                                                                'route':
+                                                                    serializeParam(
+                                                                  'limits',
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                                'isLocked':
+                                                                    serializeParam(
+                                                                  false,
+                                                                  ParamType
+                                                                      .bool,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          }
+                                                        } else if ((SigningChallengeStruct.maybeFromMap((_model.apiResultyq5?.jsonBody ?? ''))
+                                                                    ?.preferredMethod ==
+                                                                SigningAvailableMethods
+                                                                    .biometric
+                                                                    .name) &&
+                                                            !isWeb) {
+                                                          _model.createSignatureOutput =
+                                                              await actions
+                                                                  .createSignature(
+                                                            SigningChallengeStruct
+                                                                    .maybeFromMap((_model
+                                                                            .apiResultyq5
+                                                                            ?.jsonBody ??
+                                                                        ''))!
+                                                                .challenge,
+                                                          );
+                                                          _shouldSetState =
+                                                              true;
+                                                          _model.confirm =
+                                                              await WhitebankGroupAPIGroup
+                                                                  .limitsChallengeConfirmCall
+                                                                  .call(
+                                                            method:
+                                                                SigningAvailableMethods
+                                                                    .biometric
+                                                                    .name,
+                                                            deviceId: FFAppState()
+                                                                .DeviceDetails
+                                                                .deviceId,
+                                                            challenge: SigningChallengeStruct
+                                                                    .maybeFromMap(
+                                                                        (_model.apiResultyq5?.jsonBody ??
+                                                                            ''))
+                                                                ?.challenge,
+                                                            signature: _model
+                                                                .createSignatureOutput,
+                                                            accessToken:
+                                                                currentAuthenticationToken,
+                                                            mpin: '',
+                                                            baseURL:
+                                                                FFDevEnvironmentValues()
+                                                                    .WBPBASEURL,
+                                                            fmsSessionId:
+                                                                currentUserData
+                                                                    ?.fmsSessionId,
+                                                          );
+
+                                                          _shouldSetState =
+                                                              true;
+                                                          if ((_model.confirm
+                                                                  ?.succeeded ??
+                                                              true)) {
+                                                            await showModalBottomSheet(
+                                                              isScrollControlled:
+                                                                  true,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              enableDrag: false,
+                                                              context: context,
+                                                              builder:
+                                                                  (context) {
+                                                                return WebViewAware(
+                                                                  child:
+                                                                      GestureDetector(
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          CustomMobileBottomSheetWidget(
+                                                                        textTitle:
+                                                                            'Daily limit updated successfully',
+                                                                        btnText:
+                                                                            'Okay',
+                                                                        btnCallback:
+                                                                            () async {
+                                                                          Navigator.pop(
+                                                                              context);
+                                                                        },
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ).then((value) =>
+                                                                safeSetState(
+                                                                    () {}));
+
+                                                            FFAppState()
+                                                                    .shouldRefreshTransactions =
+                                                                true;
+                                                            safeSetState(() {});
+                                                          } else {
+                                                            context.goNamed(
+                                                              PayTransferFailedPageWidget
+                                                                  .routeName,
+                                                              queryParameters: {
+                                                                'route':
+                                                                    serializeParam(
+                                                                  'limits',
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                                'isLocked':
+                                                                    serializeParam(
+                                                                  false,
+                                                                  ParamType
+                                                                      .bool,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          }
+                                                        } else if ((SigningChallengeStruct.maybeFromMap((_model.apiResultyq5?.jsonBody ?? ''))
+                                                                    ?.preferredMethod ==
+                                                                SigningAvailableMethods
+                                                                    .mpin
+                                                                    .name) &&
+                                                            !isWeb) {
+                                                          context.pushNamed(
+                                                            MPINPageWidget
+                                                                .routeName,
+                                                            queryParameters: {
+                                                              'forAuth':
+                                                                  serializeParam(
+                                                                false,
+                                                                ParamType.bool,
+                                                              ),
+                                                              'challenge':
+                                                                  serializeParam(
+                                                                SigningChallengeStruct.maybeFromMap(
+                                                                        (_model.apiResultyq5?.jsonBody ??
+                                                                            ''))
+                                                                    ?.challenge,
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'usage':
+                                                                  serializeParam(
+                                                                MpinUsage
+                                                                    .SETTING_LIMITS,
+                                                                ParamType.Enum,
+                                                              ),
+                                                              'updateLimits':
+                                                                  serializeParam(
+                                                                _model
+                                                                    .updatedList
+                                                                    .map((e) =>
+                                                                        e.toMap())
+                                                                    .toList(),
+                                                                ParamType.JSON,
+                                                                isList: true,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+                                                        } else {
+                                                          Navigator.pop(
+                                                              context);
+
+                                                          context.goNamed(
+                                                            PayTransferFailedPageWidget
+                                                                .routeName,
+                                                            queryParameters: {
+                                                              'route':
+                                                                  serializeParam(
+                                                                'limits',
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'isLocked':
+                                                                  serializeParam(
+                                                                false,
+                                                                ParamType.bool,
+                                                              ),
+                                                            }.withoutNulls,
+                                                          );
+                                                        }
+                                                      } else {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (dialogContext) {
+                                                            return Dialog(
+                                                              elevation: 0,
+                                                              insetPadding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              alignment: AlignmentDirectional(
+                                                                      0.0, 0.0)
+                                                                  .resolve(
+                                                                      Directionality.of(
+                                                                          context)),
+                                                              child:
+                                                                  WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () {
+                                                                    FocusScope.of(
+                                                                            dialogContext)
+                                                                        .unfocus();
+                                                                    FocusManager
+                                                                        .instance
+                                                                        .primaryFocus
+                                                                        ?.unfocus();
+                                                                  },
+                                                                  child:
+                                                                      CustomInformationalDialogWidget(
+                                                                    message:
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                      functions.beautifyErrorMessage(WhitebankGroupAPIGroup
+                                                                          .limitsChallengeCall
+                                                                          .message(
+                                                                            (_model.apiResultyq5?.jsonBody ??
+                                                                                ''),
+                                                                          )
+                                                                          .toString()),
+                                                                      'Something went wrong',
+                                                                    ),
+                                                                    primaryButtonTitle:
+                                                                        'Close',
+                                                                    primaryButtonAction:
+                                                                        () async {
+                                                                      Navigator.pop(
+                                                                          context);
+                                                                    },
+                                                                    secondaryButtonAction:
+                                                                        () async {},
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+                                                      }
+
+                                                      _model.updatedList = [];
+                                                      safeSetState(() {});
+                                                      if (_shouldSetState)
+                                                        safeSetState(() {});
+                                                    },
+                                              text: 'Save',
+                                              options: FFButtonOptions(
+                                                width: 170.0,
+                                                height: 48.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyLarge
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyLargeFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .info,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyLargeIsCustom,
+                                                    ),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
+                                                disabledColor:
+                                                    Color(0xFFDAE3E5),
+                                                disabledTextColor:
+                                                    Color(0xFF939FA3),
+                                              ),
                                             ),
                                           ),
                                         ),

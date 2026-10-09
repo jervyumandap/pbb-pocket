@@ -407,6 +407,10 @@ class _TransactionHistoryV2WidgetState extends State<TransactionHistoryV2Widget>
                                                                       recentTransactionsIndex];
                                                               return Semantics(
                                                                 label:
+                                                                    'Transaction row',
+                                                                button: true,
+                                                                container: true,
+                                                                identifier:
                                                                     'history_transaction_row',
                                                                 child:
                                                                     wrapWithModel(

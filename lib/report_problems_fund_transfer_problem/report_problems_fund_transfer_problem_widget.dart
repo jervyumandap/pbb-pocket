@@ -182,8 +182,10 @@ class _ReportProblemsFundTransferProblemWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportTransfer_issue_component',
+                                                  label: 'Report issue',
+                                                  container: true,
+                                                  identifier:
+                                                      'reporttransfer_issue_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -349,8 +351,10 @@ class _ReportProblemsFundTransferProblemWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportTransfer_concern_component',
+                                                  label: 'Report concern',
+                                                  container: true,
+                                                  identifier:
+                                                      'reporttransfer_concern_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -515,8 +519,10 @@ class _ReportProblemsFundTransferProblemWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportTransfer_transferType_component',
+                                                  label: 'Report type',
+                                                  container: true,
+                                                  identifier:
+                                                      'reporttransfer_transfertype_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -677,8 +683,9 @@ class _ReportProblemsFundTransferProblemWidgetState
                                               ].divide(SizedBox(height: 5.0)),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'reportTransfer_details_textfield',
+                                              label: 'Additional details',
+                                              identifier:
+                                                  'reporttransfer_details_textfield',
                                               child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
@@ -823,7 +830,9 @@ class _ReportProblemsFundTransferProblemWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 50.0),
                                 child: Semantics(
-                                  label: 'reportTransfer_submit_button',
+                                  label: 'Report submit',
+                                  button: true,
+                                  identifier: 'reporttransfer_submit_button',
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       if (_model.informationSelected == null) {

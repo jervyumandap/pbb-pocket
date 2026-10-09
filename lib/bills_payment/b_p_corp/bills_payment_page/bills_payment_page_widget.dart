@@ -894,151 +894,151 @@ class _BillsPaymentPageWidgetState extends State<BillsPaymentPageWidget>
                                               ),
                                             ),
                                             Expanded(
-                                              child: Container(
-                                                width: 53.2,
-                                                child: TextFormField(
-                                                  controller: _model
-                                                      .textFieldPaymentAmountTextController,
-                                                  focusNode: _model
-                                                      .textFieldPaymentAmountFocusNode,
-                                                  autofocus: false,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    isDense: true,
-                                                    labelStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelLarge
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLargeFamily,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLargeIsCustom,
-                                                            ),
-                                                    hintText: ' 0.00',
-                                                    hintStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
+                                              child: Semantics(
+                                                label: 'Payment amount',
+                                                identifier:
+                                                    'bills_payment_payment_amount',
+                                                child: Container(
+                                                  width: 53.2,
+                                                  child: TextFormField(
+                                                    controller: _model
+                                                        .textFieldPaymentAmountTextController,
+                                                    focusNode: _model
+                                                        .textFieldPaymentAmountFocusNode,
+                                                    autofocus: false,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      isDense: true,
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelLarge
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLargeFamily,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLargeIsCustom,
+                                                              ),
+                                                      hintText: ' 0.00',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily,
+                                                                color: Color(
+                                                                    0xFF72777A),
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMediumIsCustom,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .neutral10,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      filled: true,
+                                                      fillColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .base0,
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  17.0,
+                                                                  12.0,
+                                                                  17.0),
+                                                      hoverColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .formElementHover,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelMediumFamily,
-                                                          color:
-                                                              Color(0xFF72777A),
+                                                                  .bodyMediumFamily,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts:
                                                               !FlutterFlowTheme
                                                                       .of(context)
-                                                                  .labelMediumIsCustom,
+                                                                  .bodyMediumIsCustom,
                                                         ),
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .neutral10,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    errorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    filled: true,
-                                                    fillColor:
+                                                    textAlign: TextAlign.end,
+                                                    keyboardType:
+                                                        const TextInputType
+                                                            .numberWithOptions(
+                                                            decimal: true),
+                                                    cursorColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .base0,
-                                                    contentPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                12.0,
-                                                                17.0,
-                                                                12.0,
-                                                                17.0),
-                                                    hoverColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .formElementHover,
+                                                            .primaryText,
+                                                    enableInteractiveSelection:
+                                                        true,
+                                                    validator: _model
+                                                        .textFieldPaymentAmountTextControllerValidator
+                                                        .asValidator(context),
                                                   ),
-                                                  style:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
-                                                  textAlign: TextAlign.end,
-                                                  keyboardType:
-                                                      const TextInputType
-                                                          .numberWithOptions(
-                                                          decimal: true),
-                                                  cursorColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryText,
-                                                  enableInteractiveSelection:
-                                                      true,
-                                                  validator: _model
-                                                      .textFieldPaymentAmountTextControllerValidator
-                                                      .asValidator(context),
                                                 ),
                                               ),
                                             ),
@@ -1109,229 +1109,28 @@ class _BillsPaymentPageWidgetState extends State<BillsPaymentPageWidget>
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Expanded(
-                                              child:
-                                                  FlutterFlowDropDown<String>(
-                                                controller: _model
-                                                        .dropDownScheduleTypeValueController ??=
-                                                    FormFieldController<String>(
-                                                  _model.dropDownScheduleTypeValue ??=
-                                                      TransactionScheduleType
-                                                          .DAILY.name,
-                                                ),
-                                                options: TransactionScheduleType
-                                                    .values
-                                                    .map((e) => e.name)
-                                                    .toList(),
-                                                onChanged: (val) =>
-                                                    safeSetState(() => _model
-                                                            .dropDownScheduleTypeValue =
-                                                        val),
-                                                height: 44.0,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
-                                                        ),
-                                                hintText: 'Select...',
-                                                icon: Icon(
-                                                  Icons
-                                                      .keyboard_arrow_down_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryLabel,
-                                                  size: 24.0,
-                                                ),
-                                                fillColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .base0,
-                                                elevation: 2.0,
-                                                borderColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .neutral10,
-                                                borderWidth: 1.0,
-                                                borderRadius: 8.0,
-                                                margin: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
-                                                hidesUnderline: true,
-                                                isOverButton: false,
-                                                isSearchable: false,
-                                                isMultiSelect: false,
-                                              ),
-                                            ),
-                                          ].divide(SizedBox(width: 16.0)),
-                                        ),
-                                        if (_model.dropDownScheduleTypeValue ==
-                                            TransactionScheduleType.ONCE.name)
-                                          wrapWithModel(
-                                            model: _model
-                                                .customDatePickerWidgetPaymentDateModel,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: CustomDatePickerWidgetWidget(
-                                              label: _model.paymentDate !=
-                                                          null &&
-                                                      _model.paymentDate != ''
-                                                  ? dateTimeFormat(
-                                                      "d-MMM-y",
-                                                      _model.datePicked1,
-                                                      locale:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                    )
-                                                  : 'Set a payment date (DD-MM-YYYY)',
-                                              callBack: () async {
-                                                final _datePicked1Date =
-                                                    await showDatePicker(
-                                                  context: context,
-                                                  initialDate:
-                                                      getCurrentTimestamp,
-                                                  firstDate:
-                                                      getCurrentTimestamp,
-                                                  lastDate: DateTime(2050),
-                                                );
-
-                                                if (_datePicked1Date != null) {
-                                                  safeSetState(() {
-                                                    _model.datePicked1 =
-                                                        DateTime(
-                                                      _datePicked1Date.year,
-                                                      _datePicked1Date.month,
-                                                      _datePicked1Date.day,
-                                                    );
-                                                  });
-                                                } else if (_model.datePicked1 !=
-                                                    null) {
-                                                  safeSetState(() {
-                                                    _model.datePicked1 =
-                                                        getCurrentTimestamp;
-                                                  });
-                                                }
-                                                if (_model.datePicked1 !=
-                                                    null) {
-                                                  _model.paymentDate =
-                                                      dateTimeFormat(
-                                                    "y-MM-d",
-                                                    _model.datePicked1,
-                                                    locale: FFLocalizations.of(
-                                                            context)
-                                                        .languageCode,
-                                                  );
-                                                  safeSetState(() {});
-                                                }
-                                              },
-                                            ),
-                                          ),
-                                        if ((_model.dropDownScheduleTypeValue ==
-                                                TransactionScheduleType
-                                                    .MONTHLY.name) ||
-                                            (_model.dropDownScheduleTypeValue ==
-                                                TransactionScheduleType
-                                                    .ONCE.name))
-                                          wrapWithModel(
-                                            model: _model
-                                                .customDatePickerWidgetStartDateModel,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: CustomDatePickerWidgetWidget(
-                                              label: _model.startPaymentDate !=
-                                                          null &&
-                                                      _model.startPaymentDate !=
-                                                          ''
-                                                  ? dateTimeFormat(
-                                                      "d-MMM-y",
-                                                      _model.datePicked2,
-                                                      locale:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                    )
-                                                  : 'Select start date (DD-MM-YYYY)',
-                                              callBack: () async {
-                                                final _datePicked2Date =
-                                                    await showDatePicker(
-                                                  context: context,
-                                                  initialDate:
-                                                      getCurrentTimestamp,
-                                                  firstDate:
-                                                      getCurrentTimestamp,
-                                                  lastDate: DateTime(2050),
-                                                );
-
-                                                if (_datePicked2Date != null) {
-                                                  safeSetState(() {
-                                                    _model.datePicked2 =
-                                                        DateTime(
-                                                      _datePicked2Date.year,
-                                                      _datePicked2Date.month,
-                                                      _datePicked2Date.day,
-                                                    );
-                                                  });
-                                                } else if (_model.datePicked2 !=
-                                                    null) {
-                                                  safeSetState(() {
-                                                    _model.datePicked2 =
-                                                        getCurrentTimestamp;
-                                                  });
-                                                }
-                                                if (_model.datePicked2 !=
-                                                    null) {
-                                                  _model.startPaymentDate =
-                                                      dateTimeFormat(
-                                                    "y-MM-d",
-                                                    _model.datePicked2,
-                                                    locale: FFLocalizations.of(
-                                                            context)
-                                                        .languageCode,
-                                                  );
-                                                  safeSetState(() {});
-                                                }
-                                              },
-                                            ),
-                                          ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            if ((_model.dropDownScheduleTypeValue ==
-                                                    TransactionScheduleType
-                                                        .MONTHLY.name) ||
-                                                (_model.dropDownScheduleTypeValue ==
-                                                    TransactionScheduleType
-                                                        .ONCE.name))
-                                              Expanded(
+                                              child: Semantics(
+                                                label: 'Schedule type',
+                                                identifier:
+                                                    'bills_payment_drop_down_schedule_type',
                                                 child:
                                                     FlutterFlowDropDown<String>(
                                                   controller: _model
-                                                          .dropDownNumberOfPaymentValueController ??=
+                                                          .dropDownScheduleTypeValueController ??=
                                                       FormFieldController<
-                                                          String>(null),
-                                                  options: [
-                                                    '1',
-                                                    '2',
-                                                    '3',
-                                                    '4',
-                                                    '5',
-                                                    '6',
-                                                    '7',
-                                                    '8',
-                                                    '9',
-                                                    '10',
-                                                    '11',
-                                                    '12'
-                                                  ],
+                                                          String>(
+                                                    _model.dropDownScheduleTypeValue ??=
+                                                        TransactionScheduleType
+                                                            .DAILY.name,
+                                                  ),
+                                                  options:
+                                                      TransactionScheduleType
+                                                          .values
+                                                          .map((e) => e.name)
+                                                          .toList(),
                                                   onChanged: (val) =>
                                                       safeSetState(() => _model
-                                                              .dropDownNumberOfPaymentValue =
+                                                              .dropDownScheduleTypeValue =
                                                           val),
                                                   height: 44.0,
                                                   textStyle:
@@ -1349,8 +1148,7 @@ class _BillsPaymentPageWidgetState extends State<BillsPaymentPageWidget>
                                                                         context)
                                                                     .bodyMediumIsCustom,
                                                           ),
-                                                  hintText:
-                                                      'Set number of payments',
+                                                  hintText: 'Select...',
                                                   icon: Icon(
                                                     Icons
                                                         .keyboard_arrow_down_rounded,
@@ -1377,6 +1175,244 @@ class _BillsPaymentPageWidgetState extends State<BillsPaymentPageWidget>
                                                   isOverButton: false,
                                                   isSearchable: false,
                                                   isMultiSelect: false,
+                                                ),
+                                              ),
+                                            ),
+                                          ].divide(SizedBox(width: 16.0)),
+                                        ),
+                                        if (_model.dropDownScheduleTypeValue ==
+                                            TransactionScheduleType.ONCE.name)
+                                          Semantics(
+                                            container: true,
+                                            identifier:
+                                                'bills_payment_custom_date_picker_payment_date',
+                                            child: wrapWithModel(
+                                              model: _model
+                                                  .customDatePickerWidgetPaymentDateModel,
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child:
+                                                  CustomDatePickerWidgetWidget(
+                                                label: _model.paymentDate !=
+                                                            null &&
+                                                        _model.paymentDate != ''
+                                                    ? dateTimeFormat(
+                                                        "d-MMM-y",
+                                                        _model.datePicked1,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      )
+                                                    : 'Set a payment date (DD-MM-YYYY)',
+                                                callBack: () async {
+                                                  final _datePicked1Date =
+                                                      await showDatePicker(
+                                                    context: context,
+                                                    initialDate:
+                                                        getCurrentTimestamp,
+                                                    firstDate:
+                                                        getCurrentTimestamp,
+                                                    lastDate: DateTime(2050),
+                                                  );
+
+                                                  if (_datePicked1Date !=
+                                                      null) {
+                                                    safeSetState(() {
+                                                      _model.datePicked1 =
+                                                          DateTime(
+                                                        _datePicked1Date.year,
+                                                        _datePicked1Date.month,
+                                                        _datePicked1Date.day,
+                                                      );
+                                                    });
+                                                  } else if (_model
+                                                          .datePicked1 !=
+                                                      null) {
+                                                    safeSetState(() {
+                                                      _model.datePicked1 =
+                                                          getCurrentTimestamp;
+                                                    });
+                                                  }
+                                                  if (_model.datePicked1 !=
+                                                      null) {
+                                                    _model.paymentDate =
+                                                        dateTimeFormat(
+                                                      "y-MM-d",
+                                                      _model.datePicked1,
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    );
+                                                    safeSetState(() {});
+                                                  }
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                        if ((_model.dropDownScheduleTypeValue ==
+                                                TransactionScheduleType
+                                                    .MONTHLY.name) ||
+                                            (_model.dropDownScheduleTypeValue ==
+                                                TransactionScheduleType
+                                                    .ONCE.name))
+                                          Semantics(
+                                            container: true,
+                                            identifier:
+                                                'bills_payment_custom_date_picker_start_date',
+                                            child: wrapWithModel(
+                                              model: _model
+                                                  .customDatePickerWidgetStartDateModel,
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child:
+                                                  CustomDatePickerWidgetWidget(
+                                                label: _model.startPaymentDate !=
+                                                            null &&
+                                                        _model.startPaymentDate !=
+                                                            ''
+                                                    ? dateTimeFormat(
+                                                        "d-MMM-y",
+                                                        _model.datePicked2,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      )
+                                                    : 'Select start date (DD-MM-YYYY)',
+                                                callBack: () async {
+                                                  final _datePicked2Date =
+                                                      await showDatePicker(
+                                                    context: context,
+                                                    initialDate:
+                                                        getCurrentTimestamp,
+                                                    firstDate:
+                                                        getCurrentTimestamp,
+                                                    lastDate: DateTime(2050),
+                                                  );
+
+                                                  if (_datePicked2Date !=
+                                                      null) {
+                                                    safeSetState(() {
+                                                      _model.datePicked2 =
+                                                          DateTime(
+                                                        _datePicked2Date.year,
+                                                        _datePicked2Date.month,
+                                                        _datePicked2Date.day,
+                                                      );
+                                                    });
+                                                  } else if (_model
+                                                          .datePicked2 !=
+                                                      null) {
+                                                    safeSetState(() {
+                                                      _model.datePicked2 =
+                                                          getCurrentTimestamp;
+                                                    });
+                                                  }
+                                                  if (_model.datePicked2 !=
+                                                      null) {
+                                                    _model.startPaymentDate =
+                                                        dateTimeFormat(
+                                                      "y-MM-d",
+                                                      _model.datePicked2,
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    );
+                                                    safeSetState(() {});
+                                                  }
+                                                },
+                                              ),
+                                            ),
+                                          ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            if ((_model.dropDownScheduleTypeValue ==
+                                                    TransactionScheduleType
+                                                        .MONTHLY.name) ||
+                                                (_model.dropDownScheduleTypeValue ==
+                                                    TransactionScheduleType
+                                                        .ONCE.name))
+                                              Expanded(
+                                                child: Semantics(
+                                                  label: 'Number of payment',
+                                                  identifier:
+                                                      'bills_payment_drop_down_number_of_payment',
+                                                  child: FlutterFlowDropDown<
+                                                      String>(
+                                                    controller: _model
+                                                            .dropDownNumberOfPaymentValueController ??=
+                                                        FormFieldController<
+                                                            String>(null),
+                                                    options: [
+                                                      '1',
+                                                      '2',
+                                                      '3',
+                                                      '4',
+                                                      '5',
+                                                      '6',
+                                                      '7',
+                                                      '8',
+                                                      '9',
+                                                      '10',
+                                                      '11',
+                                                      '12'
+                                                    ],
+                                                    onChanged: (val) =>
+                                                        safeSetState(() => _model
+                                                                .dropDownNumberOfPaymentValue =
+                                                            val),
+                                                    height: 44.0,
+                                                    textStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              useGoogleFonts:
+                                                                  !FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumIsCustom,
+                                                            ),
+                                                    hintText:
+                                                        'Set number of payments',
+                                                    icon: Icon(
+                                                      Icons
+                                                          .keyboard_arrow_down_rounded,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryLabel,
+                                                      size: 24.0,
+                                                    ),
+                                                    fillColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .base0,
+                                                    elevation: 2.0,
+                                                    borderColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .neutral10,
+                                                    borderWidth: 1.0,
+                                                    borderRadius: 8.0,
+                                                    margin:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 0.0,
+                                                                12.0, 0.0),
+                                                    hidesUnderline: true,
+                                                    isOverButton: false,
+                                                    isSearchable: false,
+                                                    isMultiSelect: false,
+                                                  ),
                                                 ),
                                               ),
                                           ].divide(SizedBox(width: 16.0)),
@@ -1442,120 +1478,126 @@ class _BillsPaymentPageWidgetState extends State<BillsPaymentPageWidget>
                                                         .titleLargeIsCustom,
                                               ),
                                         ),
-                                        TextFormField(
-                                          controller: _model
-                                              .textFieldRemarksTextController,
-                                          focusNode:
-                                              _model.textFieldRemarksFocusNode,
-                                          autofocus: false,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            isDense: true,
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelLarge
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLargeFamily,
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLargeIsCustom,
-                                                    ),
-                                            hintText: 'Optional',
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMediumFamily,
-                                                      color: Color(0xFF72777A),
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMediumIsCustom,
-                                                    ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .neutral10,
-                                                width: 1.0,
+                                        Semantics(
+                                          label: 'Remarks',
+                                          identifier: 'bills_payment_remarks',
+                                          child: TextFormField(
+                                            controller: _model
+                                                .textFieldRemarksTextController,
+                                            focusNode: _model
+                                                .textFieldRemarksFocusNode,
+                                            autofocus: false,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              isDense: true,
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLargeFamily,
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLargeIsCustom,
+                                                      ),
+                                              hintText: 'Optional',
+                                              hintStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMediumFamily,
+                                                    color: Color(0xFF72777A),
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMediumIsCustom,
+                                                  ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .neutral10,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                width: 1.0,
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
+                                              errorBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                              filled: true,
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .base0,
+                                              contentPadding:
+                                                  EdgeInsetsDirectional
+                                                      .fromSTEB(12.0, 17.0,
+                                                          12.0, 17.0),
+                                              hoverColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .formElementHover,
                                             ),
-                                            filled: true,
-                                            fillColor:
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  fontSize: 14.0,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
+                                            maxLines: null,
+                                            cursorColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .base0,
-                                            contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 17.0, 12.0, 17.0),
-                                            hoverColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .formElementHover,
+                                                    .primaryText,
+                                            enableInteractiveSelection: true,
+                                            validator: _model
+                                                .textFieldRemarksTextControllerValidator
+                                                .asValidator(context),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                          maxLines: null,
-                                          cursorColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryText,
-                                          enableInteractiveSelection: true,
-                                          validator: _model
-                                              .textFieldRemarksTextControllerValidator
-                                              .asValidator(context),
                                         ),
                                       ].divide(SizedBox(height: 16.0)),
                                     ),
@@ -1567,275 +1609,348 @@ class _BillsPaymentPageWidgetState extends State<BillsPaymentPageWidget>
                                 builder: (context) => Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 0.0),
-                                  child: FFButtonWidget(
-                                    onPressed: ((_model.paymentAmount < 1.0) ||
-                                            (_model.selectedSourceAccount ==
-                                                null) ||
-                                            (_model.selectedBiller == null))
-                                        ? null
-                                        : () async {
-                                            _model.billsHeader =
-                                                BillsHeaderStruct(
-                                              channelRefNumber:
-                                                  valueOrDefault<String>(
-                                                random_data.randomString(
-                                                  5,
-                                                  8,
-                                                  false,
-                                                  true,
-                                                  true,
+                                  child: Semantics(
+                                    button: true,
+                                    identifier: 'bills_payment_button',
+                                    child: FFButtonWidget(
+                                      onPressed: ((_model.paymentAmount <
+                                                  1.0) ||
+                                              (_model.selectedSourceAccount ==
+                                                  null) ||
+                                              (_model.selectedBiller == null))
+                                          ? null
+                                          : () async {
+                                              _model.billsHeader =
+                                                  BillsHeaderStruct(
+                                                channelRefNumber:
+                                                    valueOrDefault<String>(
+                                                  random_data.randomString(
+                                                    5,
+                                                    8,
+                                                    false,
+                                                    true,
+                                                    true,
+                                                  ),
+                                                  'PLUM0001',
                                                 ),
-                                                'PLUM0001',
-                                              ),
-                                              channelCode: 'cbxrw',
-                                              billerCode:
-                                                  valueOrDefault<String>(
-                                                _model.selectedBiller?.code,
-                                                'BDOCC',
-                                              ),
-                                              userId: '40248',
-                                              branchId: 001,
-                                            );
-                                            _model.billsBody = BillsBodyStruct(
-                                              accNum: valueOrDefault<String>(
-                                                _model.selectedBiller
-                                                    ?.accountNumber,
-                                                '5188690005874103',
-                                              ),
-                                              amount: _model.paymentAmount,
-                                              fullName: _model
-                                                  .selectedSourceAccount
-                                                  ?.accountName,
-                                              billNum: valueOrDefault<String>(
-                                                _model.selectedBiller?.fields
-                                                    .where((e) =>
-                                                        e.name == 'Bill Number')
-                                                    .toList()
-                                                    .firstOrNull
-                                                    ?.value,
-                                                '13310456',
-                                              ),
-                                              tranRefNum:
-                                                  valueOrDefault<String>(
-                                                _model.selectedBiller?.fields
-                                                    .where((e) =>
-                                                        e.name ==
-                                                        'Reference Number')
-                                                    .toList()
-                                                    .firstOrNull
-                                                    ?.value,
-                                                '000102134567',
-                                              ),
-                                              chequeNum: '',
-                                              otherCharges: 0.00,
-                                              paymentMethod: 'DEBIT',
-                                              bankName: '',
-                                            );
-                                            safeSetState(() {});
-                                            // Call FMS fraudcheck first before validation then pay bills.
-                                            _model.oAuthTokenBpTransactResponse =
-                                                await PbbGroup.oauthTokenCall
-                                                    .call(
-                                              channelCode: 'cbxr',
-                                              originatingChannelCode: 'cbxr',
-                                              checkPoint: 'transaction',
-                                              grantType: 'password',
-                                              baseURL:
-                                                  'https://lumine.pbb.com.ph',
-                                            );
-
-                                            if ((_model
-                                                    .oAuthTokenBpTransactResponse
-                                                    ?.succeeded ??
-                                                true)) {
-                                              _model.fMSFraudCheckReponse =
-                                                  await PbbGroup
-                                                      .fMSFraudCheckCall
+                                                channelCode: 'cbxrw',
+                                                billerCode:
+                                                    valueOrDefault<String>(
+                                                  _model.selectedBiller?.code,
+                                                  'BDOCC',
+                                                ),
+                                                userId: '40248',
+                                                branchId: 001,
+                                              );
+                                              _model.billsBody =
+                                                  BillsBodyStruct(
+                                                accNum: valueOrDefault<String>(
+                                                  _model.selectedBiller
+                                                      ?.accountNumber,
+                                                  '5188690005874103',
+                                                ),
+                                                amount: _model.paymentAmount,
+                                                fullName: _model
+                                                    .selectedSourceAccount
+                                                    ?.accountName,
+                                                billNum: valueOrDefault<String>(
+                                                  _model.selectedBiller?.fields
+                                                      .where((e) =>
+                                                          e.name ==
+                                                          'Bill Number')
+                                                      .toList()
+                                                      .firstOrNull
+                                                      ?.value,
+                                                  '13310456',
+                                                ),
+                                                tranRefNum:
+                                                    valueOrDefault<String>(
+                                                  _model.selectedBiller?.fields
+                                                      .where((e) =>
+                                                          e.name ==
+                                                          'Reference Number')
+                                                      .toList()
+                                                      .firstOrNull
+                                                      ?.value,
+                                                  '000102134567',
+                                                ),
+                                                chequeNum: '',
+                                                otherCharges: 0.00,
+                                                paymentMethod: 'DEBIT',
+                                                bankName: '',
+                                              );
+                                              safeSetState(() {});
+                                              // Call FMS fraudcheck first before validation then pay bills.
+                                              _model.oAuthTokenBpTransactResponse =
+                                                  await PbbGroup.oauthTokenCall
                                                       .call(
-                                                requestBodyJson: <String,
-                                                    dynamic>{
-                                                  'FMHeader':
-                                                      _model.fmHeader?.toMap(),
-                                                  'FMSession':
-                                                      _model.fmSession?.toMap(),
-                                                  'TRANSACTION': _model
-                                                      .fmTransaction
-                                                      ?.toMap(),
-                                                  'DeviceInfo': _model
-                                                      .fmDeviceInfo
-                                                      ?.toMap(),
-                                                },
+                                                channelCode: 'cbxr',
+                                                originatingChannelCode: 'cbxr',
+                                                checkPoint: 'transaction',
+                                                grantType: 'password',
                                                 baseURL:
                                                     'https://lumine.pbb.com.ph',
-                                                oAuthaccessToken: PbbGroup
-                                                    .oauthTokenCall
-                                                    .accesstoken(
-                                                  (_model.oAuthTokenBpTransactResponse
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ),
                                               );
 
-                                              if ((_model.fMSFraudCheckReponse
+                                              if ((_model
+                                                      .oAuthTokenBpTransactResponse
                                                       ?.succeeded ??
                                                   true)) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder: (dialogContext) {
-                                                    return Dialog(
-                                                      elevation: 0,
-                                                      insetPadding:
-                                                          EdgeInsets.zero,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                                  0.0, 0.0)
-                                                              .resolve(
-                                                                  Directionality.of(
-                                                                      context)),
-                                                      child: WebViewAware(
-                                                        child: GestureDetector(
-                                                          onTap: () {
-                                                            FocusScope.of(
-                                                                    dialogContext)
-                                                                .unfocus();
-                                                            FocusManager
-                                                                .instance
-                                                                .primaryFocus
-                                                                ?.unfocus();
-                                                          },
-                                                          child:
-                                                              CustomInformationalDialogWidget(
-                                                            primaryButtonTitle:
-                                                                'Continue',
-                                                            title: FMSFraudCheckResponseStruct
-                                                                    .maybeFromMap(
-                                                                        (_model.fMSFraudCheckReponse?.jsonBody ??
-                                                                            ''))
-                                                                ?.riskStatus,
-                                                            message: FMSFraudCheckResponseStruct
-                                                                    .maybeFromMap((_model
-                                                                            .fMSFraudCheckReponse
-                                                                            ?.jsonBody ??
-                                                                        ''))!
-                                                                .riskDetails
-                                                                .statusMessage,
-                                                            primaryButtonAction:
-                                                                () async {
-                                                              Navigator.pop(
-                                                                  context);
-                                                            },
-                                                            secondaryButtonAction:
-                                                                () async {},
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    );
+                                                _model.fMSFraudCheckReponse =
+                                                    await PbbGroup
+                                                        .fMSFraudCheckCall
+                                                        .call(
+                                                  requestBodyJson: <String,
+                                                      dynamic>{
+                                                    'FMHeader': _model.fmHeader
+                                                        ?.toMap(),
+                                                    'FMSession': _model
+                                                        .fmSession
+                                                        ?.toMap(),
+                                                    'TRANSACTION': _model
+                                                        .fmTransaction
+                                                        ?.toMap(),
+                                                    'DeviceInfo': _model
+                                                        .fmDeviceInfo
+                                                        ?.toMap(),
                                                   },
+                                                  baseURL:
+                                                      'https://lumine.pbb.com.ph',
+                                                  oAuthaccessToken: PbbGroup
+                                                      .oauthTokenCall
+                                                      .accesstoken(
+                                                    (_model.oAuthTokenBpTransactResponse
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
                                                 );
 
-                                                context.pushNamed(
-                                                  BillsPaymentReviewPageWidget
-                                                      .routeName,
-                                                  queryParameters: {
-                                                    'billsHeader':
-                                                        serializeParam(
-                                                      _model.billsHeader,
-                                                      ParamType.DataStruct,
-                                                    ),
-                                                    'billsBody': serializeParam(
-                                                      _model.billsBody,
-                                                      ParamType.DataStruct,
-                                                    ),
-                                                    'bpFieldsModel':
-                                                        serializeParam(
-                                                      BillsPaymentFieldsModelStruct(
-                                                        paymentFrom:
-                                                            AccountsV2Struct(
-                                                          accountNumber: _model
-                                                              .billsBody
-                                                              ?.accNum,
-                                                          accountName: _model
-                                                              .billsBody
-                                                              ?.fullName,
-                                                          accountTypeId: '',
-                                                          currency: 'PHP',
-                                                          status: 'active',
-                                                          organizationCode: '1',
-                                                          branchId: '1',
+                                                if ((_model.fMSFraudCheckReponse
+                                                        ?.succeeded ??
+                                                    true)) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder: (dialogContext) {
+                                                      return Dialog(
+                                                        elevation: 0,
+                                                        insetPadding:
+                                                            EdgeInsets.zero,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                        child: WebViewAware(
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      dialogContext)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
+                                                            child:
+                                                                CustomInformationalDialogWidget(
+                                                              primaryButtonTitle:
+                                                                  'Continue',
+                                                              title: FMSFraudCheckResponseStruct
+                                                                      .maybeFromMap(
+                                                                          (_model.fMSFraudCheckReponse?.jsonBody ??
+                                                                              ''))
+                                                                  ?.riskStatus,
+                                                              message: FMSFraudCheckResponseStruct
+                                                                      .maybeFromMap((_model
+                                                                              .fMSFraudCheckReponse
+                                                                              ?.jsonBody ??
+                                                                          ''))!
+                                                                  .riskDetails
+                                                                  .statusMessage,
+                                                              primaryButtonAction:
+                                                                  () async {
+                                                                Navigator.pop(
+                                                                    context);
+                                                              },
+                                                              secondaryButtonAction:
+                                                                  () async {},
+                                                            ),
+                                                          ),
                                                         ),
-                                                        paymentTo:
-                                                            FrequentBillerDataModelStruct(
-                                                          billerName: _model
-                                                              .billsHeader
-                                                              ?.billerCode,
-                                                          name: _model
-                                                              .billsHeader
-                                                              ?.billerCode,
-                                                          category: '',
-                                                          code: _model
-                                                              .billsHeader
-                                                              ?.billerCode,
-                                                          serviceId: '1',
-                                                          accountNumber: _model
-                                                              .billsBody
-                                                              ?.accNum,
-                                                          currency: 'PHP',
-                                                          createdBy:
-                                                              currentUserData
-                                                                  ?.user
-                                                                  .cifNumber,
-                                                          shortName: _model
-                                                              .billsBody
-                                                              ?.bankName,
-                                                        ),
-                                                        paymentAmount: _model
-                                                            .billsBody?.amount,
-                                                        schedule: () {
-                                                          if (_model
-                                                                  .dropDownScheduleTypeValue ==
-                                                              TransactionScheduleType
-                                                                  .DAILY.name) {
-                                                            return TransactionScheduleType
-                                                                .DAILY;
-                                                          } else if (_model
-                                                                  .dropDownScheduleTypeValue ==
-                                                              TransactionScheduleType
-                                                                  .ONCE.name) {
-                                                            return TransactionScheduleType
-                                                                .ONCE;
-                                                          } else if (_model
-                                                                  .dropDownScheduleTypeValue ==
-                                                              TransactionScheduleType
-                                                                  .MONTHLY
-                                                                  .name) {
-                                                            return TransactionScheduleType
-                                                                .MONTHLY;
-                                                          } else {
-                                                            return TransactionScheduleType
-                                                                .DAILY;
-                                                          }
-                                                        }(),
-                                                        remarks: _model
-                                                            .textFieldRemarksTextController
-                                                            .text,
+                                                      );
+                                                    },
+                                                  );
+
+                                                  context.pushNamed(
+                                                    BillsPaymentReviewPageWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'billsHeader':
+                                                          serializeParam(
+                                                        _model.billsHeader,
+                                                        ParamType.DataStruct,
                                                       ),
-                                                      ParamType.DataStruct,
-                                                    ),
-                                                  }.withoutNulls,
-                                                  extra: <String, dynamic>{
-                                                    '__transition_info__':
-                                                        TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 0),
-                                                    ),
-                                                  },
-                                                );
+                                                      'billsBody':
+                                                          serializeParam(
+                                                        _model.billsBody,
+                                                        ParamType.DataStruct,
+                                                      ),
+                                                      'bpFieldsModel':
+                                                          serializeParam(
+                                                        BillsPaymentFieldsModelStruct(
+                                                          paymentFrom:
+                                                              AccountsV2Struct(
+                                                            accountNumber:
+                                                                _model.billsBody
+                                                                    ?.accNum,
+                                                            accountName: _model
+                                                                .billsBody
+                                                                ?.fullName,
+                                                            accountTypeId: '',
+                                                            currency: 'PHP',
+                                                            status: 'active',
+                                                            organizationCode:
+                                                                '1',
+                                                            branchId: '1',
+                                                          ),
+                                                          paymentTo:
+                                                              FrequentBillerDataModelStruct(
+                                                            billerName: _model
+                                                                .billsHeader
+                                                                ?.billerCode,
+                                                            name: _model
+                                                                .billsHeader
+                                                                ?.billerCode,
+                                                            category: '',
+                                                            code: _model
+                                                                .billsHeader
+                                                                ?.billerCode,
+                                                            serviceId: '1',
+                                                            accountNumber:
+                                                                _model.billsBody
+                                                                    ?.accNum,
+                                                            currency: 'PHP',
+                                                            createdBy:
+                                                                currentUserData
+                                                                    ?.user
+                                                                    .cifNumber,
+                                                            shortName: _model
+                                                                .billsBody
+                                                                ?.bankName,
+                                                          ),
+                                                          paymentAmount: _model
+                                                              .billsBody
+                                                              ?.amount,
+                                                          schedule: () {
+                                                            if (_model
+                                                                    .dropDownScheduleTypeValue ==
+                                                                TransactionScheduleType
+                                                                    .DAILY
+                                                                    .name) {
+                                                              return TransactionScheduleType
+                                                                  .DAILY;
+                                                            } else if (_model
+                                                                    .dropDownScheduleTypeValue ==
+                                                                TransactionScheduleType
+                                                                    .ONCE
+                                                                    .name) {
+                                                              return TransactionScheduleType
+                                                                  .ONCE;
+                                                            } else if (_model
+                                                                    .dropDownScheduleTypeValue ==
+                                                                TransactionScheduleType
+                                                                    .MONTHLY
+                                                                    .name) {
+                                                              return TransactionScheduleType
+                                                                  .MONTHLY;
+                                                            } else {
+                                                              return TransactionScheduleType
+                                                                  .DAILY;
+                                                            }
+                                                          }(),
+                                                          remarks: _model
+                                                              .textFieldRemarksTextController
+                                                              .text,
+                                                        ),
+                                                        ParamType.DataStruct,
+                                                      ),
+                                                    }.withoutNulls,
+                                                    extra: <String, dynamic>{
+                                                      '__transition_info__':
+                                                          TransitionInfo(
+                                                        hasTransition: true,
+                                                        transitionType:
+                                                            PageTransitionType
+                                                                .fade,
+                                                        duration: Duration(
+                                                            milliseconds: 0),
+                                                      ),
+                                                    },
+                                                  );
+                                                } else {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder: (dialogContext) {
+                                                      return Dialog(
+                                                        elevation: 0,
+                                                        insetPadding:
+                                                            EdgeInsets.zero,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                        child: WebViewAware(
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      dialogContext)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
+                                                            child:
+                                                                CustomInformationalDialogWidget(
+                                                              primaryButtonTitle:
+                                                                  'Continue',
+                                                              title: PbbGroup
+                                                                  .fMSFraudCheckCall
+                                                                  .riskDetailsStatus(
+                                                                (_model.fMSFraudCheckReponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ),
+                                                              message: PbbGroup
+                                                                  .fMSFraudCheckCall
+                                                                  .riskDetailsStatusMessage(
+                                                                (_model.fMSFraudCheckReponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )!,
+                                                              primaryButtonAction:
+                                                                  () async {
+                                                                Navigator.pop(
+                                                                    context);
+                                                              },
+                                                              secondaryButtonAction:
+                                                                  () async {},
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                }
                                               } else {
                                                 await showDialog(
                                                   context: context,
@@ -1866,18 +1981,11 @@ class _BillsPaymentPageWidgetState extends State<BillsPaymentPageWidget>
                                                           child:
                                                               CustomInformationalDialogWidget(
                                                             primaryButtonTitle:
-                                                                'Continue',
-                                                            title: PbbGroup
-                                                                .fMSFraudCheckCall
-                                                                .riskDetailsStatus(
-                                                              (_model.fMSFraudCheckReponse
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ),
+                                                                'Dismiss',
                                                             message: PbbGroup
-                                                                .fMSFraudCheckCall
-                                                                .riskDetailsStatusMessage(
-                                                              (_model.fMSFraudCheckReponse
+                                                                .oauthTokenCall
+                                                                .errorMessage(
+                                                              (_model.oAuthTokenBpTransactResponse
                                                                       ?.jsonBody ??
                                                                   ''),
                                                             )!,
@@ -1895,105 +2003,60 @@ class _BillsPaymentPageWidgetState extends State<BillsPaymentPageWidget>
                                                   },
                                                 );
                                               }
-                                            } else {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (dialogContext) {
-                                                  return Dialog(
-                                                    elevation: 0,
-                                                    insetPadding:
-                                                        EdgeInsets.zero,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                                0.0, 0.0)
-                                                            .resolve(
-                                                                Directionality.of(
-                                                                    context)),
-                                                    child: WebViewAware(
-                                                      child: GestureDetector(
-                                                        onTap: () {
-                                                          FocusScope.of(
-                                                                  dialogContext)
-                                                              .unfocus();
-                                                          FocusManager.instance
-                                                              .primaryFocus
-                                                              ?.unfocus();
-                                                        },
-                                                        child:
-                                                            CustomInformationalDialogWidget(
-                                                          primaryButtonTitle:
-                                                              'Dismiss',
-                                                          message: PbbGroup
-                                                              .oauthTokenCall
-                                                              .errorMessage(
-                                                            (_model.oAuthTokenBpTransactResponse
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!,
-                                                          primaryButtonAction:
-                                                              () async {
-                                                            Navigator.pop(
-                                                                context);
-                                                          },
-                                                          secondaryButtonAction:
-                                                              () async {},
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                            }
 
-                                            safeSetState(() {});
-                                          },
-                                    text: 'Continue',
-                                    options: FFButtonOptions(
-                                      width: valueOrDefault<double>(
-                                        () {
-                                          if (MediaQuery.sizeOf(context).width <
-                                              kBreakpointSmall) {
-                                            return double.infinity;
-                                          } else if (MediaQuery.sizeOf(context)
-                                                  .width <
-                                              kBreakpointMedium) {
-                                            return double.infinity;
-                                          } else if (MediaQuery.sizeOf(context)
-                                                  .width <
-                                              kBreakpointLarge) {
-                                            return 600.0;
-                                          } else {
-                                            return 600.0;
-                                          }
-                                        }(),
-                                        600.0,
+                                              safeSetState(() {});
+                                            },
+                                      text: 'Continue',
+                                      options: FFButtonOptions(
+                                        width: valueOrDefault<double>(
+                                          () {
+                                            if (MediaQuery.sizeOf(context)
+                                                    .width <
+                                                kBreakpointSmall) {
+                                              return double.infinity;
+                                            } else if (MediaQuery.sizeOf(
+                                                        context)
+                                                    .width <
+                                                kBreakpointMedium) {
+                                              return double.infinity;
+                                            } else if (MediaQuery.sizeOf(
+                                                        context)
+                                                    .width <
+                                                kBreakpointLarge) {
+                                              return 600.0;
+                                            } else {
+                                              return 600.0;
+                                            }
+                                          }(),
+                                          600.0,
+                                        ),
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmallFamily,
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .titleSmallIsCustom,
+                                            ),
+                                        elevation: 0.0,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        disabledColor:
+                                            FlutterFlowTheme.of(context)
+                                                .neutral9,
                                       ),
-                                      height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .titleSmallIsCustom,
-                                          ),
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      disabledColor:
-                                          FlutterFlowTheme.of(context).neutral9,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'buttonOnPageLoadAnimation']!),

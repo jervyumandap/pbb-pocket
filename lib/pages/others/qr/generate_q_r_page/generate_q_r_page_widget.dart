@@ -323,126 +323,133 @@ class _GenerateQRPageWidgetState extends State<GenerateQRPageWidget>
                                                         .titleLargeIsCustom,
                                               ),
                                         ),
-                                        TextFormField(
-                                          controller: _model
-                                              .textFieldNicknameTextController,
-                                          focusNode:
-                                              _model.textFieldNicknameFocusNode,
-                                          autofocus: false,
-                                          textInputAction: TextInputAction.next,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            isDense: true,
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelLarge
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLargeFamily,
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelLargeIsCustom,
-                                                    ),
-                                            hintText:
-                                                (_model.textFieldNicknameFocusNode
-                                                            ?.hasFocus ??
-                                                        false)
-                                                    ? 'Nickame'
-                                                    : 'Enter nickame',
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMediumFamily,
-                                                      color: Color(0xFF72777A),
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMediumIsCustom,
-                                                    ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .neutral10,
-                                                width: 1.0,
+                                        Semantics(
+                                          label: 'Nickname',
+                                          identifier: 'generate_qr_nickname',
+                                          child: TextFormField(
+                                            controller: _model
+                                                .textFieldNicknameTextController,
+                                            focusNode: _model
+                                                .textFieldNicknameFocusNode,
+                                            autofocus: false,
+                                            textInputAction:
+                                                TextInputAction.next,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              isDense: true,
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelLargeFamily,
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts:
+                                                            !FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLargeIsCustom,
+                                                      ),
+                                              hintText:
+                                                  (_model.textFieldNicknameFocusNode
+                                                              ?.hasFocus ??
+                                                          false)
+                                                      ? 'Nickame'
+                                                      : 'Enter nickame',
+                                              hintStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMediumFamily,
+                                                    color: Color(0xFF72777A),
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMediumIsCustom,
+                                                  ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .neutral10,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                width: 1.0,
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
+                                              errorBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .error,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                              filled: true,
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .base0,
+                                              contentPadding:
+                                                  EdgeInsetsDirectional
+                                                      .fromSTEB(12.0, 17.0,
+                                                          12.0, 17.0),
+                                              hoverColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .formElementHover,
                                             ),
-                                            filled: true,
-                                            fillColor:
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
+                                                  fontSize: 14.0,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      !FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumIsCustom,
+                                                ),
+                                            maxLines: null,
+                                            cursorColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .base0,
-                                            contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 17.0, 12.0, 17.0),
-                                            hoverColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .formElementHover,
+                                                    .primaryText,
+                                            enableInteractiveSelection: true,
+                                            validator: _model
+                                                .textFieldNicknameTextControllerValidator
+                                                .asValidator(context),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    !FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMediumIsCustom,
-                                              ),
-                                          maxLines: null,
-                                          cursorColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryText,
-                                          enableInteractiveSelection: true,
-                                          validator: _model
-                                              .textFieldNicknameTextControllerValidator
-                                              .asValidator(context),
                                         ),
                                       ].divide(SizedBox(height: 16.0)),
                                     ),
@@ -543,153 +550,153 @@ class _GenerateQRPageWidgetState extends State<GenerateQRPageWidget>
                                               ),
                                             ),
                                             Expanded(
-                                              child: Container(
-                                                width: 53.2,
-                                                child: TextFormField(
-                                                  controller: _model
-                                                      .textFieldAmountTextController,
-                                                  focusNode: _model
-                                                      .textFieldAmountFocusNode,
-                                                  autofocus: false,
-                                                  textInputAction:
-                                                      TextInputAction.done,
-                                                  obscureText: false,
-                                                  decoration: InputDecoration(
-                                                    isDense: true,
-                                                    labelStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelLarge
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLargeFamily,
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLargeIsCustom,
-                                                            ),
-                                                    hintText: ' 0.00',
-                                                    hintStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelMedium
+                                              child: Semantics(
+                                                label: 'Amount',
+                                                identifier:
+                                                    'generate_qr_amount',
+                                                child: Container(
+                                                  width: 53.2,
+                                                  child: TextFormField(
+                                                    controller: _model
+                                                        .textFieldAmountTextController,
+                                                    focusNode: _model
+                                                        .textFieldAmountFocusNode,
+                                                    autofocus: false,
+                                                    textInputAction:
+                                                        TextInputAction.done,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      isDense: true,
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelLarge
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLargeFamily,
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelLargeIsCustom,
+                                                              ),
+                                                      hintText: ' 0.00',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily,
+                                                                color: Color(
+                                                                    0xFF72777A),
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMediumIsCustom,
+                                                              ),
+                                                      enabledBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .neutral10,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      focusedBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      errorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      focusedErrorBorder:
+                                                          OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .error,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      filled: true,
+                                                      fillColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .base0,
+                                                      contentPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  17.0,
+                                                                  12.0,
+                                                                  17.0),
+                                                      hoverColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .formElementHover,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelMediumFamily,
-                                                          color:
-                                                              Color(0xFF72777A),
+                                                                  .bodyMediumFamily,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts:
                                                               !FlutterFlowTheme
                                                                       .of(context)
-                                                                  .labelMediumIsCustom,
+                                                                  .bodyMediumIsCustom,
                                                         ),
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .neutral10,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    errorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    focusedErrorBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .error,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    filled: true,
-                                                    fillColor:
+                                                    textAlign: TextAlign.end,
+                                                    keyboardType:
+                                                        const TextInputType
+                                                            .numberWithOptions(
+                                                            decimal: true),
+                                                    cursorColor:
                                                         FlutterFlowTheme.of(
                                                                 context)
-                                                            .base0,
-                                                    contentPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                12.0,
-                                                                17.0,
-                                                                12.0,
-                                                                17.0),
-                                                    hoverColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .formElementHover,
+                                                            .primaryText,
+                                                    enableInteractiveSelection:
+                                                        true,
+                                                    validator: _model
+                                                        .textFieldAmountTextControllerValidator
+                                                        .asValidator(context),
                                                   ),
-                                                  style:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumIsCustom,
-                                                          ),
-                                                  textAlign: TextAlign.end,
-                                                  keyboardType:
-                                                      const TextInputType
-                                                          .numberWithOptions(
-                                                          decimal: true),
-                                                  cursorColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primaryText,
-                                                  enableInteractiveSelection:
-                                                      true,
-                                                  validator: _model
-                                                      .textFieldAmountTextControllerValidator
-                                                      .asValidator(context),
                                                 ),
                                               ),
                                             ),
@@ -704,193 +711,208 @@ class _GenerateQRPageWidgetState extends State<GenerateQRPageWidget>
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 20.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onDoubleTap: () async {
-                                    var _shouldSetState = false;
-                                    FFAppState().GenerateQRModelAppState =
-                                        GenerateQRModelStruct(
-                                      pgsqrHeader: PGSQRHeaderStruct(
-                                        transactionDateTime: dateTimeFormat(
-                                          "yyyyMMddHHmmss",
-                                          getCurrentTimestamp,
-                                          locale: FFLocalizations.of(context)
-                                              .languageCode,
-                                        ),
-                                        referenceNumber: valueOrDefault<String>(
-                                          random_data.randomString(
-                                            5,
-                                            12,
-                                            false,
-                                            true,
-                                            true,
+                                child: Semantics(
+                                  button: true,
+                                  identifier: 'generate_qr_button',
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onDoubleTap: () async {
+                                      var _shouldSetState = false;
+                                      FFAppState().GenerateQRModelAppState =
+                                          GenerateQRModelStruct(
+                                        pgsqrHeader: PGSQRHeaderStruct(
+                                          transactionDateTime: dateTimeFormat(
+                                            "yyyyMMddHHmmss",
+                                            getCurrentTimestamp,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
                                           ),
-                                          'QRTEST000001',
+                                          referenceNumber:
+                                              valueOrDefault<String>(
+                                            random_data.randomString(
+                                              5,
+                                              12,
+                                              false,
+                                              true,
+                                              true,
+                                            ),
+                                            'QRTEST000001',
+                                          ),
+                                          fTChannel: 'Instapay',
+                                          fTClassification: 'Domestic',
+                                          userId: '',
+                                          branchCode: '872',
+                                          localInstrumentCode: 'QP2M',
+                                          channelCode: 'CBXR',
                                         ),
-                                        fTChannel: 'Instapay',
-                                        fTClassification: 'Domestic',
-                                        userId: '',
-                                        branchCode: '872',
-                                        localInstrumentCode: 'QP2M',
-                                        channelCode: 'CBXR',
-                                      ),
-                                      pgsqrBody: PGSQRBodyStruct(
-                                        pBBAccountNumber: _model
-                                            .selectedAccount?.accountNumber,
-                                        merchantId: 'TESTMERCH',
-                                        merchantReferenceNumber:
-                                            'TESTMERCH0000001',
-                                        mobileNumber: '+639071234567',
-                                        merchantCategoryCode: '7995',
-                                        amount: double.tryParse(_model
-                                            .textFieldAmountTextController
-                                            .text),
-                                      ),
-                                    );
-                                    safeSetState(() {});
-                                    _model.oauthTokenResponse =
-                                        await PbbGroup.oauthTokenCall.call(
-                                      channelCode: 'cbxr',
-                                      originatingChannelCode: 'cbxr',
-                                      checkPoint: 'transaction',
-                                      grantType: 'password',
-                                      baseURL: 'https://alya.pbb.com.ph',
-                                    );
-
-                                    _shouldSetState = true;
-                                    if ((_model.oauthTokenResponse?.succeeded ??
-                                        true)) {
-                                      _model.createQrResponse =
-                                          await PbbGroup.createQRViiCall.call(
-                                        pgsqrHeaderJson: FFAppState()
-                                            .GenerateQRModelAppState
-                                            .pgsqrHeader
-                                            .toMap(),
-                                        pgsqrBodyJson: FFAppState()
-                                            .GenerateQRModelAppState
-                                            .pgsqrBody
-                                            .toMap(),
-                                        oAuthaccessToken:
-                                            PbbGroup.oauthTokenCall.accesstoken(
-                                          (_model.oauthTokenResponse
-                                                  ?.jsonBody ??
-                                              ''),
+                                        pgsqrBody: PGSQRBodyStruct(
+                                          pBBAccountNumber: _model
+                                              .selectedAccount?.accountNumber,
+                                          merchantId: 'TESTMERCH',
+                                          merchantReferenceNumber:
+                                              'TESTMERCH0000001',
+                                          mobileNumber: '+639071234567',
+                                          merchantCategoryCode: '7995',
+                                          amount: double.tryParse(_model
+                                              .textFieldAmountTextController
+                                              .text),
                                         ),
+                                      );
+                                      safeSetState(() {});
+                                      _model.oauthTokenResponse =
+                                          await PbbGroup.oauthTokenCall.call(
+                                        channelCode: 'cbxr',
+                                        originatingChannelCode: 'cbxr',
+                                        checkPoint: 'transaction',
+                                        grantType: 'password',
                                         baseURL: 'https://alya.pbb.com.ph',
                                       );
 
                                       _shouldSetState = true;
-                                      if ((_model.createQrResponse?.succeeded ??
+                                      if ((_model
+                                              .oauthTokenResponse?.succeeded ??
                                           true)) {
-                                        _model.generatedQRImagePath =
-                                            GenerateQrV2ResponseStruct
-                                                    .maybeFromMap((_model
-                                                            .createQrResponse
-                                                            ?.jsonBody ??
-                                                        ''))
-                                                ?.qrImage
-                                                .qrData;
-                                        safeSetState(() {});
-                                        FFAppState()
-                                            .updateGenerateQRModelAppStateStruct(
-                                          (e) => e
-                                            ..generatedQRImagePath =
-                                                GenerateQrV2ResponseStruct
-                                                        .maybeFromMap((_model
-                                                                .createQrResponse
-                                                                ?.jsonBody ??
-                                                            ''))
-                                                    ?.qrImage
-                                                    .qrData,
+                                        _model.createQrResponse =
+                                            await PbbGroup.createQRViiCall.call(
+                                          pgsqrHeaderJson: FFAppState()
+                                              .GenerateQRModelAppState
+                                              .pgsqrHeader
+                                              .toMap(),
+                                          pgsqrBodyJson: FFAppState()
+                                              .GenerateQRModelAppState
+                                              .pgsqrBody
+                                              .toMap(),
+                                          oAuthaccessToken: PbbGroup
+                                              .oauthTokenCall
+                                              .accesstoken(
+                                            (_model.oauthTokenResponse
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ),
+                                          baseURL: 'https://alya.pbb.com.ph',
                                         );
-                                        safeSetState(() {});
-                                        context.pushNamed(
-                                          GeneratedQRPageWidget.routeName,
-                                          queryParameters: {
-                                            'nickname': serializeParam(
-                                              _model
-                                                  .textFieldNicknameTextController
-                                                  .text,
-                                              ParamType.String,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                                                            } else {
+
+                                        _shouldSetState = true;
+                                        if ((_model
+                                                .createQrResponse?.succeeded ??
+                                            true)) {
+                                          _model.generatedQRImagePath =
+                                              GenerateQrV2ResponseStruct
+                                                      .maybeFromMap((_model
+                                                              .createQrResponse
+                                                              ?.jsonBody ??
+                                                          ''))
+                                                  ?.qrImage
+                                                  .qrData;
+                                          safeSetState(() {});
+                                          FFAppState()
+                                              .updateGenerateQRModelAppStateStruct(
+                                            (e) => e
+                                              ..generatedQRImagePath =
+                                                  GenerateQrV2ResponseStruct
+                                                          .maybeFromMap((_model
+                                                                  .createQrResponse
+                                                                  ?.jsonBody ??
+                                                              ''))
+                                                      ?.qrImage
+                                                      .qrData,
+                                          );
+                                          safeSetState(() {});
+                                          context.pushNamed(
+                                            GeneratedQRPageWidget.routeName,
+                                            queryParameters: {
+                                              'nickname': serializeParam(
+                                                _model
+                                                    .textFieldNicknameTextController
+                                                    .text,
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+                                                                                } else {
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                      } else {
                                         if (_shouldSetState)
                                           safeSetState(() {});
                                         return;
                                       }
-                                    } else {
-                                      if (_shouldSetState) safeSetState(() {});
-                                      return;
-                                    }
 
-                                    if (_shouldSetState) safeSetState(() {});
-                                  },
-                                  child: FFButtonWidget(
-                                    onPressed: (_model.selectedAccount == null)
-                                        ? null
-                                        : () async {
-                                            context.pushNamed(
-                                              GeneratedQRPageWidget.routeName,
-                                              queryParameters: {
-                                                'nickname': serializeParam(
-                                                  _model
-                                                      .textFieldNicknameTextController
-                                                      .text,
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                            );
-                                          },
-                                    text: 'Generate',
-                                    options: FFButtonOptions(
-                                      width: valueOrDefault<double>(
-                                        () {
-                                          if (MediaQuery.sizeOf(context).width <
-                                              kBreakpointSmall) {
-                                            return double.infinity;
-                                          } else if (MediaQuery.sizeOf(context)
-                                                  .width <
-                                              kBreakpointMedium) {
-                                            return double.infinity;
-                                          } else if (MediaQuery.sizeOf(context)
-                                                  .width <
-                                              kBreakpointLarge) {
-                                            return 600.0;
-                                          } else {
-                                            return 600.0;
-                                          }
-                                        }(),
-                                        600.0,
+                                      if (_shouldSetState) safeSetState(() {});
+                                    },
+                                    child: FFButtonWidget(
+                                      onPressed: (_model.selectedAccount ==
+                                              null)
+                                          ? null
+                                          : () async {
+                                              context.pushNamed(
+                                                GeneratedQRPageWidget.routeName,
+                                                queryParameters: {
+                                                  'nickname': serializeParam(
+                                                    _model
+                                                        .textFieldNicknameTextController
+                                                        .text,
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+                                            },
+                                      text: 'Generate',
+                                      options: FFButtonOptions(
+                                        width: valueOrDefault<double>(
+                                          () {
+                                            if (MediaQuery.sizeOf(context)
+                                                    .width <
+                                                kBreakpointSmall) {
+                                              return double.infinity;
+                                            } else if (MediaQuery.sizeOf(
+                                                        context)
+                                                    .width <
+                                                kBreakpointMedium) {
+                                              return double.infinity;
+                                            } else if (MediaQuery.sizeOf(
+                                                        context)
+                                                    .width <
+                                                kBreakpointLarge) {
+                                              return 600.0;
+                                            } else {
+                                              return 600.0;
+                                            }
+                                          }(),
+                                          600.0,
+                                        ),
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmallFamily,
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .titleSmallIsCustom,
+                                            ),
+                                        elevation: 0.0,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        disabledColor:
+                                            FlutterFlowTheme.of(context)
+                                                .neutral9,
                                       ),
-                                      height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .titleSmallIsCustom,
-                                          ),
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      disabledColor:
-                                          FlutterFlowTheme.of(context).neutral9,
                                     ),
                                   ),
                                 ).animateOnPageLoad(animationsMap[

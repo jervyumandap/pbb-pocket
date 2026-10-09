@@ -448,7 +448,9 @@ class _LandingPageWidgetState extends State<LandingPageWidget>
                                     // Go to Log in with Password
                                     Expanded(
                                       child: Semantics(
-                                        label: 'login_with_password_button',
+                                        button: true,
+                                        identifier:
+                                            'login_with_password_button',
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             context.pushNamed(
@@ -511,6 +513,8 @@ class _LandingPageWidgetState extends State<LandingPageWidget>
                                       Builder(
                                         builder: (context) => Semantics(
                                           label: 'Log in with Biometrics',
+                                          button: true,
+                                          identifier: 'landing_biometrics',
                                           child: FlutterFlowIconButton(
                                             borderRadius: 16.0,
                                             buttonSize: 56.0,
@@ -1179,6 +1183,8 @@ class _LandingPageWidgetState extends State<LandingPageWidget>
                                             .isMpinSet)
                                       Semantics(
                                         label: 'Log in with Mpin',
+                                        button: true,
+                                        identifier: 'landing_mpin',
                                         child: FlutterFlowIconButton(
                                           borderRadius: 16.0,
                                           buttonSize: 56.0,
@@ -1277,6 +1283,8 @@ class _LandingPageWidgetState extends State<LandingPageWidget>
                                       Builder(
                                         builder: (context) => Semantics(
                                           label: 'Log in with Passkey',
+                                          button: true,
+                                          identifier: 'landing_passkey',
                                           child: FlutterFlowIconButton(
                                             borderRadius: 16.0,
                                             buttonSize: 56.0,
@@ -1758,7 +1766,8 @@ class _LandingPageWidgetState extends State<LandingPageWidget>
                                     // Enroll your Account
                                     Expanded(
                                       child: Semantics(
-                                        label: 'enroll_account_button',
+                                        button: true,
+                                        identifier: 'enroll_account_button',
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             if (FFAppState()

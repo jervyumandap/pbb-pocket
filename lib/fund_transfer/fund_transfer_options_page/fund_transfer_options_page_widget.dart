@@ -388,9 +388,11 @@ class _FundTransferOptionsPageWidgetState
                                                           0.0, 16.0, 0.0, 16.0),
                                                   child: Semantics(
                                                     label:
-                                                        'fund_transfer_options_within_pbb_account_card',
-                                                    container: false,
+                                                        'Fund transfer within pbb account card',
+                                                    container: true,
                                                     image: false,
+                                                    identifier:
+                                                        'fund_transfer_options_within_pbb',
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -635,8 +637,10 @@ class _FundTransferOptionsPageWidgetState
                                                 ),
                                                 Semantics(
                                                   label:
-                                                      'fund_transfer_options_other_banks_card',
+                                                      'Fund transfer other banks card',
                                                   container: true,
+                                                  identifier:
+                                                      'fund_transfer_options_other_banks',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -949,8 +953,10 @@ class _FundTransferOptionsPageWidgetState
                                                                     16.0),
                                                         child: Semantics(
                                                           label:
-                                                              'fund_transfer_options_scheduled_transfer_card',
+                                                              'Fund transfer scheduled transfer card',
                                                           container: true,
+                                                          identifier:
+                                                              'fund_transfer_options_scheduled_transfer',
                                                           child: InkWell(
                                                             splashColor: Colors
                                                                 .transparent,
@@ -1073,8 +1079,10 @@ class _FundTransferOptionsPageWidgetState
                                                       ),
                                                       Semantics(
                                                         label:
-                                                            'fund_transfer_options_review_transfers_card',
+                                                            'Fund transfer review transfers card',
                                                         container: true,
+                                                        identifier:
+                                                            'fund_transfer_options_review_transfers',
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -1269,6 +1277,11 @@ class _FundTransferOptionsPageWidgetState
                                                               children: [
                                                                 Semantics(
                                                                   label:
+                                                                      'Fund transfer favorite',
+                                                                  button: true,
+                                                                  container:
+                                                                      true,
+                                                                  identifier:
                                                                       'fund_transfer_options_favorite_item',
                                                                   child:
                                                                       TransactionItemWidget(

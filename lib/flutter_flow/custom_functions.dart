@@ -1069,254 +1069,6 @@ String formatStatusV2(String status) {
       .join(' ');
 }
 
-ErrorMappingModelStruct mapError(String error) {
-  switch (error) {
-    // Session
-    case 'INVALID_SESSION':
-      return ErrorMappingModelStruct(
-        title: 'Session Invalid',
-        message: 'Your session is invalid. Please start over.',
-      );
-
-    case 'SESSION_EXPIRED':
-      return ErrorMappingModelStruct(
-        title: 'Session Expired',
-        message: 'Your registration session has expired. Please start over.',
-      );
-
-    case 'SESSION_NOT_FOUND':
-      return ErrorMappingModelStruct(
-        title: 'Session Not Found',
-        message:
-            'Registration session not found. Please start a new registration.',
-      );
-
-    case 'INVALID_STATUS_TRANSITION':
-      return ErrorMappingModelStruct(
-        title: 'Invalid Status',
-        message:
-            'This action cannot be performed at this stage of registration.',
-      );
-
-    // Registration
-    case 'ALREADY_REGISTERED':
-      return ErrorMappingModelStruct(
-        title: 'Already Registered',
-        message:
-            'This account already has digital banking credentials. Please log in instead.',
-      );
-
-    case 'CIF_ALREADY_REGISTERED':
-      return ErrorMappingModelStruct(
-        title: 'Already Registered',
-        message:
-            'This customer already has digital banking credentials. Please log in instead.',
-      );
-
-    case 'EMAIL_ALREADY_REGISTERED':
-      return ErrorMappingModelStruct(
-        title: 'Email Already Used',
-        message: 'This email is already associated with an account.',
-      );
-
-    case 'USERNAME_TAKEN':
-      return ErrorMappingModelStruct(
-        title: 'Username Unavailable',
-        message: 'This username is already taken. Please choose another.',
-      );
-
-    case 'RESERVED_USERNAME':
-      return ErrorMappingModelStruct(
-        title: 'Username Unavailable',
-        message:
-            'This username is reserved and cannot be used. Please choose another.',
-      );
-
-    case 'WEAK_PASSWORD':
-      return ErrorMappingModelStruct(
-        title: 'Password Too Weak',
-        message: 'Your password does not meet the security requirements.',
-      );
-
-    case 'PASSWORD_MISMATCH':
-      return ErrorMappingModelStruct(
-        title: 'Passwords Do Not Match',
-        message: 'The passwords you entered do not match. Please try again.',
-      );
-
-    // OTP
-    case 'INVALID_OTP':
-      return ErrorMappingModelStruct(
-        title: 'Incorrect Code',
-        message:
-            'The code you entered is incorrect. Please check and try again.',
-      );
-
-    case 'OTP_EXPIRED':
-      return ErrorMappingModelStruct(
-        title: 'Code Expired',
-        message:
-            'The verification code has expired. Please request a new code.',
-      );
-
-    case 'NO_OTP_FOUND':
-      return ErrorMappingModelStruct(
-        title: 'No Code Found',
-        message: 'No verification code was found. Please request a new code.',
-      );
-
-    case 'ALREADY_VERIFIED':
-      return ErrorMappingModelStruct(
-        title: 'Already Verified',
-        message: 'This verification code has already been used.',
-      );
-
-    case 'MAX_ATTEMPTS_EXCEEDED':
-      return ErrorMappingModelStruct(
-        title: 'Too Many Attempts',
-        message:
-            'You\'ve exceeded the maximum verification attempts. Please request a new code.',
-      );
-
-    case 'MAX_OTP_SENDS_EXCEEDED':
-      return ErrorMappingModelStruct(
-        title: 'Too Many Requests',
-        message: 'You\'ve requested too many codes. Please try again later.',
-      );
-
-    case 'COOLDOWN_ACTIVE':
-      return ErrorMappingModelStruct(
-        title: 'Please Wait',
-        message: 'Please wait before requesting another verification code.',
-      );
-
-    // CBS Validation
-    case 'ACCOUNT_NOT_FOUND':
-      return ErrorMappingModelStruct(
-        title: 'Account Not Found',
-        message:
-            'We couldn\'t find an account with the information provided. Please check and try again.',
-      );
-
-    case 'DETAILS_MISMATCH':
-      return ErrorMappingModelStruct(
-        title: 'Information Mismatch',
-        message:
-            'The details you provided don\'t match our records. Please check and try again.',
-      );
-
-    case 'ACCOUNT_CLOSED':
-      return ErrorMappingModelStruct(
-        title: 'Account Closed',
-        message: 'This account is closed and cannot be used for registration.',
-      );
-
-    case 'ACCOUNT_BLOCKED':
-      return ErrorMappingModelStruct(
-        title: 'Account Blocked',
-        message:
-            'This account is blocked. Please contact your branch for assistance.',
-      );
-
-    case 'ACCOUNT_DORMANT':
-      return ErrorMappingModelStruct(
-        title: 'Account Dormant',
-        message:
-            'This account is dormant. Please contact your branch to reactivate it.',
-      );
-
-    case 'VALIDATION_FAILED':
-      return ErrorMappingModelStruct(
-        title: 'Validation Failed',
-        message:
-            'Account validation failed. Please check your information and try again.',
-      );
-
-    case 'PROVIDER_ERROR':
-      return ErrorMappingModelStruct(
-        title: 'Service Unavailable',
-        message:
-            'We couldn\'t verify your account right now. Please try again later.',
-      );
-
-    // Security
-    case 'ACCOUNT_LOCKED':
-      return ErrorMappingModelStruct(
-        title: 'Account Locked',
-        message:
-            'Your account has been temporarily locked due to too many failed attempts. Please try again later.',
-      );
-
-    case 'FRAUD_CHECK_DENIED':
-      return ErrorMappingModelStruct(
-        title: 'Request Blocked',
-        message:
-            'This request could not be completed due to security checks. Please contact support if you need assistance.',
-      );
-
-    case 'INVALID_FMS_SESSION':
-      return ErrorMappingModelStruct(
-        title: 'Invalid Session',
-        message:
-            'Your device security session is invalid or expired. Please restart the app and try again.',
-      );
-
-    // Service
-    case 'FEATURE_UNAVAILABLE':
-      return ErrorMappingModelStruct(
-        title: 'Feature Unavailable',
-        message:
-            'This feature is currently unavailable. Please try again later.',
-      );
-
-    case 'REGISTRATION_UNAVAILABLE':
-      return ErrorMappingModelStruct(
-        title: 'Service Unavailable',
-        message:
-            'Registration is currently unavailable. Please try again later.',
-      );
-
-    case 'RATE_LIMIT_EXCEEDED':
-      return ErrorMappingModelStruct(
-        title: 'Too Many Attempts',
-        message:
-            'You\'ve made too many attempts. Please wait a moment and try again.',
-      );
-
-    case 'REGISTRATION_RATE_LIMIT_EXCEEDED':
-      return ErrorMappingModelStruct(
-        title: 'Too Many Registration Attempts',
-        message: 'Too many registration attempts. Please try again later.',
-      );
-
-    // Username validation
-    case 'ALREADY_TAKEN':
-      return ErrorMappingModelStruct(
-        title: 'Username Unavailable',
-        message: 'This username is already taken. Please choose another.',
-      );
-
-    case 'INVALID_FORMAT':
-      return ErrorMappingModelStruct(
-        title: 'Invalid Username',
-        message:
-            'Username must start with a letter and be 6–32 characters long.',
-      );
-
-    case 'RESERVED':
-      return ErrorMappingModelStruct(
-        title: 'Username Unavailable',
-        message: 'This username is reserved and cannot be used.',
-      );
-
-    default:
-      return ErrorMappingModelStruct(
-        title: 'Something Went Wrong',
-        message: 'An unexpected error occurred. Please try again later.',
-      );
-  }
-}
-
 bool? isLessThan24Hours(String? dateTimeString) {
   if (dateTimeString == null || dateTimeString.trim().isEmpty) {
     return false;
@@ -1743,4 +1495,254 @@ String? longStringEllipsisAccountDetails(String? accountNickname) {
   }
 
   return '${accountNickname.substring(0, maxCharacters)}...';
+}
+
+ErrorMappingModelStruct mapError(String error) {
+  switch (error) {
+    // Session
+    case 'INVALID_SESSION':
+      return ErrorMappingModelStruct(
+        title: 'Session Invalid',
+        message: 'Your session is invalid. Please start over.',
+      );
+
+    case 'SESSION_EXPIRED':
+      return ErrorMappingModelStruct(
+        title: 'Session Expired',
+        message: 'Your registration session has expired. Please start over.',
+      );
+
+    case 'SESSION_NOT_FOUND':
+      return ErrorMappingModelStruct(
+        title: 'Session Not Found',
+        message:
+            'Registration session not found. Please start a new registration.',
+      );
+
+    case 'INVALID_STATUS_TRANSITION':
+      return ErrorMappingModelStruct(
+        title: 'Invalid Status',
+        message:
+            'This action cannot be performed at this stage of registration.',
+      );
+
+    // Registration
+    case 'ALREADY_REGISTERED':
+      return ErrorMappingModelStruct(
+        title: 'Already Registered',
+        message:
+            'This account already has digital banking credentials. Please log in instead.',
+      );
+
+    case 'CIF_ALREADY_REGISTERED':
+      return ErrorMappingModelStruct(
+        title: 'Already Registered',
+        message:
+            'This customer already has digital banking credentials. Please log in instead.',
+      );
+
+    case 'EMAIL_ALREADY_REGISTERED':
+      return ErrorMappingModelStruct(
+        title: 'Email Already Used',
+        message: 'This email is already associated with an account.',
+      );
+
+    case 'USERNAME_TAKEN':
+      return ErrorMappingModelStruct(
+        title: 'Username Unavailable',
+        message:
+            'To keep your account secure, please choose a different username.',
+      );
+
+    case 'RESERVED_USERNAME':
+      return ErrorMappingModelStruct(
+        title: 'Username Unavailable',
+        message:
+            'This username is reserved and cannot be used. Please choose another.',
+      );
+
+    case 'WEAK_PASSWORD':
+      return ErrorMappingModelStruct(
+        title: 'Password Too Weak',
+        message: 'Your password does not meet the security requirements.',
+      );
+
+    case 'PASSWORD_MISMATCH':
+      return ErrorMappingModelStruct(
+        title: 'Passwords Do Not Match',
+        message: 'The passwords you entered do not match. Please try again.',
+      );
+
+    // OTP
+    case 'INVALID_OTP':
+      return ErrorMappingModelStruct(
+        title: 'Incorrect Code',
+        message:
+            'The code you entered is incorrect. Please check and try again.',
+      );
+
+    case 'OTP_EXPIRED':
+      return ErrorMappingModelStruct(
+        title: 'Code Expired',
+        message:
+            'The verification code has expired. Please request a new code.',
+      );
+
+    case 'NO_OTP_FOUND':
+      return ErrorMappingModelStruct(
+        title: 'No Code Found',
+        message: 'No verification code was found. Please request a new code.',
+      );
+
+    case 'ALREADY_VERIFIED':
+      return ErrorMappingModelStruct(
+        title: 'Already Verified',
+        message: 'This verification code has already been used.',
+      );
+
+    case 'MAX_ATTEMPTS_EXCEEDED':
+      return ErrorMappingModelStruct(
+        title: 'Too Many Attempts',
+        message:
+            'You\'ve exceeded the maximum verification attempts. Please request a new code.',
+      );
+
+    case 'MAX_OTP_SENDS_EXCEEDED':
+      return ErrorMappingModelStruct(
+        title: 'Too Many Requests',
+        message: 'You\'ve requested too many codes. Please try again later.',
+      );
+
+    case 'COOLDOWN_ACTIVE':
+      return ErrorMappingModelStruct(
+        title: 'Please Wait',
+        message: 'Please wait before requesting another verification code.',
+      );
+
+    // CBS Validation
+    case 'ACCOUNT_NOT_FOUND':
+      return ErrorMappingModelStruct(
+        title: 'Account Not Found',
+        message:
+            'We couldn\'t find an account with the information provided. Please check and try again.',
+      );
+
+    case 'DETAILS_MISMATCH':
+      return ErrorMappingModelStruct(
+        title: 'Information Mismatch',
+        message:
+            'The details you provided don\'t match our records. Please check and try again.',
+      );
+
+    case 'ACCOUNT_CLOSED':
+      return ErrorMappingModelStruct(
+        title: 'Account Closed',
+        message: 'This account is closed and cannot be used for registration.',
+      );
+
+    case 'ACCOUNT_BLOCKED':
+      return ErrorMappingModelStruct(
+        title: 'Account Blocked',
+        message:
+            'This account is blocked. Please contact your branch for assistance.',
+      );
+
+    case 'ACCOUNT_DORMANT':
+      return ErrorMappingModelStruct(
+        title: 'Account Dormant',
+        message:
+            'This account is dormant. Please contact your branch to reactivate it.',
+      );
+
+    case 'VALIDATION_FAILED':
+      return ErrorMappingModelStruct(
+        title: 'Validation Failed',
+        message:
+            'Account validation failed. Please check your information and try again.',
+      );
+
+    case 'PROVIDER_ERROR':
+      return ErrorMappingModelStruct(
+        title: 'Service Unavailable',
+        message:
+            'We couldn\'t verify your account right now. Please try again later.',
+      );
+
+    // Security
+    case 'ACCOUNT_LOCKED':
+      return ErrorMappingModelStruct(
+        title: 'Account Locked',
+        message:
+            'Your account has been temporarily locked due to too many failed attempts. Please try again later.',
+      );
+
+    case 'FRAUD_CHECK_DENIED':
+      return ErrorMappingModelStruct(
+        title: 'Request Blocked',
+        message:
+            'This request could not be completed due to security checks. Please contact support if you need assistance.',
+      );
+
+    case 'INVALID_FMS_SESSION':
+      return ErrorMappingModelStruct(
+        title: 'Invalid Session',
+        message:
+            'Your device security session is invalid or expired. Please restart the app and try again.',
+      );
+
+    // Service
+    case 'FEATURE_UNAVAILABLE':
+      return ErrorMappingModelStruct(
+        title: 'Feature Unavailable',
+        message:
+            'This feature is currently unavailable. Please try again later.',
+      );
+
+    case 'REGISTRATION_UNAVAILABLE':
+      return ErrorMappingModelStruct(
+        title: 'Service Unavailable',
+        message:
+            'Registration is currently unavailable. Please try again later.',
+      );
+
+    case 'RATE_LIMIT_EXCEEDED':
+      return ErrorMappingModelStruct(
+        title: 'Too Many Attempts',
+        message:
+            'You\'ve made too many attempts. Please wait a moment and try again.',
+      );
+
+    case 'REGISTRATION_RATE_LIMIT_EXCEEDED':
+      return ErrorMappingModelStruct(
+        title: 'Too Many Registration Attempts',
+        message: 'Too many registration attempts. Please try again later.',
+      );
+
+    // Username validation
+    case 'ALREADY_TAKEN':
+      return ErrorMappingModelStruct(
+        title: 'Username Unavailable',
+        message:
+            'To keep your account secure, please choose a different username.',
+      );
+
+    case 'INVALID_FORMAT':
+      return ErrorMappingModelStruct(
+        title: 'Invalid Username',
+        message:
+            'Username must start with a letter and be 6–32 characters long.',
+      );
+
+    case 'RESERVED':
+      return ErrorMappingModelStruct(
+        title: 'Username Unavailable',
+        message: 'This username is reserved and cannot be used.',
+      );
+
+    default:
+      return ErrorMappingModelStruct(
+        title: 'Something Went Wrong',
+        message: 'An unexpected error occurred. Please try again later.',
+      );
+  }
 }

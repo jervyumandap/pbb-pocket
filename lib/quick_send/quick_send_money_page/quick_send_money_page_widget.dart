@@ -61,55 +61,63 @@ class _QuickSendMoneyPageWidgetState extends State<QuickSendMoneyPageWidget> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 70.0,
-            icon: FaIcon(
-              FontAwesomeIcons.arrowCircleLeft,
-              color: FlutterFlowTheme.of(context).primary,
-              size: 30.0,
+          leading: Semantics(
+            button: true,
+            identifier: 'quick_send_icon_button',
+            child: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 70.0,
+              icon: FaIcon(
+                FontAwesomeIcons.arrowCircleLeft,
+                color: FlutterFlowTheme.of(context).primary,
+                size: 30.0,
+              ),
+              onPressed: () async {
+                context.pop();
+              },
             ),
-            onPressed: () async {
-              context.pop();
-            },
           ),
           actions: [
             Builder(
-              builder: (context) => FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                borderWidth: 1.0,
-                buttonSize: 70.0,
-                icon: Icon(
-                  Icons.segment_outlined,
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 30.0,
-                ),
-                onPressed: () async {
-                  await showDialog(
-                    context: context,
-                    builder: (dialogContext) {
-                      return Dialog(
-                        elevation: 0,
-                        insetPadding: EdgeInsets.zero,
-                        backgroundColor: Colors.transparent,
-                        alignment: AlignmentDirectional(0.0, 0.0)
-                            .resolve(Directionality.of(context)),
-                        child: WebViewAware(
-                          child: GestureDetector(
-                            onTap: () {
-                              FocusScope.of(dialogContext).unfocus();
-                              FocusManager.instance.primaryFocus?.unfocus();
-                            },
-                            child: MobileSliderWidget(),
+              builder: (context) => Semantics(
+                button: true,
+                identifier: 'quick_send_icon_button_2',
+                child: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 70.0,
+                  icon: Icon(
+                    Icons.segment_outlined,
+                    color: FlutterFlowTheme.of(context).primary,
+                    size: 30.0,
+                  ),
+                  onPressed: () async {
+                    await showDialog(
+                      context: context,
+                      builder: (dialogContext) {
+                        return Dialog(
+                          elevation: 0,
+                          insetPadding: EdgeInsets.zero,
+                          backgroundColor: Colors.transparent,
+                          alignment: AlignmentDirectional(0.0, 0.0)
+                              .resolve(Directionality.of(context)),
+                          child: WebViewAware(
+                            child: GestureDetector(
+                              onTap: () {
+                                FocusScope.of(dialogContext).unfocus();
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              },
+                              child: MobileSliderWidget(),
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  );
-                },
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
             ),
           ],
@@ -154,69 +162,73 @@ class _QuickSendMoneyPageWidgetState extends State<QuickSendMoneyPageWidget> {
                             Flexible(
                               child: Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
-                                child: TextFormField(
-                                  controller: _model.textController,
-                                  focusNode: _model.textFieldFocusNode,
-                                  autofocus: true,
-                                  enabled: true,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    isDense: true,
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
+                                child: Semantics(
+                                  identifier: 'quick_send_input',
+                                  child: TextFormField(
+                                    controller: _model.textController,
+                                    focusNode: _model.textFieldFocusNode,
+                                    autofocus: true,
+                                    enabled: true,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      isDense: true,
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily,
+                                            color: Color(0xFF1E1E1E),
+                                            fontSize: 64.0,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .labelMediumIsCustom,
+                                          ),
+                                      hintText: FFAppState().selectedAmount != ''
+                                          ? FFAppState().selectedAmount
+                                          : '',
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontSize: 52.0,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .labelMediumIsCustom,
+                                          ),
+                                      enabledBorder: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      focusedErrorBorder: InputBorder.none,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
                                         .override(
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
-                                          color: Color(0xFF1E1E1E),
-                                          fontSize: 64.0,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .labelMediumIsCustom,
-                                        ),
-                                    hintText: FFAppState().selectedAmount != ''
-                                        ? FFAppState().selectedAmount
-                                        : '',
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
+                                                  .bodyMediumFamily,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           fontSize: 52.0,
                                           letterSpacing: 0.0,
                                           useGoogleFonts:
                                               !FlutterFlowTheme.of(context)
-                                                  .labelMediumIsCustom,
+                                                  .bodyMediumIsCustom,
                                         ),
-                                    enabledBorder: InputBorder.none,
-                                    focusedBorder: InputBorder.none,
-                                    errorBorder: InputBorder.none,
-                                    focusedErrorBorder: InputBorder.none,
+                                    textAlign: TextAlign.start,
+                                    keyboardType: TextInputType.number,
+                                    cursorColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    enableInteractiveSelection: true,
+                                    validator: _model.textControllerValidator
+                                        .asValidator(context),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontSize: 52.0,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodyMediumIsCustom,
-                                      ),
-                                  textAlign: TextAlign.start,
-                                  keyboardType: TextInputType.number,
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  enableInteractiveSelection: true,
-                                  validator: _model.textControllerValidator
-                                      .asValidator(context),
                                 ),
                               ),
                             ),
@@ -317,50 +329,54 @@ class _QuickSendMoneyPageWidgetState extends State<QuickSendMoneyPageWidget> {
                       ),
                     ].divide(SizedBox(height: 20.0)),
                   ),
-                  FFButtonWidget(
-                    onPressed: () async {
-                      await showModalBottomSheet(
-                        isScrollControlled: true,
-                        backgroundColor: Colors.transparent,
-                        enableDrag: false,
-                        context: context,
-                        builder: (context) {
-                          return WebViewAware(
-                            child: GestureDetector(
-                              onTap: () {
-                                FocusScope.of(context).unfocus();
-                                FocusManager.instance.primaryFocus?.unfocus();
-                              },
-                              child: Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: QuickSendConfirmationComponentWidget(),
+                  Semantics(
+                    button: true,
+                    identifier: 'quick_send_button',
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        await showModalBottomSheet(
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          enableDrag: false,
+                          context: context,
+                          builder: (context) {
+                            return WebViewAware(
+                              child: GestureDetector(
+                                onTap: () {
+                                  FocusScope.of(context).unfocus();
+                                  FocusManager.instance.primaryFocus?.unfocus();
+                                },
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: QuickSendConfirmationComponentWidget(),
+                                ),
                               ),
+                            );
+                          },
+                        ).then((value) => safeSetState(() {}));
+                      },
+                      text: 'Next',
+                      options: FFButtonOptions(
+                        width: double.infinity,
+                        height: 40.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle: FlutterFlowTheme.of(context)
+                            .titleSmall
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).titleSmallFamily,
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .titleSmallIsCustom,
                             ),
-                          );
-                        },
-                      ).then((value) => safeSetState(() {}));
-                    },
-                    text: 'Next',
-                    options: FFButtonOptions(
-                      width: double.infinity,
-                      height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .titleSmall
-                          .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
-                            color: Colors.white,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .titleSmallIsCustom,
-                          ),
-                      elevation: 0.0,
-                      borderRadius: BorderRadius.circular(16.0),
+                        elevation: 0.0,
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
                     ),
                   ),
                 ].divide(SizedBox(height: 32.0)),

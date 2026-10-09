@@ -51,72 +51,78 @@ class _FavoriteBillerComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      splashColor: Colors.transparent,
-      focusColor: Colors.transparent,
-      hoverColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      onTap: () async {
-        await widget.callBack?.call();
-      },
-      child: Container(
-        width: 80.0,
-        decoration: BoxDecoration(),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 48.0,
-              height: 48.0,
-              decoration: BoxDecoration(
-                color: Color(0xFF1369A3),
-                shape: BoxShape.circle,
-              ),
-              child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Semantics(
-                  label: 'favoriteBiller_text_initials',
-                  child: Text(
-                    functions.extractInitials(widget.billerName),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.inter(
+    return Semantics(
+      container: true,
+      identifier: 'favorite_biller_item',
+      child: InkWell(
+        splashColor: Colors.transparent,
+        focusColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        onTap: () async {
+          await widget.callBack?.call();
+        },
+        child: Container(
+          width: 80.0,
+          decoration: BoxDecoration(),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 48.0,
+                height: 48.0,
+                decoration: BoxDecoration(
+                  color: Color(0xFF1369A3),
+                  shape: BoxShape.circle,
+                ),
+                child: Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Semantics(
+                    label: 'favoriteBiller_text_initials',
+                    child: Text(
+                      functions.extractInitials(widget.billerName),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            fontSize: 14.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                             fontStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .fontStyle,
                           ),
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          fontSize: 14.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w600,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                        ),
+                    ),
                   ),
                 ),
               ),
-            ),
-            AutoSizeText(
-              widget.billerName,
-              textAlign: TextAlign.center,
-              minFontSize: 12.0,
-              style: FlutterFlowTheme.of(context).headlineSmall.override(
-                    font: GoogleFonts.inter(
+              AutoSizeText(
+                widget.billerName,
+                textAlign: TextAlign.center,
+                minFontSize: 12.0,
+                style: FlutterFlowTheme.of(context).headlineSmall.override(
+                      font: GoogleFonts.inter(
+                        fontWeight: FontWeight.w500,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineSmall
+                            .fontStyle,
+                      ),
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      fontSize: 12.0,
+                      letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
                       fontStyle:
                           FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                     ),
-                    color: FlutterFlowTheme.of(context).primaryText,
-                    fontSize: 12.0,
-                    letterSpacing: 0.0,
-                    fontWeight: FontWeight.w500,
-                    fontStyle:
-                        FlutterFlowTheme.of(context).headlineSmall.fontStyle,
-                  ),
-            ),
-          ].divide(SizedBox(height: 8.0)),
+              ),
+            ].divide(SizedBox(height: 8.0)),
+          ),
         ),
       ),
     );

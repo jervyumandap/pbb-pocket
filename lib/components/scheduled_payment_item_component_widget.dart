@@ -199,7 +199,9 @@ class _ScheduledPaymentItemComponentWidgetState
               child: Visibility(
                 visible: widget.paymentDetails?.status == 'ACTIVE',
                 child: Semantics(
-                  label: 'Delete-IconButton',
+                  label: 'Delete',
+                  button: true,
+                  identifier: 'scheduled_payment_delete_button',
                   child: FlutterFlowIconButton(
                     borderRadius: 8.0,
                     buttonSize: 40.0,

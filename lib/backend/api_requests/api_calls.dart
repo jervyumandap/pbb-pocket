@@ -3257,6 +3257,34 @@ class WhitebankGroupAPIGroup {
   static DeleteBeneficiaryCall deleteBeneficiaryCall = DeleteBeneficiaryCall();
   static RetailTransfersValidateAccountCall retailTransfersValidateAccountCall =
       RetailTransfersValidateAccountCall();
+  static CreateCredentialsIICall createCredentialsIICall =
+      CreateCredentialsIICall();
+  static StartAuthenticatroSetupIIRegistrationCall
+      startAuthenticatroSetupIIRegistrationCall =
+      StartAuthenticatroSetupIIRegistrationCall();
+  static ConfirmAuthenticatorSetupCall confirmAuthenticatorSetupCall =
+      ConfirmAuthenticatorSetupCall();
+  static CreateCredentialsIIModeledCall createCredentialsIIModeledCall =
+      CreateCredentialsIIModeledCall();
+  static RetailLoginIICall retailLoginIICall = RetailLoginIICall();
+  static RetailLoginIIModeledCall retailLoginIIModeledCall =
+      RetailLoginIIModeledCall();
+  static RetailRefreshTokenIICall retailRefreshTokenIICall =
+      RetailRefreshTokenIICall();
+  static RetailLogoutIICall retailLogoutIICall = RetailLogoutIICall();
+  static RetailSessionIICall retailSessionIICall = RetailSessionIICall();
+  static RetailMpinChallengeIICall retailMpinChallengeIICall =
+      RetailMpinChallengeIICall();
+  static RetailMpinLoginIICall retailMpinLoginIICall = RetailMpinLoginIICall();
+  static RetailBiometricChallengeIICall retailBiometricChallengeIICall =
+      RetailBiometricChallengeIICall();
+  static RetailBiometricLoginIICall retailBiometricLoginIICall =
+      RetailBiometricLoginIICall();
+  static RetailTOTPLoginIICall retailTOTPLoginIICall = RetailTOTPLoginIICall();
+  static RetailPasskeyAuthOptionsIICall retailPasskeyAuthOptionsIICall =
+      RetailPasskeyAuthOptionsIICall();
+  static RetailPasskeyAuthVerifyIICall retailPasskeyAuthVerifyIICall =
+      RetailPasskeyAuthVerifyIICall();
 }
 
 class RegistrationInitiateCall {
@@ -23346,6 +23374,1379 @@ class RetailTransfersValidateAccountCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class CreateCredentialsIICall {
+  Future<ApiCallResponse> call({
+    String? sessionToken = '',
+    String? username = '',
+    String? password = '',
+    String? confirmPassword = '',
+    String? deviceId = '',
+    String? deviceName = '',
+    String? pushToken = '',
+    String? pushPlatform = '',
+    String? deviceType = '',
+    String? osVersion = '',
+    String? appVersion = '',
+    String? devicePublicKey = '',
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'},
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'},
+  "password": ${password == null ? 'null' : '"${escapeStringForJson(password)}"'},
+  "confirmPassword": ${confirmPassword == null ? 'null' : '"${escapeStringForJson(confirmPassword)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "deviceName": ${deviceName == null ? 'null' : '"${escapeStringForJson(deviceName)}"'},
+  "pushToken": ${pushToken == null ? 'null' : '"${escapeStringForJson(pushToken)}"'},
+  "pushPlatform": ${pushPlatform == null ? 'null' : '"${escapeStringForJson(pushPlatform)}"'},
+  "deviceType": ${deviceType == null ? 'null' : '"${escapeStringForJson(deviceType)}"'},
+  "osVersion": ${osVersion == null ? 'null' : '"${escapeStringForJson(osVersion)}"'},
+  "appVersion": ${appVersion == null ? 'null' : '"${escapeStringForJson(appVersion)}"'},
+  "devicePublicKey": ${devicePublicKey == null ? 'null' : '"${escapeStringForJson(devicePublicKey)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Create Credentials II',
+      apiUrl: '${baseUrl}/v2/registration/create-credentials',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+}
+
+class StartAuthenticatroSetupIIRegistrationCall {
+  Future<ApiCallResponse> call({
+    String? sessionToken = '',
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Start Authenticatro Setup II Registration',
+      apiUrl: '${baseUrl}/v2/registration/totp/start',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+}
+
+class ConfirmAuthenticatorSetupCall {
+  Future<ApiCallResponse> call({
+    String? sessionToken = '',
+    String? totpCode = '',
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "sessionToken": ${sessionToken == null ? 'null' : '"${escapeStringForJson(sessionToken)}"'},
+  "totpCode": ${totpCode == null ? 'null' : '"${escapeStringForJson(totpCode)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Confirm Authenticator Setup ',
+      apiUrl: '${baseUrl}/v2/registration/totp/confirm',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+}
+
+class CreateCredentialsIIModeledCall {
+  Future<ApiCallResponse> call({
+    dynamic requestBodyJson,
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final requestBody = _serializeJson(requestBodyJson);
+    final ffApiRequestBody = '''
+${requestBody}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Create Credentials II Modeled',
+      apiUrl: '${baseUrl}/v2/registration/create-credentials',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class RetailLoginIICall {
+  Future<ApiCallResponse> call({
+    String? username = '',
+    String? password = '',
+    String? deviceId = '',
+    String? deviceName = '',
+    String? pushToken = '',
+    String? pushPlatform = '',
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'},
+  "password": ${password == null ? 'null' : '"${escapeStringForJson(password)}"'},
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "deviceName": ${deviceName == null ? 'null' : '"${escapeStringForJson(deviceName)}"'},
+  "pushToken": ${pushToken == null ? 'null' : '"${escapeStringForJson(pushToken)}"'},
+  "pushPlatform": ${pushPlatform == null ? 'null' : '"${escapeStringForJson(pushPlatform)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail Login II',
+      apiUrl: '${baseUrl}/v2/auth/retail/login',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+}
+
+class RetailLoginIIModeledCall {
+  Future<ApiCallResponse> call({
+    dynamic requestBodyJson,
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final requestBody = _serializeJson(requestBodyJson);
+    final ffApiRequestBody = '''
+${requestBody}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail Login II Modeled',
+      apiUrl: '${baseUrl}/v2/auth/retail/login',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+}
+
+class RetailRefreshTokenIICall {
+  Future<ApiCallResponse> call({
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "refreshToken": ${refreshToken == null ? 'null' : '"${escapeStringForJson(refreshToken)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail Refresh Token II',
+      apiUrl: '${baseUrl}/v2/auth/retail/refresh',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+}
+
+class RetailLogoutIICall {
+  Future<ApiCallResponse> call({
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "refreshToken": ${refreshToken == null ? 'null' : '"${escapeStringForJson(refreshToken)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail Logout II',
+      apiUrl: '${baseUrl}/v2/auth/retail/logout',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+}
+
+class RetailSessionIICall {
+  Future<ApiCallResponse> call({
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail Session II',
+      apiUrl: '${baseUrl}/v2/auth/retail/session',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+}
+
+class RetailMpinChallengeIICall {
+  Future<ApiCallResponse> call({
+    String? deviceId = '',
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail Mpin Challenge II',
+      apiUrl: '${baseUrl}/v2/auth/retail/mpin/challenge',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+}
+
+class RetailMpinLoginIICall {
+  Future<ApiCallResponse> call({
+    String? deviceId = '',
+    String? mpin = '',
+    String? challenge = '',
+    String? signature = '',
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "mpin": ${mpin == null ? 'null' : '"${escapeStringForJson(mpin)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail Mpin Login II',
+      apiUrl: '${baseUrl}/v2/auth/retail/mpin/login',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+}
+
+class RetailBiometricChallengeIICall {
+  Future<ApiCallResponse> call({
+    String? deviceId = '',
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail Biometric Challenge II',
+      apiUrl: '${baseUrl}/v2/auth/retail/biometric/challenge',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+}
+
+class RetailBiometricLoginIICall {
+  Future<ApiCallResponse> call({
+    String? deviceId = '',
+    String? signature = '',
+    String? challenge = '',
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "deviceId": ${deviceId == null ? 'null' : '"${escapeStringForJson(deviceId)}"'},
+  "signature": ${signature == null ? 'null' : '"${escapeStringForJson(signature)}"'},
+  "challenge": ${challenge == null ? 'null' : '"${escapeStringForJson(challenge)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail Biometric Login II',
+      apiUrl: '${baseUrl}/v2/auth/retail/biometric/login',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+}
+
+class RetailTOTPLoginIICall {
+  Future<ApiCallResponse> call({
+    String? pendingLoginToken = '',
+    String? totpCode = '',
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "pendingLoginToken": ${pendingLoginToken == null ? 'null' : '"${escapeStringForJson(pendingLoginToken)}"'},
+  "totpCode": ${totpCode == null ? 'null' : '"${escapeStringForJson(totpCode)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail TOTP Login II',
+      apiUrl: '${baseUrl}/v2/auth/retail/login/totp',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+}
+
+class RetailPasskeyAuthOptionsIICall {
+  Future<ApiCallResponse> call({
+    String? username = '',
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "username": ${username == null ? 'null' : '"${escapeStringForJson(username)}"'}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail Passkey Auth Options II',
+      apiUrl: '${baseUrl}/v2/auth/retail/passkey/authenticate/options',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+  String? rpId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.rpId''',
+      ));
+  String? challenge(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.challenge''',
+      ));
+  int? timeout(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.timeout''',
+      ));
+  String? userVerification(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.userVerification''',
+      ));
+}
+
+class RetailPasskeyAuthVerifyIICall {
+  Future<ApiCallResponse> call({
+    String? baseURL = 'https://whitebank-retail-core-dev.fly.dev',
+    String? apiKey = '',
+    String? accessToken = '',
+    String? refreshToken = '',
+    String? fmsSessionId = '',
+  }) async {
+    final baseUrl = WhitebankGroupAPIGroup.getBaseUrl(
+      baseURL: baseURL,
+      apiKey: apiKey,
+      accessToken: accessToken,
+      refreshToken: refreshToken,
+      fmsSessionId: fmsSessionId,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Retail Passkey Auth Verify II',
+      apiUrl: '${baseUrl}/v2/auth/retail/passkey/authenticate/verify',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json',
+        'user-agent': 'user-agent',
+        'Authorization': 'Bearer ${accessToken}',
+        'x-fms-session-id': '${fmsSessionId}',
+      },
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? status(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.title''',
+      ));
+  String? instance(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.instance''',
+      ));
+  List? errors(dynamic response) => getJsonField(
+        response,
+        r'''$.errors''',
+        true,
+      ) as List?;
+  String? type(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.type''',
+      ));
+  String? detail(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.detail''',
+      ));
+  String? error(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  String? unlockAt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.unlockAt''',
+      ));
+  String? rpId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.rpId''',
+      ));
+  String? challenge(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.challenge''',
+      ));
+  int? timeout(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.timeout''',
+      ));
+  String? userVerification(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.userVerification''',
+      ));
 }
 
 /// End Whitebank Group API Group Code

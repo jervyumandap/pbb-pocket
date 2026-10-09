@@ -55,19 +55,23 @@ class _SelectBillerPageWidgetState extends State<SelectBillerPageWidget> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 70.0,
-            icon: FaIcon(
-              FontAwesomeIcons.arrowCircleLeft,
-              color: FlutterFlowTheme.of(context).primary,
-              size: 30.0,
+          leading: Semantics(
+            button: true,
+            identifier: 'select_biller_icon_button',
+            child: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 70.0,
+              icon: FaIcon(
+                FontAwesomeIcons.arrowCircleLeft,
+                color: FlutterFlowTheme.of(context).primary,
+                size: 30.0,
+              ),
+              onPressed: () async {
+                context.pop();
+              },
             ),
-            onPressed: () async {
-              context.pop();
-            },
           ),
           title: Align(
             alignment: AlignmentDirectional(-1.0, 0.0),
@@ -84,19 +88,23 @@ class _SelectBillerPageWidgetState extends State<SelectBillerPageWidget> {
             ),
           ),
           actions: [
-            FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 70.0,
-              icon: Icon(
-                Icons.segment_outlined,
-                color: FlutterFlowTheme.of(context).primary,
-                size: 30.0,
+            Semantics(
+              button: true,
+              identifier: 'select_biller_icon_button_2',
+              child: FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 70.0,
+                icon: Icon(
+                  Icons.segment_outlined,
+                  color: FlutterFlowTheme.of(context).primary,
+                  size: 30.0,
+                ),
+                onPressed: () {
+                  print('IconButton pressed ...');
+                },
               ),
-              onPressed: () {
-                print('IconButton pressed ...');
-              },
             ),
           ],
           centerTitle: false,
@@ -109,76 +117,79 @@ class _SelectBillerPageWidgetState extends State<SelectBillerPageWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                TextFormField(
-                  controller: _model.textController,
-                  focusNode: _model.textFieldFocusNode,
-                  autofocus: false,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    labelText: 'Search all articles...',
-                    labelStyle: FlutterFlowTheme.of(context)
-                        .labelMedium
-                        .override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).labelMediumFamily,
-                          letterSpacing: 0.0,
-                          useGoogleFonts:
-                              !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                Semantics(
+                  identifier: 'select_biller_input',
+                  child: TextFormField(
+                    controller: _model.textController,
+                    focusNode: _model.textFieldFocusNode,
+                    autofocus: false,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      labelText: 'Search all articles...',
+                      labelStyle: FlutterFlowTheme.of(context)
+                          .labelMedium
+                          .override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).labelMediumFamily,
+                            letterSpacing: 0.0,
+                            useGoogleFonts: !FlutterFlowTheme.of(context)
+                                .labelMediumIsCustom,
+                          ),
+                      hintStyle: FlutterFlowTheme.of(context)
+                          .labelMedium
+                          .override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).labelMediumFamily,
+                            letterSpacing: 0.0,
+                            useGoogleFonts: !FlutterFlowTheme.of(context)
+                                .labelMediumIsCustom,
+                          ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          width: 0.2,
                         ),
-                    hintStyle: FlutterFlowTheme.of(context)
-                        .labelMedium
-                        .override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).labelMediumFamily,
-                          letterSpacing: 0.0,
-                          useGoogleFonts:
-                              !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primary,
+                          width: 0.2,
                         ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 0.2,
+                        ),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 0.2,
+                        ),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      contentPadding:
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                      suffixIcon: Icon(
+                        Icons.search_rounded,
                         color: FlutterFlowTheme.of(context).secondaryText,
-                        width: 0.2,
                       ),
-                      borderRadius: BorderRadius.circular(12.0),
                     ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).primary,
-                        width: 0.2,
-                      ),
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 0.2,
-                      ),
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 0.2,
-                      ),
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    contentPadding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                    suffixIcon: Icon(
-                      Icons.search_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          letterSpacing: 0.0,
+                          useGoogleFonts:
+                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                        ),
+                    cursorColor: FlutterFlowTheme.of(context).primary,
+                    validator:
+                        _model.textControllerValidator.asValidator(context),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).bodyMediumFamily,
-                        letterSpacing: 0.0,
-                        useGoogleFonts:
-                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                      ),
-                  cursorColor: FlutterFlowTheme.of(context).primary,
-                  validator:
-                      _model.textControllerValidator.asValidator(context),
                 ),
                 ListView(
                   padding: EdgeInsets.zero,

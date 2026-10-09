@@ -71,19 +71,24 @@ class _ResetMPINPageWidgetState extends State<ResetMPINPageWidget> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 70.0,
-            icon: FaIcon(
-              FontAwesomeIcons.arrowCircleLeft,
-              color: FlutterFlowTheme.of(context).primary,
-              size: 30.0,
+          leading: Semantics(
+            label: 'Show or hide PIN',
+            button: true,
+            identifier: 'reset_mpin_visibility_toggle',
+            child: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 70.0,
+              icon: FaIcon(
+                FontAwesomeIcons.arrowCircleLeft,
+                color: FlutterFlowTheme.of(context).primary,
+                size: 30.0,
+              ),
+              onPressed: () async {
+                context.pop();
+              },
             ),
-            onPressed: () async {
-              context.pop();
-            },
           ),
           actions: [],
           centerTitle: true,
@@ -338,148 +343,160 @@ class _ResetMPINPageWidgetState extends State<ResetMPINPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Builder(
-                        builder: (context) => FFButtonWidget(
-                          onPressed: () async {
-                            if (_model.pinCodeController1!.text ==
-                                _model.pinCodeController2!.text) {
-                              _model.mpinErrror = false;
-                              safeSetState(() {});
-                              _model.hashMPIN = await actions.hashMPIN(
-                                _model.pinCodeController2!.text,
-                              );
-                              _model.apiResult69v =
-                                  await SupabaseGroup.updateMPinCall.call(
-                                userId: FFAppState().userID,
-                                mpinHash: _model.hashMPIN,
-                                accessToken: FFDevEnvironmentValues().ANONKEY,
-                              );
+                        builder: (context) => Semantics(
+                          button: true,
+                          identifier: 'reset_mpin_button',
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              if (_model.pinCodeController1!.text ==
+                                  _model.pinCodeController2!.text) {
+                                _model.mpinErrror = false;
+                                safeSetState(() {});
+                                _model.hashMPIN = await actions.hashMPIN(
+                                  _model.pinCodeController2!.text,
+                                );
+                                _model.apiResult69v =
+                                    await SupabaseGroup.updateMPinCall.call(
+                                  userId: FFAppState().userID,
+                                  mpinHash: _model.hashMPIN,
+                                  accessToken: FFDevEnvironmentValues().ANONKEY,
+                                );
 
-                              if ((_model.apiResult69v?.succeeded ?? true)) {
-                                await showDialog(
-                                  context: context,
-                                  builder: (dialogContext) {
-                                    return Dialog(
-                                      elevation: 0,
-                                      insetPadding: EdgeInsets.zero,
-                                      backgroundColor: Colors.transparent,
-                                      alignment: AlignmentDirectional(0.0, 0.0)
-                                          .resolve(Directionality.of(context)),
-                                      child: WebViewAware(
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            FocusScope.of(dialogContext)
-                                                .unfocus();
-                                            FocusManager.instance.primaryFocus
-                                                ?.unfocus();
-                                          },
-                                          child:
-                                              CustomInformationalDialogWidget(
-                                            message:
-                                                'Your new MPIN has been set successfully. Use this code for a faster and more secure way to access your account.',
-                                            primaryButtonTitle:
-                                                'Proceed to Login',
-                                            title: 'MPIN Updated',
-                                            primaryButtonAction: () async {
-                                              context.pushNamed(
-                                                LoginPageWidget.routeName,
-                                                extra: <String, dynamic>{
-                                                  '__transition_info__':
-                                                      TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType.fade,
-                                                    duration: Duration(
-                                                        milliseconds: 0),
-                                                  ),
-                                                },
-                                              );
+                                if ((_model.apiResult69v?.succeeded ?? true)) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (dialogContext) {
+                                      return Dialog(
+                                        elevation: 0,
+                                        insetPadding: EdgeInsets.zero,
+                                        backgroundColor: Colors.transparent,
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        child: WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(dialogContext)
+                                                  .unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
                                             },
-                                            secondaryButtonAction: () async {},
+                                            child:
+                                                CustomInformationalDialogWidget(
+                                              message:
+                                                  'Your new MPIN has been set successfully. Use this code for a faster and more secure way to access your account.',
+                                              primaryButtonTitle:
+                                                  'Proceed to Login',
+                                              title: 'MPIN Updated',
+                                              primaryButtonAction: () async {
+                                                context.pushNamed(
+                                                  LoginPageWidget.routeName,
+                                                  extra: <String, dynamic>{
+                                                    '__transition_info__':
+                                                        TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                      duration: Duration(
+                                                          milliseconds: 0),
+                                                    ),
+                                                  },
+                                                );
+                                              },
+                                              secondaryButtonAction:
+                                                  () async {},
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    );
-                                  },
-                                );
+                                      );
+                                    },
+                                  );
+                                } else {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (dialogContext) {
+                                      return Dialog(
+                                        elevation: 0,
+                                        insetPadding: EdgeInsets.zero,
+                                        backgroundColor: Colors.transparent,
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        child: WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(dialogContext)
+                                                  .unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child:
+                                                CustomInformationalDialogWidget(
+                                              message:
+                                                  'We couldn\'t update your MPIN right now due to a connection issue. Please check your internet and try again in a moment',
+                                              primaryButtonTitle: 'Back',
+                                              title: 'Update Failed',
+                                              primaryButtonAction: () async {
+                                                context.pushNamed(
+                                                    SecuritySettingsPageWidget
+                                                        .routeName);
+                                              },
+                                              secondaryButtonAction:
+                                                  () async {},
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                }
                               } else {
-                                await showDialog(
-                                  context: context,
-                                  builder: (dialogContext) {
-                                    return Dialog(
-                                      elevation: 0,
-                                      insetPadding: EdgeInsets.zero,
-                                      backgroundColor: Colors.transparent,
-                                      alignment: AlignmentDirectional(0.0, 0.0)
-                                          .resolve(Directionality.of(context)),
-                                      child: WebViewAware(
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            FocusScope.of(dialogContext)
-                                                .unfocus();
-                                            FocusManager.instance.primaryFocus
-                                                ?.unfocus();
-                                          },
-                                          child:
-                                              CustomInformationalDialogWidget(
-                                            message:
-                                                'We couldn\'t update your MPIN right now due to a connection issue. Please check your internet and try again in a moment',
-                                            primaryButtonTitle: 'Back',
-                                            title: 'Update Failed',
-                                            primaryButtonAction: () async {
-                                              context.pushNamed(
-                                                  SecuritySettingsPageWidget
-                                                      .routeName);
-                                            },
-                                            secondaryButtonAction: () async {},
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                );
+                                await Future.wait([
+                                  Future(() async {
+                                    _model.mpinErrror = true;
+                                    safeSetState(() {});
+                                  }),
+                                  Future(() async {
+                                    safeSetState(() {
+                                      _model.pinCodeController1?.clear();
+                                      _model.pinCodeController2?.clear();
+                                    });
+                                  }),
+                                ]);
                               }
-                            } else {
-                              await Future.wait([
-                                Future(() async {
-                                  _model.mpinErrror = true;
-                                  safeSetState(() {});
-                                }),
-                                Future(() async {
-                                  safeSetState(() {
-                                    _model.pinCodeController1?.clear();
-                                    _model.pinCodeController2?.clear();
-                                  });
-                                }),
-                              ]);
-                            }
 
-                            safeSetState(() {});
-                          },
-                          text: 'Setup MPIN',
-                          options: FFButtonOptions(
-                            width: double.infinity,
-                            height: 48.0,
-                            padding: EdgeInsets.all(8.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
-                                  color: FlutterFlowTheme.of(context).info,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .titleMediumIsCustom,
-                                ),
-                            elevation: 0.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
+                              safeSetState(() {});
+                            },
+                            text: 'Setup MPIN',
+                            options: FFButtonOptions(
+                              width: double.infinity,
+                              height: 48.0,
+                              padding: EdgeInsets.all(8.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleMediumFamily,
+                                    color: FlutterFlowTheme.of(context).info,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .titleMediumIsCustom,
+                                  ),
+                              elevation: 0.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(32.0),
                             ),
-                            borderRadius: BorderRadius.circular(32.0),
                           ),
                         ),
                       ),

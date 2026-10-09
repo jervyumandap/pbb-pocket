@@ -293,7 +293,9 @@ class _AccountValidationPageWidgetState
                                                         Expanded(
                                                           child: Semantics(
                                                             label:
-                                                                'Enrollment_TextField_Account_Number',
+                                                                'Account number',
+                                                            identifier:
+                                                                'enrollment_textfield_account_number',
                                                             child: Container(
                                                               width: double
                                                                   .infinity,
@@ -467,8 +469,10 @@ class _AccountValidationPageWidgetState
                                                     ),
                                                   ),
                                                   Semantics(
-                                                    label:
-                                                        'Enrollment_Custom_Date_Label_Picker_Widget',
+                                                    label: 'Select date',
+                                                    container: true,
+                                                    identifier:
+                                                        'enrollment_custom_date_label_picker',
                                                     child: wrapWithModel(
                                                       model: _model
                                                           .customDateLabelPickerWidgetModel,
@@ -604,7 +608,10 @@ class _AccountValidationPageWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 60.0),
                                   child: Semantics(
-                                    label: 'Enrollment_Continue_Button',
+                                    label: 'Enrollment continue',
+                                    button: true,
+                                    container: true,
+                                    identifier: 'enrollment_continue_button',
                                     child: wrapWithModel(
                                       model: _model.primaryButtonComponentModel,
                                       updateCallback: () => safeSetState(() {}),

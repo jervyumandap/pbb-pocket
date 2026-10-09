@@ -826,7 +826,10 @@ class _CreateMpinPageWidgetState extends State<CreateMpinPageWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 20.0, 60.0),
                                 child: Semantics(
-                                  label: 'Next_Button',
+                                  label: 'Next',
+                                  button: true,
+                                  container: true,
+                                  identifier: 'next_button',
                                   child: wrapWithModel(
                                     model: _model.primaryButtonComponentModel,
                                     updateCallback: () => safeSetState(() {}),

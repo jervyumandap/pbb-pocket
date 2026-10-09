@@ -1072,29 +1072,36 @@ class _TrustProductPageWidgetState extends State<TrustProductPageWidget> {
               alignment: AlignmentDirectional(0.0, 1.0),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 50.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed(TrustProductSuccessPageWidget.routeName);
-                  },
-                  text: 'Submit',
-                  options: FFButtonOptions(
-                    width: double.infinity,
-                    height: 48.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: Color(0xFF027377),
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).titleSmallFamily,
-                          color: Colors.white,
-                          letterSpacing: 0.0,
-                          useGoogleFonts:
-                              !FlutterFlowTheme.of(context).titleSmallIsCustom,
-                        ),
-                    elevation: 0.0,
-                    borderRadius: BorderRadius.circular(16.0),
+                child: Semantics(
+                  button: true,
+                  identifier: 'trust_product_button',
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      context
+                          .pushNamed(TrustProductSuccessPageWidget.routeName);
+                    },
+                    text: 'Submit',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 48.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: Color(0xFF027377),
+                      textStyle: FlutterFlowTheme.of(context)
+                          .titleSmall
+                          .override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).titleSmallFamily,
+                            color: Colors.white,
+                            letterSpacing: 0.0,
+                            useGoogleFonts: !FlutterFlowTheme.of(context)
+                                .titleSmallIsCustom,
+                          ),
+                      elevation: 0.0,
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
                   ),
                 ),
               ),

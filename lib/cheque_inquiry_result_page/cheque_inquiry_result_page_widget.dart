@@ -203,8 +203,10 @@ class _ChequeInquiryResultPageWidgetState
                                                     return Builder(
                                                       builder: (context) =>
                                                           Semantics(
-                                                        label:
-                                                            'chequeInquiryResult_stopcheque_component',
+                                                        label: 'Stop cheque',
+                                                        container: true,
+                                                        identifier:
+                                                            'chequeinquiryresult_stopcheque_component',
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,

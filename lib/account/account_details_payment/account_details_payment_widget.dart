@@ -78,18 +78,22 @@ class _AccountDetailsPaymentWidgetState
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          FlutterFlowIconButton(
-                            borderRadius: 40.0,
-                            buttonSize: 50.0,
-                            fillColor: Color(0x25FFFFFF),
-                            icon: Icon(
-                              Icons.clear,
-                              color: FlutterFlowTheme.of(context).info,
-                              size: 30.0,
+                          Semantics(
+                            button: true,
+                            identifier: 'account_payment_action_button',
+                            child: FlutterFlowIconButton(
+                              borderRadius: 40.0,
+                              buttonSize: 50.0,
+                              fillColor: Color(0x25FFFFFF),
+                              icon: Icon(
+                                Icons.clear,
+                                color: FlutterFlowTheme.of(context).info,
+                                size: 30.0,
+                              ),
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
                             ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
-                            },
                           ),
                           Text(
                             'Payment',
@@ -106,18 +110,22 @@ class _AccountDetailsPaymentWidgetState
                                       .bodyLargeIsCustom,
                                 ),
                           ),
-                          FlutterFlowIconButton(
-                            borderRadius: 40.0,
-                            buttonSize: 50.0,
-                            fillColor: Color(0x25FFFFFF),
-                            icon: Icon(
-                              Icons.qr_code_scanner,
-                              color: FlutterFlowTheme.of(context).info,
-                              size: 30.0,
+                          Semantics(
+                            button: true,
+                            identifier: 'account_payment_action_button_2',
+                            child: FlutterFlowIconButton(
+                              borderRadius: 40.0,
+                              buttonSize: 50.0,
+                              fillColor: Color(0x25FFFFFF),
+                              icon: Icon(
+                                Icons.qr_code_scanner,
+                                color: FlutterFlowTheme.of(context).info,
+                                size: 30.0,
+                              ),
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
                             ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
-                            },
                           ),
                         ],
                       ),

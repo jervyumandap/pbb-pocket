@@ -96,37 +96,40 @@ class _IconButtonBadgeWidgetState extends State<IconButtonBadgeWidget> {
             children: [
               Align(
                 alignment: AlignmentDirectional(0.0, 0.0),
-                child: FlutterFlowIconButton(
-                  borderColor: valueOrDefault<Color>(
-                    widget.borderColor,
-                    Colors.transparent,
+                child: Semantics(
+                  button: true,
+                  child: FlutterFlowIconButton(
+                    borderColor: valueOrDefault<Color>(
+                      widget.borderColor,
+                      Colors.transparent,
+                    ),
+                    borderRadius: valueOrDefault<double>(
+                      widget.borderRadius,
+                      100.0,
+                    ),
+                    borderWidth: valueOrDefault<double>(
+                      widget.borderWidth,
+                      0.0,
+                    ),
+                    buttonSize: valueOrDefault<double>(
+                      widget.buttonSize,
+                      44.0,
+                    ),
+                    fillColor: widget.backgroundColor,
+                    hoverColor: valueOrDefault<Color>(
+                      widget.hoverStyle?.hoverColor,
+                      FlutterFlowTheme.of(context).menuHover,
+                    ),
+                    hoverIconColor: valueOrDefault<Color>(
+                      widget.hoverStyle?.iconColor,
+                      FlutterFlowTheme.of(context).secondary,
+                    ),
+                    icon: widget.icon!,
+                    showLoadingIndicator: widget.isLoadingShown,
+                    onPressed: () async {
+                      await widget.callback?.call();
+                    },
                   ),
-                  borderRadius: valueOrDefault<double>(
-                    widget.borderRadius,
-                    100.0,
-                  ),
-                  borderWidth: valueOrDefault<double>(
-                    widget.borderWidth,
-                    0.0,
-                  ),
-                  buttonSize: valueOrDefault<double>(
-                    widget.buttonSize,
-                    44.0,
-                  ),
-                  fillColor: widget.backgroundColor,
-                  hoverColor: valueOrDefault<Color>(
-                    widget.hoverStyle?.hoverColor,
-                    FlutterFlowTheme.of(context).menuHover,
-                  ),
-                  hoverIconColor: valueOrDefault<Color>(
-                    widget.hoverStyle?.iconColor,
-                    FlutterFlowTheme.of(context).secondary,
-                  ),
-                  icon: widget.icon!,
-                  showLoadingIndicator: widget.isLoadingShown,
-                  onPressed: () async {
-                    await widget.callback?.call();
-                  },
                 ),
               ),
               if (widget.badgeCount >= 1)

@@ -457,89 +457,114 @@ class _SavedDevicesWidgetState extends State<SavedDevicesWidget> {
                                                                 return Builder(
                                                                   builder:
                                                                       (context) =>
-                                                                          FlutterFlowIconButton(
-                                                                    borderRadius:
-                                                                        8.0,
-                                                                    buttonSize:
-                                                                        40.0,
-                                                                    icon: Icon(
-                                                                      Icons
-                                                                          .delete_forever_outlined,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .error,
-                                                                      size:
-                                                                          24.0,
-                                                                    ),
-                                                                    onPressed:
-                                                                        () async {
-                                                                      if ((_model
-                                                                              .trustedDeviceList
-                                                                              .where((e) => e.deviceId == FFAppState().DeviceDetails.deviceId)
-                                                                              .toList()
-                                                                              .isNotEmpty) ==
-                                                                          true) {
-                                                                        for (int loop1Index =
-                                                                                0;
-                                                                            loop1Index <
-                                                                                _model.trustedDeviceList.where((e) => e.deviceId == FFAppState().DeviceDetails.deviceId).toList().length;
-                                                                            loop1Index++) {
-                                                                          final currentLoop1Item = _model
-                                                                              .trustedDeviceList
-                                                                              .where((e) => e.deviceId == FFAppState().DeviceDetails.deviceId)
-                                                                              .toList()[loop1Index];
-                                                                          _model.isTrusted =
-                                                                              currentLoop1Item.trusted;
-                                                                          safeSetState(
-                                                                              () {});
-                                                                        }
-                                                                        if (_model
-                                                                            .isTrusted!) {
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (dialogContext) {
-                                                                              return Dialog(
-                                                                                elevation: 0,
-                                                                                insetPadding: EdgeInsets.zero,
-                                                                                backgroundColor: Colors.transparent,
-                                                                                alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                child: WebViewAware(
-                                                                                  child: GestureDetector(
-                                                                                    onTap: () {
-                                                                                      FocusScope.of(dialogContext).unfocus();
-                                                                                      FocusManager.instance.primaryFocus?.unfocus();
-                                                                                    },
-                                                                                    child: CustomInformationalDialogWidget(
-                                                                                      message: 'Are you sure you want to delete this device?',
-                                                                                      primaryButtonTitle: 'Delete',
-                                                                                      title: 'Remove Device',
-                                                                                      secondaryButtonTitle: 'Cancel',
-                                                                                      primaryButtonAction: () async {
-                                                                                        context.pushNamed(
-                                                                                          MPINVerifyDeviceDeleteWidget.routeName,
-                                                                                          queryParameters: {
-                                                                                            'id': serializeParam(
-                                                                                              deviceListItem.id,
-                                                                                              ParamType.String,
-                                                                                            ),
-                                                                                            'deviceName': serializeParam(
-                                                                                              deviceListItem.deviceName,
-                                                                                              ParamType.String,
-                                                                                            ),
-                                                                                          }.withoutNulls,
-                                                                                        );
+                                                                          Semantics(
+                                                                    button:
+                                                                        true,
+                                                                    identifier:
+                                                                        'saved_devices_icon_button',
+                                                                    child:
+                                                                        FlutterFlowIconButton(
+                                                                      borderRadius:
+                                                                          8.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .delete_forever_outlined,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .error,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () async {
+                                                                        if ((_model.trustedDeviceList.where((e) => e.deviceId == FFAppState().DeviceDetails.deviceId).toList().isNotEmpty) ==
+                                                                            true) {
+                                                                          for (int loop1Index = 0;
+                                                                              loop1Index < _model.trustedDeviceList.where((e) => e.deviceId == FFAppState().DeviceDetails.deviceId).toList().length;
+                                                                              loop1Index++) {
+                                                                            final currentLoop1Item =
+                                                                                _model.trustedDeviceList.where((e) => e.deviceId == FFAppState().DeviceDetails.deviceId).toList()[loop1Index];
+                                                                            _model.isTrusted =
+                                                                                currentLoop1Item.trusted;
+                                                                            safeSetState(() {});
+                                                                          }
+                                                                          if (_model
+                                                                              .isTrusted!) {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (dialogContext) {
+                                                                                return Dialog(
+                                                                                  elevation: 0,
+                                                                                  insetPadding: EdgeInsets.zero,
+                                                                                  backgroundColor: Colors.transparent,
+                                                                                  alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                  child: WebViewAware(
+                                                                                    child: GestureDetector(
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(dialogContext).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
                                                                                       },
-                                                                                      secondaryButtonAction: () async {
-                                                                                        Navigator.pop(context);
-                                                                                      },
+                                                                                      child: CustomInformationalDialogWidget(
+                                                                                        message: 'Are you sure you want to delete this device?',
+                                                                                        primaryButtonTitle: 'Delete',
+                                                                                        title: 'Remove Device',
+                                                                                        secondaryButtonTitle: 'Cancel',
+                                                                                        primaryButtonAction: () async {
+                                                                                          context.pushNamed(
+                                                                                            MPINVerifyDeviceDeleteWidget.routeName,
+                                                                                            queryParameters: {
+                                                                                              'id': serializeParam(
+                                                                                                deviceListItem.id,
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'deviceName': serializeParam(
+                                                                                                deviceListItem.deviceName,
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                            }.withoutNulls,
+                                                                                          );
+                                                                                        },
+                                                                                        secondaryButtonAction: () async {
+                                                                                          Navigator.pop(context);
+                                                                                        },
+                                                                                      ),
                                                                                     ),
                                                                                   ),
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          );
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                          } else {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (dialogContext) {
+                                                                                return Dialog(
+                                                                                  elevation: 0,
+                                                                                  insetPadding: EdgeInsets.zero,
+                                                                                  backgroundColor: Colors.transparent,
+                                                                                  alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                  child: WebViewAware(
+                                                                                    child: GestureDetector(
+                                                                                      onTap: () {
+                                                                                        FocusScope.of(dialogContext).unfocus();
+                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                      },
+                                                                                      child: CustomInformationalDialogWidget(
+                                                                                        message: 'Sorry your current device is not allowed to delete devices',
+                                                                                        primaryButtonTitle: 'Cancel',
+                                                                                        title: 'Invalid',
+                                                                                        primaryButtonAction: () async {
+                                                                                          Navigator.pop(context);
+                                                                                        },
+                                                                                        secondaryButtonAction: () async {},
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                          }
                                                                         } else {
                                                                           await showDialog(
                                                                             context:
@@ -572,39 +597,8 @@ class _SavedDevicesWidgetState extends State<SavedDevicesWidget> {
                                                                             },
                                                                           );
                                                                         }
-                                                                      } else {
-                                                                        await showDialog(
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (dialogContext) {
-                                                                            return Dialog(
-                                                                              elevation: 0,
-                                                                              insetPadding: EdgeInsets.zero,
-                                                                              backgroundColor: Colors.transparent,
-                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                              child: WebViewAware(
-                                                                                child: GestureDetector(
-                                                                                  onTap: () {
-                                                                                    FocusScope.of(dialogContext).unfocus();
-                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                  },
-                                                                                  child: CustomInformationalDialogWidget(
-                                                                                    message: 'Sorry your current device is not allowed to delete devices',
-                                                                                    primaryButtonTitle: 'Cancel',
-                                                                                    title: 'Invalid',
-                                                                                    primaryButtonAction: () async {
-                                                                                      Navigator.pop(context);
-                                                                                    },
-                                                                                    secondaryButtonAction: () async {},
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                          },
-                                                                        );
-                                                                      }
-                                                                    },
+                                                                      },
+                                                                    ),
                                                                   ),
                                                                 );
                                                               }
@@ -895,204 +889,211 @@ class _SavedDevicesWidgetState extends State<SavedDevicesWidget> {
                                                                   Builder(
                                                                     builder:
                                                                         (context) =>
-                                                                            FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      icon:
-                                                                          Icon(
-                                                                        Icons
-                                                                            .phonelink_setup,
-                                                                        color: Color(
-                                                                            0xFF00727D),
-                                                                        size:
-                                                                            24.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () async {
-                                                                        await showDialog(
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (dialogContext) {
-                                                                            return Dialog(
-                                                                              elevation: 0,
-                                                                              insetPadding: EdgeInsets.zero,
-                                                                              backgroundColor: Colors.transparent,
-                                                                              alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                              child: WebViewAware(
-                                                                                child: GestureDetector(
-                                                                                  onTap: () {
-                                                                                    FocusScope.of(dialogContext).unfocus();
-                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                  },
-                                                                                  child: CustomInformationalDialogWidget(
-                                                                                    message: 'By approving this request, this device will be added as a trusted device for your account. Do you want to continue?',
-                                                                                    primaryButtonTitle: 'Continue',
-                                                                                    title: 'Approve Trusted Device Request',
-                                                                                    secondaryButtonTitle: 'Cancel',
-                                                                                    primaryButtonAction: () async {
-                                                                                      Navigator.pop(context);
-                                                                                      await Future.delayed(
-                                                                                        Duration(
-                                                                                          milliseconds: 100,
-                                                                                        ),
-                                                                                      );
-                                                                                      _model.getSigningChallengeResponse = await WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.call(
-                                                                                        id: pendingRequestsItem.id,
-                                                                                        deviceId: FFAppState().DeviceDetails.deviceId,
-                                                                                        baseURL: FFDevEnvironmentValues().WBPBASEURL,
-                                                                                        accessToken: currentAuthenticationToken,
-                                                                                      );
-
-                                                                                      if (WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.preferredMethod(
-                                                                                            (_model.getSigningChallengeResponse?.jsonBody ?? ''),
-                                                                                          ) ==
-                                                                                          SigningAvailableMethods.mpin.name) {
-                                                                                        context.pushNamed(
-                                                                                          MPINPageWidget.routeName,
-                                                                                          queryParameters: {
-                                                                                            'usage': serializeParam(
-                                                                                              MpinUsage.DEVICE_TRUST_APPROVAL,
-                                                                                              ParamType.Enum,
-                                                                                            ),
-                                                                                            'bpId': serializeParam(
-                                                                                              pendingRequestsItem.id,
-                                                                                              ParamType.String,
-                                                                                            ),
-                                                                                            'challenge': serializeParam(
-                                                                                              WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.challenge(
-                                                                                                (_model.getSigningChallengeResponse?.jsonBody ?? ''),
-                                                                                              ),
-                                                                                              ParamType.String,
-                                                                                            ),
-                                                                                            'mpinHash': serializeParam(
-                                                                                              '',
-                                                                                              ParamType.String,
-                                                                                            ),
-                                                                                          }.withoutNulls,
-                                                                                        );
-                                                                                      } else if (WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.preferredMethod(
-                                                                                            (_model.getSigningChallengeResponse?.jsonBody ?? ''),
-                                                                                          ) ==
-                                                                                          SigningAvailableMethods.biometric.name) {
-                                                                                        _model.createBioSignatureOutput = await actions.createSignature(
-                                                                                          WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.challenge(
-                                                                                            (_model.getSigningChallengeResponse?.jsonBody ?? ''),
-                                                                                          )!,
-                                                                                        );
-                                                                                        _model.confirmSigningBioResponse = await WhitebankGroupAPIGroup.retailSettingsDeviceTrustConfirmSigningCall.call(
-                                                                                          id: pendingRequestsItem.id,
-                                                                                          method: SigningAvailableMethods.biometric.name,
-                                                                                          deviceId: FFAppState().DeviceDetails.deviceId,
-                                                                                          challenge: WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.challenge(
-                                                                                            (_model.getSigningChallengeResponse?.jsonBody ?? ''),
+                                                                            Semantics(
+                                                                      button:
+                                                                          true,
+                                                                      identifier:
+                                                                          'saved_devices_icon_button_2',
+                                                                      child:
+                                                                          FlutterFlowIconButton(
+                                                                        borderRadius:
+                                                                            8.0,
+                                                                        buttonSize:
+                                                                            40.0,
+                                                                        icon:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .phonelink_setup,
+                                                                          color:
+                                                                              Color(0xFF00727D),
+                                                                          size:
+                                                                              24.0,
+                                                                        ),
+                                                                        onPressed:
+                                                                            () async {
+                                                                          await showDialog(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (dialogContext) {
+                                                                              return Dialog(
+                                                                                elevation: 0,
+                                                                                insetPadding: EdgeInsets.zero,
+                                                                                backgroundColor: Colors.transparent,
+                                                                                alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                child: WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(dialogContext).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
+                                                                                    child: CustomInformationalDialogWidget(
+                                                                                      message: 'By approving this request, this device will be added as a trusted device for your account. Do you want to continue?',
+                                                                                      primaryButtonTitle: 'Continue',
+                                                                                      title: 'Approve Trusted Device Request',
+                                                                                      secondaryButtonTitle: 'Cancel',
+                                                                                      primaryButtonAction: () async {
+                                                                                        Navigator.pop(context);
+                                                                                        await Future.delayed(
+                                                                                          Duration(
+                                                                                            milliseconds: 100,
                                                                                           ),
-                                                                                          signature: _model.createBioSignatureOutput,
+                                                                                        );
+                                                                                        _model.getSigningChallengeResponse = await WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.call(
+                                                                                          id: pendingRequestsItem.id,
+                                                                                          deviceId: FFAppState().DeviceDetails.deviceId,
                                                                                           baseURL: FFDevEnvironmentValues().WBPBASEURL,
                                                                                           accessToken: currentAuthenticationToken,
                                                                                         );
 
-                                                                                        if ((_model.confirmSigningBioResponse?.succeeded ?? true)) {
-                                                                                          await showModalBottomSheet(
-                                                                                            isScrollControlled: true,
-                                                                                            backgroundColor: Colors.transparent,
-                                                                                            enableDrag: false,
-                                                                                            context: context,
-                                                                                            builder: (context) {
-                                                                                              return WebViewAware(
-                                                                                                child: GestureDetector(
-                                                                                                  onTap: () {
-                                                                                                    FocusScope.of(context).unfocus();
-                                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                  },
-                                                                                                  child: Padding(
-                                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                                    child: CustomReusableBottomSheetV2Widget(
-                                                                                                      title: valueOrDefault<String>(
-                                                                                                        WhitebankGroupAPIGroup.retailSettingsDeviceTrustConfirmSigningCall.title(
-                                                                                                          (_model.confirmSigningBioResponse?.jsonBody ?? ''),
-                                                                                                        ),
-                                                                                                        'Approval successful',
-                                                                                                      ),
-                                                                                                      message: valueOrDefault<String>(
-                                                                                                        WhitebankGroupAPIGroup.retailSettingsDeviceTrustConfirmSigningCall.message(
-                                                                                                          (_model.confirmSigningBioResponse?.jsonBody ?? ''),
-                                                                                                        ),
-                                                                                                        'Successful approval of device.',
-                                                                                                      ),
-                                                                                                      buttonTitle: 'Go to Dashboard',
-                                                                                                      callback: () async {
-                                                                                                        Navigator.pop(context);
-
-                                                                                                        context.goNamed(DashboardWidget.routeName);
-                                                                                                      },
-                                                                                                      cancelCallback: () async {},
-                                                                                                    ),
-                                                                                                  ),
+                                                                                        if (WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.preferredMethod(
+                                                                                              (_model.getSigningChallengeResponse?.jsonBody ?? ''),
+                                                                                            ) ==
+                                                                                            SigningAvailableMethods.mpin.name) {
+                                                                                          context.pushNamed(
+                                                                                            MPINPageWidget.routeName,
+                                                                                            queryParameters: {
+                                                                                              'usage': serializeParam(
+                                                                                                MpinUsage.DEVICE_TRUST_APPROVAL,
+                                                                                                ParamType.Enum,
+                                                                                              ),
+                                                                                              'bpId': serializeParam(
+                                                                                                pendingRequestsItem.id,
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'challenge': serializeParam(
+                                                                                                WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.challenge(
+                                                                                                  (_model.getSigningChallengeResponse?.jsonBody ?? ''),
                                                                                                 ),
-                                                                                              );
-                                                                                            },
-                                                                                          ).then((value) => safeSetState(() {}));
-                                                                                        } else {
-                                                                                          await showDialog(
-                                                                                            context: context,
-                                                                                            builder: (dialogContext) {
-                                                                                              return Dialog(
-                                                                                                elevation: 0,
-                                                                                                insetPadding: EdgeInsets.zero,
-                                                                                                backgroundColor: Colors.transparent,
-                                                                                                alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                                child: WebViewAware(
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                              'mpinHash': serializeParam(
+                                                                                                '',
+                                                                                                ParamType.String,
+                                                                                              ),
+                                                                                            }.withoutNulls,
+                                                                                          );
+                                                                                        } else if (WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.preferredMethod(
+                                                                                              (_model.getSigningChallengeResponse?.jsonBody ?? ''),
+                                                                                            ) ==
+                                                                                            SigningAvailableMethods.biometric.name) {
+                                                                                          _model.createBioSignatureOutput = await actions.createSignature(
+                                                                                            WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.challenge(
+                                                                                              (_model.getSigningChallengeResponse?.jsonBody ?? ''),
+                                                                                            )!,
+                                                                                          );
+                                                                                          _model.confirmSigningBioResponse = await WhitebankGroupAPIGroup.retailSettingsDeviceTrustConfirmSigningCall.call(
+                                                                                            id: pendingRequestsItem.id,
+                                                                                            method: SigningAvailableMethods.biometric.name,
+                                                                                            deviceId: FFAppState().DeviceDetails.deviceId,
+                                                                                            challenge: WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.challenge(
+                                                                                              (_model.getSigningChallengeResponse?.jsonBody ?? ''),
+                                                                                            ),
+                                                                                            signature: _model.createBioSignatureOutput,
+                                                                                            baseURL: FFDevEnvironmentValues().WBPBASEURL,
+                                                                                            accessToken: currentAuthenticationToken,
+                                                                                          );
+
+                                                                                          if ((_model.confirmSigningBioResponse?.succeeded ?? true)) {
+                                                                                            await showModalBottomSheet(
+                                                                                              isScrollControlled: true,
+                                                                                              backgroundColor: Colors.transparent,
+                                                                                              enableDrag: false,
+                                                                                              context: context,
+                                                                                              builder: (context) {
+                                                                                                return WebViewAware(
                                                                                                   child: GestureDetector(
                                                                                                     onTap: () {
-                                                                                                      FocusScope.of(dialogContext).unfocus();
+                                                                                                      FocusScope.of(context).unfocus();
                                                                                                       FocusManager.instance.primaryFocus?.unfocus();
                                                                                                     },
-                                                                                                    child: CustomInformationalDialogWidget(
-                                                                                                      message: valueOrDefault<String>(
-                                                                                                        WhitebankGroupAPIGroup.retailSettingsDeviceTrustConfirmSigningCall.detail(
-                                                                                                          (_model.confirmSigningBioResponse?.jsonBody ?? ''),
+                                                                                                    child: Padding(
+                                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                                      child: CustomReusableBottomSheetV2Widget(
+                                                                                                        title: valueOrDefault<String>(
+                                                                                                          WhitebankGroupAPIGroup.retailSettingsDeviceTrustConfirmSigningCall.title(
+                                                                                                            (_model.confirmSigningBioResponse?.jsonBody ?? ''),
+                                                                                                          ),
+                                                                                                          'Approval successful',
                                                                                                         ),
-                                                                                                        'Something went wrong.',
-                                                                                                      ),
-                                                                                                      primaryButtonTitle: 'Dismiss',
-                                                                                                      title: valueOrDefault<String>(
-                                                                                                        WhitebankGroupAPIGroup.retailSettingsDeviceTrustConfirmSigningCall.title(
-                                                                                                          (_model.confirmSigningBioResponse?.jsonBody ?? ''),
+                                                                                                        message: valueOrDefault<String>(
+                                                                                                          WhitebankGroupAPIGroup.retailSettingsDeviceTrustConfirmSigningCall.message(
+                                                                                                            (_model.confirmSigningBioResponse?.jsonBody ?? ''),
+                                                                                                          ),
+                                                                                                          'Successful approval of device.',
                                                                                                         ),
-                                                                                                        'Oops!',
+                                                                                                        buttonTitle: 'Go to Dashboard',
+                                                                                                        callback: () async {
+                                                                                                          Navigator.pop(context);
+
+                                                                                                          context.goNamed(DashboardWidget.routeName);
+                                                                                                        },
+                                                                                                        cancelCallback: () async {},
                                                                                                       ),
-                                                                                                      primaryButtonAction: () async {
-                                                                                                        Navigator.pop(context);
-                                                                                                      },
-                                                                                                      secondaryButtonAction: () async {},
                                                                                                     ),
                                                                                                   ),
-                                                                                                ),
-                                                                                              );
-                                                                                            },
-                                                                                          );
-                                                                                        }
-                                                                                      } else if (WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.preferredMethod(
-                                                                                            (_model.getSigningChallengeResponse?.jsonBody ?? ''),
-                                                                                          ) ==
-                                                                                          SigningAvailableMethods.passkey.name) {}
-                                                                                    },
-                                                                                    secondaryButtonAction: () async {
-                                                                                      Navigator.pop(context);
-                                                                                    },
+                                                                                                );
+                                                                                              },
+                                                                                            ).then((value) => safeSetState(() {}));
+                                                                                          } else {
+                                                                                            await showDialog(
+                                                                                              context: context,
+                                                                                              builder: (dialogContext) {
+                                                                                                return Dialog(
+                                                                                                  elevation: 0,
+                                                                                                  insetPadding: EdgeInsets.zero,
+                                                                                                  backgroundColor: Colors.transparent,
+                                                                                                  alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                                  child: WebViewAware(
+                                                                                                    child: GestureDetector(
+                                                                                                      onTap: () {
+                                                                                                        FocusScope.of(dialogContext).unfocus();
+                                                                                                        FocusManager.instance.primaryFocus?.unfocus();
+                                                                                                      },
+                                                                                                      child: CustomInformationalDialogWidget(
+                                                                                                        message: valueOrDefault<String>(
+                                                                                                          WhitebankGroupAPIGroup.retailSettingsDeviceTrustConfirmSigningCall.detail(
+                                                                                                            (_model.confirmSigningBioResponse?.jsonBody ?? ''),
+                                                                                                          ),
+                                                                                                          'Something went wrong.',
+                                                                                                        ),
+                                                                                                        primaryButtonTitle: 'Dismiss',
+                                                                                                        title: valueOrDefault<String>(
+                                                                                                          WhitebankGroupAPIGroup.retailSettingsDeviceTrustConfirmSigningCall.title(
+                                                                                                            (_model.confirmSigningBioResponse?.jsonBody ?? ''),
+                                                                                                          ),
+                                                                                                          'Oops!',
+                                                                                                        ),
+                                                                                                        primaryButtonAction: () async {
+                                                                                                          Navigator.pop(context);
+                                                                                                        },
+                                                                                                        secondaryButtonAction: () async {},
+                                                                                                      ),
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                );
+                                                                                              },
+                                                                                            );
+                                                                                          }
+                                                                                        } else if (WhitebankGroupAPIGroup.retailSettingsSigningChallengeForDeviceTrustApprovalCall.preferredMethod(
+                                                                                              (_model.getSigningChallengeResponse?.jsonBody ?? ''),
+                                                                                            ) ==
+                                                                                            SigningAvailableMethods.passkey.name) {}
+                                                                                      },
+                                                                                      secondaryButtonAction: () async {
+                                                                                        Navigator.pop(context);
+                                                                                      },
+                                                                                    ),
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                            );
-                                                                          },
-                                                                        );
+                                                                              );
+                                                                            },
+                                                                          );
 
-                                                                        safeSetState(
-                                                                            () {});
-                                                                      },
+                                                                          safeSetState(
+                                                                              () {});
+                                                                        },
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ],

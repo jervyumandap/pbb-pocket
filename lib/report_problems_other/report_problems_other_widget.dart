@@ -192,8 +192,9 @@ class _ReportProblemsOtherWidgetState extends State<ReportProblemsOtherWidget> {
                                                   ),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'reportOther_details_textfield',
+                                              label: 'Additional details',
+                                              identifier:
+                                                  'reportother_details_textfield',
                                               child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
@@ -361,7 +362,9 @@ class _ReportProblemsOtherWidgetState extends State<ReportProblemsOtherWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 50.0),
                                 child: Semantics(
-                                  label: 'reportOther_submit_button',
+                                  label: 'Report submit',
+                                  button: true,
+                                  identifier: 'reportother_submit_button',
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       _model.apiResult1j3 =

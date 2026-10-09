@@ -370,36 +370,42 @@ class _SideNavigatorWidgetState extends State<SideNavigatorWidget> {
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  FFAppState().isDrawerOpen =
-                      !(FFAppState().isDrawerOpen ?? true);
-                  safeSetState(() {});
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          0.0,
-                          0.0,
-                          valueOrDefault<double>(
-                            !FFAppState().isDrawerOpen ? 14.0 : 0.0,
+              child: Semantics(
+                label: 'Collapse or expand menu',
+                button: true,
+                container: true,
+                identifier: 'sidenav_collapse_toggle',
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    FFAppState().isDrawerOpen =
+                        !(FFAppState().isDrawerOpen ?? true);
+                    safeSetState(() {});
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0,
-                          ),
-                          0.0),
-                      child: FaIcon(
-                        FontAwesomeIcons.bars,
-                        color: Color(0xFF606A85),
-                        size: 20.0,
+                            0.0,
+                            valueOrDefault<double>(
+                              !FFAppState().isDrawerOpen ? 14.0 : 0.0,
+                              0.0,
+                            ),
+                            0.0),
+                        child: FaIcon(
+                          FontAwesomeIcons.bars,
+                          color: Color(0xFF606A85),
+                          size: 20.0,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

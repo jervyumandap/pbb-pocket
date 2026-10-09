@@ -316,8 +316,9 @@ class _AccountCredentialsPageWidgetState
                                                       child: Builder(
                                                         builder: (context) =>
                                                             Semantics(
-                                                          label:
-                                                              'Username_TextField',
+                                                          label: 'Username',
+                                                          identifier:
+                                                              'username_textfield',
                                                           child: Container(
                                                             width:
                                                                 double.infinity,
@@ -758,8 +759,9 @@ class _AccountCredentialsPageWidgetState
                                                   children: [
                                                     Expanded(
                                                       child: Semantics(
-                                                        label:
-                                                            'Email_TextField',
+                                                        label: 'Email',
+                                                        identifier:
+                                                            'email_textfield',
                                                         child: Container(
                                                           width:
                                                               double.infinity,
@@ -936,8 +938,9 @@ class _AccountCredentialsPageWidgetState
                                                   children: [
                                                     Expanded(
                                                       child: Semantics(
-                                                        label:
-                                                            'Password_TextField',
+                                                        label: 'Password',
+                                                        identifier:
+                                                            'password_textfield',
                                                         child: Container(
                                                           width:
                                                               double.infinity,
@@ -1360,7 +1363,9 @@ class _AccountCredentialsPageWidgetState
                                                           Expanded(
                                                             child: Semantics(
                                                               label:
-                                                                  'Confirm_Password_TextField',
+                                                                  'Confirm password',
+                                                              identifier:
+                                                                  'confirm_password_textfield',
                                                               child: Container(
                                                                 width: double
                                                                     .infinity,
@@ -2089,7 +2094,9 @@ class _AccountCredentialsPageWidgetState
                                               Container(
                                                 decoration: BoxDecoration(),
                                                 child: Semantics(
-                                                  label: 'Agreement_Checkbox',
+                                                  label: 'Accept agreement',
+                                                  identifier:
+                                                      'agreement_checkbox',
                                                   child: Theme(
                                                     data: ThemeData(
                                                       checkboxTheme:
@@ -2341,7 +2348,11 @@ class _AccountCredentialsPageWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 60.0),
                                   child: Semantics(
-                                    label: 'Continue_Create_Credentials_Button',
+                                    label: 'Continue create',
+                                    button: true,
+                                    container: true,
+                                    identifier:
+                                        'continue_create_credentials_button',
                                     child: wrapWithModel(
                                       model: _model.primaryButtonComponentModel,
                                       updateCallback: () => safeSetState(() {}),

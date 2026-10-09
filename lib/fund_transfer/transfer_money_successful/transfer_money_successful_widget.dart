@@ -998,15 +998,366 @@ class _TransferMoneySuccessfulWidgetState
                                               TransactionTypeKey
                                                   .OWN_ACCOUNT.name)
                                             Builder(
-                                              builder: (context) => InkWell(
+                                              builder: (context) => Semantics(
+                                                container: true,
+                                                identifier: 'ft_success_save',
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    if (FFAppState()
+                                                        .isFromFavorite) {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (dialogContext) {
+                                                          return Dialog(
+                                                            elevation: 0,
+                                                            insetPadding:
+                                                                EdgeInsets.zero,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            alignment: AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                            child: WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
+                                                                excludeFromSemantics:
+                                                                    true,
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          dialogContext)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child:
+                                                                    CustomInformationalDialogWidget(
+                                                                  message:
+                                                                      'This user is already added on your favorites!',
+                                                                  primaryButtonTitle:
+                                                                      'Close',
+                                                                  primaryButtonAction:
+                                                                      () async {
+                                                                    Navigator.pop(
+                                                                        context);
+                                                                  },
+                                                                  secondaryButtonAction:
+                                                                      () async {},
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      );
+                                                    } else {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                            child:
+                                                                GestureDetector(
+                                                              excludeFromSemantics:
+                                                                  true,
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        context)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
+                                                              },
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    SaveRecipientModalCopyWidget(
+                                                                  nickName:
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                    FFAppState()
+                                                                        .FundTransferiniatedResponse
+                                                                        .destinationAccountName,
+                                                                    '---',
+                                                                  ),
+                                                                  textfieldTitle:
+                                                                      'Account Nickname',
+                                                                  bottomSheetTitle:
+                                                                      'Save Recipient',
+                                                                  text: '',
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    }
+                                                  },
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Container(
+                                                        width: 53.0,
+                                                        height: 53.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFF4F4F4),
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Builder(
+                                                              builder:
+                                                                  (context) {
+                                                                if (FFAppState()
+                                                                    .isFromFavorite) {
+                                                                  return ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                    child: Image
+                                                                        .asset(
+                                                                      'assets/images/Essential_icons_(1).png',
+                                                                      width:
+                                                                          24.0,
+                                                                      height:
+                                                                          24.0,
+                                                                      fit: BoxFit
+                                                                          .fill,
+                                                                    ),
+                                                                  );
+                                                                } else {
+                                                                  return ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                    child: Image
+                                                                        .asset(
+                                                                      'assets/images/Essential_icons.png',
+                                                                      width:
+                                                                          24.0,
+                                                                      height:
+                                                                          24.0,
+                                                                      fit: BoxFit
+                                                                          .fill,
+                                                                    ),
+                                                                  );
+                                                                }
+                                                              },
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Save',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts:
+                                                                      !FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMediumIsCustom,
+                                                                ),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(height: 12.0)),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          Semantics(
+                                            container: true,
+                                            identifier: 'ft_success_repeat',
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                if (!FFAppState()
+                                                    .FundTransferiniatedResponse
+                                                    .isScheduledTransfer) {
+                                                  context.goNamed(
+                                                      FundTransferAmountPageWidget
+                                                          .routeName);
+                                                } else {
+                                                  context.goNamed(
+                                                      FundTransferScheduledPaymentPageWidget
+                                                          .routeName);
+                                                }
+
+                                                FFAppState()
+                                                    .updateFundTransferiniatedResponseStruct(
+                                                  (e) => e
+                                                    ..isScheduledTransfer =
+                                                        false,
+                                                );
+                                                safeSetState(() {});
+                                              },
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Container(
+                                                    width: 53.0,
+                                                    height: 53.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFF4F4F4),
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Builder(
+                                                          builder: (context) {
+                                                            if (!FFAppState()
+                                                                .FundTransferiniatedResponse
+                                                                .isScheduledTransfer) {
+                                                              return ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/Icon_(2).png',
+                                                                  width: 23.0,
+                                                                  height: 23.0,
+                                                                  fit: BoxFit
+                                                                      .fill,
+                                                                ),
+                                                              );
+                                                            } else {
+                                                              return ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/Vector.png',
+                                                                  width: 23.0,
+                                                                  height: 23.0,
+                                                                  fit: BoxFit
+                                                                      .fill,
+                                                                ),
+                                                              );
+                                                            }
+                                                          },
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Builder(
+                                                    builder: (context) {
+                                                      if (!FFAppState()
+                                                          .FundTransferiniatedResponse
+                                                          .isScheduledTransfer) {
+                                                        return Text(
+                                                          'Repeat',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        );
+                                                      } else {
+                                                        return Text(
+                                                          'Manage Schedule',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                        );
+                                                      }
+                                                    },
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 12.0)),
+                                              ),
+                                            ),
+                                          ),
+                                          Builder(
+                                            builder: (context) => Semantics(
+                                              container: true,
+                                              identifier: 'ft_success_share',
+                                              child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
                                                 hoverColor: Colors.transparent,
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  if (FFAppState()
-                                                      .isFromFavorite) {
+                                                  _model.isHide = true;
+                                                  safeSetState(() {});
+                                                  await Future.delayed(
+                                                    Duration(
+                                                      milliseconds: 100,
+                                                    ),
+                                                  );
+                                                  _model.ssOutput = await actions
+                                                      .makeScreenshotAndShare(
+                                                    context,
+                                                  );
+                                                  if (!_model.ssOutput!) {
                                                     await showDialog(
                                                       context: context,
                                                       builder: (dialogContext) {
@@ -1039,9 +1390,9 @@ class _TransferMoneySuccessfulWidgetState
                                                               child:
                                                                   CustomInformationalDialogWidget(
                                                                 message:
-                                                                    'This user is already added on your favorites!',
+                                                                    'Failed to take screenshot.',
                                                                 primaryButtonTitle:
-                                                                    'Close',
+                                                                    'Dismiss',
                                                                 primaryButtonAction:
                                                                     () async {
                                                                   Navigator.pop(
@@ -1055,55 +1406,11 @@ class _TransferMoneySuccessfulWidgetState
                                                         );
                                                       },
                                                     );
-                                                  } else {
-                                                    await showModalBottomSheet(
-                                                      isScrollControlled: true,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      enableDrag: false,
-                                                      context: context,
-                                                      builder: (context) {
-                                                        return WebViewAware(
-                                                          child:
-                                                              GestureDetector(
-                                                            excludeFromSemantics:
-                                                                true,
-                                                            onTap: () {
-                                                              FocusScope.of(
-                                                                      context)
-                                                                  .unfocus();
-                                                              FocusManager
-                                                                  .instance
-                                                                  .primaryFocus
-                                                                  ?.unfocus();
-                                                            },
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  SaveRecipientModalCopyWidget(
-                                                                nickName:
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                  FFAppState()
-                                                                      .FundTransferiniatedResponse
-                                                                      .destinationAccountName,
-                                                                  '---',
-                                                                ),
-                                                                textfieldTitle:
-                                                                    'Account Nickname',
-                                                                bottomSheetTitle:
-                                                                    'Save Recipient',
-                                                                text: '',
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      },
-                                                    ).then((value) =>
-                                                        safeSetState(() {}));
                                                   }
+                                                  _model.isHide = false;
+                                                  safeSetState(() {});
+
+                                                  safeSetState(() {});
                                                 },
                                                 child: Column(
                                                   mainAxisSize:
@@ -1124,49 +1431,23 @@ class _TransferMoneySuccessfulWidgetState
                                                             MainAxisAlignment
                                                                 .center,
                                                         children: [
-                                                          Builder(
-                                                            builder: (context) {
-                                                              if (FFAppState()
-                                                                  .isFromFavorite) {
-                                                                return ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8.0),
-                                                                  child: Image
-                                                                      .asset(
-                                                                    'assets/images/Essential_icons_(1).png',
-                                                                    width: 24.0,
-                                                                    height:
-                                                                        24.0,
-                                                                    fit: BoxFit
-                                                                        .fill,
-                                                                  ),
-                                                                );
-                                                              } else {
-                                                                return ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8.0),
-                                                                  child: Image
-                                                                      .asset(
-                                                                    'assets/images/Essential_icons.png',
-                                                                    width: 24.0,
-                                                                    height:
-                                                                        24.0,
-                                                                    fit: BoxFit
-                                                                        .fill,
-                                                                  ),
-                                                                );
-                                                              }
-                                                            },
+                                                          ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            child: Image.asset(
+                                                              'assets/images/Icon_(3).png',
+                                                              width: 23.0,
+                                                              height: 23.0,
+                                                              fit: BoxFit.fill,
+                                                            ),
                                                           ),
                                                         ],
                                                       ),
                                                     ),
                                                     Text(
-                                                      'Save',
+                                                      'Share',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -1187,263 +1468,6 @@ class _TransferMoneySuccessfulWidgetState
                                                 ),
                                               ),
                                             ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              if (!FFAppState()
-                                                  .FundTransferiniatedResponse
-                                                  .isScheduledTransfer) {
-                                                context.goNamed(
-                                                    FundTransferAmountPageWidget
-                                                        .routeName);
-                                              } else {
-                                                context.goNamed(
-                                                    FundTransferScheduledPaymentPageWidget
-                                                        .routeName);
-                                              }
-
-                                              FFAppState()
-                                                  .updateFundTransferiniatedResponseStruct(
-                                                (e) => e
-                                                  ..isScheduledTransfer = false,
-                                              );
-                                              safeSetState(() {});
-                                            },
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Container(
-                                                  width: 53.0,
-                                                  height: 53.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFFF4F4F4),
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Builder(
-                                                        builder: (context) {
-                                                          if (!FFAppState()
-                                                              .FundTransferiniatedResponse
-                                                              .isScheduledTransfer) {
-                                                            return ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                              child:
-                                                                  Image.asset(
-                                                                'assets/images/Icon_(2).png',
-                                                                width: 23.0,
-                                                                height: 23.0,
-                                                                fit:
-                                                                    BoxFit.fill,
-                                                              ),
-                                                            );
-                                                          } else {
-                                                            return ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                              child:
-                                                                  Image.asset(
-                                                                'assets/images/Vector.png',
-                                                                width: 23.0,
-                                                                height: 23.0,
-                                                                fit:
-                                                                    BoxFit.fill,
-                                                              ),
-                                                            );
-                                                          }
-                                                        },
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Builder(
-                                                  builder: (context) {
-                                                    if (!FFAppState()
-                                                        .FundTransferiniatedResponse
-                                                        .isScheduledTransfer) {
-                                                      return Text(
-                                                        'Repeat',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMediumIsCustom,
-                                                                ),
-                                                      );
-                                                    } else {
-                                                      return Text(
-                                                        'Manage Schedule',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMediumIsCustom,
-                                                                ),
-                                                      );
-                                                    }
-                                                  },
-                                                ),
-                                              ].divide(SizedBox(height: 12.0)),
-                                            ),
-                                          ),
-                                          Builder(
-                                            builder: (context) => InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                _model.isHide = true;
-                                                safeSetState(() {});
-                                                await Future.delayed(
-                                                  Duration(
-                                                    milliseconds: 100,
-                                                  ),
-                                                );
-                                                _model.ssOutput = await actions
-                                                    .makeScreenshotAndShare(
-                                                  context,
-                                                );
-                                                if (!_model.ssOutput!) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder: (dialogContext) {
-                                                      return Dialog(
-                                                        elevation: 0,
-                                                        insetPadding:
-                                                            EdgeInsets.zero,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                    0.0, 0.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                        child: WebViewAware(
-                                                          child:
-                                                              GestureDetector(
-                                                            excludeFromSemantics:
-                                                                true,
-                                                            onTap: () {
-                                                              FocusScope.of(
-                                                                      dialogContext)
-                                                                  .unfocus();
-                                                              FocusManager
-                                                                  .instance
-                                                                  .primaryFocus
-                                                                  ?.unfocus();
-                                                            },
-                                                            child:
-                                                                CustomInformationalDialogWidget(
-                                                              message:
-                                                                  'Failed to take screenshot.',
-                                                              primaryButtonTitle:
-                                                                  'Dismiss',
-                                                              primaryButtonAction:
-                                                                  () async {
-                                                                Navigator.pop(
-                                                                    context);
-                                                              },
-                                                              secondaryButtonAction:
-                                                                  () async {},
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                }
-                                                _model.isHide = false;
-                                                safeSetState(() {});
-
-                                                safeSetState(() {});
-                                              },
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Container(
-                                                    width: 53.0,
-                                                    height: 53.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFFF4F4F4),
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                          child: Image.asset(
-                                                            'assets/images/Icon_(3).png',
-                                                            width: 23.0,
-                                                            height: 23.0,
-                                                            fit: BoxFit.fill,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    'Share',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              !FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMediumIsCustom,
-                                                        ),
-                                                  ),
-                                                ].divide(
-                                                    SizedBox(height: 12.0)),
-                                              ),
-                                            ),
                                           ),
                                         ].divide(SizedBox(width: 28.0)),
                                       ),
@@ -1457,31 +1481,46 @@ class _TransferMoneySuccessfulWidgetState
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 40.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  FFAppState().QRPaymentInitiateModelAppState =
-                                      WBQrPaymentInitiateModelStruct();
-                                  FFAppState().FundTransferiniatedResponse =
-                                      PaymentIniatedModelStruct();
-                                  FFAppState().isFromFavorite = false;
-                                  safeSetState(() {});
-                                  safeSetState(() {});
+                              child: Semantics(
+                                button: true,
+                                identifier: 'ft_success_button',
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    FFAppState()
+                                            .QRPaymentInitiateModelAppState =
+                                        WBQrPaymentInitiateModelStruct();
+                                    FFAppState().FundTransferiniatedResponse =
+                                        PaymentIniatedModelStruct();
+                                    FFAppState().isFromFavorite = false;
+                                    safeSetState(() {});
+                                    safeSetState(() {});
 
-                                  context.goNamed(DashboardWidget.routeName);
-                                },
-                                text: 'Back to Homepage',
-                                options: FFButtonOptions(
-                                  width: double.infinity,
-                                  height: 56.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 0.0, 16.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        font: GoogleFonts.inter(
+                                    context.goNamed(DashboardWidget.routeName);
+                                  },
+                                  text: 'Back to Homepage',
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 56.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .titleSmall
@@ -1491,17 +1530,9 @@ class _TransferMoneySuccessfulWidgetState
                                                   .titleSmall
                                                   .fontStyle,
                                         ),
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .fontStyle,
-                                      ),
-                                  elevation: 0.0,
-                                  borderRadius: BorderRadius.circular(16.0),
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
                                 ),
                               ),
                             ),

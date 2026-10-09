@@ -142,8 +142,10 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
                       children: [
                         if (widget.buttonWithoutBackground)
                           Semantics(
-                            label: 'Back Button',
+                            label: 'Back',
+                            button: true,
                             container: true,
+                            identifier: 'appbar_back_button',
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -160,26 +162,25 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 1.0, 0.0, 0.0, 0.0),
-                            child: Semantics(
-                              label: 'back_button',
-                              child: Container(
-                                width: 40.0,
-                                height: 40.0,
-                                decoration: BoxDecoration(),
-                                child: Semantics(
-                                  label: 'second_back_button',
-                                  child: FlutterFlowIconButton(
-                                    borderRadius: 100.0,
-                                    buttonSize: double.infinity,
-                                    fillColor: valueOrDefault<Color>(
-                                      widget.buttonColor,
-                                      FlutterFlowTheme.of(context).primary,
-                                    ),
-                                    icon: widget.leftButtonIcon!,
-                                    onPressed: () async {
-                                      await widget.leftButtonAction?.call();
-                                    },
+                            child: Container(
+                              width: 40.0,
+                              height: 40.0,
+                              decoration: BoxDecoration(),
+                              child: Semantics(
+                                label: 'Back',
+                                button: true,
+                                identifier: 'appbar_left_button',
+                                child: FlutterFlowIconButton(
+                                  borderRadius: 100.0,
+                                  buttonSize: double.infinity,
+                                  fillColor: valueOrDefault<Color>(
+                                    widget.buttonColor,
+                                    FlutterFlowTheme.of(context).primary,
                                   ),
+                                  icon: widget.leftButtonIcon!,
+                                  onPressed: () async {
+                                    await widget.leftButtonAction?.call();
+                                  },
                                 ),
                               ),
                             ),
@@ -227,7 +228,9 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
                               height: 40.0,
                               decoration: BoxDecoration(),
                               child: Semantics(
-                                label: 'MidRightIconButton',
+                                label: 'More options',
+                                button: true,
+                                identifier: 'appbar_mid_right_button',
                                 child: FlutterFlowIconButton(
                                   borderRadius: 100.0,
                                   buttonSize: double.infinity,
@@ -255,7 +258,9 @@ class _CustomMobileAppBarWidgetState extends State<CustomMobileAppBarWidget> {
                               height: 40.0,
                               decoration: BoxDecoration(),
                               child: Semantics(
-                                label: 'RightIconButton',
+                                label: 'More options',
+                                button: true,
+                                identifier: 'appbar_right_button',
                                 child: FlutterFlowIconButton(
                                   borderRadius: 100.0,
                                   buttonSize: double.infinity,

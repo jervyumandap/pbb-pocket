@@ -2065,122 +2065,142 @@ class _BillsPaymentTransactionSummaryPageWidgetState
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
-                                    },
-                                    text: 'SHARE',
-                                    options: FFButtonOptions(
-                                      width: valueOrDefault<double>(
-                                        () {
-                                          if (MediaQuery.sizeOf(context).width <
-                                              kBreakpointSmall) {
-                                            return double.infinity;
-                                          } else if (MediaQuery.sizeOf(context)
-                                                  .width <
-                                              kBreakpointMedium) {
-                                            return double.infinity;
-                                          } else if (MediaQuery.sizeOf(context)
-                                                  .width <
-                                              kBreakpointLarge) {
-                                            return 600.0;
-                                          } else {
-                                            return 600.0;
-                                          }
-                                        }(),
-                                        600.0,
+                                  Semantics(
+                                    button: true,
+                                    identifier: 'bp_txn_summary_button',
+                                    child: FFButtonWidget(
+                                      onPressed: () {
+                                        print('Button pressed ...');
+                                      },
+                                      text: 'SHARE',
+                                      options: FFButtonOptions(
+                                        width: valueOrDefault<double>(
+                                          () {
+                                            if (MediaQuery.sizeOf(context)
+                                                    .width <
+                                                kBreakpointSmall) {
+                                              return double.infinity;
+                                            } else if (MediaQuery.sizeOf(
+                                                        context)
+                                                    .width <
+                                                kBreakpointMedium) {
+                                              return double.infinity;
+                                            } else if (MediaQuery.sizeOf(
+                                                        context)
+                                                    .width <
+                                                kBreakpointLarge) {
+                                              return 600.0;
+                                            } else {
+                                              return 600.0;
+                                            }
+                                          }(),
+                                          600.0,
+                                        ),
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: Colors.transparent,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmallFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryLabel,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .titleSmallIsCustom,
+                                            ),
+                                        elevation: 0.0,
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryLabel,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                      height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: Colors.transparent,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryLabel,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .titleSmallIsCustom,
-                                          ),
-                                      elevation: 0.0,
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryLabel,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      context.pushNamed(
-                                        BillsPaymentPageWidget.routeName,
-                                        extra: <String, dynamic>{
-                                          '__transition_info__': TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 0),
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    text: 'MAKE ANOTHER PAYMENT',
-                                    options: FFButtonOptions(
-                                      width: valueOrDefault<double>(
-                                        () {
-                                          if (MediaQuery.sizeOf(context).width <
-                                              kBreakpointSmall) {
-                                            return double.infinity;
-                                          } else if (MediaQuery.sizeOf(context)
-                                                  .width <
-                                              kBreakpointMedium) {
-                                            return double.infinity;
-                                          } else if (MediaQuery.sizeOf(context)
-                                                  .width <
-                                              kBreakpointLarge) {
-                                            return 600.0;
-                                          } else {
-                                            return 600.0;
-                                          }
-                                        }(),
-                                        600.0,
+                                  Semantics(
+                                    button: true,
+                                    identifier: 'bp_txn_summary_button_2',
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        context.pushNamed(
+                                          BillsPaymentPageWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            '__transition_info__':
+                                                TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 0),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      text: 'MAKE ANOTHER PAYMENT',
+                                      options: FFButtonOptions(
+                                        width: valueOrDefault<double>(
+                                          () {
+                                            if (MediaQuery.sizeOf(context)
+                                                    .width <
+                                                kBreakpointSmall) {
+                                              return double.infinity;
+                                            } else if (MediaQuery.sizeOf(
+                                                        context)
+                                                    .width <
+                                                kBreakpointMedium) {
+                                              return double.infinity;
+                                            } else if (MediaQuery.sizeOf(
+                                                        context)
+                                                    .width <
+                                                kBreakpointLarge) {
+                                              return 600.0;
+                                            } else {
+                                              return 600.0;
+                                            }
+                                          }(),
+                                          600.0,
+                                        ),
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: Colors.transparent,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmallFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryLabel,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .titleSmallIsCustom,
+                                            ),
+                                        elevation: 0.0,
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryLabel,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                      height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: Colors.transparent,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryLabel,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .titleSmallIsCustom,
-                                          ),
-                                      elevation: 0.0,
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryLabel,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
                                 ].divide(SizedBox(height: 12.0)),

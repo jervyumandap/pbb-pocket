@@ -386,154 +386,162 @@ class _ServiceRequestTrackerPageWidgetState
                           builder: (context) => Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 24.0, 0.0, 0.0),
-                            child: FlutterFlowChoiceChips(
-                              options: [
-                                ChipData('All'),
-                                ChipData('Open'),
-                                ChipData('In Progress'),
-                                ChipData('Active'),
-                                ChipData('Completed')
-                              ],
-                              onChanged: (val) async {
-                                safeSetState(() =>
-                                    _model.choiceChipsValue = val?.firstOrNull);
-                                _model.statusCategory =
-                                    _model.choiceChipsValue != 'All'
-                                        ? functions.formatStatus(
-                                            _model.choiceChipsValue!)
-                                        : '';
-                                safeSetState(() {});
-                                _model.apiResultww3r =
-                                    await WhitebankGroupAPIGroup
-                                        .retailServiceRequestTrackerCall
-                                        .call(
-                                  statusCategory: _model.statusCategory,
-                                  baseURL: FFDevEnvironmentValues().WBPBASEURL,
-                                  accessToken: currentAuthenticationToken,
-                                );
-
-                                if ((_model.apiResultww3r?.succeeded ?? true)) {
-                                  _model.serviceRequestTrackerState =
-                                      (getJsonField(
-                                    (_model.apiResultww3r?.jsonBody ?? ''),
-                                    r'''$.data''',
-                                    true,
-                                  )!
-                                                  .toList()
-                                                  .map<DataStruct?>(
-                                                      DataStruct.maybeFromMap)
-                                                  .toList()
-                                              as Iterable<DataStruct?>)
-                                          .withoutNulls
-                                          .toList()
-                                          .cast<DataStruct>();
+                            child: Semantics(
+                              identifier: 'sr_tracker_choicechips',
+                              child: FlutterFlowChoiceChips(
+                                options: [
+                                  ChipData('All'),
+                                  ChipData('Open'),
+                                  ChipData('In Progress'),
+                                  ChipData('Active'),
+                                  ChipData('Completed')
+                                ],
+                                onChanged: (val) async {
+                                  safeSetState(() => _model.choiceChipsValue =
+                                      val?.firstOrNull);
+                                  _model.statusCategory =
+                                      _model.choiceChipsValue != 'All'
+                                          ? functions.formatStatus(
+                                              _model.choiceChipsValue!)
+                                          : '';
                                   safeSetState(() {});
-                                } else {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (dialogContext) {
-                                      return Dialog(
-                                        elevation: 0,
-                                        insetPadding: EdgeInsets.zero,
-                                        backgroundColor: Colors.transparent,
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                        child: WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(dialogContext)
-                                                  .unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child:
-                                                CustomInformationalDialogWidget(
-                                              message: WhitebankGroupAPIGroup
-                                                  .retailServiceRequestTrackerCall
-                                                  .message(
-                                                (_model.apiResultw3r
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )!,
-                                              primaryButtonTitle:
-                                                  WhitebankGroupAPIGroup
-                                                      .retailServiceRequestTrackerCall
-                                                      .title(
-                                                (_model.apiResultw3r
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )!,
-                                              primaryButtonAction: () async {
-                                                Navigator.pop(context);
+                                  _model.apiResultww3r =
+                                      await WhitebankGroupAPIGroup
+                                          .retailServiceRequestTrackerCall
+                                          .call(
+                                    statusCategory: _model.statusCategory,
+                                    baseURL:
+                                        FFDevEnvironmentValues().WBPBASEURL,
+                                    accessToken: currentAuthenticationToken,
+                                  );
+
+                                  if ((_model.apiResultww3r?.succeeded ??
+                                      true)) {
+                                    _model.serviceRequestTrackerState =
+                                        (getJsonField(
+                                      (_model.apiResultww3r?.jsonBody ?? ''),
+                                      r'''$.data''',
+                                      true,
+                                    )!
+                                                    .toList()
+                                                    .map<DataStruct?>(
+                                                        DataStruct.maybeFromMap)
+                                                    .toList()
+                                                as Iterable<DataStruct?>)
+                                            .withoutNulls
+                                            .toList()
+                                            .cast<DataStruct>();
+                                    safeSetState(() {});
+                                  } else {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (dialogContext) {
+                                        return Dialog(
+                                          elevation: 0,
+                                          insetPadding: EdgeInsets.zero,
+                                          backgroundColor: Colors.transparent,
+                                          alignment: AlignmentDirectional(
+                                                  0.0, 0.0)
+                                              .resolve(
+                                                  Directionality.of(context)),
+                                          child: WebViewAware(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(dialogContext)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
                                               },
-                                              secondaryButtonAction:
-                                                  () async {},
+                                              child:
+                                                  CustomInformationalDialogWidget(
+                                                message: WhitebankGroupAPIGroup
+                                                    .retailServiceRequestTrackerCall
+                                                    .message(
+                                                  (_model.apiResultw3r
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!,
+                                                primaryButtonTitle:
+                                                    WhitebankGroupAPIGroup
+                                                        .retailServiceRequestTrackerCall
+                                                        .title(
+                                                  (_model.apiResultw3r
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!,
+                                                primaryButtonAction: () async {
+                                                  Navigator.pop(context);
+                                                },
+                                                secondaryButtonAction:
+                                                    () async {},
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      );
-                                    },
-                                  );
-                                }
+                                        );
+                                      },
+                                    );
+                                  }
 
-                                safeSetState(() {});
-                              },
-                              selectedChipStyle: ChipStyle(
-                                backgroundColor: Color(0xFF0D9488),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                      useGoogleFonts:
-                                          !FlutterFlowTheme.of(context)
-                                              .bodyMediumIsCustom,
-                                    ),
-                                iconColor: FlutterFlowTheme.of(context).info,
-                                iconSize: 12.0,
-                                labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                    14.0, 4.0, 14.0, 4.0),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(20.0),
+                                  safeSetState(() {});
+                                },
+                                selectedChipStyle: ChipStyle(
+                                  backgroundColor: Color(0xFF0D9488),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .bodyMediumIsCustom,
+                                      ),
+                                  iconColor: FlutterFlowTheme.of(context).info,
+                                  iconSize: 12.0,
+                                  labelPadding: EdgeInsetsDirectional.fromSTEB(
+                                      14.0, 4.0, 14.0, 4.0),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                unselectedChipStyle: ChipStyle(
+                                  backgroundColor: Color(0xFFF1F4F7),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        fontSize: 12.0,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .bodyMediumIsCustom,
+                                      ),
+                                  iconColor: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  iconSize: 12.0,
+                                  labelPadding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 4.0, 8.0, 4.0),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                chipSpacing: 16.0,
+                                rowSpacing: 8.0,
+                                multiselect: false,
+                                initialized: _model.choiceChipsValue != null,
+                                alignment: WrapAlignment.start,
+                                controller:
+                                    _model.choiceChipsValueController ??=
+                                        FormFieldController<List<String>>(
+                                  ['All'],
+                                ),
+                                wrapped: false,
                               ),
-                              unselectedChipStyle: ChipStyle(
-                                backgroundColor: Color(0xFFF1F4F7),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts:
-                                          !FlutterFlowTheme.of(context)
-                                              .bodyMediumIsCustom,
-                                    ),
-                                iconColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                iconSize: 12.0,
-                                labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 4.0, 8.0, 4.0),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              chipSpacing: 16.0,
-                              rowSpacing: 8.0,
-                              multiselect: false,
-                              initialized: _model.choiceChipsValue != null,
-                              alignment: WrapAlignment.start,
-                              controller: _model.choiceChipsValueController ??=
-                                  FormFieldController<List<String>>(
-                                ['All'],
-                              ),
-                              wrapped: false,
                             ),
                           ),
                         ),

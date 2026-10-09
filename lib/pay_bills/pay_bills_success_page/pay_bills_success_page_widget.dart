@@ -494,27 +494,32 @@ class _PayBillsSuccessPageWidgetState extends State<PayBillsSuccessPageWidget>
                                                                         ),
                                                                       ),
                                                                       child:
-                                                                          FlutterFlowIconButton(
-                                                                        borderRadius:
-                                                                            8.0,
-                                                                        buttonSize:
-                                                                            32.0,
-                                                                        fillColor:
-                                                                            Colors.white,
-                                                                        icon:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .access_time_rounded,
-                                                                          color:
-                                                                              Color(0xFFA8770F),
-                                                                          size:
-                                                                              16.0,
+                                                                          Semantics(
+                                                                        button:
+                                                                            true,
+                                                                        identifier:
+                                                                            'pb_success_icon_button',
+                                                                        child:
+                                                                            FlutterFlowIconButton(
+                                                                          borderRadius:
+                                                                              8.0,
+                                                                          buttonSize:
+                                                                              32.0,
+                                                                          fillColor:
+                                                                              Colors.white,
+                                                                          icon:
+                                                                              Icon(
+                                                                            Icons.access_time_rounded,
+                                                                            color:
+                                                                                Color(0xFFA8770F),
+                                                                            size:
+                                                                                16.0,
+                                                                          ),
+                                                                          onPressed:
+                                                                              () {
+                                                                            print('IconButton pressed ...');
+                                                                          },
                                                                         ),
-                                                                        onPressed:
-                                                                            () {
-                                                                          print(
-                                                                              'IconButton pressed ...');
-                                                                        },
                                                                       ),
                                                                     ),
                                                                     Column(
@@ -885,7 +890,10 @@ class _PayBillsSuccessPageWidgetState extends State<PayBillsSuccessPageWidget>
                                                           builder: (context) =>
                                                               Semantics(
                                                             label:
-                                                                'Save-Column',
+                                                                'Save column',
+                                                            container: true,
+                                                            identifier:
+                                                                'save_column',
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -1130,7 +1138,10 @@ class _PayBillsSuccessPageWidgetState extends State<PayBillsSuccessPageWidget>
                                                             .isScheculed)
                                                           Semantics(
                                                             label:
-                                                                'Repeat-Column',
+                                                                'Repeat column',
+                                                            container: true,
+                                                            identifier:
+                                                                'repeat_column',
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -1266,7 +1277,10 @@ class _PayBillsSuccessPageWidgetState extends State<PayBillsSuccessPageWidget>
                                                         if (widget.isScheculed)
                                                           Semantics(
                                                             label:
-                                                                'Scheduled-Column',
+                                                                'Scheduled column',
+                                                            container: true,
+                                                            identifier:
+                                                                'scheduled_column',
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -1357,7 +1371,10 @@ class _PayBillsSuccessPageWidgetState extends State<PayBillsSuccessPageWidget>
                                                           builder: (context) =>
                                                               Semantics(
                                                             label:
-                                                                'Share-Column',
+                                                                'Share column',
+                                                            container: true,
+                                                            identifier:
+                                                                'share_column',
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -1521,7 +1538,10 @@ class _PayBillsSuccessPageWidgetState extends State<PayBillsSuccessPageWidget>
                                                                           60.0),
                                                               child: Semantics(
                                                                 label:
-                                                                    'Back-to-Dashboard-Button',
+                                                                    'Back to dashboard',
+                                                                button: true,
+                                                                identifier:
+                                                                    'back_to_dashboard_button',
                                                                 child:
                                                                     FFButtonWidget(
                                                                   onPressed:

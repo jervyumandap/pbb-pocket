@@ -79,127 +79,134 @@ class _SideMenuItemWidgetWidgetState extends State<SideMenuItemWidgetWidget> {
           if (FFAppState().isDrawerOpen)
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  await widget.callback?.call();
-                },
-                child: AnimatedContainer(
-                  duration: Duration(milliseconds: 300),
-                  curve: Curves.linear,
-                  width: double.infinity,
-                  height: 44.0,
-                  decoration: BoxDecoration(
-                    color: valueOrDefault<Color>(
-                      _model.menuItemMouseRegionHovered || widget.isSelected
-                          ? FlutterFlowTheme.of(context).menuHover
-                          : FlutterFlowTheme.of(context).neutral12,
-                      FlutterFlowTheme.of(context).neutral12,
+              child: Semantics(
+                button: true,
+                container: true,
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    await widget.callback?.call();
+                  },
+                  child: AnimatedContainer(
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.linear,
+                    width: double.infinity,
+                    height: 44.0,
+                    decoration: BoxDecoration(
+                      color: valueOrDefault<Color>(
+                        _model.menuItemMouseRegionHovered || widget.isSelected
+                            ? FlutterFlowTheme.of(context).menuHover
+                            : FlutterFlowTheme.of(context).neutral12,
+                        FlutterFlowTheme.of(context).neutral12,
+                      ),
+                      borderRadius:
+                          BorderRadius.circular(valueOrDefault<double>(
+                        widget.borderRadius,
+                        12.0,
+                      )),
+                      shape: BoxShape.rectangle,
                     ),
-                    borderRadius: BorderRadius.circular(valueOrDefault<double>(
-                      widget.borderRadius,
-                      12.0,
-                    )),
-                    shape: BoxShape.rectangle,
-                  ),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Builder(
-                          builder: (context) {
-                            if (_model.menuItemMouseRegionHovered ||
-                                widget.isSelected) {
-                              return Container(
-                                key: ValueKey(widget.title!),
-                                child: widget.selectedIcon!,
-                              );
-                            } else {
-                              return Container(
-                                key: ValueKey(widget.title!),
-                                child: widget.defaultIcon!,
-                              );
-                            }
-                          },
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              14.0, 0.0, 0.0, 0.0),
-                          child: AutoSizeText(
-                            valueOrDefault<String>(
-                              widget.title,
-                              'Notification',
-                            ),
-                            minFontSize: 12.0,
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .labelMediumFamily,
-                                  color: valueOrDefault<Color>(
-                                    _model.menuItemMouseRegionHovered ||
-                                            widget.isSelected
-                                        ? FlutterFlowTheme.of(context)
-                                            .secondaryLabel
-                                        : FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                    FlutterFlowTheme.of(context).primaryText,
-                                  ),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .labelMediumIsCustom,
-                                ),
-                            overflow: TextOverflow.fade,
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Builder(
+                            builder: (context) {
+                              if (_model.menuItemMouseRegionHovered ||
+                                  widget.isSelected) {
+                                return Container(
+                                  key: ValueKey(widget.title!),
+                                  child: widget.selectedIcon!,
+                                );
+                              } else {
+                                return Container(
+                                  key: ValueKey(widget.title!),
+                                  child: widget.defaultIcon!,
+                                );
+                              }
+                            },
                           ),
-                        ),
-                        if (widget.notifCount >= 1)
-                          Container(
-                            height: 24.0,
-                            constraints: BoxConstraints(
-                              minWidth: 24.0,
-                            ),
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).secondary,
-                              borderRadius: BorderRadius.circular(100.0),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 4.0, 8.0, 4.0),
-                                child: Text(
-                                  valueOrDefault<String>(
-                                    widget.notifCount.toString(),
-                                    '1',
-                                  ).maybeHandleOverflow(
-                                    maxChars: 14,
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                14.0, 0.0, 0.0, 0.0),
+                            child: AutoSizeText(
+                              valueOrDefault<String>(
+                                widget.title,
+                                'Notification',
+                              ),
+                              minFontSize: 12.0,
+                              style: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
+                                    color: valueOrDefault<Color>(
+                                      _model.menuItemMouseRegionHovered ||
+                                              widget.isSelected
+                                          ? FlutterFlowTheme.of(context)
+                                              .secondaryLabel
+                                          : FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                      FlutterFlowTheme.of(context).primaryText,
+                                    ),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .labelMediumIsCustom,
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodySmallFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .whiteText,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodySmallIsCustom,
-                                      ),
+                              overflow: TextOverflow.fade,
+                            ),
+                          ),
+                          if (widget.notifCount >= 1)
+                            Container(
+                              height: 24.0,
+                              constraints: BoxConstraints(
+                                minWidth: 24.0,
+                              ),
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).secondary,
+                                borderRadius: BorderRadius.circular(100.0),
+                                shape: BoxShape.rectangle,
+                              ),
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 4.0, 8.0, 4.0),
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      widget.notifCount.toString(),
+                                      '1',
+                                    ).maybeHandleOverflow(
+                                      maxChars: 14,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmallFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .whiteText,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          useGoogleFonts:
+                                              !FlutterFlowTheme.of(context)
+                                                  .bodySmallIsCustom,
+                                        ),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

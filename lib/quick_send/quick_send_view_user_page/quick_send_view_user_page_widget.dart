@@ -238,50 +238,100 @@ class _QuickSendViewUserPageWidgetState
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
-                                                            child:
-                                                                TextFormField(
-                                                              controller: _model
-                                                                  .textController,
-                                                              focusNode: _model
-                                                                  .textFieldFocusNode,
-                                                              onFieldSubmitted:
-                                                                  (_) async {
-                                                                await showModalBottomSheet(
-                                                                  isScrollControlled:
-                                                                      true,
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  enableDrag:
-                                                                      false,
-                                                                  context:
-                                                                      context,
-                                                                  builder:
-                                                                      (context) {
-                                                                    return WebViewAware(
-                                                                      child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                            child: Semantics(
+                                                              identifier:
+                                                                  'quick_send_user_input',
+                                                              child:
+                                                                  TextFormField(
+                                                                controller: _model
+                                                                    .textController,
+                                                                focusNode: _model
+                                                                    .textFieldFocusNode,
+                                                                onFieldSubmitted:
+                                                                    (_) async {
+                                                                  await showModalBottomSheet(
+                                                                    isScrollControlled:
+                                                                        true,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    enableDrag:
+                                                                        false,
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) {
+                                                                      return WebViewAware(
                                                                         child:
-                                                                            QuickSendConfirmationComponentWidget(),
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              QuickSendConfirmationComponentWidget(),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      safeSetState(
+                                                                          () {}));
+                                                                },
+                                                                autofocus:
+                                                                    false,
+                                                                enabled: false,
+                                                                obscureText:
+                                                                    false,
+                                                                decoration:
+                                                                    InputDecoration(
+                                                                  isDense:
+                                                                      false,
+                                                                  labelText:
+                                                                      '200',
+                                                                  labelStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        color: Color(
+                                                                            0xFF1E1E1E),
+                                                                        fontSize:
+                                                                            38.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
                                                                       ),
-                                                                    );
-                                                                  },
-                                                                ).then((value) =>
-                                                                    safeSetState(
-                                                                        () {}));
-                                                              },
-                                                              autofocus: false,
-                                                              enabled: false,
-                                                              obscureText:
-                                                                  false,
-                                                              decoration:
-                                                                  InputDecoration(
-                                                                isDense: false,
-                                                                labelText:
-                                                                    '200',
-                                                                labelStyle: FlutterFlowTheme.of(
+                                                                  alignLabelWithHint:
+                                                                      true,
+                                                                  hintStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                        color: Color(
+                                                                            0xFF1E1E1E),
+                                                                        fontSize:
+                                                                            38.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                                                                      ),
+                                                                  enabledBorder:
+                                                                      InputBorder
+                                                                          .none,
+                                                                  focusedBorder:
+                                                                      InputBorder
+                                                                          .none,
+                                                                  errorBorder:
+                                                                      InputBorder
+                                                                          .none,
+                                                                  focusedErrorBorder:
+                                                                      InputBorder
+                                                                          .none,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
@@ -298,67 +348,19 @@ class _QuickSendViewUserPageWidgetState
                                                                           !FlutterFlowTheme.of(context)
                                                                               .bodyMediumIsCustom,
                                                                     ),
-                                                                alignLabelWithHint:
-                                                                    true,
-                                                                hintStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .labelMediumFamily,
-                                                                      color: Color(
-                                                                          0xFF1E1E1E),
-                                                                      fontSize:
-                                                                          38.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .labelMediumIsCustom,
-                                                                    ),
-                                                                enabledBorder:
-                                                                    InputBorder
-                                                                        .none,
-                                                                focusedBorder:
-                                                                    InputBorder
-                                                                        .none,
-                                                                errorBorder:
-                                                                    InputBorder
-                                                                        .none,
-                                                                focusedErrorBorder:
-                                                                    InputBorder
-                                                                        .none,
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .start,
+                                                                keyboardType:
+                                                                    TextInputType
+                                                                        .number,
+                                                                enableInteractiveSelection:
+                                                                    false,
+                                                                validator: _model
+                                                                    .textControllerValidator
+                                                                    .asValidator(
+                                                                        context),
                                                               ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    color: Color(
-                                                                        0xFF1E1E1E),
-                                                                    fontSize:
-                                                                        38.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .bodyMediumIsCustom,
-                                                                  ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                              keyboardType:
-                                                                  TextInputType
-                                                                      .number,
-                                                              enableInteractiveSelection:
-                                                                  false,
-                                                              validator: _model
-                                                                  .textControllerValidator
-                                                                  .asValidator(
-                                                                      context),
                                                             ),
                                                           ),
                                                         ),
@@ -436,52 +438,58 @@ class _QuickSendViewUserPageWidgetState
               alignment: AlignmentDirectional(0.01, 0.62),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(50.0, 0.0, 50.0, 0.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    await showModalBottomSheet(
-                      isScrollControlled: true,
-                      backgroundColor: Colors.transparent,
-                      enableDrag: false,
-                      context: context,
-                      builder: (context) {
-                        return WebViewAware(
-                          child: Padding(
-                            padding: MediaQuery.viewInsetsOf(context),
-                            child: QuickSendConfirmationComponentWidget(),
-                          ),
-                        );
-                      },
-                    ).then((value) => safeSetState(() {}));
-                  },
-                  text: 'Proceed',
-                  icon: Icon(
-                    Icons.arrow_forward_sharp,
-                    size: 15.0,
-                  ),
-                  options: FFButtonOptions(
-                    width: double.infinity,
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                    iconAlignment: IconAlignment.end,
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).tertiary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          font: GoogleFonts.inter(
-                            fontWeight: FontWeight.normal,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .fontStyle,
-                          ),
-                          color: FlutterFlowTheme.of(context).primary,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.normal,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
-                        ),
-                    elevation: 0.0,
-                    borderRadius: BorderRadius.circular(32.0),
+                child: Semantics(
+                  button: true,
+                  identifier: 'quick_send_user_button',
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      await showModalBottomSheet(
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        enableDrag: false,
+                        context: context,
+                        builder: (context) {
+                          return WebViewAware(
+                            child: Padding(
+                              padding: MediaQuery.viewInsetsOf(context),
+                              child: QuickSendConfirmationComponentWidget(),
+                            ),
+                          );
+                        },
+                      ).then((value) => safeSetState(() {}));
+                    },
+                    text: 'Proceed',
+                    icon: Icon(
+                      Icons.arrow_forward_sharp,
+                      size: 15.0,
+                    ),
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      iconAlignment: IconAlignment.end,
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).tertiary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FontWeight.normal,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).primary,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .fontStyle,
+                              ),
+                      elevation: 0.0,
+                      borderRadius: BorderRadius.circular(32.0),
+                    ),
                   ),
                 ),
               ),

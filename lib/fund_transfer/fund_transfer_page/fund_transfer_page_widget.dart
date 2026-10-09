@@ -484,45 +484,70 @@ class _FundTransferPageWidgetState extends State<FundTransferPageWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Expanded(
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                _model.isFavoritesSelected =
-                                                    false;
-                                                safeSetState(() {});
-                                              },
-                                              text: valueOrDefault<String>(
-                                                FFAppState()
-                                                            .FundTransferiniatedResponse
-                                                            .transferType ==
-                                                        'PBBtoPBB'
-                                                    ? 'PBB Account'
-                                                    : 'Banks',
-                                                'PBB Account',
-                                              ),
-                                              options: FFButtonOptions(
-                                                width: double.infinity,
-                                                height: 40.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: valueOrDefault<Color>(
-                                                  _model.isFavoritesSelected
-                                                      ? Color(0xFFE2E8F0)
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
+                                            child: Semantics(
+                                              button: true,
+                                              identifier:
+                                                  'fund_transfer_button',
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  _model.isFavoritesSelected =
+                                                      false;
+                                                  safeSetState(() {});
+                                                },
+                                                text: valueOrDefault<String>(
+                                                  FFAppState()
+                                                              .FundTransferiniatedResponse
+                                                              .transferType ==
+                                                          'PBBtoPBB'
+                                                      ? 'PBB Account'
+                                                      : 'Banks',
+                                                  'PBB Account',
                                                 ),
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleSmall
-                                                    .override(
-                                                      font: GoogleFonts.inter(
+                                                options: FFButtonOptions(
+                                                  width: double.infinity,
+                                                  height: 40.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 16.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: valueOrDefault<Color>(
+                                                    _model.isFavoritesSelected
+                                                        ? Color(0xFFE2E8F0)
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                  ),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        color: valueOrDefault<
+                                                            Color>(
+                                                          _model.isFavoritesSelected
+                                                              ? Color(
+                                                                  0xFF0F172B)
+                                                              : Color(
+                                                                  0xFF45556C),
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
+                                                        ),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         fontStyle:
@@ -531,66 +556,75 @@ class _FundTransferPageWidgetState extends State<FundTransferPageWidget> {
                                                                 .titleSmall
                                                                 .fontStyle,
                                                       ),
-                                                      color:
-                                                          valueOrDefault<Color>(
-                                                        _model.isFavoritesSelected
-                                                            ? Color(0xFF0F172B)
-                                                            : Color(0xFF45556C),
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground,
-                                                      ),
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontStyle,
-                                                    ),
-                                                elevation: 0.0,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                  elevation: 0.0,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
                                               ),
                                             ),
                                           ),
                                           Flexible(
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                _model.isFavoritesSelected =
-                                                    true;
-                                                safeSetState(() {});
-                                                safeSetState(() {
-                                                  _model.checkboxValue = false;
-                                                });
-                                              },
-                                              text: 'Favorites',
-                                              options: FFButtonOptions(
-                                                width: double.infinity,
-                                                height: 40.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 16.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: valueOrDefault<Color>(
-                                                  !_model.isFavoritesSelected
-                                                      ? Color(0xFFE2E8F0)
-                                                      : FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                                ),
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .titleSmall
-                                                    .override(
-                                                      font: GoogleFonts.inter(
+                                            child: Semantics(
+                                              button: true,
+                                              identifier:
+                                                  'fund_transfer_button_2',
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  _model.isFavoritesSelected =
+                                                      true;
+                                                  safeSetState(() {});
+                                                  safeSetState(() {
+                                                    _model.checkboxValue =
+                                                        false;
+                                                  });
+                                                },
+                                                text: 'Favorites',
+                                                options: FFButtonOptions(
+                                                  width: double.infinity,
+                                                  height: 40.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          16.0, 0.0, 16.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: valueOrDefault<Color>(
+                                                    !_model.isFavoritesSelected
+                                                        ? Color(0xFFE2E8F0)
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryBackground,
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                  ),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        color: valueOrDefault<
+                                                            Color>(
+                                                          !_model.isFavoritesSelected
+                                                              ? Color(
+                                                                  0xFF0F172B)
+                                                              : Color(
+                                                                  0xFF45556C),
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryBackground,
+                                                        ),
+                                                        fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                         fontStyle:
@@ -599,28 +633,11 @@ class _FundTransferPageWidgetState extends State<FundTransferPageWidget> {
                                                                 .titleSmall
                                                                 .fontStyle,
                                                       ),
-                                                      color:
-                                                          valueOrDefault<Color>(
-                                                        !_model.isFavoritesSelected
-                                                            ? Color(0xFF0F172B)
-                                                            : Color(0xFF45556C),
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondaryBackground,
-                                                      ),
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmall
-                                                              .fontStyle,
-                                                    ),
-                                                elevation: 0.0,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
+                                                  elevation: 0.0,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
                                               ),
                                             ),
                                           ),
@@ -695,6 +712,10 @@ class _FundTransferPageWidgetState extends State<FundTransferPageWidget> {
                                                                 child:
                                                                     Semantics(
                                                                   label:
+                                                                      'Bank dropdown',
+                                                                  container:
+                                                                      true,
+                                                                  identifier:
                                                                       'fund_transfer_bank_dropdown',
                                                                   child: custom_widgets
                                                                       .LabelValueDropdown(
@@ -902,6 +923,8 @@ class _FundTransferPageWidgetState extends State<FundTransferPageWidget> {
                                                                     Semantics(
                                                                       label:
                                                                           'Transfer to own account',
+                                                                      identifier:
+                                                                          'fund_transfer_checkbox',
                                                                       child:
                                                                           Theme(
                                                                         data:
@@ -1681,7 +1704,10 @@ class _FundTransferPageWidgetState extends State<FundTransferPageWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 32.0),
                                   child: Semantics(
-                                    label: 'fund_transfer_next_button',
+                                    label: 'Next',
+                                    button: true,
+                                    container: true,
+                                    identifier: 'fund_transfer_next_button',
                                     child: wrapWithModel(
                                       model: _model.primaryButtonComponentModel,
                                       updateCallback: () => safeSetState(() {}),

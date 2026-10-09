@@ -210,8 +210,10 @@ class _ReportProblemsPageWidgetState extends State<ReportProblemsPageWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Semantics(
-                                                label:
-                                                    'reportPage_dispute_component',
+                                                label: 'Dispute',
+                                                container: true,
+                                                identifier:
+                                                    'reportpage_dispute_component',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -425,8 +427,10 @@ class _ReportProblemsPageWidgetState extends State<ReportProblemsPageWidget> {
                                                 ),
                                               ),
                                               Semantics(
-                                                label:
-                                                    'reportPage_scam_component',
+                                                label: 'Scam',
+                                                container: true,
+                                                identifier:
+                                                    'reportpage_scam_component',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -640,8 +644,10 @@ class _ReportProblemsPageWidgetState extends State<ReportProblemsPageWidget> {
                                                 ),
                                               ),
                                               Semantics(
-                                                label:
-                                                    'reportPage_internetBanking_component',
+                                                label: 'Internet banking',
+                                                container: true,
+                                                identifier:
+                                                    'reportpage_internetbanking_component',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -855,8 +861,10 @@ class _ReportProblemsPageWidgetState extends State<ReportProblemsPageWidget> {
                                                 ),
                                               ),
                                               Semantics(
-                                                label:
-                                                    'reportPage_ATM_component',
+                                                label: 'ATM',
+                                                container: true,
+                                                identifier:
+                                                    'reportpage_atm_component',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -1070,8 +1078,10 @@ class _ReportProblemsPageWidgetState extends State<ReportProblemsPageWidget> {
                                                 ),
                                               ),
                                               Semantics(
-                                                label:
-                                                    'reportPage_transfer_component',
+                                                label: 'Transfer',
+                                                container: true,
+                                                identifier:
+                                                    'reportpage_transfer_component',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -1285,8 +1295,10 @@ class _ReportProblemsPageWidgetState extends State<ReportProblemsPageWidget> {
                                                 ),
                                               ),
                                               Semantics(
-                                                label:
-                                                    'reportPage_bills_component',
+                                                label: 'Bills',
+                                                container: true,
+                                                identifier:
+                                                    'reportpage_bills_component',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -1500,8 +1512,10 @@ class _ReportProblemsPageWidgetState extends State<ReportProblemsPageWidget> {
                                                 ),
                                               ),
                                               Semantics(
-                                                label:
-                                                    'reportPage_loan_component',
+                                                label: 'Loan',
+                                                container: true,
+                                                identifier:
+                                                    'reportpage_loan_component',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -1715,8 +1729,10 @@ class _ReportProblemsPageWidgetState extends State<ReportProblemsPageWidget> {
                                                 ),
                                               ),
                                               Semantics(
-                                                label:
-                                                    'reportPage_other_component',
+                                                label: 'Other',
+                                                container: true,
+                                                identifier:
+                                                    'reportpage_other_component',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,

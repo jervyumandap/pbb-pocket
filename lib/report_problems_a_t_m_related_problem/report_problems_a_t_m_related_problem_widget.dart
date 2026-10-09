@@ -181,8 +181,10 @@ class _ReportProblemsATMRelatedProblemWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportATM_issue_component',
+                                                  label: 'Report issue',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportatm_issue_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -348,8 +350,10 @@ class _ReportProblemsATMRelatedProblemWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportATM_concern_component',
+                                                  label: 'Report concern',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportatm_concern_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -514,8 +518,10 @@ class _ReportProblemsATMRelatedProblemWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportATM_location_component',
+                                                  label: 'Report location',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportatm_location_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -675,8 +681,9 @@ class _ReportProblemsATMRelatedProblemWidgetState
                                               ].divide(SizedBox(height: 5.0)),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'reportATM_details_textfield',
+                                              label: 'Additional details',
+                                              identifier:
+                                                  'reportatm_details_textfield',
                                               child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
@@ -821,7 +828,9 @@ class _ReportProblemsATMRelatedProblemWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 50.0),
                                 child: Semantics(
-                                  label: 'reportATM_submit_button',
+                                  label: 'Report submit',
+                                  button: true,
+                                  identifier: 'reportatm_submit_button',
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       if (_model.informationSelected == null) {

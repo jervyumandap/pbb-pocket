@@ -77,34 +77,42 @@ class _PayBillsWithChosenBillerPageWidgetState
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 70.0,
-            icon: FaIcon(
-              FontAwesomeIcons.arrowCircleLeft,
-              color: FlutterFlowTheme.of(context).primary,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              context.pop();
-            },
-          ),
-          actions: [
-            FlutterFlowIconButton(
+          leading: Semantics(
+            button: true,
+            identifier: 'pay_bills_chosen_biller_icon_button',
+            child: FlutterFlowIconButton(
               borderColor: Colors.transparent,
               borderRadius: 30.0,
               borderWidth: 1.0,
               buttonSize: 70.0,
-              icon: Icon(
-                Icons.segment_outlined,
+              icon: FaIcon(
+                FontAwesomeIcons.arrowCircleLeft,
                 color: FlutterFlowTheme.of(context).primary,
                 size: 30.0,
               ),
               onPressed: () async {
                 context.pop();
               },
+            ),
+          ),
+          actions: [
+            Semantics(
+              button: true,
+              identifier: 'pay_bills_chosen_biller_icon_button_2',
+              child: FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 70.0,
+                icon: Icon(
+                  Icons.segment_outlined,
+                  color: FlutterFlowTheme.of(context).primary,
+                  size: 30.0,
+                ),
+                onPressed: () async {
+                  context.pop();
+                },
+              ),
             ),
           ],
           centerTitle: false,
@@ -143,76 +151,81 @@ class _PayBillsWithChosenBillerPageWidgetState
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(12.0),
                         ),
-                        child: TextFormField(
-                          controller: _model.textController1,
-                          focusNode: _model.textFieldFocusNode,
-                          autofocus: false,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Customer Account No.',
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
+                        child: Semantics(
+                          identifier: 'pay_bills_chosen_biller_input',
+                          child: TextFormField(
+                            controller: _model.textController1,
+                            focusNode: _model.textFieldFocusNode,
+                            autofocus: false,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Customer Account No.',
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .labelMediumIsCustom,
+                                  ),
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .labelMediumIsCustom,
+                                  ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  width: 0.3,
+                                ),
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  width: 0.3,
+                                ),
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 0.3,
+                                ),
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 0.3,
+                                ),
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 0.0, 12.0, 0.0),
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
-                                      .labelMediumFamily,
+                                      .bodyMediumFamily,
                                   letterSpacing: 0.0,
                                   useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .labelMediumIsCustom,
+                                      .bodyMediumIsCustom,
                                 ),
-                            hintStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .labelMediumFamily,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .labelMediumIsCustom,
-                                ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                width: 0.3,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).primary,
-                                width: 0.3,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 0.3,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).error,
-                                width: 0.3,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
+                            maxLines: null,
+                            cursorColor: FlutterFlowTheme.of(context).primary,
+                            validator: _model.textController1Validator
+                                .asValidator(context),
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: !FlutterFlowTheme.of(context)
-                                    .bodyMediumIsCustom,
-                              ),
-                          maxLines: null,
-                          cursorColor: FlutterFlowTheme.of(context).primary,
-                          validator: _model.textController1Validator
-                              .asValidator(context),
                         ),
                       ),
                       Column(
@@ -228,109 +241,19 @@ class _PayBillsWithChosenBillerPageWidgetState
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                child: TextFormField(
-                                  controller:
-                                      _model.textFieldCurrencyTextController,
-                                  focusNode: _model.textFieldCurrencyFocusNode,
-                                  autofocus: false,
-                                  readOnly: true,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .labelMediumIsCustom,
-                                        ),
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .labelMediumIsCustom,
-                                        ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        width: 0.3,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        width: 0.3,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 0.3,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 0.3,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    contentPadding:
-                                        EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 12.0, 0.0),
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts:
-                                            !FlutterFlowTheme.of(context)
-                                                .bodyMediumIsCustom,
-                                      ),
-                                  textAlign: TextAlign.start,
-                                  keyboardType:
-                                      const TextInputType.numberWithOptions(
-                                          decimal: true),
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  enableInteractiveSelection: false,
-                                  validator: _model
-                                      .textFieldCurrencyTextControllerValidator
-                                      .asValidator(context),
-                                ),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
+                                child: Semantics(
+                                  label: 'Currency',
+                                  identifier:
+                                      'pay_bills_chosen_biller_currency',
                                   child: TextFormField(
                                     controller:
-                                        _model.textFieldAmountATextController,
-                                    focusNode: _model.textFieldAmountAFocusNode,
+                                        _model.textFieldCurrencyTextController,
+                                    focusNode:
+                                        _model.textFieldCurrencyFocusNode,
                                     autofocus: false,
+                                    readOnly: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelText: 'Amount',
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -404,15 +327,122 @@ class _PayBillsWithChosenBillerPageWidgetState
                                               !FlutterFlowTheme.of(context)
                                                   .bodyMediumIsCustom,
                                         ),
-                                    textAlign: TextAlign.end,
+                                    textAlign: TextAlign.start,
                                     keyboardType:
                                         const TextInputType.numberWithOptions(
                                             decimal: true),
                                     cursorColor:
                                         FlutterFlowTheme.of(context).primary,
+                                    enableInteractiveSelection: false,
                                     validator: _model
-                                        .textFieldAmountATextControllerValidator
+                                        .textFieldCurrencyTextControllerValidator
                                         .asValidator(context),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  child: Semantics(
+                                    label: 'Amount',
+                                    identifier:
+                                        'pay_bills_chosen_biller_amount_a',
+                                    child: TextFormField(
+                                      controller:
+                                          _model.textFieldAmountATextController,
+                                      focusNode:
+                                          _model.textFieldAmountAFocusNode,
+                                      autofocus: false,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelText: 'Amount',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .labelMediumIsCustom,
+                                            ),
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .labelMediumIsCustom,
+                                            ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            width: 0.3,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            width: 0.3,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 0.3,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 0.3,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        contentPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                12.0, 0.0, 12.0, 0.0),
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .bodyMediumIsCustom,
+                                          ),
+                                      textAlign: TextAlign.end,
+                                      keyboardType:
+                                          const TextInputType.numberWithOptions(
+                                              decimal: true),
+                                      cursorColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      validator: _model
+                                          .textFieldAmountATextControllerValidator
+                                          .asValidator(context),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -461,19 +491,22 @@ class _PayBillsWithChosenBillerPageWidgetState
                                       .bodyMediumIsCustom,
                                 ),
                           ),
-                          Switch.adaptive(
-                            value: _model.switchValue!,
-                            onChanged: (newValue) async {
-                              safeSetState(
-                                  () => _model.switchValue = newValue);
-                            },
-                            activeColor: FlutterFlowTheme.of(context).primary,
-                            activeTrackColor:
-                                FlutterFlowTheme.of(context).primary,
-                            inactiveTrackColor:
-                                FlutterFlowTheme.of(context).tertiary,
-                            inactiveThumbColor:
-                                FlutterFlowTheme.of(context).primary,
+                          Semantics(
+                            identifier: 'pay_bills_chosen_biller_switch',
+                            child: Switch.adaptive(
+                              value: _model.switchValue!,
+                              onChanged: (newValue) async {
+                                safeSetState(
+                                    () => _model.switchValue = newValue);
+                              },
+                              activeColor: FlutterFlowTheme.of(context).primary,
+                              activeTrackColor:
+                                  FlutterFlowTheme.of(context).primary,
+                              inactiveTrackColor:
+                                  FlutterFlowTheme.of(context).tertiary,
+                              inactiveThumbColor:
+                                  FlutterFlowTheme.of(context).primary,
+                            ),
                           ),
                         ],
                       ),
@@ -614,77 +647,80 @@ class _PayBillsWithChosenBillerPageWidgetState
                                   width: 1.0,
                                 ),
                               ),
-                              child: FlutterFlowDropDown<String>(
-                                controller: _model.dropDownValueController ??=
-                                    FormFieldController<String>(null),
-                                options: [
-                                  'Weekly',
-                                  'Every 2 Weeks',
-                                  'Monthly',
-                                  'Quarterly',
-                                  'Every 6 Months',
-                                  'Annually'
-                                ],
-                                onChanged: (val) => safeSetState(
-                                    () => _model.dropDownValue = val),
-                                width: 200.0,
-                                height: 40.0,
-                                searchHintTextStyle:
-                                    FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .labelMediumIsCustom,
-                                        ),
-                                searchTextStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts:
-                                          !FlutterFlowTheme.of(context)
-                                              .bodyMediumIsCustom,
-                                    ),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts:
-                                          !FlutterFlowTheme.of(context)
-                                              .bodyMediumIsCustom,
-                                    ),
-                                hintText: 'Select...',
-                                searchHintText: 'Search...',
-                                icon: Icon(
-                                  Icons.keyboard_arrow_down_outlined,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
+                              child: Semantics(
+                                identifier: 'pay_bills_chosen_biller_dropdown',
+                                child: FlutterFlowDropDown<String>(
+                                  controller: _model.dropDownValueController ??=
+                                      FormFieldController<String>(null),
+                                  options: [
+                                    'Weekly',
+                                    'Every 2 Weeks',
+                                    'Monthly',
+                                    'Quarterly',
+                                    'Every 6 Months',
+                                    'Annually'
+                                  ],
+                                  onChanged: (val) => safeSetState(
+                                      () => _model.dropDownValue = val),
+                                  width: 200.0,
+                                  height: 40.0,
+                                  searchHintTextStyle:
+                                      FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .labelMediumIsCustom,
+                                          ),
+                                  searchTextStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .bodyMediumIsCustom,
+                                      ),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .bodyMediumIsCustom,
+                                      ),
+                                  hintText: 'Select...',
+                                  searchHintText: 'Search...',
+                                  icon: Icon(
+                                    Icons.keyboard_arrow_down_outlined,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  elevation: 2.0,
+                                  borderColor: Colors.transparent,
+                                  borderWidth: 0.0,
+                                  borderRadius: 8.0,
+                                  margin: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 10.0, 0.0),
+                                  hidesUnderline: true,
+                                  isOverButton: false,
+                                  isSearchable: true,
+                                  isMultiSelect: false,
                                 ),
-                                fillColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                elevation: 2.0,
-                                borderColor: Colors.transparent,
-                                borderWidth: 0.0,
-                                borderRadius: 8.0,
-                                margin: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 10.0, 0.0),
-                                hidesUnderline: true,
-                                isOverButton: false,
-                                isSearchable: true,
-                                isMultiSelect: false,
                               ),
                             ),
                           ].divide(SizedBox(height: 16.0)),
@@ -692,45 +728,12 @@ class _PayBillsWithChosenBillerPageWidgetState
                     ].divide(SizedBox(height: 20.0)),
                   ),
                 ),
-                FFButtonWidget(
-                  onPressed: () async {
-                    _model.requestHeader = BillsHeaderStruct(
-                      channelRefNumber: valueOrDefault<String>(
-                        random_data.randomString(
-                          5,
-                          8,
-                          false,
-                          true,
-                          true,
-                        ),
-                        'PLUM0001',
-                      ),
-                      channelCode: 'cbxc',
-                      billerCode: 'BDOCC',
-                      userId: '40248',
-                      branchId: 001,
-                    );
-                    _model.requestBody = BillsBodyStruct(
-                      accNum: _model.selectedBiller?.accountNumber,
-                      amount: double.tryParse(
-                          _model.textFieldAmountATextController.text),
-                      fullName: _model.selectedSourceAccount?.accountName,
-                      collectionDate: dateTimeFormat(
-                        "y-d-M",
-                        getCurrentTimestamp,
-                        locale: FFLocalizations.of(context).languageCode,
-                      ),
-                      bankName: _model.selectedSourceAccount?.accountName,
-                      billNum: '',
-                      tranRefNum: '',
-                      chequeNum: '',
-                      otherCharges: 0.00,
-                      paymentMethod: 'DEBIT',
-                    );
-                    safeSetState(() {});
-                    FFAppState().BillsPaymentRequestBodyAppState =
-                        BillsPaymentRequestBodyStruct(
-                      billsHeader: BillsHeaderStruct(
+                Semantics(
+                  button: true,
+                  identifier: 'pay_bills_chosen_biller_continue_a',
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      _model.requestHeader = BillsHeaderStruct(
                         channelRefNumber: valueOrDefault<String>(
                           random_data.randomString(
                             5,
@@ -745,8 +748,8 @@ class _PayBillsWithChosenBillerPageWidgetState
                         billerCode: 'BDOCC',
                         userId: '40248',
                         branchId: 001,
-                      ),
-                      billsBody: BillsBodyStruct(
+                      );
+                      _model.requestBody = BillsBodyStruct(
                         accNum: _model.selectedBiller?.accountNumber,
                         amount: double.tryParse(
                             _model.textFieldAmountATextController.text),
@@ -762,59 +765,99 @@ class _PayBillsWithChosenBillerPageWidgetState
                         chequeNum: '',
                         otherCharges: 0.00,
                         paymentMethod: 'DEBIT',
-                      ),
-                    );
-                    safeSetState(() {});
-                    await showModalBottomSheet(
-                      isScrollControlled: true,
-                      backgroundColor: Colors.transparent,
-                      enableDrag: false,
-                      context: context,
-                      builder: (context) {
-                        return WebViewAware(
-                          child: GestureDetector(
-                            onTap: () {
-                              FocusScope.of(context).unfocus();
-                              FocusManager.instance.primaryFocus?.unfocus();
-                            },
-                            child: Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: ConfirmBillsPaymentComponentWidget(
-                                isMobile: true,
-                                callback: () async {
-                                  Navigator.pop(context);
-                                },
+                      );
+                      safeSetState(() {});
+                      FFAppState().BillsPaymentRequestBodyAppState =
+                          BillsPaymentRequestBodyStruct(
+                        billsHeader: BillsHeaderStruct(
+                          channelRefNumber: valueOrDefault<String>(
+                            random_data.randomString(
+                              5,
+                              8,
+                              false,
+                              true,
+                              true,
+                            ),
+                            'PLUM0001',
+                          ),
+                          channelCode: 'cbxc',
+                          billerCode: 'BDOCC',
+                          userId: '40248',
+                          branchId: 001,
+                        ),
+                        billsBody: BillsBodyStruct(
+                          accNum: _model.selectedBiller?.accountNumber,
+                          amount: double.tryParse(
+                              _model.textFieldAmountATextController.text),
+                          fullName: _model.selectedSourceAccount?.accountName,
+                          collectionDate: dateTimeFormat(
+                            "y-d-M",
+                            getCurrentTimestamp,
+                            locale: FFLocalizations.of(context).languageCode,
+                          ),
+                          bankName: _model.selectedSourceAccount?.accountName,
+                          billNum: '',
+                          tranRefNum: '',
+                          chequeNum: '',
+                          otherCharges: 0.00,
+                          paymentMethod: 'DEBIT',
+                        ),
+                      );
+                      safeSetState(() {});
+                      await showModalBottomSheet(
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        enableDrag: false,
+                        context: context,
+                        builder: (context) {
+                          return WebViewAware(
+                            child: GestureDetector(
+                              onTap: () {
+                                FocusScope.of(context).unfocus();
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              },
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ConfirmBillsPaymentComponentWidget(
+                                  isMobile: true,
+                                  callback: () async {
+                                    Navigator.pop(context);
+                                  },
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      },
-                    ).then((value) => safeSetState(() {}));
-                  },
-                  text: 'Continue',
-                  options: FFButtonOptions(
-                    width: double.infinity,
-                    height: 50.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    iconAlignment: IconAlignment.end,
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: Color(0xFF00A8CF),
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          font: GoogleFonts.inter(
-                            fontWeight: FontWeight.w500,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .fontStyle,
-                          ),
-                          color: FlutterFlowTheme.of(context).info,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
-                        ),
-                    elevation: 0.0,
-                    borderRadius: BorderRadius.circular(8.0),
+                          );
+                        },
+                      ).then((value) => safeSetState(() {}));
+                    },
+                    text: 'Continue',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 50.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconAlignment: IconAlignment.end,
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: Color(0xFF00A8CF),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).info,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .fontStyle,
+                              ),
+                      elevation: 0.0,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
                   ),
                 ),
               ]

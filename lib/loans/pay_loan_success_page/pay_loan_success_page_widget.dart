@@ -552,149 +552,146 @@ class _PayLoanSuccessPageWidgetState extends State<PayLoanSuccessPageWidget>
                                                       children: [
                                                         Builder(
                                                           builder: (context) =>
-                                                              InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onTap: () async {
-                                                              _model.isHide =
-                                                                  true;
-                                                              safeSetState(
-                                                                  () {});
-                                                              await Future
-                                                                  .delayed(
-                                                                Duration(
-                                                                  milliseconds:
-                                                                      100,
-                                                                ),
-                                                              );
-                                                              _model.ssOutput =
-                                                                  await actions
-                                                                      .makeScreenshotAndShare(
-                                                                context,
-                                                              );
-                                                              if (!_model
-                                                                  .ssOutput!) {
-                                                                await showDialog(
-                                                                  context:
-                                                                      context,
-                                                                  builder:
-                                                                      (dialogContext) {
-                                                                    return Dialog(
-                                                                      elevation:
-                                                                          0,
-                                                                      insetPadding:
-                                                                          EdgeInsets
-                                                                              .zero,
-                                                                      backgroundColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0)
-                                                                          .resolve(
-                                                                              Directionality.of(context)),
-                                                                      child:
-                                                                          WebViewAware(
+                                                              Semantics(
+                                                            container: true,
+                                                            identifier:
+                                                                'pay_loan_success_share_column',
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                _model.isHide =
+                                                                    true;
+                                                                safeSetState(
+                                                                    () {});
+                                                                await Future
+                                                                    .delayed(
+                                                                  Duration(
+                                                                    milliseconds:
+                                                                        100,
+                                                                  ),
+                                                                );
+                                                                _model.ssOutput =
+                                                                    await actions
+                                                                        .makeScreenshotAndShare(
+                                                                  context,
+                                                                );
+                                                                if (!_model
+                                                                    .ssOutput!) {
+                                                                  await showDialog(
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (dialogContext) {
+                                                                      return Dialog(
+                                                                        elevation:
+                                                                            0,
+                                                                        insetPadding:
+                                                                            EdgeInsets.zero,
+                                                                        backgroundColor:
+                                                                            Colors.transparent,
+                                                                        alignment:
+                                                                            AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                         child:
-                                                                            GestureDetector(
-                                                                          onTap:
-                                                                              () {
-                                                                            FocusScope.of(dialogContext).unfocus();
-                                                                            FocusManager.instance.primaryFocus?.unfocus();
-                                                                          },
+                                                                            WebViewAware(
                                                                           child:
-                                                                              CustomInformationalDialogWidget(
-                                                                            message:
-                                                                                'Failed to take screenshot.',
-                                                                            primaryButtonTitle:
-                                                                                'Dismiss',
-                                                                            title:
-                                                                                'Oops!',
-                                                                            primaryButtonAction:
-                                                                                () async {
-                                                                              Navigator.pop(context);
+                                                                              GestureDetector(
+                                                                            onTap:
+                                                                                () {
+                                                                              FocusScope.of(dialogContext).unfocus();
+                                                                              FocusManager.instance.primaryFocus?.unfocus();
                                                                             },
-                                                                            secondaryButtonAction:
-                                                                                () async {},
+                                                                            child:
+                                                                                CustomInformationalDialogWidget(
+                                                                              message: 'Failed to take screenshot.',
+                                                                              primaryButtonTitle: 'Dismiss',
+                                                                              title: 'Oops!',
+                                                                              primaryButtonAction: () async {
+                                                                                Navigator.pop(context);
+                                                                              },
+                                                                              secondaryButtonAction: () async {},
+                                                                            ),
                                                                           ),
                                                                         ),
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                );
-                                                              }
-                                                              _model.isHide =
-                                                                  false;
-                                                              safeSetState(
-                                                                  () {});
+                                                                      );
+                                                                    },
+                                                                  );
+                                                                }
+                                                                _model.isHide =
+                                                                    false;
+                                                                safeSetState(
+                                                                    () {});
 
-                                                              safeSetState(
-                                                                  () {});
-                                                            },
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Container(
-                                                                  width: 53.0,
-                                                                  height: 53.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Color(
-                                                                        0xFFF4F4F4),
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                  ),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    children: [
-                                                                      ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(8.0),
-                                                                        child: Image
-                                                                            .asset(
-                                                                          'assets/images/Icon_(3).png',
-                                                                          width:
-                                                                              23.0,
-                                                                          height:
-                                                                              23.0,
-                                                                          fit: BoxFit
-                                                                              .fill,
+                                                                safeSetState(
+                                                                    () {});
+                                                              },
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Container(
+                                                                    width: 53.0,
+                                                                    height:
+                                                                        53.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFF4F4F4),
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                    ),
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(8.0),
+                                                                          child:
+                                                                              Image.asset(
+                                                                            'assets/images/Icon_(3).png',
+                                                                            width:
+                                                                                23.0,
+                                                                            height:
+                                                                                23.0,
+                                                                            fit:
+                                                                                BoxFit.fill,
+                                                                          ),
                                                                         ),
-                                                                      ),
-                                                                    ],
+                                                                      ],
+                                                                    ),
                                                                   ),
-                                                                ),
-                                                                Text(
-                                                                  'Share',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                      ),
-                                                                ),
-                                                              ].divide(SizedBox(
-                                                                  height:
-                                                                      12.0)),
+                                                                  Text(
+                                                                    'Share',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                        ),
+                                                                  ),
+                                                                ].divide(SizedBox(
+                                                                    height:
+                                                                        12.0)),
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
@@ -718,55 +715,60 @@ class _PayLoanSuccessPageWidgetState extends State<PayLoanSuccessPageWidget>
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 20.0, 60.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () async {
-                                                  FFAppState()
-                                                          .GlobalLoanPaymentConfirmation =
-                                                      LoanPaymentConfirmationResponseStruct();
-                                                  FFAppState()
-                                                          .GlobalLoanInitialPaymentDetails =
-                                                      LoanInitialPaymentDetailsStruct();
+                                              child: Semantics(
+                                                button: true,
+                                                identifier:
+                                                    'pay_loan_success_password_login',
+                                                child: FFButtonWidget(
+                                                  onPressed: () async {
+                                                    FFAppState()
+                                                            .GlobalLoanPaymentConfirmation =
+                                                        LoanPaymentConfirmationResponseStruct();
+                                                    FFAppState()
+                                                            .GlobalLoanInitialPaymentDetails =
+                                                        LoanInitialPaymentDetailsStruct();
 
-                                                  context.goNamed(
-                                                      DashboardWidget
-                                                          .routeName);
-                                                },
-                                                text: 'Back to Dashboard',
-                                                options: FFButtonOptions(
-                                                  width: double.infinity,
-                                                  height: 56.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
-                                                  iconAlignment:
-                                                      IconAlignment.end,
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmallFamily,
-                                                            color: Colors.white,
-                                                            letterSpacing: 0.0,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmallIsCustom,
-                                                          ),
-                                                  elevation: 0.0,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
+                                                    context.goNamed(
+                                                        DashboardWidget
+                                                            .routeName);
+                                                  },
+                                                  text: 'Back to Dashboard',
+                                                  options: FFButtonOptions(
+                                                    width: double.infinity,
+                                                    height: 56.0,
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    iconAlignment:
+                                                        IconAlignment.end,
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmallFamily,
+                                                          color: Colors.white,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleSmallIsCustom,
+                                                        ),
+                                                    elevation: 0.0,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
+                                                  ),
                                                 ),
                                               ),
                                             ),

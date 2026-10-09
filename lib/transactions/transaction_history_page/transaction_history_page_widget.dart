@@ -104,85 +104,93 @@ class _TransactionHistoryPageWidgetState
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Expanded(
-                                          child: FlutterFlowChoiceChips(
-                                            options: TransactionCategoryType
-                                                .values
-                                                .map((e) => e.name)
-                                                .toList()
-                                                .map((label) => ChipData(label))
-                                                .toList(),
-                                            onChanged: (val) => safeSetState(
-                                                () => _model.choiceChipsValue =
-                                                    val?.firstOrNull),
-                                            selectedChipStyle: ChipStyle(
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMediumIsCustom,
-                                                      ),
-                                              iconColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .info,
-                                              iconSize: 24.0,
-                                              elevation: 0.0,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            unselectedChipStyle: ChipStyle(
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
+                                          child: Semantics(
+                                            identifier:
+                                                'txn_history_old_choicechips',
+                                            child: FlutterFlowChoiceChips(
+                                              options: TransactionCategoryType
+                                                  .values
+                                                  .map((e) => e.name)
+                                                  .toList()
+                                                  .map((label) =>
+                                                      ChipData(label))
+                                                  .toList(),
+                                              onChanged: (val) => safeSetState(
+                                                  () =>
+                                                      _model.choiceChipsValue =
+                                                          val?.firstOrNull),
+                                              selectedChipStyle: ChipStyle(
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          color: Colors.white,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMediumIsCustom,
+                                                        ),
+                                                iconColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                iconSize: 24.0,
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              unselectedChipStyle: ChipStyle(
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumIsCustom,
+                                                    ),
+                                                iconColor:
+                                                    FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                    letterSpacing: 0.0,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumIsCustom,
-                                                  ),
-                                              iconColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              iconSize: 24.0,
-                                              elevation: 0.0,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                                iconSize: 24.0,
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              chipSpacing: 16.0,
+                                              rowSpacing: 8.0,
+                                              multiselect: false,
+                                              initialized:
+                                                  _model.choiceChipsValue !=
+                                                      null,
+                                              alignment: WrapAlignment.start,
+                                              controller: _model
+                                                      .choiceChipsValueController ??=
+                                                  FormFieldController<
+                                                      List<String>>(
+                                                ['All'],
+                                              ),
+                                              wrapped: false,
                                             ),
-                                            chipSpacing: 16.0,
-                                            rowSpacing: 8.0,
-                                            multiselect: false,
-                                            initialized:
-                                                _model.choiceChipsValue != null,
-                                            alignment: WrapAlignment.start,
-                                            controller: _model
-                                                    .choiceChipsValueController ??=
-                                                FormFieldController<
-                                                    List<String>>(
-                                              ['All'],
-                                            ),
-                                            wrapped: false,
                                           ),
                                         ),
                                       ].divide(SizedBox(width: 8.0)),

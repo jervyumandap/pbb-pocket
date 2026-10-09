@@ -77,7 +77,9 @@ class _QRScannerPageWidgetState extends State<QRScannerPageWidget> {
             Expanded(
               child: Builder(
                 builder: (context) => Semantics(
-                  label: 'QrScannerOverlayNew',
+                  label: 'Scanner overlay',
+                  container: true,
+                  identifier: 'qrscanneroverlaynew',
                   child: Container(
                     width: double.infinity,
                     height: double.infinity,

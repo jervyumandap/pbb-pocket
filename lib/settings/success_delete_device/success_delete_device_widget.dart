@@ -89,32 +89,36 @@ class _SuccessDeleteDeviceWidgetState extends State<SuccessDeleteDeviceWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      context.pushNamed(DashboardWidget.routeName);
-                    },
-                    text: 'Go back to Dashboard',
-                    options: FFButtonOptions(
-                      height: 60.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).headlineSmall.override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .headlineSmallFamily,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                fontSize: 20.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w500,
-                                useGoogleFonts: !FlutterFlowTheme.of(context)
-                                    .headlineSmallIsCustom,
-                              ),
-                      elevation: 0.0,
-                      borderRadius: BorderRadius.circular(16.0),
+                  child: Semantics(
+                    button: true,
+                    identifier: 'delete_device_success_button',
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed(DashboardWidget.routeName);
+                      },
+                      text: 'Go back to Dashboard',
+                      options: FFButtonOptions(
+                        height: 60.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).headlineSmall.override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .headlineSmallFamily,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  fontSize: 20.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .headlineSmallIsCustom,
+                                ),
+                        elevation: 0.0,
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
                     ),
                   ),
                 ),

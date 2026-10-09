@@ -294,6 +294,8 @@ class _GeneratedQRPageWidgetState extends State<GeneratedQRPageWidget> {
                                     Flexible(
                                       child: Semantics(
                                         label: 'Download Button',
+                                        button: true,
+                                        identifier: 'generated_qr_button',
                                         child: FFButtonWidget(
                                           onPressed: () {
                                             print('Button pressed ...');
@@ -339,6 +341,8 @@ class _GeneratedQRPageWidgetState extends State<GeneratedQRPageWidget> {
                                     Flexible(
                                       child: Semantics(
                                         label: 'Share Button',
+                                        button: true,
+                                        identifier: 'generated_qr_button_2',
                                         child: FFButtonWidget(
                                           onPressed: () {
                                             print('Button pressed ...');

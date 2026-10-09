@@ -1819,118 +1819,14 @@ class _BillsPaymentReviewPageWidgetState
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Flexible(
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            context.safePop();
-                                          },
-                                          text: 'Edit',
-                                          options: FFButtonOptions(
-                                            width: double.infinity,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: Colors.transparent,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmallFamily,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primaryLabel,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmallIsCustom,
-                                                    ),
-                                            elevation: 0.0,
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryLabel,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Builder(
-                                          builder: (context) => FFButtonWidget(
+                                        child: Semantics(
+                                          button: true,
+                                          identifier: 'bp_review_edit',
+                                          child: FFButtonWidget(
                                             onPressed: () async {
-                                              var _shouldSetState = false;
-                                              _model.oTPOutputV2 =
-                                                  await action_blocks.otp(
-                                                context,
-                                                checkpoint: Otp.OTP.name,
-                                                phoneNumber: currentUserData
-                                                    ?.user.mobileNumber,
-                                              );
-                                              _shouldSetState = true;
-                                              if (_model.oTPOutputV2 !=
-                                                  'false') {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder: (dialogContext) {
-                                                    return Dialog(
-                                                      elevation: 0,
-                                                      insetPadding:
-                                                          EdgeInsets.zero,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                                  0.0, 0.0)
-                                                              .resolve(
-                                                                  Directionality.of(
-                                                                      context)),
-                                                      child: WebViewAware(
-                                                        child: GestureDetector(
-                                                          onTap: () {
-                                                            FocusScope.of(
-                                                                    dialogContext)
-                                                                .unfocus();
-                                                            FocusManager
-                                                                .instance
-                                                                .primaryFocus
-                                                                ?.unfocus();
-                                                          },
-                                                          child:
-                                                              OTPVerificationComponentWidget(
-                                                            callbackResendOTP:
-                                                                () async {},
-                                                            callbackClose:
-                                                                () async {},
-                                                            callbackSuccess:
-                                                                () async {},
-                                                            callbackConfirm:
-                                                                () async {},
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
-                                                );
-                                              } else {
-                                                if (_shouldSetState)
-                                                  safeSetState(() {});
-                                                return;
-                                              }
-
-                                              if (_shouldSetState)
-                                                safeSetState(() {});
+                                              context.safePop();
                                             },
-                                            text: 'Submit',
+                                            text: 'Edit',
                                             options: FFButtonOptions(
                                               width: double.infinity,
                                               height: 40.0,
@@ -1939,27 +1835,140 @@ class _BillsPaymentReviewPageWidgetState
                                                       16.0, 0.0, 16.0, 0.0),
                                               iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmallFamily,
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts:
-                                                            !FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleSmallIsCustom,
-                                                      ),
+                                              color: Colors.transparent,
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmallFamily,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryLabel,
+                                                    letterSpacing: 0.0,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmallIsCustom,
+                                                  ),
                                               elevation: 0.0,
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryLabel,
+                                                width: 1.0,
+                                              ),
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Builder(
+                                          builder: (context) => Semantics(
+                                            button: true,
+                                            identifier: 'bp_review_submit',
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                var _shouldSetState = false;
+                                                _model.oTPOutputV2 =
+                                                    await action_blocks.otp(
+                                                  context,
+                                                  checkpoint: Otp.OTP.name,
+                                                  phoneNumber: currentUserData
+                                                      ?.user.mobileNumber,
+                                                );
+                                                _shouldSetState = true;
+                                                if (_model.oTPOutputV2 !=
+                                                    'false') {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder: (dialogContext) {
+                                                      return Dialog(
+                                                        elevation: 0,
+                                                        insetPadding:
+                                                            EdgeInsets.zero,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                        child: WebViewAware(
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () {
+                                                              FocusScope.of(
+                                                                      dialogContext)
+                                                                  .unfocus();
+                                                              FocusManager
+                                                                  .instance
+                                                                  .primaryFocus
+                                                                  ?.unfocus();
+                                                            },
+                                                            child:
+                                                                OTPVerificationComponentWidget(
+                                                              callbackResendOTP:
+                                                                  () async {},
+                                                              callbackClose:
+                                                                  () async {},
+                                                              callbackSuccess:
+                                                                  () async {},
+                                                              callbackConfirm:
+                                                                  () async {},
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                } else {
+                                                  if (_shouldSetState)
+                                                    safeSetState(() {});
+                                                  return;
+                                                }
+
+                                                if (_shouldSetState)
+                                                  safeSetState(() {});
+                                              },
+                                              text: 'Submit',
+                                              options: FFButtonOptions(
+                                                width: double.infinity,
+                                                height: 40.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmallFamily,
+                                                          color: Colors.white,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleSmallIsCustom,
+                                                        ),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
                                             ),
                                           ),
                                         ),

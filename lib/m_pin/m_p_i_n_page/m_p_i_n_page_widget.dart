@@ -273,7 +273,10 @@ class _MPINPageWidgetState extends State<MPINPageWidget> {
                                             AlignmentDirectional(0.0, 0.0),
                                         child: Builder(
                                           builder: (context) => Semantics(
-                                            label: 'PinComponent',
+                                            label: 'PIN entry',
+                                            button: true,
+                                            container: true,
+                                            identifier: 'mpin_pin_entry',
                                             child: wrapWithModel(
                                               model: _model.pinComponentModel,
                                               updateCallback: () =>

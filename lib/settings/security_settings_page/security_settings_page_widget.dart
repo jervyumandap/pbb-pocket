@@ -249,107 +249,110 @@ class _SecuritySettingsPageWidgetState
                                           Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.pushNamed(
-                                                    CreateNewPasswordPageWidget
-                                                        .routeName,
-                                                    queryParameters: {
-                                                      'purpose': serializeParam(
-                                                        VerificationType
-                                                            .createNewPassword,
-                                                        ParamType.Enum,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
-                                                },
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  decoration: BoxDecoration(),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                16.0,
-                                                                16.0,
-                                                                16.0,
-                                                                16.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Icon(
-                                                          Icons.lock_outline,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          size: 24.0,
+                                              Semantics(
+                                                container: true,
+                                                identifier:
+                                                    'security_settings_change_password',
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed(
+                                                      CreateNewPasswordPageWidget
+                                                          .routeName,
+                                                      queryParameters: {
+                                                        'purpose':
+                                                            serializeParam(
+                                                          VerificationType
+                                                              .createNewPassword,
+                                                          ParamType.Enum,
                                                         ),
-                                                        Expanded(
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Text(
-                                                                'Change Password',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyLargeFamily,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyLargeIsCustom,
-                                                                    ),
-                                                              ),
-                                                              Text(
-                                                                'Update your current password to ensure your account remains secure.',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodySmallFamily,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodySmallIsCustom,
-                                                                    ),
-                                                              ),
-                                                            ].divide(SizedBox(
-                                                                height: 4.0)),
+                                                      }.withoutNulls,
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: double.infinity,
+                                                    decoration: BoxDecoration(),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  16.0,
+                                                                  16.0,
+                                                                  16.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Icon(
+                                                            Icons.lock_outline,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            size: 24.0,
                                                           ),
-                                                        ),
-                                                        Icon(
-                                                          Icons.chevron_right,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .neutral8,
-                                                          size: 24.0,
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          width: 16.0)),
+                                                          Expanded(
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  'Change Password',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).bodyLargeIsCustom,
+                                                                      ),
+                                                                ),
+                                                                Text(
+                                                                  'Update your current password to ensure your account remains secure.',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).bodySmallIsCustom,
+                                                                      ),
+                                                                ),
+                                                              ].divide(SizedBox(
+                                                                  height: 4.0)),
+                                                            ),
+                                                          ),
+                                                          Icon(
+                                                            Icons.chevron_right,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .neutral8,
+                                                            size: 24.0,
+                                                          ),
+                                                        ].divide(SizedBox(
+                                                            width: 16.0)),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -481,7 +484,286 @@ class _SecuritySettingsPageWidgetState
                                                     tabletLandscape: false,
                                                     desktop: false,
                                                   ))
-                                                InkWell(
+                                                Semantics(
+                                                  container: true,
+                                                  identifier:
+                                                      'security_settings_manage_devices',
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      context.pushNamed(
+                                                          SavedDevicesWidget
+                                                              .routeName);
+                                                    },
+                                                    child: Container(
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Icon(
+                                                              Icons
+                                                                  .phone_iphone,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              size: 24.0,
+                                                            ),
+                                                            Expanded(
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Text(
+                                                                    'Manage Devices',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyLarge
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              !FlutterFlowTheme.of(context).bodyLargeIsCustom,
+                                                                        ),
+                                                                  ),
+                                                                  Text(
+                                                                    'Manage devices linked to your account',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              !FlutterFlowTheme.of(context).bodySmallIsCustom,
+                                                                        ),
+                                                                  ),
+                                                                ].divide(SizedBox(
+                                                                    height:
+                                                                        4.0)),
+                                                              ),
+                                                            ),
+                                                            Icon(
+                                                              Icons
+                                                                  .chevron_right,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .neutral8,
+                                                              size: 24.0,
+                                                            ),
+                                                          ].divide(SizedBox(
+                                                              width: 16.0)),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              if ((isiOS || isAndroid) &&
+                                                  responsiveVisibility(
+                                                    context: context,
+                                                    tabletLandscape: false,
+                                                    desktop: false,
+                                                  ))
+                                                Semantics(
+                                                  container: true,
+                                                  identifier:
+                                                      'security_settings_biometric_authentication',
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      _model.biometricToggleResponse =
+                                                          await WhitebankGroupAPIGroup
+                                                              .retailSettingsBiometricToggleCall
+                                                              .call(
+                                                        enabled: !_model
+                                                            .isBiometricEnabled,
+                                                        accessToken:
+                                                            currentAuthenticationToken,
+                                                        baseURL:
+                                                            FFDevEnvironmentValues()
+                                                                .WBPBASEURL,
+                                                      );
+
+                                                      if (WhitebankGroupAPIGroup
+                                                                  .retailSettingsBiometricToggleCall
+                                                                  .error(
+                                                                (_model.biometricToggleResponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) ==
+                                                              null ||
+                                                          WhitebankGroupAPIGroup
+                                                                  .retailSettingsBiometricToggleCall
+                                                                  .error(
+                                                                (_model.biometricToggleResponse
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              ) ==
+                                                              '') {
+                                                        _model.isBiometricEnabled =
+                                                            WhitebankGroupAPIGroup
+                                                                .retailSettingsBiometricToggleCall
+                                                                .isEnabled(
+                                                          (_model.biometricToggleResponse
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!;
+                                                      } else {
+                                                        _model.isBiometricEnabled =
+                                                            false;
+                                                      }
+
+                                                      safeSetState(() {});
+
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.fingerprint,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              size: 24.0,
+                                                            ),
+                                                            Expanded(
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Text(
+                                                                    'Biometric Authentication',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyLarge
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primaryText,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              !FlutterFlowTheme.of(context).bodyLargeIsCustom,
+                                                                        ),
+                                                                  ),
+                                                                  Text(
+                                                                    'Use your device\'s biometric for a quick and secure login.',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              !FlutterFlowTheme.of(context).bodySmallIsCustom,
+                                                                        ),
+                                                                  ),
+                                                                ].divide(SizedBox(
+                                                                    height:
+                                                                        4.0)),
+                                                              ),
+                                                            ),
+                                                            Semantics(
+                                                              identifier:
+                                                                  'security_settings_biometric_switch',
+                                                              child: Switch
+                                                                  .adaptive(
+                                                                value: _model
+                                                                    .biometricSwitchValue!,
+                                                                onChanged:
+                                                                    (newValue) async {
+                                                                  safeSetState(() =>
+                                                                      _model.biometricSwitchValue =
+                                                                          newValue);
+                                                                },
+                                                                activeColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                activeTrackColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .tertiary,
+                                                                inactiveTrackColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
+                                                                inactiveThumbColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                              ),
+                                                            ),
+                                                          ].divide(SizedBox(
+                                                              width: 16.0)),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              Semantics(
+                                                container: true,
+                                                identifier:
+                                                    'security_settings_customize_transaction_limits',
+                                                child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
                                                   focusColor:
@@ -492,10 +774,23 @@ class _SecuritySettingsPageWidgetState
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     context.pushNamed(
-                                                        SavedDevicesWidget
-                                                            .routeName);
+                                                      TransactionLimitsPageWidget
+                                                          .routeName,
+                                                      extra: <String, dynamic>{
+                                                        '__transition_info__':
+                                                            TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          duration: Duration(
+                                                              milliseconds: 0),
+                                                        ),
+                                                      },
+                                                    );
                                                   },
                                                   child: Container(
+                                                    width: double.infinity,
                                                     decoration: BoxDecoration(),
                                                     child: Padding(
                                                       padding:
@@ -510,7 +805,7 @@ class _SecuritySettingsPageWidgetState
                                                             MainAxisSize.max,
                                                         children: [
                                                           Icon(
-                                                            Icons.phone_iphone,
+                                                            Icons.list_alt,
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primary,
@@ -526,7 +821,7 @@ class _SecuritySettingsPageWidgetState
                                                                       .start,
                                                               children: [
                                                                 Text(
-                                                                  'Manage Devices',
+                                                                  'Customize Transaction Limits',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyLarge
@@ -542,7 +837,7 @@ class _SecuritySettingsPageWidgetState
                                                                       ),
                                                                 ),
                                                                 Text(
-                                                                  'Manage devices linked to your account',
+                                                                  'Adjust the maximum amont for transfers, payments and loads.',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodySmall
@@ -571,275 +866,6 @@ class _SecuritySettingsPageWidgetState
                                                         ].divide(SizedBox(
                                                             width: 16.0)),
                                                       ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              if ((isiOS || isAndroid) &&
-                                                  responsiveVisibility(
-                                                    context: context,
-                                                    tabletLandscape: false,
-                                                    desktop: false,
-                                                  ))
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    _model.biometricToggleResponse =
-                                                        await WhitebankGroupAPIGroup
-                                                            .retailSettingsBiometricToggleCall
-                                                            .call(
-                                                      enabled: !_model
-                                                          .isBiometricEnabled,
-                                                      accessToken:
-                                                          currentAuthenticationToken,
-                                                      baseURL:
-                                                          FFDevEnvironmentValues()
-                                                              .WBPBASEURL,
-                                                    );
-
-                                                    if (WhitebankGroupAPIGroup
-                                                                .retailSettingsBiometricToggleCall
-                                                                .error(
-                                                              (_model.biometricToggleResponse
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ) ==
-                                                            null ||
-                                                        WhitebankGroupAPIGroup
-                                                                .retailSettingsBiometricToggleCall
-                                                                .error(
-                                                              (_model.biometricToggleResponse
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ) ==
-                                                            '') {
-                                                      _model.isBiometricEnabled =
-                                                          WhitebankGroupAPIGroup
-                                                              .retailSettingsBiometricToggleCall
-                                                              .isEnabled(
-                                                        (_model.biometricToggleResponse
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!;
-                                                    } else {
-                                                      _model.isBiometricEnabled =
-                                                          false;
-                                                    }
-
-                                                    safeSetState(() {});
-
-                                                    safeSetState(() {});
-                                                  },
-                                                  child: Container(
-                                                    width: double.infinity,
-                                                    decoration: BoxDecoration(),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  16.0,
-                                                                  16.0,
-                                                                  16.0,
-                                                                  16.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Icon(
-                                                            Icons.fingerprint,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            size: 24.0,
-                                                          ),
-                                                          Expanded(
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Text(
-                                                                  'Biometric Authentication',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyLarge
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).bodyLargeIsCustom,
-                                                                      ),
-                                                                ),
-                                                                Text(
-                                                                  'Use your device\'s biometric for a quick and secure login.',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodySmallFamily,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondaryText,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).bodySmallIsCustom,
-                                                                      ),
-                                                                ),
-                                                              ].divide(SizedBox(
-                                                                  height: 4.0)),
-                                                            ),
-                                                          ),
-                                                          Switch.adaptive(
-                                                            value: _model
-                                                                .biometricSwitchValue!,
-                                                            onChanged:
-                                                                (newValue) async {
-                                                              safeSetState(() =>
-                                                                  _model.biometricSwitchValue =
-                                                                      newValue);
-                                                            },
-                                                            activeColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                            activeTrackColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .tertiary,
-                                                            inactiveTrackColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
-                                                            inactiveThumbColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                          ),
-                                                        ].divide(SizedBox(
-                                                            width: 16.0)),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.pushNamed(
-                                                    TransactionLimitsPageWidget
-                                                        .routeName,
-                                                    extra: <String, dynamic>{
-                                                      '__transition_info__':
-                                                          TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .fade,
-                                                        duration: Duration(
-                                                            milliseconds: 0),
-                                                      ),
-                                                    },
-                                                  );
-                                                },
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  decoration: BoxDecoration(),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                16.0,
-                                                                16.0,
-                                                                16.0,
-                                                                16.0),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Icon(
-                                                          Icons.list_alt,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          size: 24.0,
-                                                        ),
-                                                        Expanded(
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Text(
-                                                                'Customize Transaction Limits',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyLargeFamily,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyLargeIsCustom,
-                                                                    ),
-                                                              ),
-                                                              Text(
-                                                                'Adjust the maximum amont for transfers, payments and loads.',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodySmallFamily,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondaryText,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodySmallIsCustom,
-                                                                    ),
-                                                              ),
-                                                            ].divide(SizedBox(
-                                                                height: 4.0)),
-                                                          ),
-                                                        ),
-                                                        Icon(
-                                                          Icons.chevron_right,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .neutral8,
-                                                          size: 24.0,
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          width: 16.0)),
                                                     ),
                                                   ),
                                                 ),

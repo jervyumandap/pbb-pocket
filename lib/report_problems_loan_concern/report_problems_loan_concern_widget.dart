@@ -179,8 +179,10 @@ class _ReportProblemsLoanConcernWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportLoan_issue_component',
+                                                  label: 'Report issue',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportloan_issue_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -341,8 +343,9 @@ class _ReportProblemsLoanConcernWidgetState
                                               ].divide(SizedBox(height: 5.0)),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'reportLoan_details_textfield',
+                                              label: 'Additional details',
+                                              identifier:
+                                                  'reportloan_details_textfield',
                                               child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
@@ -487,7 +490,9 @@ class _ReportProblemsLoanConcernWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 50.0),
                                 child: Semantics(
-                                  label: 'reportLoan_submit_button',
+                                  label: 'Report submit',
+                                  button: true,
+                                  identifier: 'reportloan_submit_button',
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       if (_model.informationSelected == null) {

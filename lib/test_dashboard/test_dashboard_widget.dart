@@ -99,18 +99,29 @@ class _TestDashboardWidgetState extends State<TestDashboardWidget>
                                 !FlutterFlowTheme.of(context).bodySmallIsCustom,
                           ),
                     ),
-                    Text(
-                      'Alex Johnson',
-                      style: FlutterFlowTheme.of(context).titleLarge.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleLargeFamily,
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
-                            useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .titleLargeIsCustom,
-                          ),
+
+                    // dashboard_userName_label Documentation
+                    Semantics(
+                      label: 'dashboard_userName_label',
+                      onTapHint: 'onTapHint',
+                      onLongPressHint: 'onLongPressHint',
+                      hint: 'hintText',
+                      tooltip: 'toolTipText',
+                      value: 'value',
+                      identifier: 'dashboard_userName_label',
+                      child: Text(
+                        'Alex Johnson',
+                        style: FlutterFlowTheme.of(context).titleLarge.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).titleLargeFamily,
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .titleLargeIsCustom,
+                            ),
+                      ),
                     ),
                   ],
                 ),

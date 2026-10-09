@@ -172,7 +172,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Semantics(
-                              label: 'SideMenuItemWidget Dashboard',
+                              label: 'Dashboard',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_dashboard',
                               child: wrapWithModel(
                                 model: _model.sideMenuItemWidgetModel,
                                 updateCallback: () => safeSetState(() {}),
@@ -208,7 +211,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Accounts',
+                              label: 'Accounts',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_accounts',
                               child: wrapWithModel(
                                 model: _model
                                     .manageAccountsSideMenuItemWidgetModel,
@@ -244,7 +250,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Transfer',
+                              label: 'Transfer',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_transfer',
                               child: wrapWithModel(
                                 model: _model.sideMenuItemWidgetInboxModel,
                                 updateCallback: () => safeSetState(() {}),
@@ -279,7 +288,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Paybills',
+                              label: 'Pay Bills',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_pay_bills',
                               child: wrapWithModel(
                                 model: _model.bPSideMenuItemWidgetModel,
                                 updateCallback: () => safeSetState(() {}),
@@ -314,7 +326,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Qr Payment',
+                              label: 'QR Payment',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_qr_payment',
                               child: wrapWithModel(
                                 model: _model.qRSideMenuItemWidgetModel,
                                 updateCallback: () => safeSetState(() {}),
@@ -371,7 +386,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget History',
+                              label: 'History',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_history',
                               child: wrapWithModel(
                                 model: _model.historySideMenuItemWidgetModel,
                                 updateCallback: () => safeSetState(() {}),
@@ -406,7 +424,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Manage Loans',
+                              label: 'Manage Loans',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_manage_loans',
                               child: wrapWithModel(
                                 model: _model.loansSideMenuItemWidgetModel1,
                                 updateCallback: () => safeSetState(() {}),
@@ -465,7 +486,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Settings',
+                              label: 'Settings',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_settings',
                               child: wrapWithModel(
                                 model: _model.settingsSideMenuItemWidgetModel,
                                 updateCallback: () => safeSetState(() {}),
@@ -500,7 +524,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Investments',
+                              label: 'Investments',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_investments',
                               child: wrapWithModel(
                                 model:
                                     _model.investmentsSideMenuItemWidgetModel,
@@ -558,7 +585,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Time Deposits',
+                              label: 'Time Deposits',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_time_deposits',
                               child: wrapWithModel(
                                 model: _model.loansSideMenuItemWidgetModel2,
                                 updateCallback: () => safeSetState(() {}),
@@ -593,7 +623,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Cheque Book',
+                              label: 'Cheque Book',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_cheque_book',
                               child: wrapWithModel(
                                 model: _model.loansSideMenuItemWidgetModel3,
                                 updateCallback: () => safeSetState(() {}),
@@ -628,7 +661,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Report Problem',
+                              label: 'Report a Problem',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_report_problem',
                               child: wrapWithModel(
                                 model: _model.loansSideMenuItemWidgetModel4,
                                 updateCallback: () => safeSetState(() {}),
@@ -687,7 +723,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                               ),
                             ),
                             Semantics(
-                              label: 'SideMenuItemWidget Trust Product',
+                              label: 'Trust Product',
+                              button: true,
+                              container: true,
+                              identifier: 'navdrawer_trust_product',
                               child: wrapWithModel(
                                 model: _model.loansSideMenuItemWidgetModel5,
                                 updateCallback: () => safeSetState(() {}),
@@ -760,8 +799,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(29.0, 0.0, 16.0, 16.0),
                       child: Semantics(
-                        label: 'Side Drawer Toggle Button',
+                        label: 'Toggle menu',
+                        button: true,
                         container: true,
+                        identifier: 'nav_drawer_toggle_button',
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -835,7 +876,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Semantics(
-                                    label: 'IconButtonBadge-Home',
+                                    label: 'Home',
+                                    button: true,
+                                    container: true,
+                                    identifier: 'bottomnav_home_button',
                                     child: wrapWithModel(
                                       model: _model.iconButtonBadgeHomeModel,
                                       updateCallback: () => safeSetState(() {}),
@@ -886,7 +930,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                                     ),
                                   ),
                                   Semantics(
-                                    label: 'IconButtonBadge-Loans',
+                                    label: 'Loans',
+                                    button: true,
+                                    container: true,
+                                    identifier: 'bottomnav_loans_button',
                                     child: wrapWithModel(
                                       model: _model.iconButtonBadgeInboxModel,
                                       updateCallback: () => safeSetState(() {}),
@@ -963,7 +1010,11 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                                     ),
                                   ),
                                   Semantics(
-                                    label: 'IconButtonBadge-Notifications',
+                                    label: 'Notifications',
+                                    button: true,
+                                    container: true,
+                                    identifier:
+                                        'bottomnav_notifications_button',
                                     child: wrapWithModel(
                                       model:
                                           _model.iconButtonBadgeRecipientsModel,
@@ -1017,7 +1068,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                                     ),
                                   ),
                                   Semantics(
-                                    label: 'IconButtonBadge-Profile',
+                                    label: 'Profile',
+                                    button: true,
+                                    container: true,
+                                    identifier: 'bottomnav_profile_button',
                                     child: wrapWithModel(
                                       model: _model.iconButtonBadgeProfileModel,
                                       updateCallback: () => safeSetState(() {}),
@@ -1079,7 +1133,10 @@ class _MobileNavigationBarWidgetState extends State<MobileNavigationBarWidget>
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Builder(
                         builder: (context) => Semantics(
-                          label: 'Quick Action Button Stack',
+                          label: 'Quick actions',
+                          button: true,
+                          container: true,
+                          identifier: 'bottomnav_quick_action_button',
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,

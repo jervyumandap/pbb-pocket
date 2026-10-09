@@ -57,6 +57,8 @@ class _BillerTileComponentWidgetState extends State<BillerTileComponentWidget> {
   Widget build(BuildContext context) {
     return Semantics(
       label: 'Biller-Item',
+      container: true,
+      identifier: 'biller_item',
       child: InkWell(
         splashColor: Colors.transparent,
         focusColor: Colors.transparent,
@@ -171,7 +173,9 @@ class _BillerTileComponentWidgetState extends State<BillerTileComponentWidget> {
                 ].divide(SizedBox(width: 12.0)),
               ),
               Semantics(
-                label: 'More-IconButton',
+                label: 'More',
+                button: true,
+                identifier: 'biller_tile_more_button',
                 child: FlutterFlowIconButton(
                   borderRadius: 8.0,
                   buttonSize: 40.0,

@@ -1052,6 +1052,9 @@ class _AccountVerificationPageWidgetState
                                     ),
                                     Semantics(
                                       label: 'Timer Row',
+                                      container: true,
+                                      identifier:
+                                          'account_verification_new_request_in',
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -1183,7 +1186,10 @@ class _AccountVerificationPageWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 60.0),
                                   child: Semantics(
-                                    label: 'Confirm_otp_button',
+                                    label: 'Confirm OTP',
+                                    button: true,
+                                    container: true,
+                                    identifier: 'confirm_otp_button',
                                     child: wrapWithModel(
                                       model: _model.primaryButtonComponentModel,
                                       updateCallback: () => safeSetState(() {}),

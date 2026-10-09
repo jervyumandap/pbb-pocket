@@ -182,8 +182,10 @@ class _ReportProblemsScamOrPhishingWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportScam_issue_component',
+                                                  label: 'Report issue',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportscam_issue_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -347,8 +349,10 @@ class _ReportProblemsScamOrPhishingWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportScam_contacted_component',
+                                                  label: 'Report contacted',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportscam_contacted_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -516,8 +520,10 @@ class _ReportProblemsScamOrPhishingWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportScam_happened_component',
+                                                  label: 'Report happened',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportscam_happened_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -683,8 +689,10 @@ class _ReportProblemsScamOrPhishingWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportScam_information_component',
+                                                  label: 'Report information',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportscam_information_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -845,8 +853,9 @@ class _ReportProblemsScamOrPhishingWidgetState
                                               ].divide(SizedBox(height: 5.0)),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'reportScam_details_component',
+                                              label: 'Additional details',
+                                              identifier:
+                                                  'reportscam_details_component',
                                               child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
@@ -1178,7 +1187,9 @@ class _ReportProblemsScamOrPhishingWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 50.0),
                         child: Semantics(
-                          label: 'reportScam_submit_button',
+                          label: 'Report submit',
+                          button: true,
+                          identifier: 'reportscam_submit_button',
                           child: FFButtonWidget(
                             onPressed: () async {
                               if (_model.informationSelected == null) {

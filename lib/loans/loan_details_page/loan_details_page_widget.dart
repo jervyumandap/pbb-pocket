@@ -254,6 +254,10 @@ class _LoanDetailsPageWidgetState extends State<LoanDetailsPageWidget> {
                                               Semantics(
                                                 label:
                                                     'loan_details_menu_mobile',
+                                                button: true,
+                                                container: true,
+                                                identifier:
+                                                    'loan_details_menu_mobile',
                                                 child: wrapWithModel(
                                                   model: _model
                                                       .customMobileAppBarModel,
@@ -871,7 +875,9 @@ class _LoanDetailsPageWidgetState extends State<LoanDetailsPageWidget> {
                                                               builder:
                                                                   (context) =>
                                                                       Semantics(
-                                                                label:
+                                                                label: 'Pay',
+                                                                button: true,
+                                                                identifier:
                                                                     'loan_details_pay_button',
                                                                 child:
                                                                     FFButtonWidget(
@@ -1892,7 +1898,10 @@ class _LoanDetailsPageWidgetState extends State<LoanDetailsPageWidget> {
                                                           builder: (context) =>
                                                               Semantics(
                                                             label:
-                                                                'loanDetails_transactionHistoryDownload_button',
+                                                                'Transaction history download',
+                                                            button: true,
+                                                            identifier:
+                                                                'loandetails_transactionhistorydownload_button',
                                                             child:
                                                                 FFButtonWidget(
                                                               onPressed:
@@ -2122,8 +2131,10 @@ class _LoanDetailsPageWidgetState extends State<LoanDetailsPageWidget> {
                                                               .start,
                                                       children: [
                                                         Semantics(
-                                                          label:
-                                                              'loanDetails_allFilter_button',
+                                                          label: 'All filter',
+                                                          button: true,
+                                                          identifier:
+                                                              'loandetails_allfilter_button',
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
@@ -2195,7 +2206,10 @@ class _LoanDetailsPageWidgetState extends State<LoanDetailsPageWidget> {
                                                         ),
                                                         Semantics(
                                                           label:
-                                                              'loanDetails_oneYearFilter_button',
+                                                              'One year filter',
+                                                          button: true,
+                                                          identifier:
+                                                              'loandetails_oneyearfilter_button',
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
@@ -2267,7 +2281,10 @@ class _LoanDetailsPageWidgetState extends State<LoanDetailsPageWidget> {
                                                         ),
                                                         Semantics(
                                                           label:
-                                                              'loanDetails_sixMonthsFilter_button',
+                                                              'Six months filter',
+                                                          button: true,
+                                                          identifier:
+                                                              'loandetails_sixmonthsfilter_button',
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {
@@ -2340,7 +2357,10 @@ class _LoanDetailsPageWidgetState extends State<LoanDetailsPageWidget> {
                                                         ),
                                                         Semantics(
                                                           label:
-                                                              'loanDetails_thirtyDaysFilter_button',
+                                                              'Thirty days filter',
+                                                          button: true,
+                                                          identifier:
+                                                              'loandetails_thirtydaysfilter_button',
                                                           child: FFButtonWidget(
                                                             onPressed:
                                                                 () async {

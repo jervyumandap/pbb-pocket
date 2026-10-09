@@ -246,7 +246,8 @@ class _OpenTimeDepositDetailsPageWidgetState
                             Container(
                               decoration: BoxDecoration(),
                               child: Semantics(
-                                label: 'open_time_deposit_amount_field',
+                                label: 'Amount',
+                                identifier: 'open_time_deposit_amount_field',
                                 child: TextFormField(
                                   controller:
                                       _model.tetxfieldAmountTextController,
@@ -471,108 +472,116 @@ class _OpenTimeDepositDetailsPageWidgetState
                               ),
                           ],
                         ),
-                        FlutterFlowChoiceChips(
-                          options: [
-                            ChipData('+ ${widget.product?.currency} 10,000'),
-                            ChipData('+ ${widget.product?.currency} 50,000'),
-                            ChipData('+ ${widget.product?.currency} 100,000'),
-                            ChipData('+ ${widget.product?.currency} 500,000')
-                          ],
-                          onChanged: (val) async {
-                            safeSetState(() =>
-                                _model.choiceChipsValue = val?.firstOrNull);
-                            _model.amount =
-                                functions.stringToDouble((String value) {
-                              return value.replaceAll(RegExp(r'\D'), '');
-                            }(_model.choiceChipsValue!));
-                            safeSetState(() {});
-                            _model.tdCalculatedEarningsOutputs =
-                                await actions.tdCalculateEarnings(
-                              _model.amount!,
-                              widget.product!.tenorDays.firstOrNull!,
-                              widget.product!.interestRateAnnual,
-                              widget.product!.currency,
-                            );
-                            _model.timeDepositComputationOutput =
-                                TimeDepositComputationModelStruct.maybeFromMap(
-                                    _model.tdCalculatedEarningsOutputs);
-                            safeSetState(() {});
-                            FFAppState().openTimeDepositState =
-                                TimeDepositComputationModelStruct.maybeFromMap(
-                                    _model.tdCalculatedEarningsOutputs!)!;
-                            safeSetState(() {});
-                            FFAppState().updateOpenTimeDepositStateStruct(
-                              (e) =>
-                                  e..productCode = widget.product?.productCode,
-                            );
-                            safeSetState(() {});
-                            safeSetState(() {
-                              _model.tetxfieldAmountTextController?.text =
-                                  formatNumber(
-                                _model.amount,
-                                formatType: FormatType.decimal,
-                                decimalType: DecimalType.periodDecimal,
+                        Semantics(
+                          identifier: 'open_td_details_choicechips',
+                          child: FlutterFlowChoiceChips(
+                            options: [
+                              ChipData('+ ${widget.product?.currency} 10,000'),
+                              ChipData('+ ${widget.product?.currency} 50,000'),
+                              ChipData(
+                                  '+ ${widget.product?.currency} 100,000'),
+                              ChipData('+ ${widget.product?.currency} 500,000')
+                            ],
+                            onChanged: (val) async {
+                              safeSetState(() =>
+                                  _model.choiceChipsValue = val?.firstOrNull);
+                              _model.amount =
+                                  functions.stringToDouble((String value) {
+                                return value.replaceAll(RegExp(r'\D'), '');
+                              }(_model.choiceChipsValue!));
+                              safeSetState(() {});
+                              _model.tdCalculatedEarningsOutputs =
+                                  await actions.tdCalculateEarnings(
+                                _model.amount!,
+                                widget.product!.tenorDays.firstOrNull!,
+                                widget.product!.interestRateAnnual,
+                                widget.product!.currency,
                               );
-                            });
+                              _model.timeDepositComputationOutput =
+                                  TimeDepositComputationModelStruct
+                                      .maybeFromMap(
+                                          _model.tdCalculatedEarningsOutputs);
+                              safeSetState(() {});
+                              FFAppState().openTimeDepositState =
+                                  TimeDepositComputationModelStruct
+                                      .maybeFromMap(
+                                          _model.tdCalculatedEarningsOutputs!)!;
+                              safeSetState(() {});
+                              FFAppState().updateOpenTimeDepositStateStruct(
+                                (e) => e
+                                  ..productCode = widget.product?.productCode,
+                              );
+                              safeSetState(() {});
+                              safeSetState(() {
+                                _model.tetxfieldAmountTextController?.text =
+                                    formatNumber(
+                                  _model.amount,
+                                  formatType: FormatType.decimal,
+                                  decimalType: DecimalType.periodDecimal,
+                                );
+                              });
 
-                            safeSetState(() {});
-                          },
-                          selectedChipStyle: ChipStyle(
-                            backgroundColor: Colors.white,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  color: Color(0xFF5C6466),
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
-                                ),
-                            iconColor: FlutterFlowTheme.of(context).info,
-                            iconSize: 16.0,
-                            labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 6.0, 12.0, 6.0),
-                            elevation: 0.0,
-                            borderColor: Color(0xFFDAE3E5),
-                            borderWidth: 1.0,
-                            borderRadius: BorderRadius.circular(24.0),
+                              safeSetState(() {});
+                            },
+                            selectedChipStyle: ChipStyle(
+                              backgroundColor: Colors.white,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    color: Color(0xFF5C6466),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
+                                  ),
+                              iconColor: FlutterFlowTheme.of(context).info,
+                              iconSize: 16.0,
+                              labelPadding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 6.0, 12.0, 6.0),
+                              elevation: 0.0,
+                              borderColor: Color(0xFFDAE3E5),
+                              borderWidth: 1.0,
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                            unselectedChipStyle: ChipStyle(
+                              backgroundColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
+                                  ),
+                              iconColor:
+                                  FlutterFlowTheme.of(context).secondaryText,
+                              iconSize: 14.0,
+                              labelPadding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 6.0, 12.0, 6.0),
+                              elevation: 0.0,
+                              borderColor: Color(0xFFDAE3E5),
+                              borderWidth: 1.0,
+                              borderRadius: BorderRadius.circular(24.0),
+                            ),
+                            chipSpacing: 8.0,
+                            rowSpacing: 8.0,
+                            multiselect: false,
+                            alignment: WrapAlignment.start,
+                            controller: _model.choiceChipsValueController ??=
+                                FormFieldController<List<String>>(
+                              [],
+                            ),
+                            wrapped: false,
                           ),
-                          unselectedChipStyle: ChipStyle(
-                            backgroundColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
-                                ),
-                            iconColor:
-                                FlutterFlowTheme.of(context).secondaryText,
-                            iconSize: 14.0,
-                            labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 6.0, 12.0, 6.0),
-                            elevation: 0.0,
-                            borderColor: Color(0xFFDAE3E5),
-                            borderWidth: 1.0,
-                            borderRadius: BorderRadius.circular(24.0),
-                          ),
-                          chipSpacing: 8.0,
-                          rowSpacing: 8.0,
-                          multiselect: false,
-                          alignment: WrapAlignment.start,
-                          controller: _model.choiceChipsValueController ??=
-                              FormFieldController<List<String>>(
-                            [],
-                          ),
-                          wrapped: false,
                         ),
                       ].divide(SizedBox(height: 8.0)),
                     ),
@@ -1656,7 +1665,10 @@ class _OpenTimeDepositDetailsPageWidgetState
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 54.0),
                     child: Semantics(
-                      label: 'open_time_deposit_submit_button',
+                      label: 'Time deposit submit',
+                      button: true,
+                      container: true,
+                      identifier: 'open_time_deposit_submit_button',
                       child: wrapWithModel(
                         model: _model.primaryButtonComponentModel,
                         updateCallback: () => safeSetState(() {}),

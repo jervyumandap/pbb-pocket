@@ -277,7 +277,9 @@ class _RecoveryPasswordPageWidgetState extends State<RecoveryPasswordPageWidget>
                                               children: [
                                                 Expanded(
                                                   child: Semantics(
-                                                    label: 'Username_TextField',
+                                                    label: 'Username',
+                                                    identifier:
+                                                        'recovery_password_username',
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
@@ -448,8 +450,9 @@ class _RecoveryPasswordPageWidgetState extends State<RecoveryPasswordPageWidget>
                                               children: [
                                                 Expanded(
                                                   child: Semantics(
-                                                    label:
-                                                        'Account_Number_TextField',
+                                                    label: 'Account number',
+                                                    identifier:
+                                                        'recovery_password_account_number',
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
@@ -626,7 +629,9 @@ class _RecoveryPasswordPageWidgetState extends State<RecoveryPasswordPageWidget>
                                               children: [
                                                 Expanded(
                                                   child: Semantics(
-                                                    label: 'Email_TextField',
+                                                    label: 'Email',
+                                                    identifier:
+                                                        'recovery_password_email',
                                                     child: Container(
                                                       width: double.infinity,
                                                       child: TextFormField(
@@ -784,8 +789,11 @@ class _RecoveryPasswordPageWidgetState extends State<RecoveryPasswordPageWidget>
                                               ].divide(SizedBox(width: 17.0)),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'CustomDateLabelPicker_Widget',
+                                              label: 'Select date',
+                                              button: true,
+                                              container: true,
+                                              identifier:
+                                                  'recovery_password_date_picker',
                                               child: wrapWithModel(
                                                 model: _model
                                                     .customDateLabelPickerWidgetModel,
@@ -914,7 +922,8 @@ class _RecoveryPasswordPageWidgetState extends State<RecoveryPasswordPageWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 20.0, 60.0),
                                 child: Semantics(
-                                  label: 'Validate-Button',
+                                  button: true,
+                                  identifier: 'recovery_password_validate',
                                   child: FFButtonWidget(
                                     onPressed:
                                         ((_model.usernameTextFieldTextController

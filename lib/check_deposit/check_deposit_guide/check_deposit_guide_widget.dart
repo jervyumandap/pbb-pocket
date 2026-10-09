@@ -125,34 +125,42 @@ class _CheckDepositGuideWidgetState extends State<CheckDepositGuideWidget>
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 70.0,
-            icon: FaIcon(
-              FontAwesomeIcons.arrowCircleLeft,
-              color: FlutterFlowTheme.of(context).primary,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              context.pop();
-            },
-          ),
-          actions: [
-            FlutterFlowIconButton(
+          leading: Semantics(
+            button: true,
+            identifier: 'check_deposit_guide_icon_button',
+            child: FlutterFlowIconButton(
               borderColor: Colors.transparent,
               borderRadius: 30.0,
               borderWidth: 1.0,
               buttonSize: 70.0,
-              icon: Icon(
-                Icons.segment_outlined,
+              icon: FaIcon(
+                FontAwesomeIcons.arrowCircleLeft,
                 color: FlutterFlowTheme.of(context).primary,
                 size: 30.0,
               ),
               onPressed: () async {
                 context.pop();
               },
+            ),
+          ),
+          actions: [
+            Semantics(
+              button: true,
+              identifier: 'check_deposit_guide_icon_button_2',
+              child: FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 70.0,
+                icon: Icon(
+                  Icons.segment_outlined,
+                  color: FlutterFlowTheme.of(context).primary,
+                  size: 30.0,
+                ),
+                onPressed: () async {
+                  context.pop();
+                },
+              ),
             ),
           ],
           centerTitle: true,
@@ -879,104 +887,64 @@ class _CheckDepositGuideWidgetState extends State<CheckDepositGuideWidget>
                         verticalDirection: VerticalDirection.down,
                         clipBehavior: Clip.none,
                         children: [
-                          FFButtonWidget(
-                            onPressed: () async {
-                              if (_model.pageViewCurrentIndex1 == 2) {
-                                context.pushNamed(
-                                  UploadCheckComponentWidget.routeName,
-                                  extra: <String, dynamic>{
-                                    '__transition_info__': TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 0),
-                                    ),
-                                  },
-                                );
-                              } else {
-                                await _model.pageViewController1?.nextPage(
-                                  duration: Duration(milliseconds: 300),
-                                  curve: Curves.ease,
-                                );
-                                safeSetState(() {});
-                              }
-                            },
-                            text: valueOrDefault<String>(
-                              () {
-                                if (_model.pageViewCurrentIndex1 == 0) {
-                                  return 'Get Started';
-                                } else if (_model.pageViewCurrentIndex1 == 2) {
-                                  return 'Try It Now';
-                                } else {
-                                  return 'Next';
-                                }
-                              }(),
-                              'Try It Now',
-                            ),
-                            options: FFButtonOptions(
-                              width: valueOrDefault<double>(
-                                (_model.pageViewCurrentIndex1 == 1) ||
-                                        (_model.pageViewCurrentIndex1 == 2)
-                                    ? 230.0
-                                    : double.infinity,
-                                230.0,
-                              ),
-                              height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .titleSmallFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .titleSmallIsCustom,
-                                  ),
-                              elevation: 2.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(40.0),
-                            ),
-                          ),
-                          if (_model.pageViewCurrentIndex1 != 0 ? true : false)
-                            FFButtonWidget(
+                          Semantics(
+                            button: true,
+                            identifier: 'check_deposit_guide_button',
+                            child: FFButtonWidget(
                               onPressed: () async {
-                                context.pushNamed(
-                                  UploadCheckComponentWidget.routeName,
-                                  extra: <String, dynamic>{
-                                    '__transition_info__': TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 0),
-                                    ),
-                                  },
-                                );
+                                if (_model.pageViewCurrentIndex1 == 2) {
+                                  context.pushNamed(
+                                    UploadCheckComponentWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      '__transition_info__': TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 0),
+                                      ),
+                                    },
+                                  );
+                                } else {
+                                  await _model.pageViewController1?.nextPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease,
+                                  );
+                                  safeSetState(() {});
+                                }
                               },
-                              text: 'Skip',
+                              text: valueOrDefault<String>(
+                                () {
+                                  if (_model.pageViewCurrentIndex1 == 0) {
+                                    return 'Get Started';
+                                  } else if (_model.pageViewCurrentIndex1 ==
+                                      2) {
+                                    return 'Try It Now';
+                                  } else {
+                                    return 'Next';
+                                  }
+                                }(),
+                                'Try It Now',
+                              ),
                               options: FFButtonOptions(
-                                width: 90.0,
+                                width: valueOrDefault<double>(
+                                  (_model.pageViewCurrentIndex1 == 1) ||
+                                          (_model.pageViewCurrentIndex1 == 2)
+                                      ? 230.0
+                                      : double.infinity,
+                                  230.0,
+                                ),
                                 height: 50.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .titleSmallFamily,
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                                          .secondaryBackground,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)
@@ -987,44 +955,98 @@ class _CheckDepositGuideWidgetState extends State<CheckDepositGuideWidget>
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(50.0),
+                                borderRadius: BorderRadius.circular(40.0),
+                              ),
+                            ),
+                          ),
+                          if (_model.pageViewCurrentIndex1 != 0 ? true : false)
+                            Semantics(
+                              button: true,
+                              identifier: 'check_deposit_guide_button_2',
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  context.pushNamed(
+                                    UploadCheckComponentWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      '__transition_info__': TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 0),
+                                      ),
+                                    },
+                                  );
+                                },
+                                text: 'Skip',
+                                options: FFButtonOptions(
+                                  width: 90.0,
+                                  height: 50.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleSmallFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .titleSmallIsCustom,
+                                      ),
+                                  elevation: 2.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
                               ),
                             ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Theme(
-                                data: ThemeData(
-                                  checkboxTheme: CheckboxThemeData(
-                                    visualDensity: VisualDensity.compact,
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(4.0),
+                              Semantics(
+                                identifier: 'check_deposit_guide_checkbox',
+                                child: Theme(
+                                  data: ThemeData(
+                                    checkboxTheme: CheckboxThemeData(
+                                      visualDensity: VisualDensity.compact,
+                                      materialTapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(4.0),
+                                      ),
                                     ),
+                                    unselectedWidgetColor:
+                                        FlutterFlowTheme.of(context).alternate,
                                   ),
-                                  unselectedWidgetColor:
-                                      FlutterFlowTheme.of(context).alternate,
-                                ),
-                                child: Checkbox(
-                                  value: _model.checkboxValue1 ??= false,
-                                  onChanged: (newValue) async {
-                                    safeSetState(() =>
-                                        _model.checkboxValue1 = newValue!);
-                                  },
-                                  side: (FlutterFlowTheme.of(context)
-                                              .alternate !=
-                                          null)
-                                      ? BorderSide(
-                                          width: 2,
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                        )
-                                      : null,
-                                  activeColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  checkColor: FlutterFlowTheme.of(context).info,
+                                  child: Checkbox(
+                                    value: _model.checkboxValue1 ??= false,
+                                    onChanged: (newValue) async {
+                                      safeSetState(() =>
+                                          _model.checkboxValue1 = newValue!);
+                                    },
+                                    side: (FlutterFlowTheme.of(context)
+                                                .alternate !=
+                                            null)
+                                        ? BorderSide(
+                                            width: 2,
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                          )
+                                        : null,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    checkColor:
+                                        FlutterFlowTheme.of(context).info,
+                                  ),
                                 ),
                               ),
                               Align(
@@ -1899,98 +1921,58 @@ class _CheckDepositGuideWidgetState extends State<CheckDepositGuideWidget>
                         verticalDirection: VerticalDirection.down,
                         clipBehavior: Clip.none,
                         children: [
-                          FFButtonWidget(
-                            onPressed: () async {
-                              if (_model.pageViewCurrentIndex2 == 2) {
-                                context.pushNamed(
-                                  UploadCheckComponentWidget.routeName,
-                                  extra: <String, dynamic>{
-                                    '__transition_info__': TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 0),
-                                    ),
-                                  },
-                                );
-                              } else {
-                                await _model.pageViewController2?.nextPage(
-                                  duration: Duration(milliseconds: 300),
-                                  curve: Curves.ease,
-                                );
-                                safeSetState(() {});
-                              }
-                            },
-                            text: valueOrDefault<String>(
-                              () {
-                                if (_model.pageViewCurrentIndex2 == 0) {
-                                  return 'Get Started';
-                                } else if (_model.pageViewCurrentIndex2 == 2) {
-                                  return 'Try It Now';
-                                } else {
-                                  return 'Next';
-                                }
-                              }(),
-                              'Try It Now',
-                            ),
-                            options: FFButtonOptions(
-                              width: 230.0,
-                              height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .titleSmallFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .titleSmallIsCustom,
-                                  ),
-                              elevation: 2.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(40.0),
-                            ),
-                          ),
-                          if (_model.pageViewCurrentIndex2 != 0 ? true : false)
-                            FFButtonWidget(
+                          Semantics(
+                            button: true,
+                            identifier: 'check_deposit_guide_button_3',
+                            child: FFButtonWidget(
                               onPressed: () async {
-                                context.pushNamed(
-                                  UploadCheckComponentWidget.routeName,
-                                  extra: <String, dynamic>{
-                                    '__transition_info__': TransitionInfo(
-                                      hasTransition: true,
-                                      transitionType: PageTransitionType.fade,
-                                      duration: Duration(milliseconds: 0),
-                                    ),
-                                  },
-                                );
+                                if (_model.pageViewCurrentIndex2 == 2) {
+                                  context.pushNamed(
+                                    UploadCheckComponentWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      '__transition_info__': TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 0),
+                                      ),
+                                    },
+                                  );
+                                } else {
+                                  await _model.pageViewController2?.nextPage(
+                                    duration: Duration(milliseconds: 300),
+                                    curve: Curves.ease,
+                                  );
+                                  safeSetState(() {});
+                                }
                               },
-                              text: 'Skip',
+                              text: valueOrDefault<String>(
+                                () {
+                                  if (_model.pageViewCurrentIndex2 == 0) {
+                                    return 'Get Started';
+                                  } else if (_model.pageViewCurrentIndex2 ==
+                                      2) {
+                                    return 'Try It Now';
+                                  } else {
+                                    return 'Next';
+                                  }
+                                }(),
+                                'Try It Now',
+                              ),
                               options: FFButtonOptions(
-                                width: 90.0,
+                                width: 230.0,
                                 height: 50.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .titleSmallFamily,
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                                          .secondaryBackground,
                                       letterSpacing: 0.0,
                                       useGoogleFonts:
                                           !FlutterFlowTheme.of(context)
@@ -2001,44 +1983,98 @@ class _CheckDepositGuideWidgetState extends State<CheckDepositGuideWidget>
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
-                                borderRadius: BorderRadius.circular(50.0),
+                                borderRadius: BorderRadius.circular(40.0),
+                              ),
+                            ),
+                          ),
+                          if (_model.pageViewCurrentIndex2 != 0 ? true : false)
+                            Semantics(
+                              button: true,
+                              identifier: 'check_deposit_guide_button_4',
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  context.pushNamed(
+                                    UploadCheckComponentWidget.routeName,
+                                    extra: <String, dynamic>{
+                                      '__transition_info__': TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 0),
+                                      ),
+                                    },
+                                  );
+                                },
+                                text: 'Skip',
+                                options: FFButtonOptions(
+                                  width: 90.0,
+                                  height: 50.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleSmallFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .titleSmallIsCustom,
+                                      ),
+                                  elevation: 2.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(50.0),
+                                ),
                               ),
                             ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Theme(
-                                data: ThemeData(
-                                  checkboxTheme: CheckboxThemeData(
-                                    visualDensity: VisualDensity.compact,
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(4.0),
+                              Semantics(
+                                identifier: 'check_deposit_guide_checkbox_2',
+                                child: Theme(
+                                  data: ThemeData(
+                                    checkboxTheme: CheckboxThemeData(
+                                      visualDensity: VisualDensity.compact,
+                                      materialTapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(4.0),
+                                      ),
                                     ),
+                                    unselectedWidgetColor:
+                                        FlutterFlowTheme.of(context).alternate,
                                   ),
-                                  unselectedWidgetColor:
-                                      FlutterFlowTheme.of(context).alternate,
-                                ),
-                                child: Checkbox(
-                                  value: _model.checkboxValue2 ??= false,
-                                  onChanged: (newValue) async {
-                                    safeSetState(() =>
-                                        _model.checkboxValue2 = newValue!);
-                                  },
-                                  side: (FlutterFlowTheme.of(context)
-                                              .alternate !=
-                                          null)
-                                      ? BorderSide(
-                                          width: 2,
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                        )
-                                      : null,
-                                  activeColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  checkColor: FlutterFlowTheme.of(context).info,
+                                  child: Checkbox(
+                                    value: _model.checkboxValue2 ??= false,
+                                    onChanged: (newValue) async {
+                                      safeSetState(() =>
+                                          _model.checkboxValue2 = newValue!);
+                                    },
+                                    side: (FlutterFlowTheme.of(context)
+                                                .alternate !=
+                                            null)
+                                        ? BorderSide(
+                                            width: 2,
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                          )
+                                        : null,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    checkColor:
+                                        FlutterFlowTheme.of(context).info,
+                                  ),
                                 ),
                               ),
                               Align(

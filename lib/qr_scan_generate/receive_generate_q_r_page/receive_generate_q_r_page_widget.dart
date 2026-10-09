@@ -439,6 +439,9 @@ class _ReceiveGenerateQRPageWidgetState
                                                         Semantics(
                                                           label:
                                                               'Add Amount Button',
+                                                          button: true,
+                                                          identifier:
+                                                              'receive_qr_generate',
                                                           child: FFButtonWidget(
                                                             onPressed: true
                                                                 ? null
@@ -741,6 +744,9 @@ class _ReceiveGenerateQRPageWidgetState
                                                   builder: (context) =>
                                                       Semantics(
                                                     label: 'Share Button',
+                                                    button: true,
+                                                    identifier:
+                                                        'receive_qr_share',
                                                     child: FFButtonWidget(
                                                       onPressed: () async {
                                                         var _shouldSetState =
@@ -868,7 +874,9 @@ class _ReceiveGenerateQRPageWidgetState
                                               ),
                                               Expanded(
                                                 child: Semantics(
-                                                  label: 'Save-Button',
+                                                  label: 'Save',
+                                                  button: true,
+                                                  identifier: 'save_button',
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
                                                       _model.pbbfile =

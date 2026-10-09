@@ -110,7 +110,10 @@ class _CustomWebAppBarWidgetState extends State<CustomWebAppBarWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Semantics(
-                      label: 'Back Button',
+                      label: 'Back',
+                      button: true,
+                      container: true,
+                      identifier: 'webappbar_back_button',
                       child: wrapWithModel(
                         model: _model.iconButtonBadgeAModel1,
                         updateCallback: () => safeSetState(() {}),
@@ -155,7 +158,10 @@ class _CustomWebAppBarWidgetState extends State<CustomWebAppBarWidget> {
                   children: [
                     if (widget.leftButtonIcon != null)
                       Semantics(
-                        label: 'IconButtonBadge-A',
+                        label: 'More options',
+                        button: true,
+                        container: true,
+                        identifier: 'webappbar_left_button',
                         child: wrapWithModel(
                           model: _model.iconButtonBadgeAModel2,
                           updateCallback: () => safeSetState(() {}),
@@ -181,7 +187,10 @@ class _CustomWebAppBarWidgetState extends State<CustomWebAppBarWidget> {
                       ),
                     if (widget.midButtonIcon != null)
                       Semantics(
-                        label: 'IconButtonBadge-B',
+                        label: 'More options',
+                        button: true,
+                        container: true,
+                        identifier: 'webappbar_mid_button',
                         child: wrapWithModel(
                           model: _model.iconButtonBadgeBModel,
                           updateCallback: () => safeSetState(() {}),
@@ -206,7 +215,10 @@ class _CustomWebAppBarWidgetState extends State<CustomWebAppBarWidget> {
                       ),
                     if (widget.rightButtonIcon != null)
                       Semantics(
-                        label: 'IconButtonBadge-C',
+                        label: 'More options',
+                        button: true,
+                        container: true,
+                        identifier: 'webappbar_right_button',
                         child: wrapWithModel(
                           model: _model.iconButtonBadgeCModel,
                           updateCallback: () => safeSetState(() {}),

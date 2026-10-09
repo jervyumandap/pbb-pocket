@@ -267,45 +267,52 @@ class _LoanPageWidgetState extends State<LoanPageWidget> {
                                       ),
                                     ].divide(SizedBox(height: 12.0)),
                                   ),
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      context.pushNamed(
-                                        TransferToWalletPageWidget.routeName,
-                                        extra: <String, dynamic>{
-                                          '__transition_info__': TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 0),
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    text: 'Transfer to wallet',
-                                    options: FFButtonOptions(
-                                      width: double.infinity,
-                                      height: 48.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryButton,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
-                                            color: Color(0xFF00A8CF),
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .titleSmallIsCustom,
-                                          ),
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(16.0),
+                                  Semantics(
+                                    button: true,
+                                    identifier: 'loan_button',
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        context.pushNamed(
+                                          TransferToWalletPageWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            '__transition_info__':
+                                                TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 0),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      text: 'Transfer to wallet',
+                                      options: FFButtonOptions(
+                                        width: double.infinity,
+                                        height: 48.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryButton,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmallFamily,
+                                              color: Color(0xFF00A8CF),
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .titleSmallIsCustom,
+                                            ),
+                                        elevation: 0.0,
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
                                     ),
                                   ),
                                   Column(
@@ -378,47 +385,55 @@ class _LoanPageWidgetState extends State<LoanPageWidget> {
                                       ),
                                     ].divide(SizedBox(height: 8.0)),
                                   ),
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      context.pushNamed(
-                                        PayLoanPageWidget.routeName,
-                                        extra: <String, dynamic>{
-                                          '__transition_info__': TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 0),
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    text: 'Pay now',
-                                    options: FFButtonOptions(
-                                      width: double.infinity,
-                                      height: 48.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryButton,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyLargeFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .info,
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts:
-                                                !FlutterFlowTheme.of(context)
-                                                    .bodyLargeIsCustom,
-                                          ),
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(16.0),
+                                  Semantics(
+                                    button: true,
+                                    identifier: 'loan_button_2',
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        context.pushNamed(
+                                          PayLoanPageWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            '__transition_info__':
+                                                TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 0),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      text: 'Pay now',
+                                      options: FFButtonOptions(
+                                        width: double.infinity,
+                                        height: 48.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryButton,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLargeFamily,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  !FlutterFlowTheme.of(context)
+                                                      .bodyLargeIsCustom,
+                                            ),
+                                        elevation: 0.0,
+                                        borderRadius:
+                                            BorderRadius.circular(16.0),
+                                      ),
                                     ),
                                   ),
                                   Text(
@@ -555,46 +570,49 @@ class _LoanPageWidgetState extends State<LoanPageWidget> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Expanded(
-                                        child: FFButtonWidget(
-                                          onPressed: () {
-                                            print('Button pressed ...');
-                                          },
-                                          text: 'View statement',
-                                          options: FFButtonOptions(
-                                            height: 44.0,
-                                            padding: EdgeInsets.all(8.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts:
-                                                          !FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumIsCustom,
-                                                    ),
-                                            elevation: 0.0,
-                                            borderSide: BorderSide(
+                                        child: Semantics(
+                                          button: true,
+                                          identifier: 'loan_button_3',
+                                          child: FFButtonWidget(
+                                            onPressed: () {
+                                              print('Button pressed ...');
+                                            },
+                                            text: 'View statement',
+                                            options: FFButtonOptions(
+                                              height: 44.0,
+                                              padding: EdgeInsets.all(8.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              width: 1.0,
+                                                      .primaryBackground,
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    letterSpacing: 0.0,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumIsCustom,
+                                                  ),
+                                              elevation: 0.0,
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(22.0),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(22.0),
                                           ),
                                         ),
                                       ),

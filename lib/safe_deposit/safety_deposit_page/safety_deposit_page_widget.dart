@@ -1382,158 +1382,166 @@ class _SafetyDepositPageWidgetState extends State<SafetyDepositPageWidget> {
                           builder: (context) => Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 60.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                if ((_model.selectedBoxSize == null ||
-                                        _model.selectedBoxSize == '') ||
-                                    (FFAppState()
-                                                .safetyDepositBoxSelectedBranch ==
-                                            '')) {
-                                  _model.isInvalidRequest = true;
-                                  safeSetState(() {});
+                            child: Semantics(
+                              button: true,
+                              identifier: 'safety_deposit_password_login',
+                              child: FFButtonWidget(
+                                onPressed: () async {
                                   if ((_model.selectedBoxSize == null ||
-                                          _model.selectedBoxSize == '') &&
+                                          _model.selectedBoxSize == '') ||
                                       (FFAppState()
                                                   .safetyDepositBoxSelectedBranch ==
                                               '')) {
-                                    _model.isInvalidRequestMessage =
-                                        'Please select your preferred branch';
-                                    _model.isInvalidRequestMessage2 =
-                                        'Please select your preferred box size';
+                                    _model.isInvalidRequest = true;
                                     safeSetState(() {});
-                                  } else if ((FFAppState()
-                                                  .safetyDepositBoxSelectedBranch ==
-                                              '') &&
-                                      (_model.selectedBoxSize != null &&
-                                          _model.selectedBoxSize != '')) {
-                                    _model.isInvalidRequestMessage =
-                                        'Please select your preferred branch';
-                                    safeSetState(() {});
+                                    if ((_model.selectedBoxSize == null ||
+                                            _model.selectedBoxSize == '') &&
+                                        (FFAppState()
+                                                    .safetyDepositBoxSelectedBranch ==
+                                                '')) {
+                                      _model.isInvalidRequestMessage =
+                                          'Please select your preferred branch';
+                                      _model.isInvalidRequestMessage2 =
+                                          'Please select your preferred box size';
+                                      safeSetState(() {});
+                                    } else if ((FFAppState()
+                                                    .safetyDepositBoxSelectedBranch ==
+                                                '') &&
+                                        (_model.selectedBoxSize != null &&
+                                            _model.selectedBoxSize != '')) {
+                                      _model.isInvalidRequestMessage =
+                                          'Please select your preferred branch';
+                                      safeSetState(() {});
+                                    } else {
+                                      _model.isInvalidRequestMessage2 =
+                                          'Please select your preferred box size';
+                                      safeSetState(() {});
+                                    }
                                   } else {
-                                    _model.isInvalidRequestMessage2 =
-                                        'Please select your preferred box size';
+                                    _model.isInvalidRequest = false;
+                                    _model.isInvalidRequestMessage = null;
+                                    _model.isInvalidRequestMessage2 = null;
                                     safeSetState(() {});
-                                  }
-                                } else {
-                                  _model.isInvalidRequest = false;
-                                  _model.isInvalidRequestMessage = null;
-                                  _model.isInvalidRequestMessage2 = null;
-                                  safeSetState(() {});
-                                  _model.apiResult444 =
-                                      await WhitebankGroupAPIGroup
-                                          .retailSafetyDepositBoxRequestsCall
-                                          .call(
-                                    idempotencyKey: functions.createUuid(),
-                                    accountNumber: FFAppState()
-                                                    .selectedAccount
-                                                    .accountNumber !=
-                                                ''
-                                        ? FFAppState()
-                                            .selectedAccount
-                                            .fullAccountNumber
-                                        : FFAppState()
-                                            .AccountsState
-                                            .firstOrNull
-                                            ?.fullAccountNumber,
-                                    branchId: FFAppState()
-                                        .safetyDepositBoxSelectedBranch,
-                                    boxSize: _model.selectedBoxSize,
-                                    baseURL:
-                                        FFDevEnvironmentValues().WBPBASEURL,
-                                    accessToken: currentAuthenticationToken,
-                                  );
-
-                                  if ((_model.apiResult444?.succeeded ??
-                                      true)) {
-                                    context.pushNamed(
-                                      SafetyDepositSuccessPageWidget.routeName,
-                                      queryParameters: {
-                                        'safetyDepositBoxModel': serializeParam(
-                                          SafetyDepositBoxSuccessModelStruct
-                                              .maybeFromMap((_model
-                                                      .apiResult444?.jsonBody ??
-                                                  '')),
-                                          ParamType.DataStruct,
-                                        ),
-                                      }.withoutNulls,
+                                    _model.apiResult444 =
+                                        await WhitebankGroupAPIGroup
+                                            .retailSafetyDepositBoxRequestsCall
+                                            .call(
+                                      idempotencyKey: functions.createUuid(),
+                                      accountNumber: FFAppState()
+                                                      .selectedAccount
+                                                      .accountNumber !=
+                                                  ''
+                                          ? FFAppState()
+                                              .selectedAccount
+                                              .fullAccountNumber
+                                          : FFAppState()
+                                              .AccountsState
+                                              .firstOrNull
+                                              ?.fullAccountNumber,
+                                      branchId: FFAppState()
+                                          .safetyDepositBoxSelectedBranch,
+                                      boxSize: _model.selectedBoxSize,
+                                      baseURL:
+                                          FFDevEnvironmentValues().WBPBASEURL,
+                                      accessToken: currentAuthenticationToken,
                                     );
-                                  } else {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (dialogContext) {
-                                        return Dialog(
-                                          elevation: 0,
-                                          insetPadding: EdgeInsets.zero,
-                                          backgroundColor: Colors.transparent,
-                                          alignment: AlignmentDirectional(
-                                                  0.0, 0.0)
-                                              .resolve(
-                                                  Directionality.of(context)),
-                                          child: WebViewAware(
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                FocusScope.of(dialogContext)
-                                                    .unfocus();
-                                                FocusManager
-                                                    .instance.primaryFocus
-                                                    ?.unfocus();
-                                              },
-                                              child:
-                                                  CustomInformationalDialogWidget(
-                                                message: WhitebankGroupAPIGroup
-                                                    .retailSafetyDepositBoxRequestsCall
-                                                    .detail(
-                                                  (_model.apiResult444
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )!,
-                                                primaryButtonTitle: 'Close',
-                                                title: WhitebankGroupAPIGroup
-                                                    .retailSafetyDepositBoxRequestsCall
-                                                    .title(
-                                                  (_model.apiResult444
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ),
-                                                primaryButtonAction: () async {
-                                                  Navigator.pop(context);
+
+                                    if ((_model.apiResult444?.succeeded ??
+                                        true)) {
+                                      context.pushNamed(
+                                        SafetyDepositSuccessPageWidget
+                                            .routeName,
+                                        queryParameters: {
+                                          'safetyDepositBoxModel':
+                                              serializeParam(
+                                            SafetyDepositBoxSuccessModelStruct
+                                                .maybeFromMap((_model
+                                                        .apiResult444
+                                                        ?.jsonBody ??
+                                                    '')),
+                                            ParamType.DataStruct,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    } else {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (dialogContext) {
+                                          return Dialog(
+                                            elevation: 0,
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                            child: WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(dialogContext)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
                                                 },
-                                                secondaryButtonAction:
-                                                    () async {},
+                                                child:
+                                                    CustomInformationalDialogWidget(
+                                                  message: WhitebankGroupAPIGroup
+                                                      .retailSafetyDepositBoxRequestsCall
+                                                      .detail(
+                                                    (_model.apiResult444
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )!,
+                                                  primaryButtonTitle: 'Close',
+                                                  title: WhitebankGroupAPIGroup
+                                                      .retailSafetyDepositBoxRequestsCall
+                                                      .title(
+                                                    (_model.apiResult444
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  primaryButtonAction:
+                                                      () async {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  secondaryButtonAction:
+                                                      () async {},
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        );
-                                      },
-                                    );
+                                          );
+                                        },
+                                      );
+                                    }
                                   }
-                                }
 
-                                safeSetState(() {});
-                              },
-                              text: 'Continue',
-                              options: FFButtonOptions(
-                                width: double.infinity,
-                                height: 56.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconAlignment: IconAlignment.end,
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .titleSmallFamily,
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts:
-                                          !FlutterFlowTheme.of(context)
-                                              .titleSmallIsCustom,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(16.0),
+                                  safeSetState(() {});
+                                },
+                                text: 'Continue',
+                                options: FFButtonOptions(
+                                  width: double.infinity,
+                                  height: 56.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconAlignment: IconAlignment.end,
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleSmallFamily,
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts:
+                                            !FlutterFlowTheme.of(context)
+                                                .titleSmallIsCustom,
+                                      ),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
                               ),
                             ),
                           ),

@@ -307,8 +307,10 @@ class _ChequeInquiryPageWidgetState extends State<ChequeInquiryPageWidget> {
                                               ),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'chequeInquiry_selectAccount_component',
+                                              label: 'Select account',
+                                              container: true,
+                                              identifier:
+                                                  'chequeinquiry_selectaccount_component',
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -606,8 +608,10 @@ class _ChequeInquiryPageWidgetState extends State<ChequeInquiryPageWidget> {
                                               children: [
                                                 Expanded(
                                                   child: Semantics(
-                                                    label:
-                                                        'chequeInquiry_selectDate_component',
+                                                    label: 'Select date',
+                                                    container: true,
+                                                    identifier:
+                                                        'chequeinquiry_selectdate_component',
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -735,8 +739,10 @@ class _ChequeInquiryPageWidgetState extends State<ChequeInquiryPageWidget> {
                                                 ),
                                                 Expanded(
                                                   child: Semantics(
-                                                    label:
-                                                        'chequeInquiry_selectCheque_component',
+                                                    label: 'Select',
+                                                    container: true,
+                                                    identifier:
+                                                        'chequeinquiry_selectcheque_component',
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -930,7 +936,11 @@ class _ChequeInquiryPageWidgetState extends State<ChequeInquiryPageWidget> {
                                                                     child:
                                                                         Semantics(
                                                                       label:
-                                                                          'chequeInquiry_selectFromDate_component',
+                                                                          'Select from date',
+                                                                      container:
+                                                                          true,
+                                                                      identifier:
+                                                                          'chequeinquiry_selectfromdate_component',
                                                                       child:
                                                                           wrapWithModel(
                                                                         model: _model
@@ -1056,7 +1066,11 @@ class _ChequeInquiryPageWidgetState extends State<ChequeInquiryPageWidget> {
                                                                     child:
                                                                         Semantics(
                                                                       label:
-                                                                          'chequeInquiry_selectToDate_component',
+                                                                          'Select to date',
+                                                                      container:
+                                                                          true,
+                                                                      identifier:
+                                                                          'chequeinquiry_selecttodate_component',
                                                                       child:
                                                                           wrapWithModel(
                                                                         model: _model
@@ -1204,85 +1218,80 @@ class _ChequeInquiryPageWidgetState extends State<ChequeInquiryPageWidget> {
                                                         autovalidateMode:
                                                             AutovalidateMode
                                                                 .disabled,
-                                                        child: Container(
-                                                          width:
-                                                              double.infinity,
-                                                          child: TextFormField(
-                                                            controller: _model
-                                                                .chequeNumberTextController,
-                                                            focusNode: _model
-                                                                .chequeNumberFocusNode,
-                                                            onChanged: (_) =>
-                                                                EasyDebounce
-                                                                    .debounce(
-                                                              '_model.chequeNumberTextController',
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      200),
-                                                              () =>
-                                                                  safeSetState(
-                                                                      () {}),
-                                                            ),
-                                                            autofocus: false,
-                                                            enabled: true,
-                                                            textInputAction:
-                                                                TextInputAction
-                                                                    .next,
-                                                            obscureText: false,
-                                                            decoration:
-                                                                InputDecoration(
-                                                              isDense: false,
-                                                              labelText:
-                                                                  'Enter cheque number...',
-                                                              labelStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .labelMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                        fontSize:
-                                                                            16.0,
-                                                                        letterSpacing:
-                                                                            0.0,
+                                                        child: Semantics(
+                                                          label:
+                                                              'Cheque number',
+                                                          identifier:
+                                                              'cheque_inquiry_cheque_number',
+                                                          child: Container(
+                                                            width:
+                                                                double.infinity,
+                                                            child:
+                                                                TextFormField(
+                                                              controller: _model
+                                                                  .chequeNumberTextController,
+                                                              focusNode: _model
+                                                                  .chequeNumberFocusNode,
+                                                              onChanged: (_) =>
+                                                                  EasyDebounce
+                                                                      .debounce(
+                                                                '_model.chequeNumberTextController',
+                                                                Duration(
+                                                                    milliseconds:
+                                                                        200),
+                                                                () =>
+                                                                    safeSetState(
+                                                                        () {}),
+                                                              ),
+                                                              autofocus: false,
+                                                              enabled: true,
+                                                              textInputAction:
+                                                                  TextInputAction
+                                                                      .next,
+                                                              obscureText:
+                                                                  false,
+                                                              decoration:
+                                                                  InputDecoration(
+                                                                isDense: false,
+                                                                labelText:
+                                                                    'Enter cheque number...',
+                                                                labelStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .inter(
                                                                         fontWeight:
                                                                             FontWeight.w500,
                                                                         fontStyle: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .fontStyle,
-                                                                        lineHeight:
-                                                                            1.0,
                                                                       ),
-                                                              hintText:
-                                                                  'Enter cheque number...',
-                                                              hintStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .inter(
-                                                                          fontWeight: FlutterFlowTheme.of(context)
-                                                                              .labelMedium
-                                                                              .fontWeight,
-                                                                          fontStyle: FlutterFlowTheme.of(context)
-                                                                              .labelMedium
-                                                                              .fontStyle,
-                                                                        ),
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .bgThemeColor,
-                                                                        fontSize:
-                                                                            16.0,
-                                                                        letterSpacing:
-                                                                            0.0,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .fontStyle,
+                                                                      lineHeight:
+                                                                          1.0,
+                                                                    ),
+                                                                hintText:
+                                                                    'Enter cheque number...',
+                                                                hintStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .inter(
                                                                         fontWeight: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .fontWeight,
@@ -1290,118 +1299,137 @@ class _ChequeInquiryPageWidgetState extends State<ChequeInquiryPageWidget> {
                                                                             .labelMedium
                                                                             .fontStyle,
                                                                       ),
-                                                              errorStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                        color: Color(
-                                                                            0xFFB3261E),
-                                                                        fontSize:
-                                                                            16.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                      ),
-                                                              enabledBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0xFF676666),
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                              ),
-                                                              focusedBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0xFF676666),
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                              ),
-                                                              errorBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0xFFB3261E),
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                              ),
-                                                              focusedErrorBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0xFFB3261E),
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                              ),
-                                                              filled: true,
-                                                              fillColor:
-                                                                  Colors.white,
-                                                              contentPadding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
+                                                                      color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMediumIsCustom,
+                                                                          .bgThemeColor,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .fontStyle,
+                                                                    ),
+                                                                errorStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
+                                                                      color: Color(
+                                                                          0xFFB3261E),
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w500,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .bodyMediumIsCustom,
+                                                                    ),
+                                                                enabledBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0xFF676666),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8.0),
                                                                 ),
-                                                            maxLines: null,
-                                                            keyboardType:
-                                                                const TextInputType
-                                                                    .numberWithOptions(
-                                                                    decimal:
-                                                                        true),
-                                                            validator: _model
-                                                                .chequeNumberTextControllerValidator
-                                                                .asValidator(
-                                                                    context),
-                                                            inputFormatters: [
-                                                              FilteringTextInputFormatter
-                                                                  .allow(RegExp(
-                                                                      '^[0-9.]+\$'))
-                                                            ],
+                                                                focusedBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0xFF676666),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8.0),
+                                                                ),
+                                                                errorBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0xFFB3261E),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8.0),
+                                                                ),
+                                                                focusedErrorBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0xFFB3261E),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8.0),
+                                                                ),
+                                                                filled: true,
+                                                                fillColor:
+                                                                    Colors
+                                                                        .white,
+                                                                contentPadding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            16.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .bodyMediumIsCustom,
+                                                                  ),
+                                                              maxLines: null,
+                                                              keyboardType:
+                                                                  const TextInputType
+                                                                      .numberWithOptions(
+                                                                      decimal:
+                                                                          true),
+                                                              validator: _model
+                                                                  .chequeNumberTextControllerValidator
+                                                                  .asValidator(
+                                                                      context),
+                                                              inputFormatters: [
+                                                                FilteringTextInputFormatter
+                                                                    .allow(RegExp(
+                                                                        '^[0-9.]+\$'))
+                                                              ],
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -1423,7 +1451,9 @@ class _ChequeInquiryPageWidgetState extends State<ChequeInquiryPageWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 50.0),
                                   child: Semantics(
-                                    label: 'chequeInquiry_submit_button',
+                                    label: 'Submit',
+                                    button: true,
+                                    identifier: 'chequeinquiry_submit_button',
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         if (_model.isAccountSelected) {

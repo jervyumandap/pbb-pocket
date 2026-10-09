@@ -151,40 +151,46 @@ class _SavedBillerItemComponentWidgetState
                     ),
                   ],
                 ),
-                FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
-                  },
-                  text: 'Pay Now',
-                  icon: Icon(
-                    Icons.arrow_forward_rounded,
-                    size: 16.0,
-                  ),
-                  options: FFButtonOptions(
-                    width: double.infinity,
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                    iconAlignment: IconAlignment.end,
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    iconColor: FlutterFlowTheme.of(context).info,
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          font: GoogleFonts.inter(
-                            fontWeight: FontWeight.w500,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .fontStyle,
-                          ),
-                          color: Colors.white,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
-                        ),
-                    elevation: 0.0,
-                    borderRadius: BorderRadius.circular(8.0),
+                Semantics(
+                  button: true,
+                  identifier: 'saved_biller_item_button',
+                  child: FFButtonWidget(
+                    onPressed: () {
+                      print('Button pressed ...');
+                    },
+                    text: 'Pay Now',
+                    icon: Icon(
+                      Icons.arrow_forward_rounded,
+                      size: 16.0,
+                    ),
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      iconAlignment: IconAlignment.end,
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconColor: FlutterFlowTheme.of(context).info,
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .fontStyle,
+                              ),
+                      elevation: 0.0,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
                   ),
                 ),
               ].divide(SizedBox(height: 10.0)),

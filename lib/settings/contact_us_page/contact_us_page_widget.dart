@@ -281,7 +281,9 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                     ),
                                               ),
                                               Semantics(
-                                                label: 'call_us_container',
+                                                label: 'Call',
+                                                container: true,
+                                                identifier: 'call_us_container',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -318,7 +320,10 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                   12.0,
                                                                   16.0),
                                                       child: Semantics(
-                                                        label: 'call_us_row',
+                                                        label: 'Call',
+                                                        container: true,
+                                                        identifier:
+                                                            'call_us_row',
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -435,7 +440,10 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                 ),
                                               ),
                                               Semantics(
-                                                label: 'call_us_2_container',
+                                                label: 'Call 2',
+                                                container: true,
+                                                identifier:
+                                                    'call_us_2_container',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -471,128 +479,119 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                   16.0,
                                                                   12.0,
                                                                   16.0),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          await launchURL(
-                                                              'tel:63283633000');
-                                                        },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Container(
-                                                                  width: 48.0,
-                                                                  height: 48.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Color(
-                                                                        0xFFE8F4F8),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            14.0),
+                                                      child: Semantics(
+                                                        container: true,
+                                                        identifier:
+                                                            'contact_us_call_us',
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            await launchURL(
+                                                                'tel:63283633000');
+                                                          },
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Container(
+                                                                    width: 48.0,
+                                                                    height:
+                                                                        48.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFE8F4F8),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              14.0),
+                                                                    ),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .credit_card,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
                                                                   ),
-                                                                  child: Icon(
-                                                                    Icons
-                                                                        .credit_card,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    size: 24.0,
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Call us',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                              color: Color(0xFF6A7282),
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                            ),
+                                                                      ),
+                                                                      Text(
+                                                                        'ATM Center Hotline',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                              color: Color(0xFF1A2B6B),
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                              useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                            ),
+                                                                      ),
+                                                                      Text(
+                                                                        '(632) 8-363-3000',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                              color: Color(0xFF00B4B4),
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.bold,
+                                                                              useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                            ),
+                                                                      ),
+                                                                    ].divide(SizedBox(
+                                                                        height:
+                                                                            5.0)),
                                                                   ),
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'Call us',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                            color:
-                                                                                Color(0xFF6A7282),
-                                                                            fontSize:
-                                                                                12.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                          ),
-                                                                    ),
-                                                                    Text(
-                                                                      'ATM Center Hotline',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                            color:
-                                                                                Color(0xFF1A2B6B),
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                            useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                          ),
-                                                                    ),
-                                                                    Text(
-                                                                      '(632) 8-363-3000',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                            color:
-                                                                                Color(0xFF00B4B4),
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                            useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                          ),
-                                                                    ),
-                                                                  ].divide(SizedBox(
-                                                                      height:
-                                                                          5.0)),
-                                                                ),
-                                                              ].divide(SizedBox(
-                                                                  width: 10.0)),
-                                                            ),
-                                                            Icon(
-                                                              Icons
-                                                                  .arrow_forward_ios_sharp,
-                                                              color: Color(
-                                                                  0xFF6A7282),
-                                                              size: 16.0,
-                                                            ),
-                                                          ],
+                                                                ].divide(SizedBox(
+                                                                    width:
+                                                                        10.0)),
+                                                              ),
+                                                              Icon(
+                                                                Icons
+                                                                    .arrow_forward_ios_sharp,
+                                                                color: Color(
+                                                                    0xFF6A7282),
+                                                                size: 16.0,
+                                                              ),
+                                                            ],
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -600,7 +599,10 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                 ),
                                               ),
                                               Semantics(
-                                                label: 'call_us_3_container',
+                                                label: 'Call 3',
+                                                container: true,
+                                                identifier:
+                                                    'call_us_3_container',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -636,128 +638,119 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                   16.0,
                                                                   12.0,
                                                                   16.0),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          await launchURL(
-                                                              'tel:1800103633000');
-                                                        },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Container(
-                                                                  width: 48.0,
-                                                                  height: 48.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Color(
-                                                                        0xFFE8F4F8),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            14.0),
+                                                      child: Semantics(
+                                                        container: true,
+                                                        identifier:
+                                                            'contact_us_call_us_2',
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            await launchURL(
+                                                                'tel:1800103633000');
+                                                          },
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Container(
+                                                                    width: 48.0,
+                                                                    height:
+                                                                        48.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFE8F4F8),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              14.0),
+                                                                    ),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .chat_bubble_outline_outlined,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
                                                                   ),
-                                                                  child: Icon(
-                                                                    Icons
-                                                                        .chat_bubble_outline_outlined,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    size: 24.0,
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        'Call us',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                              color: Color(0xFF6A7282),
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                            ),
+                                                                      ),
+                                                                      Text(
+                                                                        'Domestic Toll Free',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                              color: Color(0xFF1A2B6B),
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                              useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                            ),
+                                                                      ),
+                                                                      Text(
+                                                                        '1-800-10-363-3000',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                              color: Color(0xFF00B4B4),
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.bold,
+                                                                              useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                            ),
+                                                                      ),
+                                                                    ].divide(SizedBox(
+                                                                        height:
+                                                                            5.0)),
                                                                   ),
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'Call us',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                            color:
-                                                                                Color(0xFF6A7282),
-                                                                            fontSize:
-                                                                                12.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                          ),
-                                                                    ),
-                                                                    Text(
-                                                                      'Domestic Toll Free',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                            color:
-                                                                                Color(0xFF1A2B6B),
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                            useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                          ),
-                                                                    ),
-                                                                    Text(
-                                                                      '1-800-10-363-3000',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                            color:
-                                                                                Color(0xFF00B4B4),
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                            useGoogleFonts:
-                                                                                !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                          ),
-                                                                    ),
-                                                                  ].divide(SizedBox(
-                                                                      height:
-                                                                          5.0)),
-                                                                ),
-                                                              ].divide(SizedBox(
-                                                                  width: 10.0)),
-                                                            ),
-                                                            Icon(
-                                                              Icons
-                                                                  .arrow_forward_ios_sharp,
-                                                              color: Color(
-                                                                  0xFF6A7282),
-                                                              size: 16.0,
-                                                            ),
-                                                          ],
+                                                                ].divide(SizedBox(
+                                                                    width:
+                                                                        10.0)),
+                                                              ),
+                                                              Icon(
+                                                                Icons
+                                                                    .arrow_forward_ios_sharp,
+                                                                color: Color(
+                                                                    0xFF6A7282),
+                                                                size: 16.0,
+                                                              ),
+                                                            ],
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
@@ -1078,56 +1071,59 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                         .bodyMediumIsCustom,
                                                               ),
                                                         ),
-                                                        InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            await launchURL(
-                                                                'https://maps.app.goo.gl/QydeRH2ai5FKYsNx8');
-                                                          },
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Text(
-                                                                'Get directions',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      color: Color(
-                                                                          0xFF0D9488),
-                                                                      fontSize:
-                                                                          12.5,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyMediumIsCustom,
-                                                                    ),
-                                                              ),
-                                                              Icon(
-                                                                Icons
-                                                                    .arrow_outward_rounded,
-                                                                color: Color(
-                                                                    0xFF0D9488),
-                                                                size: 14.0,
-                                                              ),
-                                                            ].divide(SizedBox(
-                                                                width: 5.0)),
+                                                        Semantics(
+                                                          container: true,
+                                                          identifier:
+                                                              'contact_us_get_directions',
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              await launchURL(
+                                                                  'https://maps.app.goo.gl/QydeRH2ai5FKYsNx8');
+                                                            },
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Text(
+                                                                  'Get directions',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        color: Color(
+                                                                            0xFF0D9488),
+                                                                        fontSize:
+                                                                            12.5,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                      ),
+                                                                ),
+                                                                Icon(
+                                                                  Icons
+                                                                      .arrow_outward_rounded,
+                                                                  color: Color(
+                                                                      0xFF0D9488),
+                                                                  size: 14.0,
+                                                                ),
+                                                              ].divide(SizedBox(
+                                                                  width: 5.0)),
+                                                            ),
                                                           ),
                                                         ),
                                                       ].divide(SizedBox(

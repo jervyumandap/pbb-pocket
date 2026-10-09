@@ -463,7 +463,12 @@ class _AccountDetailPageWidgetState extends State<AccountDetailPageWidget> {
                                                                 child:
                                                                     Semantics(
                                                                   label:
-                                                                      'Transfer-Container',
+                                                                      'Transfer',
+                                                                  button: true,
+                                                                  container:
+                                                                      true,
+                                                                  identifier:
+                                                                      'account_detail_transfer_action',
                                                                   child:
                                                                       InkWell(
                                                                     splashColor:
@@ -609,7 +614,12 @@ class _AccountDetailPageWidgetState extends State<AccountDetailPageWidget> {
                                                                 child:
                                                                     Semantics(
                                                                   label:
-                                                                      'Paybills Container',
+                                                                      'Pay bills',
+                                                                  button: true,
+                                                                  container:
+                                                                      true,
+                                                                  identifier:
+                                                                      'account_detail_pay_bills_action',
                                                                   child:
                                                                       InkWell(
                                                                     splashColor:
@@ -1276,7 +1286,11 @@ class _AccountDetailPageWidgetState extends State<AccountDetailPageWidget> {
 
                                                         return Semantics(
                                                           label:
-                                                              'LatestTransactionsComponent',
+                                                              'Latest transactions',
+                                                          button: true,
+                                                          container: true,
+                                                          identifier:
+                                                              'account_detail_latest_transactions',
                                                           child: wrapWithModel(
                                                             model: _model
                                                                 .latestTransactionsComponentModel,

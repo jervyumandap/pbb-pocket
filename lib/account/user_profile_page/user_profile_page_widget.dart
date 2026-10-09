@@ -339,7 +339,9 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Semantics(
-                                            label: 'profile_info_item',
+                                            label: 'Personal information',
+                                            container: true,
+                                            identifier: 'profile_info_item',
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -497,7 +499,9 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Semantics(
-                                            label:
+                                            label: 'Transaction limits',
+                                            container: true,
+                                            identifier:
                                                 'profile_transaction_limits_item',
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -623,7 +627,10 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                             color: Color(0x1A00727D),
                                           ),
                                           Semantics(
-                                            label: 'profile_notifications_item',
+                                            label: 'Notifications',
+                                            container: true,
+                                            identifier:
+                                                'profile_notifications_item',
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -781,7 +788,9 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Semantics(
-                                            label:
+                                            label: 'Security and credentials',
+                                            container: true,
+                                            identifier:
                                                 'profile_security_credential_item',
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -908,7 +917,9 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                             color: Color(0x1A00727D),
                                           ),
                                           Semantics(
-                                            label: 'profile_devices_item',
+                                            label: 'Devices',
+                                            container: true,
+                                            identifier: 'profile_devices_item',
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -1033,7 +1044,9 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                             color: Color(0x1A00727D),
                                           ),
                                           Semantics(
-                                            label:
+                                            label: 'Activity history',
+                                            container: true,
+                                            identifier:
                                                 'profile_activity_history_item',
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -1160,7 +1173,10 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                           ),
                                           Builder(
                                             builder: (context) => Semantics(
-                                              label: 'profile_kill_switch_item',
+                                              label: 'Kill switch',
+                                              container: true,
+                                              identifier:
+                                                  'profile_kill_switch_item',
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -1713,7 +1729,9 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Semantics(
-                                            label: 'profile_faq_item',
+                                            label: 'FAQ',
+                                            container: true,
+                                            identifier: 'profile_faq_item',
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -1838,7 +1856,9 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                             color: Color(0x1A00727D),
                                           ),
                                           Semantics(
-                                            label:
+                                            label: 'Help and education',
+                                            container: true,
+                                            identifier:
                                                 'profile_help_education_item',
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -1965,7 +1985,10 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                             color: Color(0x1A00727D),
                                           ),
                                           Semantics(
-                                            label: 'profile_contact_us_item',
+                                            label: 'Contact us',
+                                            container: true,
+                                            identifier:
+                                                'profile_contact_us_item',
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -2097,7 +2120,9 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 39.0, 0.0, 48.0),
                                   child: Semantics(
-                                    label: 'profile_logout_button',
+                                    label: 'Logout',
+                                    button: true,
+                                    identifier: 'profile_logout_button',
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         await showDialog(
@@ -2232,6 +2257,8 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                       Builder(
                         builder: (context) => Semantics(
                           label: 'profile_page_menu_web_bar',
+                          container: true,
+                          identifier: 'profile_page_menu_web_bar',
                           child: wrapWithModel(
                             model: _model.customWebAppBarModel,
                             updateCallback: () => safeSetState(() {}),
@@ -2311,6 +2338,8 @@ class _UserProfilePageWidgetState extends State<UserProfilePageWidget> {
                       alignment: AlignmentDirectional(0.0, -1.0),
                       child: Semantics(
                         label: 'profile_page_menu_mobile_bar',
+                        container: true,
+                        identifier: 'profile_page_menu_mobile_bar',
                         child: wrapWithModel(
                           model: _model.customMobileAppBarModel,
                           updateCallback: () => safeSetState(() {}),

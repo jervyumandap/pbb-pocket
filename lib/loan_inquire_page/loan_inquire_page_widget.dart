@@ -302,8 +302,10 @@ class _LoanInquirePageWidgetState extends State<LoanInquirePageWidget> {
                                         Container(
                                           decoration: BoxDecoration(),
                                           child: Semantics(
-                                            label:
-                                                'loanInquire_selectAccount_component',
+                                            label: 'Select account',
+                                            container: true,
+                                            identifier:
+                                                'loaninquire_selectaccount_component',
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -618,8 +620,10 @@ class _LoanInquirePageWidgetState extends State<LoanInquirePageWidget> {
                                             children: [
                                               Expanded(
                                                 child: Semantics(
-                                                  label:
-                                                      'loanInquire_selectYes_button',
+                                                  label: 'Select yes',
+                                                  container: true,
+                                                  identifier:
+                                                      'loaninquire_selectyes_button',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -761,8 +765,10 @@ class _LoanInquirePageWidgetState extends State<LoanInquirePageWidget> {
                                               ),
                                               Expanded(
                                                 child: Semantics(
-                                                  label:
-                                                      'loanInquire_selectNo_button',
+                                                  label: 'Select no',
+                                                  container: true,
+                                                  identifier:
+                                                      'loaninquire_selectno_button',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -1017,8 +1023,10 @@ class _LoanInquirePageWidgetState extends State<LoanInquirePageWidget> {
                                                   final listItemsItem =
                                                       listItems[listItemsIndex];
                                                   return Semantics(
-                                                    label:
-                                                        'loanInquire_selectInterest_component',
+                                                    label: 'Select interest',
+                                                    container: true,
+                                                    identifier:
+                                                        'loaninquire_selectinterest_component',
                                                     child:
                                                         RadioButtonContainerComponentCopyWidget(
                                                       key: Key(
@@ -1106,7 +1114,9 @@ class _LoanInquirePageWidgetState extends State<LoanInquirePageWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 50.0),
                                 child: Semantics(
-                                  label: 'loanInquire_submit_button',
+                                  label: 'Submit',
+                                  button: true,
+                                  identifier: 'loaninquire_submit_button',
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       if ((_model.selectedValue

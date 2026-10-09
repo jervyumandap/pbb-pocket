@@ -378,8 +378,10 @@ class _OpenTimeDepositProductSelectionPageWidgetState
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 54.0),
                           child: Semantics(
-                            label:
-                                'open_time_deposit_product_selection_continue_button',
+                            label: 'Time deposit selection continue',
+                            button: true,
+                            container: true,
+                            identifier: 'open_time_deposit_product_selection',
                             child: wrapWithModel(
                               model: _model.primaryButtonComponentModel,
                               updateCallback: () => safeSetState(() {}),

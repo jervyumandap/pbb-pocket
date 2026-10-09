@@ -305,8 +305,10 @@ class _ApplyTrustProductPageWidgetState
                                             Container(
                                               decoration: BoxDecoration(),
                                               child: Semantics(
-                                                label:
-                                                    'trustproduct_selectAccount_component',
+                                                label: 'Select account',
+                                                container: true,
+                                                identifier:
+                                                    'trustproduct_selectaccount_component',
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -642,7 +644,9 @@ class _ApplyTrustProductPageWidgetState
                                                           nationality[
                                                               nationalityIndex];
                                                       return Semantics(
-                                                        label:
+                                                        label: 'Nationality',
+                                                        container: true,
+                                                        identifier:
                                                             'trustproduct_nationality_component',
                                                         child:
                                                             RadioButtonContainerComponentCopyWidget(
@@ -810,7 +814,9 @@ class _ApplyTrustProductPageWidgetState
                                                       final fundsItem =
                                                           funds[fundsIndex];
                                                       return Semantics(
-                                                        label:
+                                                        label: 'Funds',
+                                                        container: true,
+                                                        identifier:
                                                             'trustproduct_funds_component',
                                                         child:
                                                             RadioButtonContainerComponentCopyWidget(
@@ -979,7 +985,9 @@ class _ApplyTrustProductPageWidgetState
                                                           investment[
                                                               investmentIndex];
                                                       return Semantics(
-                                                        label:
+                                                        label: 'Objectice',
+                                                        container: true,
+                                                        identifier:
                                                             'trustproduct_objectice_component',
                                                         child:
                                                             RadioButtonContainerComponentCopyWidget(
@@ -1148,7 +1156,9 @@ class _ApplyTrustProductPageWidgetState
                                                       final horizonItem =
                                                           horizon[horizonIndex];
                                                       return Semantics(
-                                                        label:
+                                                        label: 'Horizon',
+                                                        container: true,
+                                                        identifier:
                                                             'trustproduct_horizon_component',
                                                         child:
                                                             RadioButtonContainerComponentCopyWidget(
@@ -1318,7 +1328,9 @@ class _ApplyTrustProductPageWidgetState
                                                           allocation[
                                                               allocationIndex];
                                                       return Semantics(
-                                                        label:
+                                                        label: 'Allocation',
+                                                        container: true,
+                                                        identifier:
                                                             'trustproduct_allocation_component',
                                                         child:
                                                             RadioButtonContainerComponentCopyWidget(
@@ -1486,7 +1498,9 @@ class _ApplyTrustProductPageWidgetState
                                                       final riskItem =
                                                           risk[riskIndex];
                                                       return Semantics(
-                                                        label:
+                                                        label: 'Risk',
+                                                        container: true,
+                                                        identifier:
                                                             'trustproduct_risk_component',
                                                         child:
                                                             RadioButtonContainerComponentCopyWidget(
@@ -1655,7 +1669,9 @@ class _ApplyTrustProductPageWidgetState
                                                           networth[
                                                               networthIndex];
                                                       return Semantics(
-                                                        label:
+                                                        label: 'Networth',
+                                                        container: true,
+                                                        identifier:
                                                             'trustproduct_networth_component',
                                                         child:
                                                             RadioButtonContainerComponentCopyWidget(
@@ -1744,7 +1760,9 @@ class _ApplyTrustProductPageWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 50.0),
                                   child: Semantics(
-                                    label: 'trustproduct_submit_component',
+                                    label: 'Submit',
+                                    button: true,
+                                    identifier: 'trustproduct_submit_component',
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         if ((_model.requestValue == null) ||

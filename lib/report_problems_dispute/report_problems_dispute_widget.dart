@@ -190,8 +190,10 @@ class _ReportProblemsDisputeWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportDispute_selectIssue_component',
+                                                  label: 'Report select issue',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportdispute_selectissue_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -363,7 +365,10 @@ class _ReportProblemsDisputeWidgetState
                                               children: [
                                                 Semantics(
                                                   label:
-                                                      'reportDispute_selectAccount_component',
+                                                      'Report select account',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportdispute_selectaccount_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -530,7 +535,10 @@ class _ReportProblemsDisputeWidgetState
                                               children: [
                                                 Semantics(
                                                   label:
-                                                      'reportDispute_selectTransaction_component',
+                                                      'Report select transaction',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportdispute_selecttransaction_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -697,8 +705,10 @@ class _ReportProblemsDisputeWidgetState
                                               ].divide(SizedBox(height: 5.0)),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'reportDispute_selectDate_component',
+                                              label: 'Report select date',
+                                              container: true,
+                                              identifier:
+                                                  'reportdispute_selectdate_component',
                                               child: wrapWithModel(
                                                 model: _model
                                                     .customDateLabelPickerWidgetModel,
@@ -826,8 +836,9 @@ class _ReportProblemsDisputeWidgetState
                                                 ),
                                               ),
                                               child: Semantics(
-                                                label:
-                                                    'reportDispute_amopunt_textfield',
+                                                label: 'Amount',
+                                                identifier:
+                                                    'reportdispute_amopunt_textfield',
                                                 child: Container(
                                                   width: 200.0,
                                                   child: TextFormField(
@@ -968,8 +979,9 @@ class _ReportProblemsDisputeWidgetState
                                                 ),
                                               ),
                                               child: Semantics(
-                                                label:
-                                                    'reportDisputer_reference_textfield',
+                                                label: 'Reference number',
+                                                identifier:
+                                                    'reportdisputer_reference_textfield',
                                                 child: Container(
                                                   width: 200.0,
                                                   child: TextFormField(
@@ -1095,8 +1107,9 @@ class _ReportProblemsDisputeWidgetState
                                               ),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'reportDispute_details_textfield',
+                                              label: 'Report dispute details',
+                                              identifier:
+                                                  'reportdispute_details_textfield',
                                               child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
@@ -1376,7 +1389,9 @@ class _ReportProblemsDisputeWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 50.0),
                                   child: Semantics(
-                                    label: 'reportDispute_submit_button',
+                                    label: 'Report submit',
+                                    button: true,
+                                    identifier: 'reportdispute_submit_button',
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         FFAppState()

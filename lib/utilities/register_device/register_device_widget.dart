@@ -417,129 +417,185 @@ class _RegisterDeviceWidgetState extends State<RegisterDeviceWidget> {
                                       ),
                                     ),
                                     Builder(
-                                      builder: (context) => FFButtonWidget(
+                                      builder: (context) => Semantics(
+                                        button: true,
+                                        identifier: 'register_device_button',
+                                        child: FFButtonWidget(
+                                          onPressed: () async {
+                                            _model.apiResult8h0 =
+                                                await SupabaseGroup
+                                                    .postTrustedDevicesCall
+                                                    .call(
+                                              osVersion: FFAppState()
+                                                  .DeviceDetails
+                                                  .osVersion,
+                                              deviceOs:
+                                                  FFAppState().DeviceDetails.os,
+                                              deviceId: FFAppState()
+                                                  .DeviceDetails
+                                                  .deviceId,
+                                              deviceModel: FFAppState()
+                                                  .DeviceDetails
+                                                  .model,
+                                              accessToken:
+                                                  currentAuthenticationToken,
+                                              userId: currentUserUid,
+                                              metadataJson: {},
+                                              isActive: true,
+                                            );
+
+                                            if ((_model
+                                                    .apiResult8h0?.succeeded ??
+                                                true)) {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(
+                                                                  dialogContext)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child:
+                                                            CustomInformationalDialogWidget(
+                                                          message:
+                                                              'This device is now linked to your account. You can now enjoy faster logins and higher transaction limits.',
+                                                          primaryButtonTitle:
+                                                              'Back',
+                                                          title:
+                                                              'Device Trusted',
+                                                          primaryButtonAction:
+                                                              () async {
+                                                            context.pushNamed(
+                                                                DashboardWidget
+                                                                    .routeName);
+                                                          },
+                                                          secondaryButtonAction:
+                                                              () async {},
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            } else {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(
+                                                                  dialogContext)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child:
+                                                            CustomInformationalDialogWidget(
+                                                          message:
+                                                              'We couldn\'t complete the secure link between this device and your account. Please ensure you have a stable internet connection and try again.',
+                                                          primaryButtonTitle:
+                                                              'Back',
+                                                          title:
+                                                              'Unable to Trust This Device',
+                                                          primaryButtonAction:
+                                                              () async {
+                                                            context.pushNamed(
+                                                                SecuritySettingsPageWidget
+                                                                    .routeName);
+                                                          },
+                                                          secondaryButtonAction:
+                                                              () async {},
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            }
+
+                                            safeSetState(() {});
+                                          },
+                                          text: 'Register Device',
+                                          options: FFButtonOptions(
+                                            width: double.infinity,
+                                            height: 50.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    24.0, 0.0, 24.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumFamily,
+                                                      color: Colors.white,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumIsCustom,
+                                                    ),
+                                            elevation: 0.0,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Semantics(
+                                      button: true,
+                                      identifier: 'register_device_button_2',
+                                      child: FFButtonWidget(
                                         onPressed: () async {
-                                          _model.apiResult8h0 =
-                                              await SupabaseGroup
-                                                  .postTrustedDevicesCall
-                                                  .call(
-                                            osVersion: FFAppState()
-                                                .DeviceDetails
-                                                .osVersion,
-                                            deviceOs:
-                                                FFAppState().DeviceDetails.os,
-                                            deviceId: FFAppState()
-                                                .DeviceDetails
-                                                .deviceId,
-                                            deviceModel: FFAppState()
-                                                .DeviceDetails
-                                                .model,
-                                            accessToken:
-                                                currentAuthenticationToken,
-                                            userId: currentUserUid,
-                                            metadataJson: {},
-                                            isActive: true,
-                                          );
-
-                                          if ((_model.apiResult8h0?.succeeded ??
-                                              true)) {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (dialogContext) {
-                                                return Dialog(
-                                                  elevation: 0,
-                                                  insetPadding: EdgeInsets.zero,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                              0.0, 0.0)
-                                                          .resolve(
-                                                              Directionality.of(
-                                                                  context)),
-                                                  child: WebViewAware(
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        FocusScope.of(
-                                                                dialogContext)
-                                                            .unfocus();
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      },
-                                                      child:
-                                                          CustomInformationalDialogWidget(
-                                                        message:
-                                                            'This device is now linked to your account. You can now enjoy faster logins and higher transaction limits.',
-                                                        primaryButtonTitle:
-                                                            'Back',
-                                                        title: 'Device Trusted',
-                                                        primaryButtonAction:
-                                                            () async {
-                                                          context.pushNamed(
-                                                              DashboardWidget
-                                                                  .routeName);
-                                                        },
-                                                        secondaryButtonAction:
-                                                            () async {},
-                                                      ),
-                                                    ),
-                                                  ),
-                                                );
-                                              },
-                                            );
-                                          } else {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (dialogContext) {
-                                                return Dialog(
-                                                  elevation: 0,
-                                                  insetPadding: EdgeInsets.zero,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                              0.0, 0.0)
-                                                          .resolve(
-                                                              Directionality.of(
-                                                                  context)),
-                                                  child: WebViewAware(
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        FocusScope.of(
-                                                                dialogContext)
-                                                            .unfocus();
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      },
-                                                      child:
-                                                          CustomInformationalDialogWidget(
-                                                        message:
-                                                            'We couldn\'t complete the secure link between this device and your account. Please ensure you have a stable internet connection and try again.',
-                                                        primaryButtonTitle:
-                                                            'Back',
-                                                        title:
-                                                            'Unable to Trust This Device',
-                                                        primaryButtonAction:
-                                                            () async {
-                                                          context.pushNamed(
-                                                              SecuritySettingsPageWidget
-                                                                  .routeName);
-                                                        },
-                                                        secondaryButtonAction:
-                                                            () async {},
-                                                      ),
-                                                    ),
-                                                  ),
-                                                );
-                                              },
-                                            );
-                                          }
-
-                                          safeSetState(() {});
+                                          context.pushNamed(
+                                              DashboardWidget.routeName);
                                         },
-                                        text: 'Register Device',
+                                        text: 'Skip for Now',
                                         options: FFButtonOptions(
                                           width: double.infinity,
                                           height: 50.0,
@@ -549,8 +605,7 @@ class _RegisterDeviceWidgetState extends State<RegisterDeviceWidget> {
                                           iconPadding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                          color: Colors.transparent,
                                           textStyle: FlutterFlowTheme.of(
                                                   context)
                                               .titleMedium
@@ -558,10 +613,12 @@ class _RegisterDeviceWidgetState extends State<RegisterDeviceWidget> {
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .titleMediumFamily,
-                                                color: Colors.white,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
+                                                fontWeight: FontWeight.w500,
                                                 useGoogleFonts:
                                                     !FlutterFlowTheme.of(
                                                             context)
@@ -569,53 +626,13 @@ class _RegisterDeviceWidgetState extends State<RegisterDeviceWidget> {
                                               ),
                                           elevation: 0.0,
                                           borderSide: BorderSide(
-                                            color: Colors.transparent,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
                                             width: 1.0,
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                         ),
-                                      ),
-                                    ),
-                                    FFButtonWidget(
-                                      onPressed: () async {
-                                        context.pushNamed(
-                                            DashboardWidget.routeName);
-                                      },
-                                      text: 'Skip for Now',
-                                      options: FFButtonOptions(
-                                        width: double.infinity,
-                                        height: 50.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: Colors.transparent,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMediumFamily,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              fontSize: 16.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w500,
-                                              useGoogleFonts:
-                                                  !FlutterFlowTheme.of(context)
-                                                      .titleMediumIsCustom,
-                                            ),
-                                        elevation: 0.0,
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
                                       ),
                                     ),
                                   ].divide(SizedBox(height: 24.0)),

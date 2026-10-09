@@ -426,61 +426,64 @@ class _ManageLoansPageWidgetState extends State<ManageLoansPageWidget> {
                                                               ].divide(SizedBox(
                                                                   width: 8.0)),
                                                             ),
-                                                            FFButtonWidget(
-                                                              onPressed: () {
-                                                                print(
-                                                                    'Button pressed ...');
-                                                              },
-                                                              text: 'Pay Now',
-                                                              options:
-                                                                  FFButtonOptions(
-                                                                height: 38.0,
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        0.0,
-                                                                        16.0,
-                                                                        0.0),
-                                                                iconPadding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                color: Colors
-                                                                    .white,
-                                                                textStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyLargeFamily,
-                                                                      color: Color(
-                                                                          0xFF8E5D00),
-                                                                      fontSize:
-                                                                          13.0,
-                                                                      letterSpacing:
+                                                            Semantics(
+                                                              button: true,
+                                                              identifier:
+                                                                  'manage_loans_button',
+                                                              child:
+                                                                  FFButtonWidget(
+                                                                onPressed: () {
+                                                                  print(
+                                                                      'Button pressed ...');
+                                                                },
+                                                                text: 'Pay Now',
+                                                                options:
+                                                                    FFButtonOptions(
+                                                                  height: 38.0,
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
                                                                           0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyLargeIsCustom,
-                                                                    ),
-                                                                elevation: 0.0,
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0xFFF5D77A),
-                                                                  width: 1.0,
+                                                                          16.0,
+                                                                          0.0),
+                                                                  iconPadding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  color: Colors
+                                                                      .white,
+                                                                  textStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                        color: Color(
+                                                                            0xFF8E5D00),
+                                                                        fontSize:
+                                                                            13.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).bodyLargeIsCustom,
+                                                                      ),
+                                                                  elevation:
+                                                                      0.0,
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0xFFF5D77A),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              100.0),
                                                                 ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            100.0),
                                                               ),
                                                             ),
                                                           ],
@@ -661,7 +664,11 @@ class _ManageLoansPageWidgetState extends State<ManageLoansPageWidget> {
 
                                                                     return Semantics(
                                                                       label:
-                                                                          'manageLoansPage_account_details_component',
+                                                                          'Account details',
+                                                                      container:
+                                                                          true,
+                                                                      identifier:
+                                                                          'manageloanspage_account_details_component',
                                                                       child:
                                                                           LoanCardComponentWidget(
                                                                         key: Key(
@@ -812,7 +819,10 @@ class _ManageLoansPageWidgetState extends State<ManageLoansPageWidget> {
                       ),
                     ),
                     Semantics(
-                      label: 'manage_loans_menu_mobile_hamburger',
+                      label: 'Open menu',
+                      button: true,
+                      container: true,
+                      identifier: 'manage_loans_menu_mobile_hamburger',
                       child: wrapWithModel(
                         model: _model.customMobileAppBarModel,
                         updateCallback: () => safeSetState(() {}),
@@ -837,7 +847,10 @@ class _ManageLoansPageWidgetState extends State<ManageLoansPageWidget> {
                       ),
                     ),
                     Semantics(
-                      label: 'manage_loans_menu_web_hamburger',
+                      label: 'Open menu',
+                      button: true,
+                      container: true,
+                      identifier: 'manage_loans_menu_web_hamburger',
                       child: wrapWithModel(
                         model: _model.customWebAppBarModel,
                         updateCallback: () => safeSetState(() {}),

@@ -140,94 +140,103 @@ class _AccountsPageWidgetState extends State<AccountsPageWidget> {
                                     width: double.infinity,
                                     height: 250.0,
                                     decoration: BoxDecoration(),
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 500.0,
-                                      child: Stack(
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 40.0),
-                                            child: PageView(
-                                              controller:
-                                                  _model.pageViewController ??=
-                                                      PageController(
-                                                          initialPage: 0),
-                                              scrollDirection: Axis.horizontal,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.all(12.0),
-                                                  child: wrapWithModel(
-                                                    model:
-                                                        _model.cardWidgetModel,
-                                                    updateCallback: () =>
-                                                        safeSetState(() {}),
-                                                    child: CardWidgetWidget(
-                                                      title:
-                                                          'Savings Account 10**',
-                                                      subtitle:
-                                                          'Available Balance',
-                                                      balance: '2000',
-                                                      accountType:
-                                                          BankAccountType
-                                                              .SAVINGS,
-                                                      tapAction: () async {},
-                                                      buttonAction: () async {},
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(),
-                                                Container(),
-                                              ],
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 1.0),
-                                            child: Padding(
+                                    child: Semantics(
+                                      label: 'Pageview',
+                                      identifier: 'page_view_id',
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 500.0,
+                                        child: Stack(
+                                          children: [
+                                            Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      0.0, 0.0, 0.0, 16.0),
-                                              child: smooth_page_indicator
-                                                  .SmoothPageIndicator(
+                                                      0.0, 0.0, 0.0, 40.0),
+                                              child: PageView(
                                                 controller: _model
                                                         .pageViewController ??=
                                                     PageController(
                                                         initialPage: 0),
-                                                count: 3,
-                                                axisDirection: Axis.horizontal,
-                                                onDotClicked: (i) async {
-                                                  await _model
-                                                      .pageViewController!
-                                                      .animateToPage(
-                                                    i,
-                                                    duration: Duration(
-                                                        milliseconds: 500),
-                                                    curve: Curves.ease,
-                                                  );
-                                                  safeSetState(() {});
-                                                },
-                                                effect: smooth_page_indicator
-                                                    .SlideEffect(
-                                                  spacing: 8.0,
-                                                  radius: 8.0,
-                                                  dotWidth: 8.0,
-                                                  dotHeight: 8.0,
-                                                  dotColor: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent1,
-                                                  activeDotColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  paintStyle:
-                                                      PaintingStyle.fill,
+                                                scrollDirection:
+                                                    Axis.horizontal,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsets.all(12.0),
+                                                    child: wrapWithModel(
+                                                      model: _model
+                                                          .cardWidgetModel,
+                                                      updateCallback: () =>
+                                                          safeSetState(() {}),
+                                                      child: CardWidgetWidget(
+                                                        title:
+                                                            'Savings Account 10**',
+                                                        subtitle:
+                                                            'Available Balance',
+                                                        balance: '2000',
+                                                        accountType:
+                                                            BankAccountType
+                                                                .SAVINGS,
+                                                        tapAction: () async {},
+                                                        buttonAction:
+                                                            () async {},
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Container(),
+                                                  Container(),
+                                                ],
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 16.0),
+                                                child: smooth_page_indicator
+                                                    .SmoothPageIndicator(
+                                                  controller: _model
+                                                          .pageViewController ??=
+                                                      PageController(
+                                                          initialPage: 0),
+                                                  count: 3,
+                                                  axisDirection:
+                                                      Axis.horizontal,
+                                                  onDotClicked: (i) async {
+                                                    await _model
+                                                        .pageViewController!
+                                                        .animateToPage(
+                                                      i,
+                                                      duration: Duration(
+                                                          milliseconds: 500),
+                                                      curve: Curves.ease,
+                                                    );
+                                                    safeSetState(() {});
+                                                  },
+                                                  effect: smooth_page_indicator
+                                                      .SlideEffect(
+                                                    spacing: 8.0,
+                                                    radius: 8.0,
+                                                    dotWidth: 8.0,
+                                                    dotHeight: 8.0,
+                                                    dotColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent1,
+                                                    activeDotColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    paintStyle:
+                                                        PaintingStyle.fill,
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -344,26 +353,33 @@ class _AccountsPageWidgetState extends State<AccountsPageWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text(
-                                            'Latest Transactions',
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleMediumFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryLabel,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  useGoogleFonts:
-                                                      !FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleMediumIsCustom,
-                                                ),
+                                          Semantics(
+                                            label: 'Transaction List Test',
+                                            header: true,
+                                            identifier:
+                                                'accounts_latest_transactions_header',
+                                            child: Text(
+                                              'Latest Transactions',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleMediumFamily,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryLabel,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    useGoogleFonts:
+                                                        !FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleMediumIsCustom,
+                                                  ),
+                                            ),
                                           ),
                                           Text(
                                             'See All',

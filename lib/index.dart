@@ -1,29 +1,11 @@
 // Export pages
-export '/quick_send/quick_send_view_user_page/quick_send_view_user_page_widget.dart'
-    show QuickSendViewUserPageWidget;
-export '/quick_send/quick_send_money_page/quick_send_money_page_widget.dart'
-    show QuickSendMoneyPageWidget;
 export '/check_deposit/check_deposit_processing_page/check_deposit_processing_page_widget.dart'
     show CheckDepositProcessingPageWidget;
-export '/loans/transfer_to_wallet_page/transfer_to_wallet_page_widget.dart'
-    show TransferToWalletPageWidget;
-export '/loans/loan_page/loan_page_widget.dart' show LoanPageWidget;
-export '/loans/pay_loan_page/pay_loan_page_widget.dart' show PayLoanPageWidget;
 export '/loans/loans_page/loans_page_widget.dart' show LoansPageWidget;
 export '/account/account_is_locked_page/account_is_locked_page_widget.dart'
     show AccountIsLockedPageWidget;
-export '/utilities/register_device/register_device_widget.dart'
-    show RegisterDeviceWidget;
-export '/utilities/service_request/service_request_edit_page/service_request_edit_page_widget.dart'
-    show ServiceRequestEditPageWidget;
-export '/account/account_details_payment/account_details_payment_widget.dart'
-    show AccountDetailsPaymentWidget;
 export '/auth/biometrics_preference/biometrics_preference_widget.dart'
     show BiometricsPreferenceWidget;
-export '/utilities/service_request/service_request_page/service_request_page_widget.dart'
-    show ServiceRequestPageWidget;
-export '/bills_payment/b_p_corp/bills_payment_form_summary_page/bills_payment_form_summary_page_widget.dart'
-    show BillsPaymentFormSummaryPageWidget;
 export '/account/account_is_locked_page_copy/account_is_locked_page_copy_widget.dart'
     show AccountIsLockedPageCopyWidget;
 export '/pages/others/blank_page_c/blank_page_c_widget.dart'
@@ -35,12 +17,6 @@ export '/pages/others/blank_page_d/blank_page_d_widget.dart'
     show BlankPageDWidget;
 export '/pages/others/blank_page_b/blank_page_b_widget.dart'
     show BlankPageBWidget;
-export '/term_deposit/term_deposit_overview_page/term_deposit_overview_page_widget.dart'
-    show TermDepositOverviewPageWidget;
-export '/term_deposit/term_deposit_edit_page/term_deposit_edit_page_widget.dart'
-    show TermDepositEditPageWidget;
-export '/term_deposit/term_deposit_new_page/term_deposit_new_page_widget.dart'
-    show TermDepositNewPageWidget;
 export '/pages/others/account_validation_page_v1/account_validation_page_v1_widget.dart'
     show AccountValidationPageV1Widget;
 export '/pages/others/verification_page/verification_page_widget.dart'
@@ -49,56 +25,20 @@ export '/account_detail_page_copy/account_detail_page_copy_widget.dart'
     show AccountDetailPageCopyWidget;
 export '/term_deposit/term_deposit_overview_page_copy/term_deposit_overview_page_copy_widget.dart'
     show TermDepositOverviewPageCopyWidget;
-export '/pages/others/qr/generate_q_r_page/generate_q_r_page_widget.dart'
-    show GenerateQRPageWidget;
-export '/bills_payment/b_p_corp/bills_payment_form_review_page/bills_payment_form_review_page_widget.dart'
-    show BillsPaymentFormReviewPageWidget;
-export '/recover/recovery_entry_page/recovery_entry_page_widget.dart'
-    show RecoveryEntryPageWidget;
 export '/settings/manage_device_page/manage_device_page_widget.dart'
     show ManageDevicePageWidget;
 export '/bills_payment/b_p_corp/bills_payment_page_v2/bills_payment_page_v2_widget.dart'
     show BillsPaymentPageV2Widget;
-export '/transactions/transaction_history_page/transaction_history_page_widget.dart'
-    show TransactionHistoryPageWidget;
-export '/check_deposit/check_deposit_confirm_page/check_deposit_confirm_page_widget.dart'
-    show CheckDepositConfirmPageWidget;
 export '/test_modules/test_page_for_e_m_v_co/test_page_for_e_m_v_co_widget.dart'
     show TestPageForEMVCoWidget;
-export '/test_dashboard/test_dashboard_widget.dart' show TestDashboardWidget;
 export '/check_deposit/upload_check_component/upload_check_component_widget.dart'
     show UploadCheckComponentWidget;
-export '/m_pin/register_m_p_i_n_page/register_m_p_i_n_page_widget.dart'
-    show RegisterMPINPageWidget;
-export '/m_pin/reset_m_p_i_n_page/reset_m_p_i_n_page_widget.dart'
-    show ResetMPINPageWidget;
-export '/m_pin/m_p_i_n_setup/m_p_i_n_setup_widget.dart' show MPINSetupWidget;
-export '/check_deposit/inquire_check_status_page/inquire_check_status_page_widget.dart'
-    show InquireCheckStatusPageWidget;
-export '/bills_payment/pay_bills_overview_page/pay_bills_overview_page_widget.dart'
-    show PayBillsOverviewPageWidget;
 export '/pay_bills_overview_page_old/pay_bills_overview_page_old_widget.dart'
     show PayBillsOverviewPageOldWidget;
 export '/pages/auth/landing_page_v1/landing_page_v1_widget.dart'
     show LandingPageV1Widget;
-export '/account/accounts_page/accounts_page_widget.dart'
-    show AccountsPageWidget;
-export '/auth/account_setup_page/account_setup_page_widget.dart'
-    show AccountSetupPageWidget;
 export '/pay_bills/pay_bill_test_page/pay_bill_test_page_widget.dart'
     show PayBillTestPageWidget;
-export '/m_pin/reusable_reset_page/reusable_reset_page_widget.dart'
-    show ReusableResetPageWidget;
-export '/bills_payment/b_p_corp/bills_payment_transaction_summary_page/bills_payment_transaction_summary_page_widget.dart'
-    show BillsPaymentTransactionSummaryPageWidget;
-export '/bills_payment/b_p_corp/bills_payment_page/bills_payment_page_widget.dart'
-    show BillsPaymentPageWidget;
-export '/bills_payment/b_p_corp/bills_payment_review_page/bills_payment_review_page_widget.dart'
-    show BillsPaymentReviewPageWidget;
-export '/bills_payment/b_p_corp/bills_payment_form_page/bills_payment_form_page_widget.dart'
-    show BillsPaymentFormPageWidget;
-export '/settings/success_delete_device/success_delete_device_widget.dart'
-    show SuccessDeleteDeviceWidget;
 export '/transaction_history_v2_copy2/transaction_history_v2_copy2_widget.dart'
     show TransactionHistoryV2Copy2Widget;
 export '/sucess_cancelled_scheduled_transfer/sucess_cancelled_scheduled_transfer_widget.dart'
@@ -107,8 +47,6 @@ export '/settings/notification_settings/notification_settings_widget.dart'
     show NotificationSettingsWidget;
 export '/loans/loans_payment_history/loans_payment_history_widget.dart'
     show LoansPaymentHistoryWidget;
-export '/bills_payment/pay_bills_with_chosen_biller_page/pay_bills_with_chosen_biller_page_widget.dart'
-    show PayBillsWithChosenBillerPageWidget;
 export '/loans/loans_repayment_schedule/loans_repayment_schedule_widget.dart'
     show LoansRepaymentScheduleWidget;
 export '/loans/loans_reminders/loans_reminders_widget.dart'
@@ -117,8 +55,6 @@ export '/loans/loan_payment_history_page/loan_payment_history_page_widget.dart'
     show LoanPaymentHistoryPageWidget;
 export '/fund_transfer/fund_transfer_page_copy/fund_transfer_page_copy_widget.dart'
     show FundTransferPageCopyWidget;
-export '/pay_bills/pay_bill_page/pay_bill_page_widget.dart'
-    show PayBillPageWidget;
 export '/transactions/transaction_history_v2_page/transaction_history_v2_page_widget.dart'
     show TransactionHistoryV2PageWidget;
 export '/fund_transfer_scheduled_payment_page/fund_transfer_scheduled_payment_page_widget.dart'
@@ -131,20 +67,12 @@ export '/transactions/statement_of_account_page/statement_of_account_page_widget
     show StatementOfAccountPageWidget;
 export '/settings/m_p_i_n_verify_device_delete/m_p_i_n_verify_device_delete_widget.dart'
     show MPINVerifyDeviceDeleteWidget;
-export '/bills_payment/select_biller_page/select_biller_page_widget.dart'
-    show SelectBillerPageWidget;
 export '/cheque/trust_product_success_page/trust_product_success_page_widget.dart'
     show TrustProductSuccessPageWidget;
 export '/pages/auth/login_page_v1/login_page_v1_widget.dart'
     show LoginPageV1Widget;
 export '/pages/login_page_old/login_page_old_widget.dart'
     show LoginPageOldWidget;
-export '/bills_payment/b_p_corp/bills_payment_verification_page/bills_payment_verification_page_widget.dart'
-    show BillsPaymentVerificationPageWidget;
-export '/loans/pay_loan_success_page/pay_loan_success_page_widget.dart'
-    show PayLoanSuccessPageWidget;
-export '/check_deposit/check_deposit_guide/check_deposit_guide_widget.dart'
-    show CheckDepositGuideWidget;
 export '/auth/log_in_with_password_page/log_in_with_password_page_widget.dart'
     show LogInWithPasswordPageWidget;
 export '/content_hub/content_hub_view_article_page/content_hub_view_article_page_widget.dart'
@@ -157,8 +85,6 @@ export '/cheque/stop_cheque_failed_page/stop_cheque_failed_page_widget.dart'
     show StopChequeFailedPageWidget;
 export '/report_success_page/report_success_page_widget.dart'
     show ReportSuccessPageWidget;
-export '/trust_product_page/trust_product_page_widget.dart'
-    show TrustProductPageWidget;
 export '/time_deposit/time_deposit_success_page/time_deposit_success_page_widget.dart'
     show TimeDepositSuccessPageWidget;
 export '/bills_payment/b_p_corp/bills_payment_transactions_page/bills_payment_transactions_page_widget.dart'
@@ -179,18 +105,142 @@ export '/trust_fund_success_page/trust_fund_success_page_widget.dart'
     show TrustFundSuccessPageWidget;
 export '/cheque/cheque_deposit_success_page/cheque_deposit_success_page_widget.dart'
     show ChequeDepositSuccessPageWidget;
+export '/cheque/cheque_deposit_confirm_page/cheque_deposit_confirm_page_widget.dart'
+    show ChequeDepositConfirmPageWidget;
+export '/loans/loan_schedule_page/loan_schedule_page_widget.dart'
+    show LoanSchedulePageWidget;
+export '/pay_bills/pay_bills_failed_page/pay_bills_failed_page_widget.dart'
+    show PayBillsFailedPageWidget;
+export '/splash/splash_page/splash_page_widget.dart' show SplashPageWidget;
+export '/account_setup_successful_page/account_setup_successful_page_widget.dart'
+    show AccountSetupSuccessfulPageWidget;
+export '/pages/others/a_i_scanner2_page/a_i_scanner2_page_widget.dart'
+    show AIScanner2PageWidget;
+export '/inbox/inbox_details_page/inbox_details_page_widget.dart'
+    show InboxDetailsPageWidget;
+export '/pages/terms_and_condition_page/terms_and_condition_page_widget.dart'
+    show TermsAndConditionPageWidget;
+export '/pages/forgot_password_page/forgot_password_page_widget.dart'
+    show ForgotPasswordPageWidget;
+export '/settings/activity_history/activity_history_widget.dart'
+    show ActivityHistoryWidget;
+export '/transactions/payment_history/payment_history_widget.dart'
+    show PaymentHistoryWidget;
+export '/web_view/web_view_page/web_view_page_widget.dart'
+    show WebViewPageWidget;
+export '/view_transaction_page/view_transaction_page_widget.dart'
+    show ViewTransactionPageWidget;
+export '/personal_information_page/personal_information_page_widget.dart'
+    show PersonalInformationPageWidget;
+export '/content_hub/content_hub_page/content_hub_page_widget.dart'
+    show ContentHubPageWidget;
+export '/loans/manage_loans_page_copy/manage_loans_page_copy_widget.dart'
+    show ManageLoansPageCopyWidget;
+export '/settings/passkey_credentials_page/passkey_credentials_page_widget.dart'
+    show PasskeyCredentialsPageWidget;
+export '/manage_account_page/manage_account_page_widget.dart'
+    show ManageAccountPageWidget;
+export '/time_deposit/time_deposit_details_page/time_deposit_details_page_widget.dart'
+    show TimeDepositDetailsPageWidget;
+export '/check_deposit/check_status_view/check_status_view_widget.dart'
+    show CheckStatusViewWidget;
+export '/pages/others/account_validation_success_page/account_validation_success_page_widget.dart'
+    show AccountValidationSuccessPageWidget;
+export '/cheque/cheque_deposit_page/cheque_deposit_page_widget.dart'
+    show ChequeDepositPageWidget;
+export '/pages/create_new_password_page/create_new_password_page_widget.dart'
+    show CreateNewPasswordPageWidget;
+export '/time_deposit/manage_term_deposit_page/manage_term_deposit_page_widget.dart'
+    show ManageTermDepositPageWidget;
+export '/pages/others/dashboard/dashboard_widget.dart' show DashboardWidget;
+export '/investment_summary/investment_summary_page/investment_summary_page_widget.dart'
+    show InvestmentSummaryPageWidget;
+export '/pages/account_enrollment_welcome_page/account_enrollment_welcome_page_widget.dart'
+    show AccountEnrollmentWelcomePageWidget;
+export '/m_pin/change_m_pin_page/change_m_pin_page_widget.dart'
+    show ChangeMPinPageWidget;
+export '/quick_send/quick_send_view_user_page/quick_send_view_user_page_widget.dart'
+    show QuickSendViewUserPageWidget;
+export '/quick_send/quick_send_money_page/quick_send_money_page_widget.dart'
+    show QuickSendMoneyPageWidget;
+export '/loans/transfer_to_wallet_page/transfer_to_wallet_page_widget.dart'
+    show TransferToWalletPageWidget;
+export '/loans/loan_page/loan_page_widget.dart' show LoanPageWidget;
+export '/loans/pay_loan_page/pay_loan_page_widget.dart' show PayLoanPageWidget;
+export '/utilities/register_device/register_device_widget.dart'
+    show RegisterDeviceWidget;
+export '/utilities/service_request/service_request_edit_page/service_request_edit_page_widget.dart'
+    show ServiceRequestEditPageWidget;
+export '/account/account_details_payment/account_details_payment_widget.dart'
+    show AccountDetailsPaymentWidget;
+export '/utilities/service_request/service_request_page/service_request_page_widget.dart'
+    show ServiceRequestPageWidget;
+export '/bills_payment/b_p_corp/bills_payment_form_summary_page/bills_payment_form_summary_page_widget.dart'
+    show BillsPaymentFormSummaryPageWidget;
+export '/term_deposit/term_deposit_overview_page/term_deposit_overview_page_widget.dart'
+    show TermDepositOverviewPageWidget;
+export '/term_deposit/term_deposit_edit_page/term_deposit_edit_page_widget.dart'
+    show TermDepositEditPageWidget;
+export '/term_deposit/term_deposit_new_page/term_deposit_new_page_widget.dart'
+    show TermDepositNewPageWidget;
+export '/pages/others/qr/generate_q_r_page/generate_q_r_page_widget.dart'
+    show GenerateQRPageWidget;
+export '/bills_payment/b_p_corp/bills_payment_form_review_page/bills_payment_form_review_page_widget.dart'
+    show BillsPaymentFormReviewPageWidget;
+export '/recover/recovery_entry_page/recovery_entry_page_widget.dart'
+    show RecoveryEntryPageWidget;
+export '/check_deposit/check_deposit_guide/check_deposit_guide_widget.dart'
+    show CheckDepositGuideWidget;
+export '/transactions/transaction_history_page/transaction_history_page_widget.dart'
+    show TransactionHistoryPageWidget;
+export '/check_deposit/check_deposit_confirm_page/check_deposit_confirm_page_widget.dart'
+    show CheckDepositConfirmPageWidget;
+export '/test_dashboard/test_dashboard_widget.dart' show TestDashboardWidget;
+export '/m_pin/register_m_p_i_n_page/register_m_p_i_n_page_widget.dart'
+    show RegisterMPINPageWidget;
+export '/m_pin/reset_m_p_i_n_page/reset_m_p_i_n_page_widget.dart'
+    show ResetMPINPageWidget;
+export '/m_pin/m_p_i_n_setup/m_p_i_n_setup_widget.dart' show MPINSetupWidget;
+export '/check_deposit/inquire_check_status_page/inquire_check_status_page_widget.dart'
+    show InquireCheckStatusPageWidget;
+export '/bills_payment/pay_bills_overview_page/pay_bills_overview_page_widget.dart'
+    show PayBillsOverviewPageWidget;
+export '/auth/account_setup_page/account_setup_page_widget.dart'
+    show AccountSetupPageWidget;
+export '/m_pin/reusable_reset_page/reusable_reset_page_widget.dart'
+    show ReusableResetPageWidget;
+export '/bills_payment/b_p_corp/bills_payment_transaction_summary_page/bills_payment_transaction_summary_page_widget.dart'
+    show BillsPaymentTransactionSummaryPageWidget;
+export '/bills_payment/b_p_corp/bills_payment_page/bills_payment_page_widget.dart'
+    show BillsPaymentPageWidget;
+export '/bills_payment/b_p_corp/bills_payment_review_page/bills_payment_review_page_widget.dart'
+    show BillsPaymentReviewPageWidget;
+export '/bills_payment/b_p_corp/bills_payment_form_page/bills_payment_form_page_widget.dart'
+    show BillsPaymentFormPageWidget;
+export '/settings/success_delete_device/success_delete_device_widget.dart'
+    show SuccessDeleteDeviceWidget;
+export '/bills_payment/pay_bills_with_chosen_biller_page/pay_bills_with_chosen_biller_page_widget.dart'
+    show PayBillsWithChosenBillerPageWidget;
+export '/pay_bills/pay_bill_page/pay_bill_page_widget.dart'
+    show PayBillPageWidget;
+export '/bills_payment/select_biller_page/select_biller_page_widget.dart'
+    show SelectBillerPageWidget;
+export '/bills_payment/b_p_corp/bills_payment_verification_page/bills_payment_verification_page_widget.dart'
+    show BillsPaymentVerificationPageWidget;
+export '/loans/pay_loan_success_page/pay_loan_success_page_widget.dart'
+    show PayLoanSuccessPageWidget;
+export '/trust_product_page/trust_product_page_widget.dart'
+    show TrustProductPageWidget;
 export '/settings/security_settings_page/security_settings_page_widget.dart'
     show SecuritySettingsPageWidget;
+export '/fund_transfer/fund_transfer_amount_page/fund_transfer_amount_page_widget.dart'
+    show FundTransferAmountPageWidget;
 export '/time_deposit/open_time_deposit_confirmation_page/open_time_deposit_confirmation_page_widget.dart'
     show OpenTimeDepositConfirmationPageWidget;
 export '/cheque/cheque_deposit_form_page/cheque_deposit_form_page_widget.dart'
     show ChequeDepositFormPageWidget;
-export '/cheque/cheque_deposit_confirm_page/cheque_deposit_confirm_page_widget.dart'
-    show ChequeDepositConfirmPageWidget;
 export '/report_problems_scam_or_phishing/report_problems_scam_or_phishing_widget.dart'
     show ReportProblemsScamOrPhishingWidget;
-export '/loans/loan_schedule_page/loan_schedule_page_widget.dart'
-    show LoanSchedulePageWidget;
 export '/report_problems_internet_banking/report_problems_internet_banking_widget.dart'
     show ReportProblemsInternetBankingWidget;
 export '/report_problems_a_t_m_related_problem/report_problems_a_t_m_related_problem_widget.dart'
@@ -213,72 +263,35 @@ export '/pay_bills/pay_bills_success_page/pay_bills_success_page_widget.dart'
     show PayBillsSuccessPageWidget;
 export '/pay_bills/scheduled_pay_bills_page/scheduled_pay_bills_page_widget.dart'
     show ScheduledPayBillsPageWidget;
-export '/pay_bills/pay_bills_failed_page/pay_bills_failed_page_widget.dart'
-    show PayBillsFailedPageWidget;
-export '/splash/splash_page/splash_page_widget.dart' show SplashPageWidget;
 export '/pages/others/qr/generated_q_r_page/generated_q_r_page_widget.dart'
     show GeneratedQRPageWidget;
-export '/account_setup_successful_page/account_setup_successful_page_widget.dart'
-    show AccountSetupSuccessfulPageWidget;
 export '/recover/recovery_username_page/recovery_username_page_widget.dart'
     show RecoveryUsernamePageWidget;
 export '/m_pin/verify_mpin_page/verify_mpin_page_widget.dart'
     show VerifyMpinPageWidget;
-export '/pages/others/a_i_scanner2_page/a_i_scanner2_page_widget.dart'
-    show AIScanner2PageWidget;
-export '/inbox/inbox_details_page/inbox_details_page_widget.dart'
-    show InboxDetailsPageWidget;
-export '/pages/terms_and_condition_page/terms_and_condition_page_widget.dart'
-    show TermsAndConditionPageWidget;
 export '/cheque_inquiry_page/cheque_inquiry_page_widget.dart'
     show ChequeInquiryPageWidget;
-export '/pages/forgot_password_page/forgot_password_page_widget.dart'
-    show ForgotPasswordPageWidget;
-export '/settings/activity_history/activity_history_widget.dart'
-    show ActivityHistoryWidget;
-export '/transactions/payment_history/payment_history_widget.dart'
-    show PaymentHistoryWidget;
 export '/transactions/transaction_history_v2/transaction_history_v2_widget.dart'
     show TransactionHistoryV2Widget;
 export '/loans/pay_loan_amount_page/pay_loan_amount_page_widget.dart'
     show PayLoanAmountPageWidget;
-export '/web_view/web_view_page/web_view_page_widget.dart'
-    show WebViewPageWidget;
-export '/view_transaction_page/view_transaction_page_widget.dart'
-    show ViewTransactionPageWidget;
+export '/m_pin/m_p_i_n_page/m_p_i_n_page_widget.dart' show MPINPageWidget;
 export '/cheque_inquiry_result_page/cheque_inquiry_result_page_widget.dart'
     show ChequeInquiryResultPageWidget;
-export '/personal_information_page/personal_information_page_widget.dart'
-    show PersonalInformationPageWidget;
-export '/content_hub/content_hub_page/content_hub_page_widget.dart'
-    show ContentHubPageWidget;
 export '/settings/security_and_credentials_page/security_and_credentials_page_widget.dart'
     show SecurityAndCredentialsPageWidget;
 export '/settings/contact_us_page/contact_us_page_widget.dart'
     show ContactUsPageWidget;
 export '/settings/transaction_limits_page/transaction_limits_page_widget.dart'
     show TransactionLimitsPageWidget;
-export '/m_pin/m_p_i_n_page/m_p_i_n_page_widget.dart' show MPINPageWidget;
-export '/fund_transfer/fund_transfer_amount_page/fund_transfer_amount_page_widget.dart'
-    show FundTransferAmountPageWidget;
-export '/loans/manage_loans_page_copy/manage_loans_page_copy_widget.dart'
-    show ManageLoansPageCopyWidget;
 export '/pay_bills/pay_bills_amount_page/pay_bills_amount_page_widget.dart'
     show PayBillsAmountPageWidget;
-export '/settings/passkey_credentials_page/passkey_credentials_page_widget.dart'
-    show PasskeyCredentialsPageWidget;
-export '/manage_account_page/manage_account_page_widget.dart'
-    show ManageAccountPageWidget;
-export '/time_deposit/time_deposit_details_page/time_deposit_details_page_widget.dart'
-    show TimeDepositDetailsPageWidget;
 export '/recover/recovery_password_page/recovery_password_page_widget.dart'
     show RecoveryPasswordPageWidget;
 export '/time_deposit/open_time_deposit_product_selection_page/open_time_deposit_product_selection_page_widget.dart'
     show OpenTimeDepositProductSelectionPageWidget;
 export '/time_deposit/open_time_deposit_details_page/open_time_deposit_details_page_widget.dart'
     show OpenTimeDepositDetailsPageWidget;
-export '/check_deposit/check_status_view/check_status_view_widget.dart'
-    show CheckStatusViewWidget;
 export '/qr_scan_generate/q_r_payment_history_page/q_r_payment_history_page_widget.dart'
     show QRPaymentHistoryPageWidget;
 export '/qr_scan_generate/receive_generate_q_r_page/receive_generate_q_r_page_widget.dart'
@@ -289,44 +302,29 @@ export '/apply_trust_product_page/apply_trust_product_page_widget.dart'
     show ApplyTrustProductPageWidget;
 export '/inbox/alerts_announcement_page/alerts_announcement_page_widget.dart'
     show AlertsAnnouncementPageWidget;
-export '/pages/others/account_validation_success_page/account_validation_success_page_widget.dart'
-    show AccountValidationSuccessPageWidget;
 export '/pages/account_credentials_page/account_credentials_page_widget.dart'
     show AccountCredentialsPageWidget;
-export '/cheque/cheque_deposit_page/cheque_deposit_page_widget.dart'
-    show ChequeDepositPageWidget;
 export '/report_problems_page/report_problems_page_widget.dart'
     show ReportProblemsPageWidget;
 export '/service_request/service_request_tracker_page/service_request_tracker_page_widget.dart'
     show ServiceRequestTrackerPageWidget;
 export '/qr_scan_generate/q_r_scanner_page/q_r_scanner_page_widget.dart'
     show QRScannerPageWidget;
-export '/pages/create_new_password_page/create_new_password_page_widget.dart'
-    show CreateNewPasswordPageWidget;
 export '/account/user_profile_page/user_profile_page_widget.dart'
     show UserProfilePageWidget;
 export '/pages/others/account_validation_page/account_validation_page_widget.dart'
     show AccountValidationPageWidget;
 export '/fund_transfer/fund_transfer_options_page/fund_transfer_options_page_widget.dart'
     show FundTransferOptionsPageWidget;
-export '/time_deposit/manage_term_deposit_page/manage_term_deposit_page_widget.dart'
-    show ManageTermDepositPageWidget;
 export '/pages/auth/landing_page/landing_page_widget.dart'
     show LandingPageWidget;
 export '/pay_bills/pay_bills_page/pay_bills_page_widget.dart'
     show PayBillsPageWidget;
-export '/pages/others/dashboard/dashboard_widget.dart' show DashboardWidget;
 export '/pages/auth/login_page/login_page_widget.dart' show LoginPageWidget;
-export '/investment_summary/investment_summary_page/investment_summary_page_widget.dart'
-    show InvestmentSummaryPageWidget;
 export '/account_detail_page/account_detail_page_widget.dart'
     show AccountDetailPageWidget;
 export '/account_verification_page/account_verification_page_widget.dart'
     show AccountVerificationPageWidget;
-export '/pages/account_enrollment_welcome_page/account_enrollment_welcome_page_widget.dart'
-    show AccountEnrollmentWelcomePageWidget;
-export '/m_pin/change_m_pin_page/change_m_pin_page_widget.dart'
-    show ChangeMPinPageWidget;
 export '/loans/loan_details_page/loan_details_page_widget.dart'
     show LoanDetailsPageWidget;
 export '/fund_transfer/fund_transfer_page/fund_transfer_page_widget.dart'
@@ -341,3 +339,5 @@ export '/fund_transfer/transfer_money_successful/transfer_money_successful_widge
     show TransferMoneySuccessfulWidget;
 export '/settings/saved_devices/saved_devices_widget.dart'
     show SavedDevicesWidget;
+export '/account/accounts_page/accounts_page_widget.dart'
+    show AccountsPageWidget;

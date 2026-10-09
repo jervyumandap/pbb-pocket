@@ -179,8 +179,10 @@ class _ReportProblemsDepositProblemWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportDeposit_issue_component',
+                                                  label: 'Report issue',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportdeposit_issue_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -341,8 +343,9 @@ class _ReportProblemsDepositProblemWidgetState
                                               ].divide(SizedBox(height: 5.0)),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'reportDeposit_details_textfield',
+                                              label: 'Additional details',
+                                              identifier:
+                                                  'reportdeposit_details_textfield',
                                               child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
@@ -486,139 +489,149 @@ class _ReportProblemsDepositProblemWidgetState
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 50.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    if (_model.informationSelected == null) {
-                                      _model.isIssueNotSelected = true;
-                                      safeSetState(() {});
-                                    } else {
-                                      if (_model.informationSelected
-                                              ?.selectedIssue ==
-                                          '') {
+                                child: Semantics(
+                                  button: true,
+                                  identifier: 'rp_deposit_button',
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      if (_model.informationSelected == null) {
                                         _model.isIssueNotSelected = true;
                                         safeSetState(() {});
                                       } else {
-                                        _model.isIssueNotSelected = false;
-                                        safeSetState(() {});
-                                        _model.apiResult1j3 =
-                                            await WhitebankGroupAPIGroup
-                                                .retailReportSuspiciousReportCall
-                                                .call(
-                                          reportType: _model
-                                              .informationSelected?.reportType,
-                                          description: functions.reportFormatText(
-                                              'Issue:${_model.informationSelected?.selectedIssue}\\nAdditional Info: ${_model.additionalDetailsTextController.text}'),
-                                          submissionSource: 'help_menu',
-                                          idempotencyKey:
-                                              functions.createUuid(),
-                                          xClientChannel:
-                                              FFAppState().DeviceDetails.model,
-                                          xAppVersion:
-                                              FFAppState().DeviceDetails.os,
-                                          xOsVersion: FFAppState()
-                                              .DeviceDetails
-                                              .osVersion,
-                                          xDeviceId: FFAppState()
-                                              .DeviceDetails
-                                              .deviceId,
-                                          baseURL: FFDevEnvironmentValues()
-                                              .WBPBASEURL,
-                                          accessToken:
-                                              currentAuthenticationToken,
-                                          attachmentUrlsJson:
-                                              functions.reportStringToJson(
-                                                  'www.google.com',
-                                                  'Issue:${_model.informationSelected?.selectedIssue}\\nAdditional Info: ${_model.additionalDetailsTextController.text}'),
-                                        );
-
-                                        if ((_model.apiResult1j3?.succeeded ??
-                                            true)) {
-                                          FFAppState().updateReportRefNumStruct(
-                                            (e) => e
-                                              ..referenceNumber =
-                                                  ReportSuccessResponseStruct
-                                                          .maybeFromMap((_model
-                                                                  .apiResult1j3
-                                                                  ?.jsonBody ??
-                                                              ''))
-                                                      ?.referenceNumber,
-                                          );
+                                        if (_model.informationSelected
+                                                ?.selectedIssue ==
+                                            '') {
+                                          _model.isIssueNotSelected = true;
                                           safeSetState(() {});
-
-                                          context.pushNamed(
-                                              ReportSuccessPageWidget
-                                                  .routeName);
                                         } else {
-                                          await showModalBottomSheet(
-                                            isScrollControlled: true,
-                                            backgroundColor: Colors.transparent,
-                                            enableDrag: false,
-                                            context: context,
-                                            builder: (context) {
-                                              return WebViewAware(
-                                                child: GestureDetector(
-                                                  onTap: () {
-                                                    FocusScope.of(context)
-                                                        .unfocus();
-                                                    FocusManager
-                                                        .instance.primaryFocus
-                                                        ?.unfocus();
-                                                  },
-                                                  child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child:
-                                                        CustomInformationalDialogWidget(
-                                                      message:
-                                                          'Something went wrong. Please try again later.',
-                                                      primaryButtonTitle:
-                                                          'Confirm',
-                                                      primaryButtonAction:
-                                                          () async {
-                                                        context.pushNamed(
-                                                            DashboardWidget
-                                                                .routeName);
-                                                      },
-                                                      secondaryButtonAction:
-                                                          () async {},
+                                          _model.isIssueNotSelected = false;
+                                          safeSetState(() {});
+                                          _model.apiResult1j3 =
+                                              await WhitebankGroupAPIGroup
+                                                  .retailReportSuspiciousReportCall
+                                                  .call(
+                                            reportType: _model
+                                                .informationSelected
+                                                ?.reportType,
+                                            description: functions.reportFormatText(
+                                                'Issue:${_model.informationSelected?.selectedIssue}\\nAdditional Info: ${_model.additionalDetailsTextController.text}'),
+                                            submissionSource: 'help_menu',
+                                            idempotencyKey:
+                                                functions.createUuid(),
+                                            xClientChannel: FFAppState()
+                                                .DeviceDetails
+                                                .model,
+                                            xAppVersion:
+                                                FFAppState().DeviceDetails.os,
+                                            xOsVersion: FFAppState()
+                                                .DeviceDetails
+                                                .osVersion,
+                                            xDeviceId: FFAppState()
+                                                .DeviceDetails
+                                                .deviceId,
+                                            baseURL: FFDevEnvironmentValues()
+                                                .WBPBASEURL,
+                                            accessToken:
+                                                currentAuthenticationToken,
+                                            attachmentUrlsJson:
+                                                functions.reportStringToJson(
+                                                    'www.google.com',
+                                                    'Issue:${_model.informationSelected?.selectedIssue}\\nAdditional Info: ${_model.additionalDetailsTextController.text}'),
+                                          );
+
+                                          if ((_model.apiResult1j3?.succeeded ??
+                                              true)) {
+                                            FFAppState()
+                                                .updateReportRefNumStruct(
+                                              (e) => e
+                                                ..referenceNumber =
+                                                    ReportSuccessResponseStruct
+                                                            .maybeFromMap((_model
+                                                                    .apiResult1j3
+                                                                    ?.jsonBody ??
+                                                                ''))
+                                                        ?.referenceNumber,
+                                            );
+                                            safeSetState(() {});
+
+                                            context.pushNamed(
+                                                ReportSuccessPageWidget
+                                                    .routeName);
+                                          } else {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                  child: GestureDetector(
+                                                    onTap: () {
+                                                      FocusScope.of(context)
+                                                          .unfocus();
+                                                      FocusManager
+                                                          .instance.primaryFocus
+                                                          ?.unfocus();
+                                                    },
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          CustomInformationalDialogWidget(
+                                                        message:
+                                                            'Something went wrong. Please try again later.',
+                                                        primaryButtonTitle:
+                                                            'Confirm',
+                                                        primaryButtonAction:
+                                                            () async {
+                                                          context.pushNamed(
+                                                              DashboardWidget
+                                                                  .routeName);
+                                                        },
+                                                        secondaryButtonAction:
+                                                            () async {},
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              );
-                                            },
-                                          ).then(
-                                              (value) => safeSetState(() {}));
+                                                );
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          }
                                         }
                                       }
-                                    }
 
-                                    safeSetState(() {});
-                                  },
-                                  text: 'Submit Report',
-                                  options: FFButtonOptions(
-                                    width: double.infinity,
-                                    height: 48.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmallFamily,
-                                          color: Colors.white,
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts:
-                                              !FlutterFlowTheme.of(context)
-                                                  .titleSmallIsCustom,
-                                        ),
-                                    elevation: 0.0,
-                                    borderRadius: BorderRadius.circular(16.0),
+                                      safeSetState(() {});
+                                    },
+                                    text: 'Submit Report',
+                                    options: FFButtonOptions(
+                                      width: double.infinity,
+                                      height: 48.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 0.0, 16.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmallFamily,
+                                            color: Colors.white,
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts:
+                                                !FlutterFlowTheme.of(context)
+                                                    .titleSmallIsCustom,
+                                          ),
+                                      elevation: 0.0,
+                                      borderRadius: BorderRadius.circular(16.0),
+                                    ),
                                   ),
                                 ),
                               ),

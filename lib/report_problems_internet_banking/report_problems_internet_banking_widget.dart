@@ -184,8 +184,10 @@ class _ReportProblemsInternetBankingWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportInternet_issue_component',
+                                                  label: 'Report issue',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportinternet_issue_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -351,8 +353,10 @@ class _ReportProblemsInternetBankingWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportInternet_concern_component',
+                                                  label: 'Report concern',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportinternet_concern_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -526,8 +530,9 @@ class _ReportProblemsInternetBankingWidgetState
                                                 ),
                                               ),
                                               child: Semantics(
-                                                label:
-                                                    'reportInternet_erro_textfield',
+                                                label: 'Report internet error',
+                                                identifier:
+                                                    'reportinternet_erro_textfield',
                                                 child: Container(
                                                   width: 200.0,
                                                   child: TextFormField(
@@ -656,8 +661,10 @@ class _ReportProblemsInternetBankingWidgetState
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Semantics(
-                                                  label:
-                                                      'reportInternet_device_component',
+                                                  label: 'Report device',
+                                                  container: true,
+                                                  identifier:
+                                                      'reportinternet_device_component',
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -817,8 +824,9 @@ class _ReportProblemsInternetBankingWidgetState
                                               ].divide(SizedBox(height: 5.0)),
                                             ),
                                             Semantics(
-                                              label:
-                                                  'reportInternet_details_textfield',
+                                              label: 'Additional details',
+                                              identifier:
+                                                  'reportinternet_details_textfield',
                                               child: Container(
                                                 width: double.infinity,
                                                 child: TextFormField(
@@ -1097,7 +1105,9 @@ class _ReportProblemsInternetBankingWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 50.0),
                                 child: Semantics(
-                                  label: 'reportInternet_submit_button',
+                                  label: 'Report submit',
+                                  button: true,
+                                  identifier: 'reportinternet_submit_button',
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       if (_model.informationSelected == null) {

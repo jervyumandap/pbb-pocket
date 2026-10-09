@@ -983,39 +983,52 @@ class _DebitCardReplacementPageWidgetState
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
-                        child: Container(
-                          width: double.infinity,
-                          child: TextFormField(
-                            controller: _model.textController1,
-                            focusNode: _model.textFieldFocusNode1,
-                            onChanged: (_) => EasyDebounce.debounce(
-                              '_model.textController1',
-                              Duration(milliseconds: 200),
-                              () => safeSetState(() {}),
-                            ),
-                            autofocus: false,
-                            enabled: true,
-                            textInputAction: TextInputAction.next,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              isDense: false,
-                              labelText: 'Card Number *',
-                              labelStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .bodyMediumIsCustom,
-                                  ),
-                              hintText: 'Card Number *',
-                              hintStyle: FlutterFlowTheme.of(context)
-                                  .labelMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
+                        child: Semantics(
+                          identifier: 'debit_card_replace_input',
+                          child: Container(
+                            width: double.infinity,
+                            child: TextFormField(
+                              controller: _model.textController1,
+                              focusNode: _model.textFieldFocusNode1,
+                              onChanged: (_) => EasyDebounce.debounce(
+                                '_model.textController1',
+                                Duration(milliseconds: 200),
+                                () => safeSetState(() {}),
+                              ),
+                              autofocus: false,
+                              enabled: true,
+                              textInputAction: TextInputAction.next,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                isDense: false,
+                                labelText: 'Card Number *',
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                                hintText: 'Card Number *',
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .bgThemeColor,
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .fontWeight,
@@ -1023,88 +1036,80 @@ class _DebitCardReplacementPageWidgetState
                                           .labelMedium
                                           .fontStyle,
                                     ),
-                                    color: FlutterFlowTheme.of(context)
-                                        .bgThemeColor,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .fontStyle,
+                                errorStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: Color(0xFFB3261E),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .bodyMediumIsCustom,
+                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFB3B3B3),
+                                    width: 1.0,
                                   ),
-                              errorStyle: FlutterFlowTheme.of(context)
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFF676666),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFB3261E),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFB3261E),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                filled: true,
+                                fillColor: Colors.white,
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 0.0, 0.0),
+                              ),
+                              style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .bodyMediumFamily,
-                                    color: Color(0xFFB3261E),
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
                                     useGoogleFonts:
                                         !FlutterFlowTheme.of(context)
                                             .bodyMediumIsCustom,
                                   ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFB3B3B3),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFF676666),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFB3261E),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFB3261E),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              filled: true,
-                              fillColor: Colors.white,
-                              contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 0.0, 0.0),
+                              maxLines: null,
+                              maxLength: 16,
+                              buildCounter: (context,
+                                      {required currentLength,
+                                      required isFocused,
+                                      maxLength}) =>
+                                  null,
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                      decimal: true),
+                              validator: _model.textController1Validator
+                                  .asValidator(context),
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(
+                                    RegExp('^[0-9.]+\$'))
+                              ],
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  useGoogleFonts: !FlutterFlowTheme.of(context)
-                                      .bodyMediumIsCustom,
-                                ),
-                            maxLines: null,
-                            maxLength: 16,
-                            buildCounter: (context,
-                                    {required currentLength,
-                                    required isFocused,
-                                    maxLength}) =>
-                                null,
-                            keyboardType: const TextInputType.numberWithOptions(
-                                decimal: true),
-                            validator: _model.textController1Validator
-                                .asValidator(context),
-                            inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp('^[0-9.]+\$'))
-                            ],
                           ),
                         ),
                       ),
@@ -1316,50 +1321,63 @@ class _DebitCardReplacementPageWidgetState
                           ),
                         ),
                       ),
-                      Container(
-                        width: double.infinity,
-                        child: TextFormField(
-                          controller: _model.textController2,
-                          focusNode: _model.textFieldFocusNode2,
-                          onChanged: (_) => EasyDebounce.debounce(
-                            '_model.textController2',
-                            Duration(milliseconds: 200),
-                            () => safeSetState(() {}),
-                          ),
-                          autofocus: false,
-                          enabled: true,
-                          textInputAction: TextInputAction.next,
-                          readOnly: true,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            isDense: false,
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  font: GoogleFonts.inter(
+                      Semantics(
+                        identifier: 'debit_card_replace_input_2',
+                        child: Container(
+                          width: double.infinity,
+                          child: TextFormField(
+                            controller: _model.textController2,
+                            focusNode: _model.textFieldFocusNode2,
+                            onChanged: (_) => EasyDebounce.debounce(
+                              '_model.textController2',
+                              Duration(milliseconds: 200),
+                              () => safeSetState(() {}),
+                            ),
+                            autofocus: false,
+                            enabled: true,
+                            textInputAction: TextInputAction.next,
+                            readOnly: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              isDense: false,
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .fontStyle,
+                                    lineHeight: 1.0,
                                   ),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
-                                  lineHeight: 1.0,
-                                ),
-                            hintText: '${valueOrDefault<String>(
-                              currentUserData?.user.branchName,
-                              '-',
-                            )} (Fixed)',
-                            hintStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  font: GoogleFonts.inter(
+                              hintText: '${valueOrDefault<String>(
+                                currentUserData?.user.branchName,
+                                '-',
+                              )} (Fixed)',
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .bgThemeColor,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .fontWeight,
@@ -1367,81 +1385,72 @@ class _DebitCardReplacementPageWidgetState
                                         .labelMedium
                                         .fontStyle,
                                   ),
-                                  color:
-                                      FlutterFlowTheme.of(context).bgThemeColor,
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .fontStyle,
+                              errorStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    color: Color(0xFFB3261E),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w500,
+                                    useGoogleFonts:
+                                        !FlutterFlowTheme.of(context)
+                                            .bodyMediumIsCustom,
+                                  ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFF676666),
+                                  width: 1.0,
                                 ),
-                            errorStyle: FlutterFlowTheme.of(context)
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFF676666),
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFB3261E),
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFB3261E),
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              filled: true,
+                              fillColor: Colors.white,
+                              contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 0.0, 0.0),
+                            ),
+                            style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .bodyMediumFamily,
-                                  color: Color(0xFFB3261E),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
                                   useGoogleFonts: !FlutterFlowTheme.of(context)
                                       .bodyMediumIsCustom,
                                 ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFF676666),
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFF676666),
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFB3261E),
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0xFFB3261E),
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            filled: true,
-                            fillColor: Colors.white,
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 0.0, 0.0),
+                            maxLines: null,
+                            keyboardType: const TextInputType.numberWithOptions(
+                                decimal: true),
+                            validator: _model.textController2Validator
+                                .asValidator(context),
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp('^[0-9.]+\$'))
+                            ],
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                fontSize: 16.0,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: !FlutterFlowTheme.of(context)
-                                    .bodyMediumIsCustom,
-                              ),
-                          maxLines: null,
-                          keyboardType: const TextInputType.numberWithOptions(
-                              decimal: true),
-                          validator: _model.textController2Validator
-                              .asValidator(context),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(
-                                RegExp('^[0-9.]+\$'))
-                          ],
                         ),
                       ),
                       Align(
@@ -1469,140 +1478,148 @@ class _DebitCardReplacementPageWidgetState
                       Align(
                         alignment: AlignmentDirectional(0.0, 1.0),
                         child: Builder(
-                          builder: (context) => FFButtonWidget(
-                            onPressed: () async {
-                              _model.validateForm = true;
-                              if (_model.formKey.currentState == null ||
-                                  !_model.formKey.currentState!.validate()) {
-                                safeSetState(() => _model.validateForm = false);
-                                return;
-                              }
-                              if (_model.validateForm!) {
-                                _model.apiResultk9m =
-                                    await WhitebankGroupAPIGroup
-                                        .retailCardReplacementRequestsCall
-                                        .call(
-                                  accountNumber: FFAppState()
-                                                  .selectedAccount
-                                                  .accountNumber !=
-                                              ''
-                                      ? FFAppState()
-                                          .selectedAccount
-                                          .fullAccountNumber
-                                      : FFAppState()
-                                          .AccountsState
-                                          .firstOrNull
-                                          ?.fullAccountNumber,
-                                  cardNumber: _model.textController1.text,
-                                  replacementReason:
-                                      _model.replacementReason != null &&
-                                              _model.replacementReason != ''
-                                          ? _model.replacementReason
-                                          : valueOrDefault<String>(
-                                              _model.reasonForReplacementList
-                                                  .firstOrNull,
-                                              '-',
-                                            ),
-                                  cardHolderName: _model
-                                      .accountNameTextfieldModel
-                                      .textController
-                                      .text,
-                                  idempotencyKey: functions.createUuid(),
-                                  baseURL: FFDevEnvironmentValues().WBPBASEURL,
-                                  accessToken: currentAuthenticationToken,
-                                  refreshToken: currentAuthRefreshToken,
-                                );
-
-                                if ((_model.apiResultk9m?.succeeded ?? true)) {
-                                  context.pushNamed(
-                                    DebitCardReplacementSuccessPageWidget
-                                        .routeName,
-                                    queryParameters: {
-                                      'debitCardReplacement': serializeParam(
-                                        DebitCardReplacementSuccessModelStruct
-                                            .maybeFromMap((_model
-                                                    .apiResultk9m?.jsonBody ??
-                                                '')),
-                                        ParamType.DataStruct,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-                                } else {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (dialogContext) {
-                                      return Dialog(
-                                        elevation: 0,
-                                        insetPadding: EdgeInsets.zero,
-                                        backgroundColor: Colors.transparent,
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                        child: WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(dialogContext)
-                                                  .unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child:
-                                                CustomInformationalDialogWidget(
-                                              message: WhitebankGroupAPIGroup
-                                                  .retailCardReplacementRequestsCall
-                                                  .message(
-                                                (_model.apiResultk9m
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )!,
-                                              primaryButtonTitle: 'Close',
-                                              title: WhitebankGroupAPIGroup
-                                                  .retailCardReplacementRequestsCall
-                                                  .title(
-                                                (_model.apiResultk9m
-                                                        ?.jsonBody ??
-                                                    ''),
+                          builder: (context) => Semantics(
+                            button: true,
+                            identifier: 'debit_card_replace_password_login',
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                _model.validateForm = true;
+                                if (_model.formKey.currentState == null ||
+                                    !_model.formKey.currentState!.validate()) {
+                                  safeSetState(
+                                      () => _model.validateForm = false);
+                                  return;
+                                }
+                                if (_model.validateForm!) {
+                                  _model.apiResultk9m =
+                                      await WhitebankGroupAPIGroup
+                                          .retailCardReplacementRequestsCall
+                                          .call(
+                                    accountNumber: FFAppState()
+                                                    .selectedAccount
+                                                    .accountNumber !=
+                                                ''
+                                        ? FFAppState()
+                                            .selectedAccount
+                                            .fullAccountNumber
+                                        : FFAppState()
+                                            .AccountsState
+                                            .firstOrNull
+                                            ?.fullAccountNumber,
+                                    cardNumber: _model.textController1.text,
+                                    replacementReason:
+                                        _model.replacementReason != null &&
+                                                _model.replacementReason != ''
+                                            ? _model.replacementReason
+                                            : valueOrDefault<String>(
+                                                _model.reasonForReplacementList
+                                                    .firstOrNull,
+                                                '-',
                                               ),
-                                              primaryButtonAction: () async {
-                                                Navigator.pop(context);
+                                    cardHolderName: _model
+                                        .accountNameTextfieldModel
+                                        .textController
+                                        .text,
+                                    idempotencyKey: functions.createUuid(),
+                                    baseURL:
+                                        FFDevEnvironmentValues().WBPBASEURL,
+                                    accessToken: currentAuthenticationToken,
+                                    refreshToken: currentAuthRefreshToken,
+                                  );
+
+                                  if ((_model.apiResultk9m?.succeeded ??
+                                      true)) {
+                                    context.pushNamed(
+                                      DebitCardReplacementSuccessPageWidget
+                                          .routeName,
+                                      queryParameters: {
+                                        'debitCardReplacement': serializeParam(
+                                          DebitCardReplacementSuccessModelStruct
+                                              .maybeFromMap((_model
+                                                      .apiResultk9m?.jsonBody ??
+                                                  '')),
+                                          ParamType.DataStruct,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  } else {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (dialogContext) {
+                                        return Dialog(
+                                          elevation: 0,
+                                          insetPadding: EdgeInsets.zero,
+                                          backgroundColor: Colors.transparent,
+                                          alignment: AlignmentDirectional(
+                                                  0.0, 0.0)
+                                              .resolve(
+                                                  Directionality.of(context)),
+                                          child: WebViewAware(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(dialogContext)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
                                               },
-                                              secondaryButtonAction:
-                                                  () async {},
+                                              child:
+                                                  CustomInformationalDialogWidget(
+                                                message: WhitebankGroupAPIGroup
+                                                    .retailCardReplacementRequestsCall
+                                                    .message(
+                                                  (_model.apiResultk9m
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!,
+                                                primaryButtonTitle: 'Close',
+                                                title: WhitebankGroupAPIGroup
+                                                    .retailCardReplacementRequestsCall
+                                                    .title(
+                                                  (_model.apiResultk9m
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ),
+                                                primaryButtonAction: () async {
+                                                  Navigator.pop(context);
+                                                },
+                                                secondaryButtonAction:
+                                                    () async {},
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      );
-                                    },
-                                  );
+                                        );
+                                      },
+                                    );
+                                  }
                                 }
-                              }
 
-                              safeSetState(() {});
-                            },
-                            text: 'Submit Request',
-                            options: FFButtonOptions(
-                              width: double.infinity,
-                              height: 56.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconAlignment: IconAlignment.end,
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .titleSmallFamily,
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts:
-                                        !FlutterFlowTheme.of(context)
-                                            .titleSmallIsCustom,
-                                  ),
-                              elevation: 0.0,
-                              borderRadius: BorderRadius.circular(16.0),
+                                safeSetState(() {});
+                              },
+                              text: 'Submit Request',
+                              options: FFButtonOptions(
+                                width: double.infinity,
+                                height: 56.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconAlignment: IconAlignment.end,
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .titleSmallFamily,
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts:
+                                          !FlutterFlowTheme.of(context)
+                                              .titleSmallIsCustom,
+                                    ),
+                                elevation: 0.0,
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
                             ),
                           ),
                         ),

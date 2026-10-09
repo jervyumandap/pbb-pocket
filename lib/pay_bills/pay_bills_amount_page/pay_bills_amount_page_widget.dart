@@ -709,7 +709,9 @@ class _PayBillsAmountPageWidgetState extends State<PayBillsAmountPageWidget>
                                                                 child:
                                                                     Semantics(
                                                                   label:
-                                                                      'Quick-Amount-ChoiceChips',
+                                                                      'Quick choice chips',
+                                                                  identifier:
+                                                                      'quick_amount_choicechips',
                                                                   child:
                                                                       FlutterFlowChoiceChips(
                                                                     options: [
@@ -926,6 +928,8 @@ class _PayBillsAmountPageWidgetState extends State<PayBillsAmountPageWidget>
                                                                     Semantics(
                                                                   label:
                                                                       'Remarks TextField',
+                                                                  identifier:
+                                                                      'pb_amount_remarks',
                                                                   child:
                                                                       Container(
                                                                     width:
@@ -1097,6 +1101,8 @@ class _PayBillsAmountPageWidgetState extends State<PayBillsAmountPageWidget>
                                                               Semantics(
                                                                 label:
                                                                     'Scheduled Checkbox',
+                                                                identifier:
+                                                                    'pb_amount_scheduled_checkbox',
                                                                 child: Theme(
                                                                   data:
                                                                       ThemeData(
@@ -1264,6 +1270,7 @@ class _PayBillsAmountPageWidgetState extends State<PayBillsAmountPageWidget>
                                                                               Expanded(
                                                                                 child: Semantics(
                                                                                   label: 'Schedule TextField',
+                                                                                  identifier: 'pb_amount_schedule',
                                                                                   child: Container(
                                                                                     width: 200.0,
                                                                                     child: TextFormField(
@@ -1346,6 +1353,10 @@ class _PayBillsAmountPageWidgetState extends State<PayBillsAmountPageWidget>
                                                                           Semantics(
                                                                             label:
                                                                                 'Select Biller Action',
+                                                                            container:
+                                                                                true,
+                                                                            identifier:
+                                                                                'pb_amount_select_biller_action',
                                                                             child:
                                                                                 InkWell(
                                                                               splashColor: Colors.transparent,
@@ -1408,6 +1419,10 @@ class _PayBillsAmountPageWidgetState extends State<PayBillsAmountPageWidget>
                                                                   Semantics(
                                                                     label:
                                                                         'Start CustomDateLabelPicker',
+                                                                    container:
+                                                                        true,
+                                                                    identifier:
+                                                                        'pb_amount_start_custom_date_label_picker',
                                                                     child:
                                                                         wrapWithModel(
                                                                       model: _model
@@ -1498,6 +1513,10 @@ class _PayBillsAmountPageWidgetState extends State<PayBillsAmountPageWidget>
                                                                     Semantics(
                                                                       label:
                                                                           'End CustomDateLabelPicker',
+                                                                      container:
+                                                                          true,
+                                                                      identifier:
+                                                                          'pb_amount_end_custom_date_label_picker',
                                                                       child:
                                                                           wrapWithModel(
                                                                         model: _model
@@ -1597,7 +1616,11 @@ class _PayBillsAmountPageWidgetState extends State<PayBillsAmountPageWidget>
                                                                   child:
                                                                       Semantics(
                                                                     label:
-                                                                        'Send-Button',
+                                                                        'Send',
+                                                                    button:
+                                                                        true,
+                                                                    identifier:
+                                                                        'send_button',
                                                                     child:
                                                                         FFButtonWidget(
                                                                       onPressed: ((_model.submitBody!.amount < WBFetchedBillerStruct.maybeFromMap(paddedColumnRetailBillsPaymentBillerDetailsResponse.jsonBody)!.minAmount) ||

@@ -1053,8 +1053,8 @@ class _OpenTimeDepositConfirmationPageWidgetState
                             Container(
                               decoration: BoxDecoration(),
                               child: Semantics(
-                                label:
-                                    'open_time_deposit_review_terms_checkbox',
+                                label: 'Accept terms',
+                                identifier: 'open_time_deposit_review_terms',
                                 child: Theme(
                                   data: ThemeData(
                                     checkboxTheme: CheckboxThemeData(
@@ -1196,7 +1196,10 @@ class _OpenTimeDepositConfirmationPageWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 54.0),
                         child: Semantics(
-                          label: 'open_time_deposit_review_continue_button',
+                          label: 'Continue',
+                          button: true,
+                          container: true,
+                          identifier: 'open_time_deposit_review_continue',
                           child: wrapWithModel(
                             model: _model.primaryButtonComponentModel,
                             updateCallback: () => safeSetState(() {}),

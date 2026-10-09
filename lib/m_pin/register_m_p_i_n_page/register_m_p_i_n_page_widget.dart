@@ -85,55 +85,65 @@ class _RegisterMPINPageWidgetState extends State<RegisterMPINPageWidget>
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 70.0,
-            icon: FaIcon(
-              FontAwesomeIcons.arrowCircleLeft,
-              color: FlutterFlowTheme.of(context).primary,
-              size: 30.0,
+          leading: Semantics(
+            label: 'Show or hide password',
+            button: true,
+            identifier: 'register_mpin_password_toggle',
+            child: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 70.0,
+              icon: FaIcon(
+                FontAwesomeIcons.arrowCircleLeft,
+                color: FlutterFlowTheme.of(context).primary,
+                size: 30.0,
+              ),
+              onPressed: () async {
+                context.pop();
+              },
             ),
-            onPressed: () async {
-              context.pop();
-            },
           ),
           actions: [
             Builder(
-              builder: (context) => FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                borderWidth: 1.0,
-                buttonSize: 70.0,
-                icon: Icon(
-                  Icons.segment_outlined,
-                  color: FlutterFlowTheme.of(context).primary,
-                  size: 30.0,
-                ),
-                onPressed: () async {
-                  await showDialog(
-                    context: context,
-                    builder: (dialogContext) {
-                      return Dialog(
-                        elevation: 0,
-                        insetPadding: EdgeInsets.zero,
-                        backgroundColor: Colors.transparent,
-                        alignment: AlignmentDirectional(0.0, 0.0)
-                            .resolve(Directionality.of(context)),
-                        child: WebViewAware(
-                          child: GestureDetector(
-                            onTap: () {
-                              FocusScope.of(dialogContext).unfocus();
-                              FocusManager.instance.primaryFocus?.unfocus();
-                            },
-                            child: MobileSliderWidget(),
+              builder: (context) => Semantics(
+                label: 'Show or hide password',
+                button: true,
+                identifier: 'register_mpin_confirm_password_toggle',
+                child: FlutterFlowIconButton(
+                  borderColor: Colors.transparent,
+                  borderRadius: 30.0,
+                  borderWidth: 1.0,
+                  buttonSize: 70.0,
+                  icon: Icon(
+                    Icons.segment_outlined,
+                    color: FlutterFlowTheme.of(context).primary,
+                    size: 30.0,
+                  ),
+                  onPressed: () async {
+                    await showDialog(
+                      context: context,
+                      builder: (dialogContext) {
+                        return Dialog(
+                          elevation: 0,
+                          insetPadding: EdgeInsets.zero,
+                          backgroundColor: Colors.transparent,
+                          alignment: AlignmentDirectional(0.0, 0.0)
+                              .resolve(Directionality.of(context)),
+                          child: WebViewAware(
+                            child: GestureDetector(
+                              onTap: () {
+                                FocusScope.of(dialogContext).unfocus();
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              },
+                              child: MobileSliderWidget(),
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  );
-                },
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
             ),
           ],
@@ -148,195 +158,203 @@ class _RegisterMPINPageWidgetState extends State<RegisterMPINPageWidget>
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  width: double.infinity,
-                  child: TextFormField(
-                    controller: _model.textFieldPasswordTextController,
-                    focusNode: _model.textFieldPasswordFocusNode,
-                    autofocus: false,
-                    obscureText: !_model.textFieldPasswordVisibility,
-                    decoration: InputDecoration(
-                      isDense: true,
-                      labelText: 'Password',
-                      labelStyle: FlutterFlowTheme.of(context)
-                          .labelLarge
-                          .override(
+                Semantics(
+                  label: 'Password',
+                  identifier: 'register_mpin_password',
+                  child: Container(
+                    width: double.infinity,
+                    child: TextFormField(
+                      controller: _model.textFieldPasswordTextController,
+                      focusNode: _model.textFieldPasswordFocusNode,
+                      autofocus: false,
+                      obscureText: !_model.textFieldPasswordVisibility,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        labelText: 'Password',
+                        labelStyle: FlutterFlowTheme.of(context)
+                            .labelLarge
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).labelLargeFamily,
+                              fontSize: 14.0,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .labelLargeIsCustom,
+                            ),
+                        hintText: 'Enter Password*',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .labelMediumFamily,
+                                  color: Color(0xFF72777A),
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .labelMediumIsCustom,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).neutral10,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        filled: true,
+                        fillColor: FlutterFlowTheme.of(context).base0,
+                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            12.0, 17.0, 12.0, 17.0),
+                        hoverColor:
+                            FlutterFlowTheme.of(context).formElementHover,
+                        suffixIcon: InkWell(
+                          onTap: () async {
+                            safeSetState(() =>
+                                _model.textFieldPasswordVisibility =
+                                    !_model.textFieldPasswordVisibility);
+                          },
+                          focusNode: FocusNode(skipTraversal: true),
+                          child: Icon(
+                            _model.textFieldPasswordVisibility
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined,
+                            size: 22,
+                          ),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).labelLargeFamily,
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             fontSize: 14.0,
                             letterSpacing: 0.0,
                             useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .labelLargeIsCustom,
+                                .bodyMediumIsCustom,
                           ),
-                      hintText: 'Enter Password*',
-                      hintStyle: FlutterFlowTheme.of(context)
-                          .labelMedium
-                          .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).labelMediumFamily,
-                            color: Color(0xFF72777A),
-                            fontSize: 14.0,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .labelMediumIsCustom,
-                          ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).neutral10,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primary,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      filled: true,
-                      fillColor: FlutterFlowTheme.of(context).base0,
-                      contentPadding: EdgeInsetsDirectional.fromSTEB(
-                          12.0, 17.0, 12.0, 17.0),
-                      hoverColor: FlutterFlowTheme.of(context).formElementHover,
-                      suffixIcon: InkWell(
-                        onTap: () async {
-                          safeSetState(() =>
-                              _model.textFieldPasswordVisibility =
-                                  !_model.textFieldPasswordVisibility);
-                        },
-                        focusNode: FocusNode(skipTraversal: true),
-                        child: Icon(
-                          _model.textFieldPasswordVisibility
-                              ? Icons.visibility_outlined
-                              : Icons.visibility_off_outlined,
-                          size: 22,
-                        ),
-                      ),
+                      keyboardType: TextInputType.emailAddress,
+                      cursorColor: FlutterFlowTheme.of(context).primaryText,
+                      enableInteractiveSelection: true,
+                      validator: _model.textFieldPasswordTextControllerValidator
+                          .asValidator(context),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                          fontSize: 14.0,
-                          letterSpacing: 0.0,
-                          useGoogleFonts:
-                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                        ),
-                    keyboardType: TextInputType.emailAddress,
-                    cursorColor: FlutterFlowTheme.of(context).primaryText,
-                    enableInteractiveSelection: true,
-                    validator: _model.textFieldPasswordTextControllerValidator
-                        .asValidator(context),
                   ),
                 ),
-                Container(
-                  width: double.infinity,
-                  child: TextFormField(
-                    controller: _model.textFieldConfirmPasswordTextController,
-                    focusNode: _model.textFieldConfirmPasswordFocusNode,
-                    autofocus: false,
-                    obscureText: !_model.textFieldConfirmPasswordVisibility,
-                    decoration: InputDecoration(
-                      isDense: true,
-                      labelText: 'Confirm Password',
-                      labelStyle: FlutterFlowTheme.of(context)
-                          .labelLarge
-                          .override(
+                Semantics(
+                  label: 'Confirm password',
+                  identifier: 'register_mpin_confirm_password',
+                  child: Container(
+                    width: double.infinity,
+                    child: TextFormField(
+                      controller: _model.textFieldConfirmPasswordTextController,
+                      focusNode: _model.textFieldConfirmPasswordFocusNode,
+                      autofocus: false,
+                      obscureText: !_model.textFieldConfirmPasswordVisibility,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        labelText: 'Confirm Password',
+                        labelStyle: FlutterFlowTheme.of(context)
+                            .labelLarge
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).labelLargeFamily,
+                              fontSize: 14.0,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: !FlutterFlowTheme.of(context)
+                                  .labelLargeIsCustom,
+                            ),
+                        hintText: 'Confirm Password*',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .labelMediumFamily,
+                                  color: Color(0xFF72777A),
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: !FlutterFlowTheme.of(context)
+                                      .labelMediumIsCustom,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).neutral10,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        filled: true,
+                        fillColor: FlutterFlowTheme.of(context).base0,
+                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                            12.0, 17.0, 12.0, 17.0),
+                        hoverColor:
+                            FlutterFlowTheme.of(context).formElementHover,
+                        suffixIcon: InkWell(
+                          onTap: () async {
+                            safeSetState(() =>
+                                _model.textFieldConfirmPasswordVisibility =
+                                    !_model.textFieldConfirmPasswordVisibility);
+                          },
+                          focusNode: FocusNode(skipTraversal: true),
+                          child: Icon(
+                            _model.textFieldConfirmPasswordVisibility
+                                ? Icons.visibility_outlined
+                                : Icons.visibility_off_outlined,
+                            size: 22,
+                          ),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily:
-                                FlutterFlowTheme.of(context).labelLargeFamily,
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             fontSize: 14.0,
                             letterSpacing: 0.0,
                             useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .labelLargeIsCustom,
+                                .bodyMediumIsCustom,
                           ),
-                      hintText: 'Confirm Password*',
-                      hintStyle: FlutterFlowTheme.of(context)
-                          .labelMedium
-                          .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).labelMediumFamily,
-                            color: Color(0xFF72777A),
-                            fontSize: 14.0,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: !FlutterFlowTheme.of(context)
-                                .labelMediumIsCustom,
-                          ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).neutral10,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primary,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).error,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      filled: true,
-                      fillColor: FlutterFlowTheme.of(context).base0,
-                      contentPadding: EdgeInsetsDirectional.fromSTEB(
-                          12.0, 17.0, 12.0, 17.0),
-                      hoverColor: FlutterFlowTheme.of(context).formElementHover,
-                      suffixIcon: InkWell(
-                        onTap: () async {
-                          safeSetState(() =>
-                              _model.textFieldConfirmPasswordVisibility =
-                                  !_model.textFieldConfirmPasswordVisibility);
-                        },
-                        focusNode: FocusNode(skipTraversal: true),
-                        child: Icon(
-                          _model.textFieldConfirmPasswordVisibility
-                              ? Icons.visibility_outlined
-                              : Icons.visibility_off_outlined,
-                          size: 22,
-                        ),
-                      ),
+                      keyboardType: TextInputType.emailAddress,
+                      cursorColor: FlutterFlowTheme.of(context).primaryText,
+                      enableInteractiveSelection: true,
+                      validator: _model
+                          .textFieldConfirmPasswordTextControllerValidator
+                          .asValidator(context),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                          fontSize: 14.0,
-                          letterSpacing: 0.0,
-                          useGoogleFonts:
-                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                        ),
-                    keyboardType: TextInputType.emailAddress,
-                    cursorColor: FlutterFlowTheme.of(context).primaryText,
-                    enableInteractiveSelection: true,
-                    validator: _model
-                        .textFieldConfirmPasswordTextControllerValidator
-                        .asValidator(context),
                   ),
                 ),
                 Padding(
@@ -348,35 +366,40 @@ class _RegisterMPINPageWidgetState extends State<RegisterMPINPageWidget>
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Theme(
-                            data: ThemeData(
-                              checkboxTheme: CheckboxThemeData(
-                                visualDensity: VisualDensity.compact,
-                                materialTapTargetSize:
-                                    MaterialTapTargetSize.shrinkWrap,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(4.0),
+                          Semantics(
+                            button: true,
+                            identifier: 'register_mpin_checkbox',
+                            child: Theme(
+                              data: ThemeData(
+                                checkboxTheme: CheckboxThemeData(
+                                  visualDensity: VisualDensity.compact,
+                                  materialTapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4.0),
+                                  ),
                                 ),
+                                unselectedWidgetColor:
+                                    FlutterFlowTheme.of(context).primary,
                               ),
-                              unselectedWidgetColor:
-                                  FlutterFlowTheme.of(context).primary,
-                            ),
-                            child: Checkbox(
-                              value: _model.checkboxValue ??= false,
-                              onChanged: (newValue) async {
-                                safeSetState(
-                                    () => _model.checkboxValue = newValue!);
-                              },
-                              side: (FlutterFlowTheme.of(context).primary !=
-                                      null)
-                                  ? BorderSide(
-                                      width: 2,
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                    )
-                                  : null,
-                              activeColor: FlutterFlowTheme.of(context).primary,
-                              checkColor: FlutterFlowTheme.of(context).info,
+                              child: Checkbox(
+                                value: _model.checkboxValue ??= false,
+                                onChanged: (newValue) async {
+                                  safeSetState(
+                                      () => _model.checkboxValue = newValue!);
+                                },
+                                side: (FlutterFlowTheme.of(context).primary !=
+                                        null)
+                                    ? BorderSide(
+                                        width: 2,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      )
+                                    : null,
+                                activeColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                checkColor: FlutterFlowTheme.of(context).info,
+                              ),
                             ),
                           ),
                           Align(

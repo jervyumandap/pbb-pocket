@@ -317,108 +317,112 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                                           .titleMediumIsCustom,
                                                                 ),
                                                           ),
-                                                          InkWell(
-                                                            splashColor: Colors
-                                                                .transparent,
-                                                            focusColor: Colors
-                                                                .transparent,
-                                                            hoverColor: Colors
-                                                                .transparent,
-                                                            highlightColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            onDoubleTap:
-                                                                () async {
-                                                              await showModalBottomSheet(
-                                                                isScrollControlled:
-                                                                    true,
-                                                                backgroundColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                enableDrag:
-                                                                    false,
-                                                                context:
-                                                                    context,
-                                                                builder:
-                                                                    (context) {
-                                                                  return WebViewAware(
-                                                                    child:
-                                                                        GestureDetector(
-                                                                      onTap:
-                                                                          () {
-                                                                        FocusScope.of(context)
-                                                                            .unfocus();
-                                                                        FocusManager
-                                                                            .instance
-                                                                            .primaryFocus
-                                                                            ?.unfocus();
-                                                                      },
+                                                          Semantics(
+                                                            button: true,
+                                                            container: true,
+                                                            identifier:
+                                                                'term_deposit_new_change_money_method',
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onDoubleTap:
+                                                                  () async {
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  enableDrag:
+                                                                      false,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) {
+                                                                    return WebViewAware(
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap:
+                                                                            () {
+                                                                          FocusScope.of(context)
+                                                                              .unfocus();
+                                                                          FocusManager
+                                                                              .instance
+                                                                              .primaryFocus
+                                                                              ?.unfocus();
+                                                                        },
                                                                         child:
-                                                                            PaymentChannelComponentWidget(
-                                                                          action:
-                                                                              () async {},
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  );
-                                                                },
-                                                              ).then((value) =>
-                                                                  safeSetState(
-                                                                      () {}));
-                                                            },
-                                                            child:
-                                                                wrapWithModel(
-                                                              model: _model
-                                                                  .btnChangeMoneyMethodModel,
-                                                              updateCallback: () =>
-                                                                  safeSetState(
-                                                                      () {}),
-                                                              child:
-                                                                  PillContainerComponentWidget(
-                                                                buttonText:
-                                                                    'Change',
-                                                                callback:
-                                                                    () async {
-                                                                  await showModalBottomSheet(
-                                                                    isScrollControlled:
-                                                                        true,
-                                                                    backgroundColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    enableDrag:
-                                                                        false,
-                                                                    context:
-                                                                        context,
-                                                                    builder:
-                                                                        (context) {
-                                                                      return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                          onTap:
-                                                                              () {
-                                                                            FocusScope.of(context).unfocus();
-                                                                            FocusManager.instance.primaryFocus?.unfocus();
-                                                                          },
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                MediaQuery.viewInsetsOf(context),
-                                                                            child:
-                                                                                PaymentChannelComponentWidget(
-                                                                              action: () async {},
-                                                                            ),
+                                                                              PaymentChannelComponentWidget(
+                                                                            action:
+                                                                                () async {},
                                                                           ),
                                                                         ),
-                                                                      );
-                                                                    },
-                                                                  ).then((value) =>
-                                                                      safeSetState(
-                                                                          () {}));
-                                                                },
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                ).then((value) =>
+                                                                    safeSetState(
+                                                                        () {}));
+                                                              },
+                                                              child:
+                                                                  wrapWithModel(
+                                                                model: _model
+                                                                    .btnChangeMoneyMethodModel,
+                                                                updateCallback: () =>
+                                                                    safeSetState(
+                                                                        () {}),
+                                                                child:
+                                                                    PillContainerComponentWidget(
+                                                                  buttonText:
+                                                                      'Change',
+                                                                  callback:
+                                                                      () async {
+                                                                    await showModalBottomSheet(
+                                                                      isScrollControlled:
+                                                                          true,
+                                                                      backgroundColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      enableDrag:
+                                                                          false,
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (context) {
+                                                                        return WebViewAware(
+                                                                          child:
+                                                                              GestureDetector(
+                                                                            onTap:
+                                                                                () {
+                                                                              FocusScope.of(context).unfocus();
+                                                                              FocusManager.instance.primaryFocus?.unfocus();
+                                                                            },
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                              child: PaymentChannelComponentWidget(
+                                                                                action: () async {},
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    ).then((value) =>
+                                                                        safeSetState(
+                                                                            () {}));
+                                                                  },
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
@@ -656,83 +660,86 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                                     ),
                                                                   ),
                                                                   child:
-                                                                      FlutterFlowDropDown<
-                                                                          String>(
-                                                                    controller: _model
-                                                                            .dropdownBankNameValueController ??=
-                                                                        FormFieldController<
-                                                                            String>(
-                                                                      _model.dropdownBankNameValue ??=
-                                                                          widget
-                                                                              .bankName,
-                                                                    ),
-                                                                    options: List<
-                                                                        String>.from([
-                                                                      '128',
-                                                                      '238',
-                                                                      '394'
-                                                                    ]),
-                                                                    optionLabels: [
-                                                                      'Philippine Business Bank',
-                                                                      'UnionBank of the Philippines',
-                                                                      'GCash / e-Wallet'
-                                                                    ],
-                                                                    onChanged: (val) =>
-                                                                        safeSetState(() =>
-                                                                            _model.dropdownBankNameValue =
-                                                                                val),
-                                                                    width:
-                                                                        200.0,
-                                                                    height:
-                                                                        48.0,
-                                                                    textStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                        ),
-                                                                    hintText:
-                                                                        'Select...',
-                                                                    icon: Icon(
-                                                                      Icons
-                                                                          .keyboard_arrow_down_rounded,
-                                                                      color: FlutterFlowTheme.of(
+                                                                      Semantics(
+                                                                    label:
+                                                                        'Bank name',
+                                                                    identifier:
+                                                                        'term_deposit_new_dropdown_bank_name',
+                                                                    child: FlutterFlowDropDown<
+                                                                        String>(
+                                                                      controller: _model
+                                                                              .dropdownBankNameValueController ??=
+                                                                          FormFieldController<
+                                                                              String>(
+                                                                        _model.dropdownBankNameValue ??=
+                                                                            widget.bankName,
+                                                                      ),
+                                                                      options: List<
+                                                                          String>.from([
+                                                                        '128',
+                                                                        '238',
+                                                                        '394'
+                                                                      ]),
+                                                                      optionLabels: [
+                                                                        'Philippine Business Bank',
+                                                                        'UnionBank of the Philippines',
+                                                                        'GCash / e-Wallet'
+                                                                      ],
+                                                                      onChanged:
+                                                                          (val) =>
+                                                                              safeSetState(() => _model.dropdownBankNameValue = val),
+                                                                      width:
+                                                                          200.0,
+                                                                      height:
+                                                                          48.0,
+                                                                      textStyle: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .secondaryText,
-                                                                      size:
-                                                                          24.0,
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            useGoogleFonts:
+                                                                                !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                          ),
+                                                                      hintText:
+                                                                          'Select...',
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .keyboard_arrow_down_rounded,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryText,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .secondaryBackground,
+                                                                      elevation:
+                                                                          0.0,
+                                                                      borderColor:
+                                                                          Color(
+                                                                              0xFFE3E5E5),
+                                                                      borderWidth:
+                                                                          0.0,
+                                                                      borderRadius:
+                                                                          8.0,
+                                                                      margin: EdgeInsetsDirectional.fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          12.0,
+                                                                          0.0),
+                                                                      hidesUnderline:
+                                                                          true,
+                                                                      isOverButton:
+                                                                          false,
+                                                                      isSearchable:
+                                                                          false,
+                                                                      isMultiSelect:
+                                                                          false,
                                                                     ),
-                                                                    fillColor: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryBackground,
-                                                                    elevation:
-                                                                        0.0,
-                                                                    borderColor:
-                                                                        Color(
-                                                                            0xFFE3E5E5),
-                                                                    borderWidth:
-                                                                        0.0,
-                                                                    borderRadius:
-                                                                        8.0,
-                                                                    margin: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            12.0,
-                                                                            0.0),
-                                                                    hidesUnderline:
-                                                                        true,
-                                                                    isOverButton:
-                                                                        false,
-                                                                    isSearchable:
-                                                                        false,
-                                                                    isMultiSelect:
-                                                                        false,
                                                                   ),
                                                                 ),
 
@@ -806,68 +813,141 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                                             .titleMediumIsCustom,
                                                                   ),
                                                             ),
-                                                            Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              child:
-                                                                  TextFormField(
-                                                                controller: _model
-                                                                    .textFieldAmountTextController,
-                                                                focusNode: _model
-                                                                    .textFieldAmountFocusNode,
-                                                                onChanged: (_) =>
-                                                                    EasyDebounce
-                                                                        .debounce(
-                                                                  '_model.textFieldAmountTextController',
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          2000),
-                                                                  () async {
-                                                                    _model.formattedAmount =
-                                                                        await actions
-                                                                            .formatNumberCustom(
-                                                                      _model
-                                                                          .textFieldAmountTextController
-                                                                          .text,
-                                                                      true,
-                                                                    );
-                                                                    _model.textFieldAmountTextController
-                                                                            ?.text =
+                                                            Semantics(
+                                                              label: 'Amount',
+                                                              identifier:
+                                                                  'term_deposit_new_amount',
+                                                              child: Container(
+                                                                width: double
+                                                                    .infinity,
+                                                                child:
+                                                                    TextFormField(
+                                                                  controller: _model
+                                                                      .textFieldAmountTextController,
+                                                                  focusNode: _model
+                                                                      .textFieldAmountFocusNode,
+                                                                  onChanged: (_) =>
+                                                                      EasyDebounce
+                                                                          .debounce(
+                                                                    '_model.textFieldAmountTextController',
+                                                                    Duration(
+                                                                        milliseconds:
+                                                                            2000),
+                                                                    () async {
+                                                                      _model.formattedAmount =
+                                                                          await actions
+                                                                              .formatNumberCustom(
                                                                         _model
-                                                                            .formattedAmount!;
+                                                                            .textFieldAmountTextController
+                                                                            .text,
+                                                                        true,
+                                                                      );
+                                                                      _model.textFieldAmountTextController
+                                                                              ?.text =
+                                                                          _model
+                                                                              .formattedAmount!;
 
-                                                                    _model.maturityValue = functions.getMaturityValue(
-                                                                        valueOrDefault<double>(
-                                                                          functions.removeCommasAndToDouble(_model
-                                                                              .textFieldAmountTextController
-                                                                              .text),
-                                                                          0.00,
+                                                                      _model.maturityValue = functions.getMaturityValue(
+                                                                          valueOrDefault<double>(
+                                                                            functions.removeCommasAndToDouble(_model.textFieldAmountTextController.text),
+                                                                            0.00,
+                                                                          ),
+                                                                          0.048,
+                                                                          _model.dropdownTermValue!,
+                                                                          _model.dropdownIPFValue!);
+
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    },
+                                                                  ),
+                                                                  autofocus:
+                                                                      false,
+                                                                  enabled: true,
+                                                                  obscureText:
+                                                                      false,
+                                                                  decoration:
+                                                                      InputDecoration(
+                                                                    hintText:
+                                                                        'Amount',
+                                                                    hintStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyLarge
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                          color:
+                                                                              Color(0xFF72777A),
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              !FlutterFlowTheme.of(context).bodyLargeIsCustom,
                                                                         ),
-                                                                        0.048,
-                                                                        _model.dropdownTermValue!,
-                                                                        _model.dropdownIPFValue!);
-
-                                                                    safeSetState(
-                                                                        () {});
-                                                                  },
-                                                                ),
-                                                                autofocus:
-                                                                    false,
-                                                                enabled: true,
-                                                                obscureText:
-                                                                    false,
-                                                                decoration:
-                                                                    InputDecoration(
-                                                                  hintText:
-                                                                      'Amount',
-                                                                  hintStyle: FlutterFlowTheme.of(
+                                                                    enabledBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Color(
+                                                                            0xFFE3E5E5),
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                    ),
+                                                                    focusedBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                    ),
+                                                                    errorBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .alternate,
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                    ),
+                                                                    focusedErrorBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .alternate,
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                    ),
+                                                                    filled:
+                                                                        true,
+                                                                    fillColor: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyLarge
                                                                       .override(
                                                                         fontFamily:
                                                                             FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                        color: Color(
-                                                                            0xFF72777A),
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -875,99 +955,24 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                                         useGoogleFonts:
                                                                             !FlutterFlowTheme.of(context).bodyLargeIsCustom,
                                                                       ),
-                                                                  enabledBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: Color(
-                                                                          0xFFE3E5E5),
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                  ),
-                                                                  focusedBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                  ),
-                                                                  errorBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .alternate,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                  ),
-                                                                  focusedErrorBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .alternate,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                  ),
-                                                                  filled: true,
-                                                                  fillColor: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
+                                                                  minLines: 1,
+                                                                  keyboardType: const TextInputType
+                                                                      .numberWithOptions(
+                                                                      decimal:
+                                                                          true),
+                                                                  validator: _model
+                                                                      .textFieldAmountTextControllerValidator
+                                                                      .asValidator(
+                                                                          context),
+                                                                  inputFormatters: [
+                                                                    FilteringTextInputFormatter
+                                                                        .allow(RegExp(
+                                                                            '[0-9]'))
+                                                                  ],
                                                                 ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyLargeFamily,
-                                                                      fontSize:
-                                                                          14.0,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyLargeIsCustom,
-                                                                    ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .start,
-                                                                minLines: 1,
-                                                                keyboardType:
-                                                                    const TextInputType
-                                                                        .numberWithOptions(
-                                                                        decimal:
-                                                                            true),
-                                                                validator: _model
-                                                                    .textFieldAmountTextControllerValidator
-                                                                    .asValidator(
-                                                                        context),
-                                                                inputFormatters: [
-                                                                  FilteringTextInputFormatter
-                                                                      .allow(RegExp(
-                                                                          '[0-9]'))
-                                                                ],
                                                               ),
                                                             ),
                                                             if (FFAppState()
@@ -1047,98 +1052,101 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                                   width: 1.0,
                                                                 ),
                                                               ),
-                                                              child:
-                                                                  FlutterFlowDropDown<
-                                                                      int>(
-                                                                controller: _model
-                                                                        .dropdownIPFValueController ??=
-                                                                    FormFieldController<
+                                                              child: Semantics(
+                                                                label: 'IPF',
+                                                                identifier:
+                                                                    'term_deposit_new_dropdown_ipf',
+                                                                child:
+                                                                    FlutterFlowDropDown<
                                                                         int>(
-                                                                  _model.dropdownIPFValue ??=
-                                                                      0,
-                                                                ),
-                                                                options: List<
-                                                                    int>.from([
-                                                                  0,
-                                                                  12,
-                                                                  4,
-                                                                  1
-                                                                ]),
-                                                                optionLabels: [
-                                                                  'At Maturity',
-                                                                  'Monthly',
-                                                                  'Quarterly',
-                                                                  'Annually'
-                                                                ],
-                                                                onChanged:
-                                                                    (val) async {
-                                                                  safeSetState(() =>
-                                                                      _model.dropdownIPFValue =
-                                                                          val);
-                                                                  _model.maturityValue = functions
-                                                                      .getMaturityValue(
-                                                                          valueOrDefault<
-                                                                              double>(
-                                                                            functions.removeCommasAndToDouble(_model.textFieldAmountTextController.text),
-                                                                            0.00,
-                                                                          ),
-                                                                          0.048,
-                                                                          _model
-                                                                              .dropdownTermValue!,
-                                                                          _model
-                                                                              .dropdownIPFValue!);
-                                                                  safeSetState(
-                                                                      () {});
-                                                                },
-                                                                width: 200.0,
-                                                                height: 48.0,
-                                                                textStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyMediumIsCustom,
-                                                                    ),
-                                                                hintText:
-                                                                    'Select...',
-                                                                icon: Icon(
-                                                                  Icons
-                                                                      .keyboard_arrow_down_rounded,
-                                                                  color: FlutterFlowTheme.of(
+                                                                  controller: _model
+                                                                          .dropdownIPFValueController ??=
+                                                                      FormFieldController<
+                                                                          int>(
+                                                                    _model.dropdownIPFValue ??=
+                                                                        0,
+                                                                  ),
+                                                                  options: List<
+                                                                      int>.from([
+                                                                    0,
+                                                                    12,
+                                                                    4,
+                                                                    1
+                                                                  ]),
+                                                                  optionLabels: [
+                                                                    'At Maturity',
+                                                                    'Monthly',
+                                                                    'Quarterly',
+                                                                    'Annually'
+                                                                  ],
+                                                                  onChanged:
+                                                                      (val) async {
+                                                                    safeSetState(() =>
+                                                                        _model.dropdownIPFValue =
+                                                                            val);
+                                                                    _model.maturityValue = functions.getMaturityValue(
+                                                                        valueOrDefault<double>(
+                                                                          functions.removeCommasAndToDouble(_model
+                                                                              .textFieldAmountTextController
+                                                                              .text),
+                                                                          0.00,
+                                                                        ),
+                                                                        0.048,
+                                                                        _model.dropdownTermValue!,
+                                                                        _model.dropdownIPFValue!);
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                  width: 200.0,
+                                                                  height: 48.0,
+                                                                  textStyle: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryText,
-                                                                  size: 24.0,
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                      ),
+                                                                  hintText:
+                                                                      'Select...',
+                                                                  icon: Icon(
+                                                                    Icons
+                                                                        .keyboard_arrow_down_rounded,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                    size: 24.0,
+                                                                  ),
+                                                                  fillColor: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  elevation:
+                                                                      0.0,
+                                                                  borderColor:
+                                                                      Color(
+                                                                          0xFFE3E5E5),
+                                                                  borderWidth:
+                                                                      0.0,
+                                                                  borderRadius:
+                                                                      8.0,
+                                                                  margin: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          12.0,
+                                                                          0.0),
+                                                                  hidesUnderline:
+                                                                      true,
+                                                                  isOverButton:
+                                                                      false,
+                                                                  isSearchable:
+                                                                      false,
+                                                                  isMultiSelect:
+                                                                      false,
                                                                 ),
-                                                                fillColor: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                elevation: 0.0,
-                                                                borderColor: Color(
-                                                                    0xFFE3E5E5),
-                                                                borderWidth:
-                                                                    0.0,
-                                                                borderRadius:
-                                                                    8.0,
-                                                                margin: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        0.0,
-                                                                        12.0,
-                                                                        0.0),
-                                                                hidesUnderline:
-                                                                    true,
-                                                                isOverButton:
-                                                                    false,
-                                                                isSearchable:
-                                                                    false,
-                                                                isMultiSelect:
-                                                                    false,
                                                               ),
                                                             ),
                                                           ].divide(SizedBox(
@@ -1192,124 +1200,126 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                                   width: 1.0,
                                                                 ),
                                                               ),
-                                                              child:
-                                                                  FlutterFlowDropDown<
-                                                                      int>(
-                                                                controller: _model
-                                                                        .dropdownTermValueController ??=
-                                                                    FormFieldController<
+                                                              child: Semantics(
+                                                                label: 'Term',
+                                                                identifier:
+                                                                    'term_deposit_new_dropdown_term',
+                                                                child:
+                                                                    FlutterFlowDropDown<
                                                                         int>(
-                                                                  _model.dropdownTermValue ??=
-                                                                      30,
-                                                                ),
-                                                                options: List<
-                                                                    int>.from([
-                                                                  30,
-                                                                  60,
-                                                                  90,
-                                                                  120,
-                                                                  150,
-                                                                  180,
-                                                                  210,
-                                                                  240,
-                                                                  270,
-                                                                  300,
-                                                                  330,
-                                                                  360
-                                                                ]),
-                                                                optionLabels: [
-                                                                  '30',
-                                                                  '60',
-                                                                  '90',
-                                                                  '120',
-                                                                  '150',
-                                                                  '180',
-                                                                  '210',
-                                                                  '240',
-                                                                  '270',
-                                                                  '300',
-                                                                  '330',
-                                                                  '360'
-                                                                ],
-                                                                onChanged:
-                                                                    (val) async {
-                                                                  safeSetState(() =>
-                                                                      _model.dropdownTermValue =
-                                                                          val);
-                                                                  _model.maturityDate =
-                                                                      functions.addDaysToTime(
-                                                                          getCurrentTimestamp,
-                                                                          _model
-                                                                              .dropdownTermValue!);
-                                                                  _model.maturityValue =
-                                                                      valueOrDefault<
-                                                                          double>(
-                                                                    valueOrDefault<
+                                                                  controller: _model
+                                                                          .dropdownTermValueController ??=
+                                                                      FormFieldController<
+                                                                          int>(
+                                                                    _model.dropdownTermValue ??=
+                                                                        30,
+                                                                  ),
+                                                                  options: List<
+                                                                      int>.from([
+                                                                    30,
+                                                                    60,
+                                                                    90,
+                                                                    120,
+                                                                    150,
+                                                                    180,
+                                                                    210,
+                                                                    240,
+                                                                    270,
+                                                                    300,
+                                                                    330,
+                                                                    360
+                                                                  ]),
+                                                                  optionLabels: [
+                                                                    '30',
+                                                                    '60',
+                                                                    '90',
+                                                                    '120',
+                                                                    '150',
+                                                                    '180',
+                                                                    '210',
+                                                                    '240',
+                                                                    '270',
+                                                                    '300',
+                                                                    '330',
+                                                                    '360'
+                                                                  ],
+                                                                  onChanged:
+                                                                      (val) async {
+                                                                    safeSetState(() =>
+                                                                        _model.dropdownTermValue =
+                                                                            val);
+                                                                    _model.maturityDate = functions.addDaysToTime(
+                                                                        getCurrentTimestamp,
+                                                                        _model
+                                                                            .dropdownTermValue!);
+                                                                    _model.maturityValue =
+                                                                        valueOrDefault<
                                                                             double>(
-                                                                          functions.removeCommasAndToDouble(_model
-                                                                              .textFieldAmountTextController
-                                                                              .text),
-                                                                          0.00,
-                                                                        ) *
-                                                                        math.pow(
-                                                                            1 +
-                                                                                valueOrDefault<double>(
-                                                                                  4.8 * 0.01,
-                                                                                  0.048,
-                                                                                ),
-                                                                            (_model.dropdownTermValue!) / 365),
-                                                                    0.00,
-                                                                  );
-                                                                },
-                                                                width: 200.0,
-                                                                height: 48.0,
-                                                                textStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyMediumIsCustom,
-                                                                    ),
-                                                                hintText:
-                                                                    'Select...',
-                                                                icon: Icon(
-                                                                  Icons
-                                                                      .keyboard_arrow_down_rounded,
-                                                                  color: FlutterFlowTheme.of(
+                                                                      valueOrDefault<
+                                                                              double>(
+                                                                            functions.removeCommasAndToDouble(_model.textFieldAmountTextController.text),
+                                                                            0.00,
+                                                                          ) *
+                                                                          math.pow(
+                                                                              1 +
+                                                                                  valueOrDefault<double>(
+                                                                                    4.8 * 0.01,
+                                                                                    0.048,
+                                                                                  ),
+                                                                              (_model.dropdownTermValue!) / 365),
+                                                                      0.00,
+                                                                    );
+                                                                  },
+                                                                  width: 200.0,
+                                                                  height: 48.0,
+                                                                  textStyle: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryText,
-                                                                  size: 24.0,
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                      ),
+                                                                  hintText:
+                                                                      'Select...',
+                                                                  icon: Icon(
+                                                                    Icons
+                                                                        .keyboard_arrow_down_rounded,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                    size: 24.0,
+                                                                  ),
+                                                                  fillColor: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  elevation:
+                                                                      0.0,
+                                                                  borderColor:
+                                                                      Color(
+                                                                          0xFFE3E5E5),
+                                                                  borderWidth:
+                                                                      0.0,
+                                                                  borderRadius:
+                                                                      8.0,
+                                                                  margin: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          12.0,
+                                                                          0.0,
+                                                                          12.0,
+                                                                          0.0),
+                                                                  hidesUnderline:
+                                                                      true,
+                                                                  isOverButton:
+                                                                      false,
+                                                                  isSearchable:
+                                                                      false,
+                                                                  isMultiSelect:
+                                                                      false,
                                                                 ),
-                                                                fillColor: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                elevation: 0.0,
-                                                                borderColor: Color(
-                                                                    0xFFE3E5E5),
-                                                                borderWidth:
-                                                                    0.0,
-                                                                borderRadius:
-                                                                    8.0,
-                                                                margin: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        0.0,
-                                                                        12.0,
-                                                                        0.0),
-                                                                hidesUnderline:
-                                                                    true,
-                                                                isOverButton:
-                                                                    false,
-                                                                isSearchable:
-                                                                    false,
-                                                                isMultiSelect:
-                                                                    false,
                                                               ),
                                                             ),
                                                           ].divide(SizedBox(
@@ -1346,511 +1356,511 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                                             .titleMediumIsCustom,
                                                                   ),
                                                             ),
-                                                            Container(
-                                                              width: double
-                                                                  .infinity,
-                                                              child:
-                                                                  TextFormField(
-                                                                controller: _model
-                                                                    .textFieldRemarksTextController,
-                                                                focusNode: _model
-                                                                    .textFieldRemarksFocusNode,
-                                                                autofocus:
-                                                                    false,
-                                                                enabled: true,
-                                                                obscureText:
-                                                                    false,
-                                                                decoration:
-                                                                    InputDecoration(
-                                                                  isDense:
+                                                            Semantics(
+                                                              label: 'Remarks',
+                                                              identifier:
+                                                                  'term_deposit_new_remarks',
+                                                              child: Container(
+                                                                width: double
+                                                                    .infinity,
+                                                                child:
+                                                                    TextFormField(
+                                                                  controller: _model
+                                                                      .textFieldRemarksTextController,
+                                                                  focusNode: _model
+                                                                      .textFieldRemarksFocusNode,
+                                                                  autofocus:
                                                                       false,
-                                                                  labelStyle: FlutterFlowTheme.of(
+                                                                  enabled: true,
+                                                                  obscureText:
+                                                                      false,
+                                                                  decoration:
+                                                                      InputDecoration(
+                                                                    isDense:
+                                                                        false,
+                                                                    labelStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                                                                        ),
+                                                                    hintText:
+                                                                        'Optional',
+                                                                    enabledBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Color(
+                                                                            0xFFE5E5E5),
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                    ),
+                                                                    focusedBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                    ),
+                                                                    errorBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .error,
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                    ),
+                                                                    focusedErrorBorder:
+                                                                        OutlineInputBorder(
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .error,
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                    ),
+                                                                    filled:
+                                                                        true,
+                                                                    fillColor: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .labelMedium
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                                                                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
                                                                       ),
-                                                                  hintText:
-                                                                      'Optional',
-                                                                  enabledBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: Color(
-                                                                          0xFFE5E5E5),
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                  ),
-                                                                  focusedBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
+                                                                  cursorColor:
+                                                                      FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                  ),
-                                                                  errorBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .error,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                  ),
-                                                                  focusedErrorBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .error,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                  ),
-                                                                  filled: true,
-                                                                  fillColor: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
+                                                                          .primaryText,
+                                                                  enableInteractiveSelection:
+                                                                      true,
+                                                                  validator: _model
+                                                                      .textFieldRemarksTextControllerValidator
+                                                                      .asValidator(
+                                                                          context),
                                                                 ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyMediumIsCustom,
-                                                                    ),
-                                                                cursorColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                enableInteractiveSelection:
-                                                                    true,
-                                                                validator: _model
-                                                                    .textFieldRemarksTextControllerValidator
-                                                                    .asValidator(
-                                                                        context),
                                                               ),
                                                             ),
                                                             Builder(
-                                                              builder: (context) =>
-                                                                  FFButtonWidget(
-                                                                onPressed: ((_model.dropdownBankNameValue == null || _model.dropdownBankNameValue == '') ||
-                                                                        (_model.textfieldAccountNumberModel.textController.text ==
-                                                                                '') ||
-                                                                        (_model.textFieldAccountNameModel.textController.text ==
-                                                                                '') ||
-                                                                        (_model.dropdownIPFValue ==
-                                                                            null) ||
-                                                                        (_model.dropdownTermValue ==
-                                                                            null) ||
-                                                                        (_model.textFieldAmountTextController.text ==
-                                                                                ''))
-                                                                    ? null
-                                                                    : () async {
-                                                                        var _shouldSetState =
-                                                                            false;
-                                                                        _model.referenceNumberOutput =
-                                                                            await actions.genReferenceNumber(
-                                                                          FFAppState()
-                                                                              .IsInstaPayChannelSelected,
-                                                                        );
-                                                                        _shouldSetState =
-                                                                            true;
-                                                                        if (FFAppState().IsInstaPayChannelSelected ==
-                                                                            true) {
-                                                                          if (valueOrDefault<double>(
-                                                                                functions.removeCommasAndToDouble(_model.textFieldAmountTextController.text),
-                                                                                0.00,
-                                                                              ) >
-                                                                              50000.00) {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (dialogContext) {
-                                                                                return Dialog(
-                                                                                  elevation: 0,
-                                                                                  insetPadding: EdgeInsets.zero,
-                                                                                  backgroundColor: Colors.transparent,
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                  child: WebViewAware(
-                                                                                    child: GestureDetector(
-                                                                                      onTap: () {
-                                                                                        FocusScope.of(dialogContext).unfocus();
-                                                                                        FocusManager.instance.primaryFocus?.unfocus();
-                                                                                      },
-                                                                                      child: CustomInformationalDialogWidget(
-                                                                                        message: 'Amount has exceeded PHP 50,000. Please input a different amount.',
-                                                                                        primaryButtonTitle: 'OK',
-                                                                                        primaryButtonAction: () async {
-                                                                                          Navigator.pop(context);
-                                                                                        },
-                                                                                        secondaryButtonAction: () async {},
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            );
-
-                                                                            if (_shouldSetState)
-                                                                              safeSetState(() {});
-                                                                            return;
-                                                                          } else if (valueOrDefault<double>(
-                                                                                functions.removeCommasAndToDouble(_model.textFieldAmountTextController.text),
-                                                                                0.00,
-                                                                              ) <=
-                                                                              0.00) {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (dialogContext) {
-                                                                                return Dialog(
-                                                                                  elevation: 0,
-                                                                                  insetPadding: EdgeInsets.zero,
-                                                                                  backgroundColor: Colors.transparent,
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                  child: WebViewAware(
-                                                                                    child: GestureDetector(
-                                                                                      onTap: () {
-                                                                                        FocusScope.of(dialogContext).unfocus();
-                                                                                        FocusManager.instance.primaryFocus?.unfocus();
-                                                                                      },
-                                                                                      child: CustomInformationalDialogWidget(
-                                                                                        message: 'No amount was inputted, or invalid amount. Please input a different amount.',
-                                                                                        primaryButtonTitle: 'OK',
-                                                                                        primaryButtonAction: () async {
-                                                                                          Navigator.pop(context);
-                                                                                        },
-                                                                                        secondaryButtonAction: () async {},
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            );
-
-                                                                            if (_shouldSetState)
-                                                                              safeSetState(() {});
-                                                                            return;
-                                                                          } else {
-                                                                            if (() {
-                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                return true;
-                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                return true;
-                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                return false;
-                                                                              } else {
-                                                                                return false;
-                                                                              }
-                                                                            }()) {
-                                                                              await showModalBottomSheet(
-                                                                                isScrollControlled: true,
-                                                                                backgroundColor: Colors.transparent,
-                                                                                enableDrag: false,
+                                                              builder:
+                                                                  (context) =>
+                                                                      Semantics(
+                                                                button: true,
+                                                                identifier:
+                                                                    'term_deposit_new_continue',
+                                                                child:
+                                                                    FFButtonWidget(
+                                                                  onPressed: ((_model.dropdownBankNameValue == null || _model.dropdownBankNameValue == '') ||
+                                                                          (_model.textfieldAccountNumberModel.textController.text ==
+                                                                                  '') ||
+                                                                          (_model.textFieldAccountNameModel.textController.text ==
+                                                                                  '') ||
+                                                                          (_model.dropdownIPFValue ==
+                                                                              null) ||
+                                                                          (_model.dropdownTermValue ==
+                                                                              null) ||
+                                                                          (_model.textFieldAmountTextController.text == ''))
+                                                                      ? null
+                                                                      : () async {
+                                                                          var _shouldSetState =
+                                                                              false;
+                                                                          _model.referenceNumberOutput =
+                                                                              await actions.genReferenceNumber(
+                                                                            FFAppState().IsInstaPayChannelSelected,
+                                                                          );
+                                                                          _shouldSetState =
+                                                                              true;
+                                                                          if (FFAppState().IsInstaPayChannelSelected ==
+                                                                              true) {
+                                                                            if (valueOrDefault<double>(
+                                                                                  functions.removeCommasAndToDouble(_model.textFieldAmountTextController.text),
+                                                                                  0.00,
+                                                                                ) >
+                                                                                50000.00) {
+                                                                              await showDialog(
                                                                                 context: context,
-                                                                                builder: (context) {
-                                                                                  return WebViewAware(
-                                                                                    child: GestureDetector(
-                                                                                      onTap: () {
-                                                                                        FocusScope.of(context).unfocus();
-                                                                                        FocusManager.instance.primaryFocus?.unfocus();
-                                                                                      },
-                                                                                      child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: ConfirmTermDepositComponentWidget(
-                                                                                          depositOutput: DepositAccountModelStruct(
-                                                                                            cif: currentUserData?.user.cifNumber,
-                                                                                            accountNum: _model.textfieldAccountNumberModel.textController.text,
-                                                                                            accountName: _model.textFieldAccountNameModel.textController.text,
-                                                                                            productName: '',
-                                                                                            principalAmt: _model.textFieldAmountTextController.text,
-                                                                                            termDays: _model.dropdownTermValue?.toString(),
-                                                                                            placementDate: valueOrDefault<String>(
-                                                                                              dateTimeFormat(
-                                                                                                "MM/dd/yyyy hh:mm:ss a",
-                                                                                                getCurrentTimestamp,
-                                                                                                locale: FFLocalizations.of(context).languageCode,
-                                                                                              ),
-                                                                                              '01/01/2026 09:35:35 AM',
-                                                                                            ),
-                                                                                            effectiveDate: valueOrDefault<String>(
-                                                                                              dateTimeFormat(
-                                                                                                "MM/dd/yyyy hh:mm:ss a",
-                                                                                                getCurrentTimestamp,
-                                                                                                locale: FFLocalizations.of(context).languageCode,
-                                                                                              ),
-                                                                                              '01/01/2026 09:35:35 AM',
-                                                                                            ),
-                                                                                            maturityAmount: formatNumber(
-                                                                                              functions.getMaturityValue(double.parse(_model.textFieldAmountTextController.text), 0.048, _model.dropdownTermValue!, _model.dropdownIPFValue!),
-                                                                                              formatType: FormatType.decimal,
-                                                                                              decimalType: DecimalType.periodDecimal,
-                                                                                              currency: ' ',
-                                                                                            ),
-                                                                                            maturityDate: valueOrDefault<String>(
-                                                                                              dateTimeFormat(
-                                                                                                "MM/dd/yyyy hh:mm:ss a",
-                                                                                                functions.addDaysToTime(getCurrentTimestamp, _model.dropdownTermValue!),
-                                                                                                locale: FFLocalizations.of(context).languageCode,
-                                                                                              ),
-                                                                                              '01/01/2026 09:35:35 AM',
-                                                                                            ),
-                                                                                            interestRate: '1.5',
-                                                                                            interestFreq: 'X',
-                                                                                            interestCredit: valueOrDefault<String>(
-                                                                                              formatNumber(
-                                                                                                functions.getMaturityValue(double.parse(_model.textFieldAmountTextController.text), 0.048, _model.dropdownTermValue!, 1) - double.parse(_model.textFieldAmountTextController.text),
-                                                                                                formatType: FormatType.decimal,
-                                                                                                decimalType: DecimalType.periodDecimal,
-                                                                                              ),
-                                                                                              '0.00',
-                                                                                            ),
-                                                                                            maturityInstruction: valueOrDefault<String>(
-                                                                                              () {
-                                                                                                if (_model.dropdownIPFValue == 1) {
-                                                                                                  return 'Monthly';
-                                                                                                } else if (_model.dropdownIPFValue == 2) {
-                                                                                                  return 'Quarterly';
-                                                                                                } else if (_model.dropdownIPFValue == 3) {
-                                                                                                  return 'Annually';
-                                                                                                } else {
-                                                                                                  return 'At Maturity';
-                                                                                                }
-                                                                                              }(),
-                                                                                              'At Maturity',
-                                                                                            ),
-                                                                                          ),
-                                                                                          remarks: _model.textFieldRemarksTextController.text,
-                                                                                          callback: () async {
+                                                                                builder: (dialogContext) {
+                                                                                  return Dialog(
+                                                                                    elevation: 0,
+                                                                                    insetPadding: EdgeInsets.zero,
+                                                                                    backgroundColor: Colors.transparent,
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                    child: WebViewAware(
+                                                                                      child: GestureDetector(
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(dialogContext).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
+                                                                                        child: CustomInformationalDialogWidget(
+                                                                                          message: 'Amount has exceeded PHP 50,000. Please input a different amount.',
+                                                                                          primaryButtonTitle: 'OK',
+                                                                                          primaryButtonAction: () async {
                                                                                             Navigator.pop(context);
                                                                                           },
+                                                                                          secondaryButtonAction: () async {},
                                                                                         ),
                                                                                       ),
                                                                                     ),
                                                                                   );
                                                                                 },
-                                                                              ).then((value) => safeSetState(() {}));
+                                                                              );
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
                                                                               return;
-                                                                            } else {
-                                                                              if (_shouldSetState)
-                                                                                safeSetState(() {});
-                                                                              return;
-                                                                            }
-                                                                          }
-                                                                        } else {
-                                                                          if (functions.removeCommasAndToDouble(_model.textFieldAmountTextController.text) >
-                                                                              0.00) {
-                                                                            if (() {
-                                                                              if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
-                                                                                return true;
-                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
-                                                                                return true;
-                                                                              } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
-                                                                                return false;
-                                                                              } else {
-                                                                                return false;
-                                                                              }
-                                                                            }()) {
-                                                                              await showModalBottomSheet(
-                                                                                isScrollControlled: true,
-                                                                                backgroundColor: Colors.transparent,
-                                                                                enableDrag: false,
+                                                                            } else if (valueOrDefault<double>(
+                                                                                  functions.removeCommasAndToDouble(_model.textFieldAmountTextController.text),
+                                                                                  0.00,
+                                                                                ) <=
+                                                                                0.00) {
+                                                                              await showDialog(
                                                                                 context: context,
-                                                                                builder: (context) {
-                                                                                  return WebViewAware(
-                                                                                    child: GestureDetector(
-                                                                                      onTap: () {
-                                                                                        FocusScope.of(context).unfocus();
-                                                                                        FocusManager.instance.primaryFocus?.unfocus();
-                                                                                      },
-                                                                                      child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: ConfirmTermDepositComponentWidget(
-                                                                                          depositOutput: DepositAccountModelStruct(
-                                                                                            cif: currentUserData?.user.cifNumber,
-                                                                                            accountNum: _model.textfieldAccountNumberModel.textController.text,
-                                                                                            accountName: _model.textFieldAccountNameModel.textController.text,
-                                                                                            productName: '',
-                                                                                            principalAmt: _model.textFieldAmountTextController.text,
-                                                                                            termDays: _model.dropdownTermValue?.toString(),
-                                                                                            placementDate: valueOrDefault<String>(
-                                                                                              dateTimeFormat(
-                                                                                                "MM/dd/yyyy hh:mm:ss a",
-                                                                                                getCurrentTimestamp,
-                                                                                                locale: FFLocalizations.of(context).languageCode,
-                                                                                              ),
-                                                                                              '01/01/2026 09:35:35 AM',
-                                                                                            ),
-                                                                                            effectiveDate: valueOrDefault<String>(
-                                                                                              dateTimeFormat(
-                                                                                                "MM/dd/yyyy hh:mm:ss a",
-                                                                                                getCurrentTimestamp,
-                                                                                                locale: FFLocalizations.of(context).languageCode,
-                                                                                              ),
-                                                                                              '01/01/2026 09:35:35 AM',
-                                                                                            ),
-                                                                                            maturityAmount: formatNumber(
-                                                                                              functions.getMaturityValue(double.parse(_model.txtFieldAmountWebTextController.text), 0.048, _model.dropdownTermValue!, _model.dropdownIPFValue!),
-                                                                                              formatType: FormatType.decimal,
-                                                                                              decimalType: DecimalType.periodDecimal,
-                                                                                              currency: ' ',
-                                                                                            ),
-                                                                                            maturityDate: valueOrDefault<String>(
-                                                                                              dateTimeFormat(
-                                                                                                "MM/dd/yyyy hh:mm:ss a",
-                                                                                                functions.addDaysToTime(getCurrentTimestamp, _model.dropdownTermValue!),
-                                                                                                locale: FFLocalizations.of(context).languageCode,
-                                                                                              ),
-                                                                                              '01/01/2026 09:35:35 AM',
-                                                                                            ),
-                                                                                            interestRate: '0.048',
-                                                                                            interestFreq: 'X',
-                                                                                            interestCredit: valueOrDefault<String>(
-                                                                                              formatNumber(
-                                                                                                functions.getMaturityValue(double.parse(_model.txtFieldAmountWebTextController.text), 0.048, _model.dropdownTermValue!, 1) - double.parse(_model.txtFieldAmountWebTextController.text),
-                                                                                                formatType: FormatType.decimal,
-                                                                                                decimalType: DecimalType.periodDecimal,
-                                                                                              ),
-                                                                                              '0.00',
-                                                                                            ),
-                                                                                            maturityInstruction: '0',
-                                                                                          ),
-                                                                                          remarks: _model.textFieldRemarksTextController.text,
-                                                                                          callback: () async {
+                                                                                builder: (dialogContext) {
+                                                                                  return Dialog(
+                                                                                    elevation: 0,
+                                                                                    insetPadding: EdgeInsets.zero,
+                                                                                    backgroundColor: Colors.transparent,
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                    child: WebViewAware(
+                                                                                      child: GestureDetector(
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(dialogContext).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
+                                                                                        child: CustomInformationalDialogWidget(
+                                                                                          message: 'No amount was inputted, or invalid amount. Please input a different amount.',
+                                                                                          primaryButtonTitle: 'OK',
+                                                                                          primaryButtonAction: () async {
                                                                                             Navigator.pop(context);
                                                                                           },
+                                                                                          secondaryButtonAction: () async {},
                                                                                         ),
                                                                                       ),
                                                                                     ),
                                                                                   );
                                                                                 },
-                                                                              ).then((value) => safeSetState(() {}));
+                                                                              );
 
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
                                                                               return;
                                                                             } else {
+                                                                              if (() {
+                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                  return true;
+                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                  return true;
+                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                  return false;
+                                                                                } else {
+                                                                                  return false;
+                                                                                }
+                                                                              }()) {
+                                                                                await showModalBottomSheet(
+                                                                                  isScrollControlled: true,
+                                                                                  backgroundColor: Colors.transparent,
+                                                                                  enableDrag: false,
+                                                                                  context: context,
+                                                                                  builder: (context) {
+                                                                                    return WebViewAware(
+                                                                                      child: GestureDetector(
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
+                                                                                        child: Padding(
+                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                          child: ConfirmTermDepositComponentWidget(
+                                                                                            depositOutput: DepositAccountModelStruct(
+                                                                                              cif: currentUserData?.user.cifNumber,
+                                                                                              accountNum: _model.textfieldAccountNumberModel.textController.text,
+                                                                                              accountName: _model.textFieldAccountNameModel.textController.text,
+                                                                                              productName: '',
+                                                                                              principalAmt: _model.textFieldAmountTextController.text,
+                                                                                              termDays: _model.dropdownTermValue?.toString(),
+                                                                                              placementDate: valueOrDefault<String>(
+                                                                                                dateTimeFormat(
+                                                                                                  "MM/dd/yyyy hh:mm:ss a",
+                                                                                                  getCurrentTimestamp,
+                                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                                ),
+                                                                                                '01/01/2026 09:35:35 AM',
+                                                                                              ),
+                                                                                              effectiveDate: valueOrDefault<String>(
+                                                                                                dateTimeFormat(
+                                                                                                  "MM/dd/yyyy hh:mm:ss a",
+                                                                                                  getCurrentTimestamp,
+                                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                                ),
+                                                                                                '01/01/2026 09:35:35 AM',
+                                                                                              ),
+                                                                                              maturityAmount: formatNumber(
+                                                                                                functions.getMaturityValue(double.parse(_model.textFieldAmountTextController.text), 0.048, _model.dropdownTermValue!, _model.dropdownIPFValue!),
+                                                                                                formatType: FormatType.decimal,
+                                                                                                decimalType: DecimalType.periodDecimal,
+                                                                                                currency: ' ',
+                                                                                              ),
+                                                                                              maturityDate: valueOrDefault<String>(
+                                                                                                dateTimeFormat(
+                                                                                                  "MM/dd/yyyy hh:mm:ss a",
+                                                                                                  functions.addDaysToTime(getCurrentTimestamp, _model.dropdownTermValue!),
+                                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                                ),
+                                                                                                '01/01/2026 09:35:35 AM',
+                                                                                              ),
+                                                                                              interestRate: '1.5',
+                                                                                              interestFreq: 'X',
+                                                                                              interestCredit: valueOrDefault<String>(
+                                                                                                formatNumber(
+                                                                                                  functions.getMaturityValue(double.parse(_model.textFieldAmountTextController.text), 0.048, _model.dropdownTermValue!, 1) - double.parse(_model.textFieldAmountTextController.text),
+                                                                                                  formatType: FormatType.decimal,
+                                                                                                  decimalType: DecimalType.periodDecimal,
+                                                                                                ),
+                                                                                                '0.00',
+                                                                                              ),
+                                                                                              maturityInstruction: valueOrDefault<String>(
+                                                                                                () {
+                                                                                                  if (_model.dropdownIPFValue == 1) {
+                                                                                                    return 'Monthly';
+                                                                                                  } else if (_model.dropdownIPFValue == 2) {
+                                                                                                    return 'Quarterly';
+                                                                                                  } else if (_model.dropdownIPFValue == 3) {
+                                                                                                    return 'Annually';
+                                                                                                  } else {
+                                                                                                    return 'At Maturity';
+                                                                                                  }
+                                                                                                }(),
+                                                                                                'At Maturity',
+                                                                                              ),
+                                                                                            ),
+                                                                                            remarks: _model.textFieldRemarksTextController.text,
+                                                                                            callback: () async {
+                                                                                              Navigator.pop(context);
+                                                                                            },
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    );
+                                                                                  },
+                                                                                ).then((value) => safeSetState(() {}));
+
+                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                return;
+                                                                              } else {
+                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                return;
+                                                                              }
+                                                                            }
+                                                                          } else {
+                                                                            if (functions.removeCommasAndToDouble(_model.textFieldAmountTextController.text) >
+                                                                                0.00) {
+                                                                              if (() {
+                                                                                if (MediaQuery.sizeOf(context).width < kBreakpointSmall) {
+                                                                                  return true;
+                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointMedium) {
+                                                                                  return true;
+                                                                                } else if (MediaQuery.sizeOf(context).width < kBreakpointLarge) {
+                                                                                  return false;
+                                                                                } else {
+                                                                                  return false;
+                                                                                }
+                                                                              }()) {
+                                                                                await showModalBottomSheet(
+                                                                                  isScrollControlled: true,
+                                                                                  backgroundColor: Colors.transparent,
+                                                                                  enableDrag: false,
+                                                                                  context: context,
+                                                                                  builder: (context) {
+                                                                                    return WebViewAware(
+                                                                                      child: GestureDetector(
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(context).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
+                                                                                        child: Padding(
+                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                          child: ConfirmTermDepositComponentWidget(
+                                                                                            depositOutput: DepositAccountModelStruct(
+                                                                                              cif: currentUserData?.user.cifNumber,
+                                                                                              accountNum: _model.textfieldAccountNumberModel.textController.text,
+                                                                                              accountName: _model.textFieldAccountNameModel.textController.text,
+                                                                                              productName: '',
+                                                                                              principalAmt: _model.textFieldAmountTextController.text,
+                                                                                              termDays: _model.dropdownTermValue?.toString(),
+                                                                                              placementDate: valueOrDefault<String>(
+                                                                                                dateTimeFormat(
+                                                                                                  "MM/dd/yyyy hh:mm:ss a",
+                                                                                                  getCurrentTimestamp,
+                                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                                ),
+                                                                                                '01/01/2026 09:35:35 AM',
+                                                                                              ),
+                                                                                              effectiveDate: valueOrDefault<String>(
+                                                                                                dateTimeFormat(
+                                                                                                  "MM/dd/yyyy hh:mm:ss a",
+                                                                                                  getCurrentTimestamp,
+                                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                                ),
+                                                                                                '01/01/2026 09:35:35 AM',
+                                                                                              ),
+                                                                                              maturityAmount: formatNumber(
+                                                                                                functions.getMaturityValue(double.parse(_model.txtFieldAmountWebTextController.text), 0.048, _model.dropdownTermValue!, _model.dropdownIPFValue!),
+                                                                                                formatType: FormatType.decimal,
+                                                                                                decimalType: DecimalType.periodDecimal,
+                                                                                                currency: ' ',
+                                                                                              ),
+                                                                                              maturityDate: valueOrDefault<String>(
+                                                                                                dateTimeFormat(
+                                                                                                  "MM/dd/yyyy hh:mm:ss a",
+                                                                                                  functions.addDaysToTime(getCurrentTimestamp, _model.dropdownTermValue!),
+                                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                                ),
+                                                                                                '01/01/2026 09:35:35 AM',
+                                                                                              ),
+                                                                                              interestRate: '0.048',
+                                                                                              interestFreq: 'X',
+                                                                                              interestCredit: valueOrDefault<String>(
+                                                                                                formatNumber(
+                                                                                                  functions.getMaturityValue(double.parse(_model.txtFieldAmountWebTextController.text), 0.048, _model.dropdownTermValue!, 1) - double.parse(_model.txtFieldAmountWebTextController.text),
+                                                                                                  formatType: FormatType.decimal,
+                                                                                                  decimalType: DecimalType.periodDecimal,
+                                                                                                ),
+                                                                                                '0.00',
+                                                                                              ),
+                                                                                              maturityInstruction: '0',
+                                                                                            ),
+                                                                                            remarks: _model.textFieldRemarksTextController.text,
+                                                                                            callback: () async {
+                                                                                              Navigator.pop(context);
+                                                                                            },
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    );
+                                                                                  },
+                                                                                ).then((value) => safeSetState(() {}));
+
+                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                return;
+                                                                              } else {
+                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                return;
+                                                                              }
+                                                                            } else {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (dialogContext) {
+                                                                                  return Dialog(
+                                                                                    elevation: 0,
+                                                                                    insetPadding: EdgeInsets.zero,
+                                                                                    backgroundColor: Colors.transparent,
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                    child: WebViewAware(
+                                                                                      child: GestureDetector(
+                                                                                        onTap: () {
+                                                                                          FocusScope.of(dialogContext).unfocus();
+                                                                                          FocusManager.instance.primaryFocus?.unfocus();
+                                                                                        },
+                                                                                        child: CustomInformationalDialogWidget(
+                                                                                          message: 'No amount was inputted, or invalid amount. Please input a different amount.',
+                                                                                          primaryButtonTitle: 'OK',
+                                                                                          primaryButtonAction: () async {
+                                                                                            Navigator.pop(context);
+                                                                                          },
+                                                                                          secondaryButtonAction: () async {},
+                                                                                        ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+
                                                                               if (_shouldSetState)
                                                                                 safeSetState(() {});
                                                                               return;
                                                                             }
-                                                                          } else {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (dialogContext) {
-                                                                                return Dialog(
-                                                                                  elevation: 0,
-                                                                                  insetPadding: EdgeInsets.zero,
-                                                                                  backgroundColor: Colors.transparent,
-                                                                                  alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                  child: WebViewAware(
-                                                                                    child: GestureDetector(
-                                                                                      onTap: () {
-                                                                                        FocusScope.of(dialogContext).unfocus();
-                                                                                        FocusManager.instance.primaryFocus?.unfocus();
-                                                                                      },
-                                                                                      child: CustomInformationalDialogWidget(
-                                                                                        message: 'No amount was inputted, or invalid amount. Please input a different amount.',
-                                                                                        primaryButtonTitle: 'OK',
-                                                                                        primaryButtonAction: () async {
-                                                                                          Navigator.pop(context);
-                                                                                        },
-                                                                                        secondaryButtonAction: () async {},
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            );
-
-                                                                            if (_shouldSetState)
-                                                                              safeSetState(() {});
-                                                                            return;
                                                                           }
-                                                                        }
 
-                                                                        if (_shouldSetState)
-                                                                          safeSetState(
-                                                                              () {});
-                                                                      },
-                                                                text:
-                                                                    'Continue',
-                                                                options:
-                                                                    FFButtonOptions(
-                                                                  width: double
-                                                                      .infinity,
-                                                                  height: 48.0,
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          16.0,
-                                                                          0.0,
-                                                                          16.0,
-                                                                          0.0),
-                                                                  iconPadding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  textStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            FlutterFlowTheme.of(context).titleSmallFamily,
-                                                                        color: Colors
-                                                                            .white,
-                                                                        letterSpacing:
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
+                                                                        },
+                                                                  text:
+                                                                      'Continue',
+                                                                  options:
+                                                                      FFButtonOptions(
+                                                                    width: double
+                                                                        .infinity,
+                                                                    height:
+                                                                        48.0,
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            16.0,
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            !FlutterFlowTheme.of(context).titleSmallIsCustom,
-                                                                      ),
-                                                                  elevation:
-                                                                      0.0,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              24.0),
-                                                                  disabledColor:
-                                                                      FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .neutral10,
+                                                                            16.0,
+                                                                            0.0),
+                                                                    iconPadding:
+                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    textStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleSmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).titleSmallFamily,
+                                                                          color:
+                                                                              Colors.white,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              !FlutterFlowTheme.of(context).titleSmallIsCustom,
+                                                                        ),
+                                                                    elevation:
+                                                                        0.0,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            24.0),
+                                                                    disabledColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .neutral10,
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
@@ -1949,94 +1959,103 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                         ),
                                                   ),
                                                   Expanded(
-                                                    child: Container(
-                                                      width: 200.0,
-                                                      child: TextFormField(
-                                                        controller: _model
-                                                            .txtFieldAmountWebTextController,
-                                                        focusNode: _model
-                                                            .txtFieldAmountWebFocusNode,
-                                                        autofocus: false,
-                                                        enabled: true,
-                                                        obscureText: false,
-                                                        decoration:
-                                                            InputDecoration(
-                                                          isDense: false,
-                                                          labelStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .labelMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .labelMediumIsCustom,
-                                                                  ),
-                                                          hintStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .labelMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .labelMediumIsCustom,
-                                                                  ),
-                                                          enabledBorder:
-                                                              InputBorder.none,
-                                                          focusedBorder:
-                                                              InputBorder.none,
-                                                          errorBorder:
-                                                              InputBorder.none,
-                                                          focusedErrorBorder:
-                                                              InputBorder.none,
-                                                          filled: true,
-                                                          fillColor: FlutterFlowTheme
+                                                    child: Semantics(
+                                                      label: 'Amount',
+                                                      identifier:
+                                                          'term_deposit_new_txt_field_amount_web',
+                                                      child: Container(
+                                                        width: 200.0,
+                                                        child: TextFormField(
+                                                          controller: _model
+                                                              .txtFieldAmountWebTextController,
+                                                          focusNode: _model
+                                                              .txtFieldAmountWebFocusNode,
+                                                          autofocus: false,
+                                                          enabled: true,
+                                                          obscureText: false,
+                                                          decoration:
+                                                              InputDecoration(
+                                                            isDense: false,
+                                                            labelStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelMediumFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .labelMediumIsCustom,
+                                                                    ),
+                                                            hintStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelMediumFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .labelMediumIsCustom,
+                                                                    ),
+                                                            enabledBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                            focusedBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                            errorBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                            focusedErrorBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                            filled: true,
+                                                            fillColor: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryBackground,
+                                                              .headlineMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineMediumIsCustom,
+                                                              ),
+                                                          keyboardType:
+                                                              const TextInputType
+                                                                  .numberWithOptions(
+                                                                  decimal:
+                                                                      true),
+                                                          cursorColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryText,
+                                                          enableInteractiveSelection:
+                                                              true,
+                                                          validator: _model
+                                                              .txtFieldAmountWebTextControllerValidator
+                                                              .asValidator(
+                                                                  context),
+                                                          inputFormatters: [
+                                                            FilteringTextInputFormatter
+                                                                .allow(RegExp(
+                                                                    '[0-9]'))
+                                                          ],
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .headlineMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .headlineMediumIsCustom,
-                                                                ),
-                                                        keyboardType:
-                                                            const TextInputType
-                                                                .numberWithOptions(
-                                                                decimal: true),
-                                                        cursorColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        enableInteractiveSelection:
-                                                            true,
-                                                        validator: _model
-                                                            .txtFieldAmountWebTextControllerValidator
-                                                            .asValidator(
-                                                                context),
-                                                        inputFormatters: [
-                                                          FilteringTextInputFormatter
-                                                              .allow(RegExp(
-                                                                  '[0-9]'))
-                                                        ],
                                                       ),
                                                     ),
                                                   ),
@@ -2046,105 +2065,109 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Expanded(
-                                                    child:
-                                                        FlutterFlowChoiceChips(
-                                                      options: [
-                                                        ChipData('100.00'),
-                                                        ChipData('500.00'),
-                                                        ChipData('1000.00')
-                                                      ],
-                                                      onChanged: (val) async {
-                                                        safeSetState(() => _model
-                                                                .choiceChipsValue =
-                                                            val?.firstOrNull);
-                                                        _model.txtFieldAmountWebTextController
-                                                                ?.text =
-                                                            _model
-                                                                .choiceChipsValue!;
-                                                      },
-                                                      selectedChipStyle:
-                                                          ChipStyle(
-                                                        backgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .info,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMediumIsCustom,
-                                                                ),
-                                                        iconColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .menuHover,
-                                                        iconSize: 16.0,
-                                                        elevation: 0.0,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(20.0),
+                                                    child: Semantics(
+                                                      identifier:
+                                                          'term_deposit_new_choicechips',
+                                                      child:
+                                                          FlutterFlowChoiceChips(
+                                                        options: [
+                                                          ChipData('100.00'),
+                                                          ChipData('500.00'),
+                                                          ChipData('1000.00')
+                                                        ],
+                                                        onChanged: (val) async {
+                                                          safeSetState(() => _model
+                                                                  .choiceChipsValue =
+                                                              val?.firstOrNull);
+                                                          _model.txtFieldAmountWebTextController
+                                                                  ?.text =
+                                                              _model
+                                                                  .choiceChipsValue!;
+                                                        },
+                                                        selectedChipStyle:
+                                                            ChipStyle(
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .bodyMediumIsCustom,
+                                                                  ),
+                                                          iconColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .menuHover,
+                                                          iconSize: 16.0,
+                                                          elevation: 0.0,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      20.0),
+                                                        ),
+                                                        unselectedChipStyle:
+                                                            ChipStyle(
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .neutral10,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryText,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts:
+                                                                        !FlutterFlowTheme.of(context)
+                                                                            .bodyMediumIsCustom,
+                                                                  ),
+                                                          iconColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryText,
+                                                          iconSize: 16.0,
+                                                          elevation: 0.0,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      20.0),
+                                                        ),
+                                                        chipSpacing: 8.0,
+                                                        rowSpacing: 8.0,
+                                                        multiselect: false,
+                                                        initialized: _model
+                                                                .choiceChipsValue !=
+                                                            null,
+                                                        alignment:
+                                                            WrapAlignment.start,
+                                                        controller: _model
+                                                                .choiceChipsValueController ??=
+                                                            FormFieldController<
+                                                                List<String>>(
+                                                          ['100.00'],
+                                                        ),
+                                                        wrapped: true,
                                                       ),
-                                                      unselectedChipStyle:
-                                                          ChipStyle(
-                                                        backgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .neutral10,
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryText,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts:
-                                                                      !FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMediumIsCustom,
-                                                                ),
-                                                        iconColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        iconSize: 16.0,
-                                                        elevation: 0.0,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(20.0),
-                                                      ),
-                                                      chipSpacing: 8.0,
-                                                      rowSpacing: 8.0,
-                                                      multiselect: false,
-                                                      initialized: _model
-                                                              .choiceChipsValue !=
-                                                          null,
-                                                      alignment:
-                                                          WrapAlignment.start,
-                                                      controller: _model
-                                                              .choiceChipsValueController ??=
-                                                          FormFieldController<
-                                                              List<String>>(
-                                                        ['100.00'],
-                                                      ),
-                                                      wrapped: true,
                                                     ),
                                                   ),
                                                 ],
@@ -2230,156 +2253,172 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  FlutterFlowDropDown<int>(
-                                                    controller: _model
-                                                            .dropdownIPFwebValueController ??=
-                                                        FormFieldController<
-                                                            int>(null),
-                                                    options: List<int>.from(
-                                                        [1, 2, 3, 4]),
-                                                    optionLabels: [
-                                                      'At Maturity',
-                                                      'Monthly',
-                                                      'Quarterly',
-                                                      'Annually'
-                                                    ],
-                                                    onChanged: (val) =>
-                                                        safeSetState(() => _model
-                                                                .dropdownIPFwebValue =
-                                                            val),
-                                                    width: 200.0,
-                                                    height: 48.0,
-                                                    textStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumIsCustom,
-                                                            ),
-                                                    hintText: 'Select...',
-                                                    icon: Icon(
-                                                      Icons
-                                                          .keyboard_arrow_down_rounded,
-                                                      color:
+                                                  Semantics(
+                                                    label: 'IPF',
+                                                    identifier:
+                                                        'term_deposit_new_dropdown_ipfweb',
+                                                    child: FlutterFlowDropDown<
+                                                        int>(
+                                                      controller: _model
+                                                              .dropdownIPFwebValueController ??=
+                                                          FormFieldController<
+                                                              int>(null),
+                                                      options: List<int>.from(
+                                                          [1, 2, 3, 4]),
+                                                      optionLabels: [
+                                                        'At Maturity',
+                                                        'Monthly',
+                                                        'Quarterly',
+                                                        'Annually'
+                                                      ],
+                                                      onChanged: (val) =>
+                                                          safeSetState(() =>
+                                                              _model.dropdownIPFwebValue =
+                                                                  val),
+                                                      width: 200.0,
+                                                      height: 48.0,
+                                                      textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .secondaryText,
-                                                      size: 24.0,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                      hintText: 'Select...',
+                                                      icon: Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                      fillColor: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      elevation: 2.0,
+                                                      borderColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .neutral10,
+                                                      borderWidth: 1.0,
+                                                      borderRadius: 8.0,
+                                                      margin:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  0.0,
+                                                                  12.0,
+                                                                  0.0),
+                                                      hidesUnderline: true,
+                                                      isOverButton: false,
+                                                      isSearchable: false,
+                                                      isMultiSelect: false,
                                                     ),
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
-                                                    elevation: 2.0,
-                                                    borderColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .neutral10,
-                                                    borderWidth: 1.0,
-                                                    borderRadius: 8.0,
-                                                    margin:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                12.0, 0.0),
-                                                    hidesUnderline: true,
-                                                    isOverButton: false,
-                                                    isSearchable: false,
-                                                    isMultiSelect: false,
                                                   ),
-                                                  FlutterFlowDropDown<int>(
-                                                    controller: _model
-                                                            .dropdownTermWebValueController ??=
-                                                        FormFieldController<
-                                                            int>(
-                                                      _model.dropdownTermWebValue ??=
-                                                          30,
-                                                    ),
-                                                    options: List<int>.from([
-                                                      30,
-                                                      60,
-                                                      90,
-                                                      120,
-                                                      150,
-                                                      180,
-                                                      210,
-                                                      240,
-                                                      270,
-                                                      300,
-                                                      330,
-                                                      360
-                                                    ]),
-                                                    optionLabels: [
-                                                      '30',
-                                                      '60',
-                                                      '90',
-                                                      '120',
-                                                      '150',
-                                                      '180',
-                                                      '210',
-                                                      '240',
-                                                      '270',
-                                                      '300',
-                                                      '330',
-                                                      '360'
-                                                    ],
-                                                    onChanged: (val) =>
-                                                        safeSetState(() => _model
-                                                                .dropdownTermWebValue =
-                                                            val),
-                                                    width: 200.0,
-                                                    height: 48.0,
-                                                    textStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              useGoogleFonts:
-                                                                  !FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumIsCustom,
-                                                            ),
-                                                    hintText: 'Select...',
-                                                    icon: Icon(
-                                                      Icons
-                                                          .keyboard_arrow_down_rounded,
-                                                      color:
+                                                  Semantics(
+                                                    label: 'Term',
+                                                    identifier:
+                                                        'term_deposit_new_dropdown_term_web',
+                                                    child: FlutterFlowDropDown<
+                                                        int>(
+                                                      controller: _model
+                                                              .dropdownTermWebValueController ??=
+                                                          FormFieldController<
+                                                              int>(
+                                                        _model.dropdownTermWebValue ??=
+                                                            30,
+                                                      ),
+                                                      options: List<int>.from([
+                                                        30,
+                                                        60,
+                                                        90,
+                                                        120,
+                                                        150,
+                                                        180,
+                                                        210,
+                                                        240,
+                                                        270,
+                                                        300,
+                                                        330,
+                                                        360
+                                                      ]),
+                                                      optionLabels: [
+                                                        '30',
+                                                        '60',
+                                                        '90',
+                                                        '120',
+                                                        '150',
+                                                        '180',
+                                                        '210',
+                                                        '240',
+                                                        '270',
+                                                        '300',
+                                                        '330',
+                                                        '360'
+                                                      ],
+                                                      onChanged: (val) =>
+                                                          safeSetState(() =>
+                                                              _model.dropdownTermWebValue =
+                                                                  val),
+                                                      width: 200.0,
+                                                      height: 48.0,
+                                                      textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .secondaryText,
-                                                      size: 24.0,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts:
+                                                                    !FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumIsCustom,
+                                                              ),
+                                                      hintText: 'Select...',
+                                                      icon: Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                      fillColor: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      elevation: 0.0,
+                                                      borderColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .neutral10,
+                                                      borderWidth: 1.0,
+                                                      borderRadius: 8.0,
+                                                      margin:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  12.0,
+                                                                  0.0,
+                                                                  12.0,
+                                                                  0.0),
+                                                      hidesUnderline: true,
+                                                      isOverButton: false,
+                                                      isSearchable: false,
+                                                      isMultiSelect: false,
                                                     ),
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
-                                                    elevation: 0.0,
-                                                    borderColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .neutral10,
-                                                    borderWidth: 1.0,
-                                                    borderRadius: 8.0,
-                                                    margin:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                12.0, 0.0),
-                                                    hidesUnderline: true,
-                                                    isOverButton: false,
-                                                    isSearchable: false,
-                                                    isMultiSelect: false,
                                                   ),
                                                 ],
                                               ),
@@ -3245,70 +3284,75 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                         ].divide(SizedBox(
                                                             width: 16.0)),
                                                       ),
-                                                      FFButtonWidget(
-                                                        onPressed: () {
-                                                          print(
-                                                              'Button pressed ...');
-                                                        },
-                                                        text: 'Change',
-                                                        icon: Icon(
-                                                          Icons.chevron_right,
-                                                          size: 16.0,
-                                                        ),
-                                                        options:
-                                                            FFButtonOptions(
-                                                          height: 30.0,
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      16.0,
-                                                                      8.0,
-                                                                      16.0,
-                                                                      8.0),
-                                                          iconPadding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          iconColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .whiteText,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .menuHover,
-                                                                    fontSize:
-                                                                        12.0,
-                                                                    letterSpacing:
+                                                      Semantics(
+                                                        button: true,
+                                                        identifier:
+                                                            'term_deposit_new_button',
+                                                        child: FFButtonWidget(
+                                                          onPressed: () {
+                                                            print(
+                                                                'Button pressed ...');
+                                                          },
+                                                          text: 'Change',
+                                                          icon: Icon(
+                                                            Icons.chevron_right,
+                                                            size: 16.0,
+                                                          ),
+                                                          options:
+                                                              FFButtonOptions(
+                                                            height: 30.0,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        16.0,
+                                                                        8.0,
+                                                                        16.0,
+                                                                        8.0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
                                                                         0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    useGoogleFonts:
-                                                                        !FlutterFlowTheme.of(context)
-                                                                            .bodyMediumIsCustom,
-                                                                  ),
-                                                          elevation: 0.0,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      20.0),
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            iconColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .whiteText,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .menuHover,
+                                                                      fontSize:
+                                                                          12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      useGoogleFonts:
+                                                                          !FlutterFlowTheme.of(context)
+                                                                              .bodyMediumIsCustom,
+                                                                    ),
+                                                            elevation: 0.0,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20.0),
+                                                          ),
+                                                          showLoadingIndicator:
+                                                              false,
                                                         ),
-                                                        showLoadingIndicator:
-                                                            false,
                                                       ),
                                                     ],
                                                   ),
@@ -3352,151 +3396,157 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                   ),
                                                   Builder(
                                                     builder: (context) =>
-                                                        InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (dialogContext) {
-                                                            return Dialog(
-                                                              elevation: 0,
-                                                              insetPadding:
-                                                                  EdgeInsets
-                                                                      .zero,
-                                                              backgroundColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              alignment: AlignmentDirectional(
-                                                                      1.0, -1.0)
-                                                                  .resolve(
-                                                                      Directionality.of(
-                                                                          context)),
-                                                              child:
-                                                                  WebViewAware(
+                                                        Semantics(
+                                                      container: true,
+                                                      identifier:
+                                                          'term_deposit_new_send_money_via',
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (dialogContext) {
+                                                              return Dialog(
+                                                                elevation: 0,
+                                                                insetPadding:
+                                                                    EdgeInsets
+                                                                        .zero,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                alignment: AlignmentDirectional(
+                                                                        1.0,
+                                                                        -1.0)
+                                                                    .resolve(
+                                                                        Directionality.of(
+                                                                            context)),
                                                                 child:
-                                                                    GestureDetector(
-                                                                  onTap: () {
-                                                                    FocusScope.of(
-                                                                            dialogContext)
-                                                                        .unfocus();
-                                                                    FocusManager
-                                                                        .instance
-                                                                        .primaryFocus
-                                                                        ?.unfocus();
-                                                                  },
+                                                                    WebViewAware(
                                                                   child:
-                                                                      SendViaComponentWidget(),
+                                                                      GestureDetector(
+                                                                    onTap: () {
+                                                                      FocusScope.of(
+                                                                              dialogContext)
+                                                                          .unfocus();
+                                                                      FocusManager
+                                                                          .instance
+                                                                          .primaryFocus
+                                                                          ?.unfocus();
+                                                                    },
+                                                                    child:
+                                                                        SendViaComponentWidget(),
+                                                                  ),
                                                                 ),
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
-                                                      },
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Container(
-                                                                width: 40.0,
-                                                                height: 40.0,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .formElementHover,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              50.0),
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Icon(
-                                                                    Icons
-                                                                        .monetization_on_outlined,
+                                                              );
+                                                            },
+                                                          );
+                                                        },
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Container(
+                                                                  width: 40.0,
+                                                                  height: 40.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .secondaryText,
-                                                                    size: 24.0,
+                                                                        .formElementHover,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
+                                                                  child: Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .monetization_on_outlined,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ),
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Text(
-                                                                    'Send Money via:',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).titleMediumFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).neutral3,
-                                                                          fontSize:
-                                                                              16.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                          useGoogleFonts:
-                                                                              !FlutterFlowTheme.of(context).titleMediumIsCustom,
-                                                                        ),
-                                                                  ),
-                                                                  Text(
-                                                                    'Select Channel',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).neutral3,
-                                                                          fontSize:
-                                                                              12.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          useGoogleFonts:
-                                                                              !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                        ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ].divide(SizedBox(
-                                                                width: 16.0)),
-                                                          ),
-                                                        ],
+                                                                Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Text(
+                                                                      'Send Money via:',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).titleMediumFamily,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).neutral3,
+                                                                            fontSize:
+                                                                                16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                            useGoogleFonts:
+                                                                                !FlutterFlowTheme.of(context).titleMediumIsCustom,
+                                                                          ),
+                                                                    ),
+                                                                    Text(
+                                                                      'Select Channel',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).neutral3,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                          ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ].divide(SizedBox(
+                                                                  width: 16.0)),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -3899,79 +3949,88 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                                     EdgeInsets
                                                                         .all(
                                                                             8.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await showDialog(
-                                                                      context:
-                                                                          context,
-                                                                      builder:
-                                                                          (dialogContext) {
-                                                                        return Dialog(
-                                                                          elevation:
-                                                                              0,
-                                                                          insetPadding:
-                                                                              EdgeInsets.zero,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          alignment:
-                                                                              AlignmentDirectional(1.0, -1.0).resolve(Directionality.of(context)),
-                                                                          child:
-                                                                              WebViewAware(
+                                                                child:
+                                                                    Semantics(
+                                                                  container:
+                                                                      true,
+                                                                  identifier:
+                                                                      'term_deposit_new_edit',
+                                                                  child:
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await showDialog(
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (dialogContext) {
+                                                                          return Dialog(
+                                                                            elevation:
+                                                                                0,
+                                                                            insetPadding:
+                                                                                EdgeInsets.zero,
+                                                                            backgroundColor:
+                                                                                Colors.transparent,
+                                                                            alignment:
+                                                                                AlignmentDirectional(1.0, -1.0).resolve(Directionality.of(context)),
                                                                             child:
-                                                                                GestureDetector(
-                                                                              onTap: () {
-                                                                                FocusScope.of(dialogContext).unfocus();
-                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                              },
-                                                                              child: SendMoneyComponentWidget(),
+                                                                                WebViewAware(
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(dialogContext).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
+                                                                                child: SendMoneyComponentWidget(),
+                                                                              ),
                                                                             ),
-                                                                          ),
-                                                                        );
-                                                                      },
-                                                                    );
-                                                                  },
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceBetween,
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons
-                                                                            .mode_edit_outline,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                        size:
-                                                                            18.0,
-                                                                      ),
-                                                                      Text(
-                                                                        'Edit',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                              fontSize: 16.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w500,
-                                                                              useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                            ),
-                                                                      ),
-                                                                    ].divide(SizedBox(
-                                                                        width:
-                                                                            10.0)),
+                                                                          );
+                                                                        },
+                                                                      );
+                                                                    },
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
+                                                                      children:
+                                                                          [
+                                                                        Icon(
+                                                                          Icons
+                                                                              .mode_edit_outline,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          size:
+                                                                              18.0,
+                                                                        ),
+                                                                        Text(
+                                                                          'Edit',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                fontSize: 16.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.w500,
+                                                                                useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                              ),
+                                                                        ),
+                                                                      ].divide(SizedBox(
+                                                                              width: 10.0)),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
@@ -4011,106 +4070,111 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                     children: [
                                                       Builder(
                                                         builder: (context) =>
-                                                            FFButtonWidget(
-                                                          onPressed: () async {
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (dialogContext) {
-                                                                return Dialog(
-                                                                  elevation: 0,
-                                                                  insetPadding:
-                                                                      EdgeInsets
-                                                                          .zero,
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  alignment: AlignmentDirectional(
-                                                                          1.0,
-                                                                          -1.0)
-                                                                      .resolve(
-                                                                          Directionality.of(
-                                                                              context)),
-                                                                  child:
-                                                                      WebViewAware(
+                                                            Semantics(
+                                                          button: true,
+                                                          identifier:
+                                                              'term_deposit_new_button_2',
+                                                          child: FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (dialogContext) {
+                                                                  return Dialog(
+                                                                    elevation:
+                                                                        0,
+                                                                    insetPadding:
+                                                                        EdgeInsets
+                                                                            .zero,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    alignment: AlignmentDirectional(
+                                                                            1.0,
+                                                                            -1.0)
+                                                                        .resolve(
+                                                                            Directionality.of(context)),
                                                                     child:
-                                                                        GestureDetector(
-                                                                      onTap:
-                                                                          () {
-                                                                        FocusScope.of(dialogContext)
-                                                                            .unfocus();
-                                                                        FocusManager
-                                                                            .instance
-                                                                            .primaryFocus
-                                                                            ?.unfocus();
-                                                                      },
+                                                                        WebViewAware(
                                                                       child:
-                                                                          SendMoneyComponentWidget(),
+                                                                          GestureDetector(
+                                                                        onTap:
+                                                                            () {
+                                                                          FocusScope.of(dialogContext)
+                                                                              .unfocus();
+                                                                          FocusManager
+                                                                              .instance
+                                                                              .primaryFocus
+                                                                              ?.unfocus();
+                                                                        },
+                                                                        child:
+                                                                            SendMoneyComponentWidget(),
+                                                                      ),
                                                                     ),
-                                                                  ),
-                                                                );
-                                                              },
-                                                            );
-                                                          },
-                                                          text: 'Add Recipient',
-                                                          icon: Icon(
-                                                            Icons.chevron_right,
-                                                            size: 16.0,
-                                                          ),
-                                                          options:
-                                                              FFButtonOptions(
-                                                            height: 30.0,
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        16.0,
-                                                                        8.0,
-                                                                        16.0,
-                                                                        8.0),
-                                                            iconPadding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            iconColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .whiteText,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primary,
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .menuHover,
-                                                                      fontSize:
-                                                                          12.0,
-                                                                      letterSpacing:
+                                                                  );
+                                                                },
+                                                              );
+                                                            },
+                                                            text:
+                                                                'Add Recipient',
+                                                            icon: Icon(
+                                                              Icons
+                                                                  .chevron_right,
+                                                              size: 16.0,
+                                                            ),
+                                                            options:
+                                                                FFButtonOptions(
+                                                              height: 30.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          16.0,
+                                                                          8.0,
+                                                                          16.0,
+                                                                          8.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
                                                                           0.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                      useGoogleFonts:
-                                                                          !FlutterFlowTheme.of(context)
-                                                                              .bodyMediumIsCustom,
-                                                                    ),
-                                                            elevation: 0.0,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        20.0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              iconColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .whiteText,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primary,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .menuHover,
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            !FlutterFlowTheme.of(context).bodyMediumIsCustom,
+                                                                      ),
+                                                              elevation: 0.0,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          20.0),
+                                                            ),
+                                                            showLoadingIndicator:
+                                                                false,
                                                           ),
-                                                          showLoadingIndicator:
-                                                              false,
                                                         ),
                                                       ),
                                                     ].divide(
@@ -4137,42 +4201,51 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                         Align(
                                           alignment:
                                               AlignmentDirectional(0.0, 0.0),
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              context.safePop();
-                                            },
-                                            text: 'Cancel',
-                                            options: FFButtonOptions(
-                                              width: 260.0,
-                                              height: 50.0,
-                                              padding: EdgeInsets.all(8.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0xFFC6D1D1),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleMediumFamily,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                    useGoogleFonts:
-                                                        !FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleMediumIsCustom,
-                                                  ),
-                                              elevation: 0.0,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                          child: Semantics(
+                                            button: true,
+                                            identifier:
+                                                'term_deposit_new_cancel',
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                context.safePop();
+                                              },
+                                              text: 'Cancel',
+                                              options: FFButtonOptions(
+                                                width: 260.0,
+                                                height: 50.0,
+                                                padding: EdgeInsets.all(8.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: Color(0xFFC6D1D1),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumFamily,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      useGoogleFonts:
+                                                          !FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMediumIsCustom,
+                                                    ),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              showLoadingIndicator: false,
                                             ),
-                                            showLoadingIndicator: false,
                                           ),
                                         ),
                                         if (!_model.isConfirmation)
@@ -4180,75 +4253,115 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),
                                             child: Builder(
-                                              builder: (context) =>
-                                                  FFButtonWidget(
-                                                onPressed: () async {
-                                                  var _shouldSetState = false;
-                                                  _model.referenceNumberWebOutput =
-                                                      await actions
-                                                          .genReferenceNumber(
-                                                    FFAppState()
-                                                        .IsInstaPayChannelSelected,
-                                                  );
-                                                  _shouldSetState = true;
-                                                  if (FFAppState()
-                                                          .IsInstaPayChannelSelected ==
-                                                      true) {
-                                                    if (double.parse(_model
-                                                            .textFieldAmountTextController
-                                                            .text) >
-                                                        50000.00) {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (dialogContext) {
-                                                          return Dialog(
-                                                            elevation: 0,
-                                                            insetPadding:
-                                                                EdgeInsets.zero,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            alignment: AlignmentDirectional(
-                                                                    0.0, 0.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                            child: WebViewAware(
+                                              builder: (context) => Semantics(
+                                                button: true,
+                                                identifier:
+                                                    'term_deposit_new_confirmation',
+                                                child: FFButtonWidget(
+                                                  onPressed: () async {
+                                                    var _shouldSetState = false;
+                                                    _model.referenceNumberWebOutput =
+                                                        await actions
+                                                            .genReferenceNumber(
+                                                      FFAppState()
+                                                          .IsInstaPayChannelSelected,
+                                                    );
+                                                    _shouldSetState = true;
+                                                    if (FFAppState()
+                                                            .IsInstaPayChannelSelected ==
+                                                        true) {
+                                                      if (double.parse(_model
+                                                              .textFieldAmountTextController
+                                                              .text) >
+                                                          50000.00) {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (dialogContext) {
+                                                            return Dialog(
+                                                              elevation: 0,
+                                                              insetPadding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              alignment: AlignmentDirectional(
+                                                                      0.0, 0.0)
+                                                                  .resolve(
+                                                                      Directionality.of(
+                                                                          context)),
                                                               child:
-                                                                  GestureDetector(
-                                                                onTap: () {
-                                                                  FocusScope.of(
-                                                                          dialogContext)
-                                                                      .unfocus();
-                                                                  FocusManager
-                                                                      .instance
-                                                                      .primaryFocus
-                                                                      ?.unfocus();
-                                                                },
+                                                                  WebViewAware(
                                                                 child:
-                                                                    CustomInformationalDialogWidget(
-                                                                  message:
-                                                                      'Amount has exceeded 50,000. Please input a different amount.',
-                                                                  primaryButtonTitle:
-                                                                      'OK',
-                                                                  primaryButtonAction:
-                                                                      () async {
-                                                                    Navigator.pop(
-                                                                        context);
+                                                                    GestureDetector(
+                                                                  onTap: () {
+                                                                    FocusScope.of(
+                                                                            dialogContext)
+                                                                        .unfocus();
+                                                                    FocusManager
+                                                                        .instance
+                                                                        .primaryFocus
+                                                                        ?.unfocus();
                                                                   },
-                                                                  secondaryButtonAction:
-                                                                      () async {},
+                                                                  child:
+                                                                      CustomInformationalDialogWidget(
+                                                                    message:
+                                                                        'Amount has exceeded 50,000. Please input a different amount.',
+                                                                    primaryButtonTitle:
+                                                                        'OK',
+                                                                    primaryButtonAction:
+                                                                        () async {
+                                                                      Navigator.pop(
+                                                                          context);
+                                                                    },
+                                                                    secondaryButtonAction:
+                                                                        () async {},
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
-                                                          );
-                                                        },
-                                                      );
+                                                            );
+                                                          },
+                                                        );
 
-                                                      if (_shouldSetState)
+                                                        if (_shouldSetState)
+                                                          safeSetState(() {});
+                                                        return;
+                                                      } else {
+                                                        if (() {
+                                                          if (MediaQuery.sizeOf(
+                                                                      context)
+                                                                  .width <
+                                                              kBreakpointSmall) {
+                                                            return true;
+                                                          } else if (MediaQuery
+                                                                      .sizeOf(
+                                                                          context)
+                                                                  .width <
+                                                              kBreakpointMedium) {
+                                                            return true;
+                                                          } else if (MediaQuery
+                                                                      .sizeOf(
+                                                                          context)
+                                                                  .width <
+                                                              kBreakpointLarge) {
+                                                            return false;
+                                                          } else {
+                                                            return false;
+                                                          }
+                                                        }()) {
+                                                          if (_shouldSetState)
+                                                            safeSetState(() {});
+                                                          return;
+                                                        }
+
+                                                        _model.isConfirmation =
+                                                            true;
                                                         safeSetState(() {});
-                                                      return;
+                                                        if (_shouldSetState)
+                                                          safeSetState(() {});
+                                                        return;
+                                                      }
                                                     } else {
                                                       if (() {
                                                         if (MediaQuery.sizeOf(
@@ -4284,90 +4397,57 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                                         safeSetState(() {});
                                                       return;
                                                     }
-                                                  } else {
-                                                    if (() {
-                                                      if (MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width <
-                                                          kBreakpointSmall) {
-                                                        return true;
-                                                      } else if (MediaQuery
-                                                                  .sizeOf(
-                                                                      context)
-                                                              .width <
-                                                          kBreakpointMedium) {
-                                                        return true;
-                                                      } else if (MediaQuery
-                                                                  .sizeOf(
-                                                                      context)
-                                                              .width <
-                                                          kBreakpointLarge) {
-                                                        return false;
-                                                      } else {
-                                                        return false;
-                                                      }
-                                                    }()) {
-                                                      if (_shouldSetState)
-                                                        safeSetState(() {});
-                                                      return;
-                                                    }
 
-                                                    _model.isConfirmation =
-                                                        true;
-                                                    safeSetState(() {});
                                                     if (_shouldSetState)
                                                       safeSetState(() {});
-                                                    return;
-                                                  }
-
-                                                  if (_shouldSetState)
-                                                    safeSetState(() {});
-                                                },
-                                                text:
-                                                    'Confirm Before Submitting',
-                                                options: FFButtonOptions(
-                                                  width: 400.2,
-                                                  height: 50.0,
-                                                  padding: EdgeInsets.all(8.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiary,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMediumFamily,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .alternate,
-                                                            fontSize: 16.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMediumIsCustom,
-                                                          ),
-                                                  elevation: 0.0,
-                                                  borderSide: BorderSide(
+                                                  },
+                                                  text:
+                                                      'Confirm Before Submitting',
+                                                  options: FFButtonOptions(
+                                                    width: 400.2,
+                                                    height: 50.0,
+                                                    padding:
+                                                        EdgeInsets.all(8.0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondary,
+                                                        .tertiary,
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .titleMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMediumFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleMediumIsCustom,
+                                                        ),
+                                                    elevation: 0.0,
+                                                    borderSide: BorderSide(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
                                                   ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                  showLoadingIndicator: false,
                                                 ),
-                                                showLoadingIndicator: false,
                                               ),
                                             ),
                                           ),
@@ -4376,169 +4456,176 @@ class _TermDepositNewPageWidgetState extends State<TermDepositNewPageWidget> {
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),
                                             child: Builder(
-                                              builder: (context) =>
-                                                  FFButtonWidget(
-                                                onPressed: () async {
-                                                  _model.otpVerification =
-                                                      await action_blocks.otp(
-                                                    context,
-                                                    checkpoint: 'CBXR',
-                                                    phoneNumber: currentUserData
-                                                        ?.user.mobileNumber,
-                                                  );
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder: (dialogContext) {
-                                                      return Dialog(
-                                                        elevation: 0,
-                                                        insetPadding:
-                                                            EdgeInsets.zero,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                    0.0, 0.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                        child: WebViewAware(
+                                              builder: (context) => Semantics(
+                                                button: true,
+                                                identifier:
+                                                    'term_deposit_new_submit_web',
+                                                child: FFButtonWidget(
+                                                  onPressed: () async {
+                                                    _model.otpVerification =
+                                                        await action_blocks.otp(
+                                                      context,
+                                                      checkpoint: 'CBXR',
+                                                      phoneNumber:
+                                                          currentUserData?.user
+                                                              .mobileNumber,
+                                                    );
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder: (dialogContext) {
+                                                        return Dialog(
+                                                          elevation: 0,
+                                                          insetPadding:
+                                                              EdgeInsets.zero,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          alignment: AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
+                                                          child: WebViewAware(
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        dialogContext)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
+                                                              },
+                                                              child:
+                                                                  OTPVerificationComponentWidget(
+                                                                callbackResendOTP:
+                                                                    () async {
+                                                                  await action_blocks
+                                                                      .otp(
+                                                                    context,
+                                                                    checkpoint:
+                                                                        'CBXR',
+                                                                    pin: functions
+                                                                        .createOTP(),
+                                                                    phoneNumber:
+                                                                        currentUserData
+                                                                            ?.user
+                                                                            .mobileNumber,
+                                                                  );
+                                                                },
+                                                                callbackClose:
+                                                                    () async {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                                callbackSuccess:
+                                                                    () async {},
+                                                                callbackConfirm:
+                                                                    () async {},
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+
+                                                    Navigator.pop(context);
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      enableDrag: false,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
                                                           child:
                                                               GestureDetector(
                                                             onTap: () {
                                                               FocusScope.of(
-                                                                      dialogContext)
+                                                                      context)
                                                                   .unfocus();
                                                               FocusManager
                                                                   .instance
                                                                   .primaryFocus
                                                                   ?.unfocus();
                                                             },
-                                                            child:
-                                                                OTPVerificationComponentWidget(
-                                                              callbackResendOTP:
-                                                                  () async {
-                                                                await action_blocks
-                                                                    .otp(
-                                                                  context,
-                                                                  checkpoint:
-                                                                      'CBXR',
-                                                                  pin: functions
-                                                                      .createOTP(),
-                                                                  phoneNumber:
-                                                                      currentUserData
-                                                                          ?.user
-                                                                          .mobileNumber,
-                                                                );
-                                                              },
-                                                              callbackClose:
-                                                                  () async {
-                                                                Navigator.pop(
-                                                                    context);
-                                                                Navigator.pop(
-                                                                    context);
-                                                              },
-                                                              callbackSuccess:
-                                                                  () async {},
-                                                              callbackConfirm:
-                                                                  () async {},
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  SuccessTransferComponentWidget(
+                                                                body:
+                                                                    'The deposit was successfully performed! Please wait 2-4 business days for this deposit into effect.',
+                                                                title:
+                                                                    'Success',
+                                                                primaryButtonText:
+                                                                    'Got this',
+                                                                secondaryButtonText:
+                                                                    'Make another deposit',
+                                                                primaryButtonCallback:
+                                                                    () async {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                                secondaryButtonCallback:
+                                                                    () async {
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                },
+                                                              ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
+                                                        );
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
 
-                                                  Navigator.pop(context);
-                                                  await showModalBottomSheet(
-                                                    isScrollControlled: true,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    enableDrag: false,
-                                                    context: context,
-                                                    builder: (context) {
-                                                      return WebViewAware(
-                                                        child: GestureDetector(
-                                                          onTap: () {
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus();
-                                                            FocusManager
-                                                                .instance
-                                                                .primaryFocus
-                                                                ?.unfocus();
-                                                          },
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                SuccessTransferComponentWidget(
-                                                              body:
-                                                                  'The deposit was successfully performed! Please wait 2-4 business days for this deposit into effect.',
-                                                              title: 'Success',
-                                                              primaryButtonText:
-                                                                  'Got this',
-                                                              secondaryButtonText:
-                                                                  'Make another deposit',
-                                                              primaryButtonCallback:
-                                                                  () async {
-                                                                Navigator.pop(
-                                                                    context);
-                                                              },
-                                                              secondaryButtonCallback:
-                                                                  () async {
-                                                                Navigator.pop(
-                                                                    context);
-                                                              },
-                                                            ),
-                                                          ),
+                                                    safeSetState(() {});
+                                                  },
+                                                  text: 'Continue',
+                                                  options: FFButtonOptions(
+                                                    width: 400.2,
+                                                    height: 50.0,
+                                                    padding:
+                                                        EdgeInsets.all(8.0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .titleMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMediumFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .whiteText,
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          useGoogleFonts:
+                                                              !FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleMediumIsCustom,
                                                         ),
-                                                      );
-                                                    },
-                                                  ).then((value) =>
-                                                      safeSetState(() {}));
-
-                                                  safeSetState(() {});
-                                                },
-                                                text: 'Continue',
-                                                options: FFButtonOptions(
-                                                  width: 400.2,
-                                                  height: 50.0,
-                                                  padding: EdgeInsets.all(8.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMediumFamily,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .whiteText,
-                                                            fontSize: 16.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            useGoogleFonts:
-                                                                !FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMediumIsCustom,
-                                                          ),
-                                                  elevation: 0.0,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                    elevation: 0.0,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  showLoadingIndicator: false,
                                                 ),
-                                                showLoadingIndicator: false,
                                               ),
                                             ),
                                           ),

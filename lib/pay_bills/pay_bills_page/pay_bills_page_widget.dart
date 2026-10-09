@@ -264,7 +264,9 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                           children: [
                                             Expanded(
                                               child: Semantics(
-                                                label: 'Biller-Button',
+                                                label: 'Biller',
+                                                button: true,
+                                                identifier: 'biller_button',
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
                                                     _model.selectedTab =
@@ -342,7 +344,9 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                             ),
                                             Expanded(
                                               child: Semantics(
-                                                label: 'Favorites-Button',
+                                                label: 'Favorites',
+                                                button: true,
+                                                identifier: 'favorites_button',
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
                                                     _model.selectedTab =
@@ -601,7 +605,9 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                                                                 List.generate(sbillers.length, (sbillersIndex) {
                                                                               final sbillersItem = sbillers[sbillersIndex];
                                                                               return Semantics(
-                                                                                label: 'FavoriteBillerComponent',
+                                                                                label: 'Favorite biller',
+                                                                                container: true,
+                                                                                identifier: 'favoritebillercomponent',
                                                                                 child: wrapWithModel(
                                                                                   model: _model.favoriteBillerComponentModels.getModel(
                                                                                     sbillersIndex.toString(),
@@ -757,141 +763,148 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                                                         children: [
                                                                           Expanded(
                                                                             child:
-                                                                                Container(
-                                                                              width: 200.0,
-                                                                              child: TextFormField(
-                                                                                controller: _model.billerTextFieldTextController,
-                                                                                focusNode: _model.billerTextFieldFocusNode,
-                                                                                autofocus: false,
-                                                                                enabled: true,
-                                                                                textInputAction: TextInputAction.done,
-                                                                                readOnly: true,
-                                                                                obscureText: false,
-                                                                                decoration: InputDecoration(
-                                                                                  isDense: true,
-                                                                                  labelText: 'Select Biller',
-                                                                                  labelStyle: FlutterFlowTheme.of(context).labelLarge.override(
-                                                                                        fontFamily: FlutterFlowTheme.of(context).labelLargeFamily,
+                                                                                Semantics(
+                                                                              label: 'Biller',
+                                                                              identifier: 'pay_bills_biller',
+                                                                              child: Container(
+                                                                                width: 200.0,
+                                                                                child: TextFormField(
+                                                                                  controller: _model.billerTextFieldTextController,
+                                                                                  focusNode: _model.billerTextFieldFocusNode,
+                                                                                  autofocus: false,
+                                                                                  enabled: true,
+                                                                                  textInputAction: TextInputAction.done,
+                                                                                  readOnly: true,
+                                                                                  obscureText: false,
+                                                                                  decoration: InputDecoration(
+                                                                                    isDense: true,
+                                                                                    labelText: 'Select Biller',
+                                                                                    labelStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                          fontFamily: FlutterFlowTheme.of(context).labelLargeFamily,
+                                                                                          fontSize: 14.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                          useGoogleFonts: !FlutterFlowTheme.of(context).labelLargeIsCustom,
+                                                                                        ),
+                                                                                    hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                                                                                          fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                                          color: Color(0xFF72777A),
+                                                                                          fontSize: 14.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                          useGoogleFonts: !FlutterFlowTheme.of(context).labelMediumIsCustom,
+                                                                                        ),
+                                                                                    enabledBorder: OutlineInputBorder(
+                                                                                      borderSide: BorderSide(
+                                                                                        color: FlutterFlowTheme.of(context).neutral10,
+                                                                                        width: 1.0,
+                                                                                      ),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                    ),
+                                                                                    focusedBorder: OutlineInputBorder(
+                                                                                      borderSide: BorderSide(
+                                                                                        color: Color(0xFF676666),
+                                                                                        width: 1.0,
+                                                                                      ),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                    ),
+                                                                                    errorBorder: OutlineInputBorder(
+                                                                                      borderSide: BorderSide(
+                                                                                        color: FlutterFlowTheme.of(context).error,
+                                                                                        width: 1.0,
+                                                                                      ),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                    ),
+                                                                                    focusedErrorBorder: OutlineInputBorder(
+                                                                                      borderSide: BorderSide(
+                                                                                        color: FlutterFlowTheme.of(context).error,
+                                                                                        width: 1.0,
+                                                                                      ),
+                                                                                      borderRadius: BorderRadius.circular(8.0),
+                                                                                    ),
+                                                                                    filled: true,
+                                                                                    fillColor: FlutterFlowTheme.of(context).base0,
+                                                                                    contentPadding: EdgeInsetsDirectional.fromSTEB(12.0, 17.0, 12.0, 17.0),
+                                                                                    hoverColor: FlutterFlowTheme.of(context).formElementHover,
+                                                                                    suffixIcon: Icon(
+                                                                                      Icons.keyboard_arrow_down_rounded,
+                                                                                      size: 24.0,
+                                                                                    ),
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                         fontSize: 14.0,
                                                                                         letterSpacing: 0.0,
-                                                                                        useGoogleFonts: !FlutterFlowTheme.of(context).labelLargeIsCustom,
+                                                                                        useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
                                                                                       ),
-                                                                                  hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                        fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
-                                                                                        color: Color(0xFF72777A),
-                                                                                        fontSize: 14.0,
-                                                                                        letterSpacing: 0.0,
-                                                                                        useGoogleFonts: !FlutterFlowTheme.of(context).labelMediumIsCustom,
-                                                                                      ),
-                                                                                  enabledBorder: OutlineInputBorder(
-                                                                                    borderSide: BorderSide(
-                                                                                      color: FlutterFlowTheme.of(context).neutral10,
-                                                                                      width: 1.0,
-                                                                                    ),
-                                                                                    borderRadius: BorderRadius.circular(8.0),
-                                                                                  ),
-                                                                                  focusedBorder: OutlineInputBorder(
-                                                                                    borderSide: BorderSide(
-                                                                                      color: Color(0xFF676666),
-                                                                                      width: 1.0,
-                                                                                    ),
-                                                                                    borderRadius: BorderRadius.circular(8.0),
-                                                                                  ),
-                                                                                  errorBorder: OutlineInputBorder(
-                                                                                    borderSide: BorderSide(
-                                                                                      color: FlutterFlowTheme.of(context).error,
-                                                                                      width: 1.0,
-                                                                                    ),
-                                                                                    borderRadius: BorderRadius.circular(8.0),
-                                                                                  ),
-                                                                                  focusedErrorBorder: OutlineInputBorder(
-                                                                                    borderSide: BorderSide(
-                                                                                      color: FlutterFlowTheme.of(context).error,
-                                                                                      width: 1.0,
-                                                                                    ),
-                                                                                    borderRadius: BorderRadius.circular(8.0),
-                                                                                  ),
-                                                                                  filled: true,
-                                                                                  fillColor: FlutterFlowTheme.of(context).base0,
-                                                                                  contentPadding: EdgeInsetsDirectional.fromSTEB(12.0, 17.0, 12.0, 17.0),
-                                                                                  hoverColor: FlutterFlowTheme.of(context).formElementHover,
-                                                                                  suffixIcon: Icon(
-                                                                                    Icons.keyboard_arrow_down_rounded,
-                                                                                    size: 24.0,
-                                                                                  ),
+                                                                                  maxLines: null,
+                                                                                  cursorColor: FlutterFlowTheme.of(context).primaryText,
+                                                                                  enableInteractiveSelection: true,
+                                                                                  validator: _model.billerTextFieldTextControllerValidator.asValidator(context),
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                      fontSize: 14.0,
-                                                                                      letterSpacing: 0.0,
-                                                                                      useGoogleFonts: !FlutterFlowTheme.of(context).bodyMediumIsCustom,
-                                                                                    ),
-                                                                                maxLines: null,
-                                                                                cursorColor: FlutterFlowTheme.of(context).primaryText,
-                                                                                enableInteractiveSelection: true,
-                                                                                validator: _model.billerTextFieldTextControllerValidator.asValidator(context),
                                                                               ),
                                                                             ),
                                                                           ),
                                                                         ],
                                                                       ),
-                                                                      InkWell(
-                                                                        splashColor:
-                                                                            Colors.transparent,
-                                                                        focusColor:
-                                                                            Colors.transparent,
-                                                                        hoverColor:
-                                                                            Colors.transparent,
-                                                                        highlightColor:
-                                                                            Colors.transparent,
-                                                                        onTap:
-                                                                            () async {
-                                                                          await showModalBottomSheet(
-                                                                            isScrollControlled:
-                                                                                true,
-                                                                            backgroundColor:
-                                                                                Colors.transparent,
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (context) {
-                                                                              return WebViewAware(
-                                                                                child: GestureDetector(
-                                                                                  onTap: () {
-                                                                                    FocusScope.of(context).unfocus();
-                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                  },
-                                                                                  child: Padding(
-                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                    child: BillerListBottomSheetWidget(
-                                                                                      callBack: (selectedBiller, accountNumberLabel) async {
-                                                                                        _model.selectedBiller = selectedBiller;
-                                                                                        _model.accountNumberLabel = accountNumberLabel!;
-                                                                                        safeSetState(() {});
-                                                                                        safeSetState(() {
-                                                                                          _model.billerTextFieldTextController?.text = selectedBiller.name;
-                                                                                        });
-                                                                                        safeSetState(() {
-                                                                                          _model.accountNameTextFieldTextController?.clear();
-                                                                                        });
-                                                                                        Navigator.pop(context);
-                                                                                      },
+                                                                      Semantics(
+                                                                        container:
+                                                                            true,
+                                                                        identifier:
+                                                                            'pay_bills_select_biller_action',
+                                                                        child:
+                                                                            InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            await showModalBottomSheet(
+                                                                              isScrollControlled: true,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              context: context,
+                                                                              builder: (context) {
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: BillerListBottomSheetWidget(
+                                                                                        callBack: (selectedBiller, accountNumberLabel) async {
+                                                                                          _model.selectedBiller = selectedBiller;
+                                                                                          _model.accountNumberLabel = accountNumberLabel!;
+                                                                                          safeSetState(() {});
+                                                                                          safeSetState(() {
+                                                                                            _model.billerTextFieldTextController?.text = selectedBiller.name;
+                                                                                          });
+                                                                                          safeSetState(() {
+                                                                                            _model.accountNameTextFieldTextController?.clear();
+                                                                                          });
+                                                                                          Navigator.pop(context);
+                                                                                        },
+                                                                                      ),
                                                                                     ),
                                                                                   ),
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ).then((value) =>
-                                                                              safeSetState(() {}));
-                                                                        },
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              double.infinity,
-                                                                          height:
-                                                                              44.0,
-                                                                          decoration:
-                                                                              BoxDecoration(),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                safeSetState(() {}));
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                double.infinity,
+                                                                            height:
+                                                                                44.0,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ],
@@ -915,7 +928,8 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                                                                 children: [
                                                                                   Expanded(
                                                                                     child: Semantics(
-                                                                                      label: 'Biller-TextField2',
+                                                                                      label: 'Biller',
+                                                                                      identifier: 'biller_textfield2',
                                                                                       child: Container(
                                                                                         width: 200.0,
                                                                                         child: TextFormField(
@@ -999,7 +1013,9 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                                                                 Opacity(
                                                                                   opacity: 0.0,
                                                                                   child: Semantics(
-                                                                                    label: 'paybills_select_biller_dropdown',
+                                                                                    label: 'Paybills select biller dropdown',
+                                                                                    container: true,
+                                                                                    identifier: 'paybills_select_biller_dropdown',
                                                                                     child: Container(
                                                                                       width: double.infinity,
                                                                                       height: 44.0,
@@ -1069,6 +1085,8 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                                                       child:
                                                                           Semantics(
                                                                         label:
+                                                                            'Account number',
+                                                                        identifier:
                                                                             'paybills_account_number_field',
                                                                         child:
                                                                             Container(
@@ -1176,6 +1194,8 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                                                       child:
                                                                           Semantics(
                                                                         label:
+                                                                            'Account name',
+                                                                        identifier:
                                                                             'paybills_account_name_field',
                                                                         child:
                                                                             Container(
@@ -1298,7 +1318,10 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                                             ),
                                                             Semantics(
                                                               label:
-                                                                  'Scheduled-Payment-Row',
+                                                                  'Scheduled payment row',
+                                                              container: true,
+                                                              identifier:
+                                                                  'scheduled_payment_row',
                                                               child: InkWell(
                                                                 splashColor: Colors
                                                                     .transparent,
@@ -1410,7 +1433,11 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                                                   child:
                                                                       Semantics(
                                                                     label:
-                                                                        'Review-Payment-Container',
+                                                                        'Review payment',
+                                                                    container:
+                                                                        true,
+                                                                    identifier:
+                                                                        'review_payment_container',
                                                                     child:
                                                                         InkWell(
                                                                       splashColor:
@@ -1521,7 +1548,11 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                                                         (context) =>
                                                                             Semantics(
                                                                       label:
-                                                                          'Next-Button',
+                                                                          'Next',
+                                                                      button:
+                                                                          true,
+                                                                      identifier:
+                                                                          'next_button',
                                                                       child:
                                                                           FFButtonWidget(
                                                                         onPressed: ((_model.accountNumTextFieldTextController.text == '') ||
@@ -1832,7 +1863,13 @@ class _PayBillsPageWidgetState extends State<PayBillsPageWidget>
                                                                           builder: (context) =>
                                                                               Semantics(
                                                                             label:
-                                                                                'BillerTileComponent',
+                                                                                'Biller tile',
+                                                                            button:
+                                                                                true,
+                                                                            container:
+                                                                                true,
+                                                                            identifier:
+                                                                                'billertilecomponent',
                                                                             child:
                                                                                 wrapWithModel(
                                                                               model: _model.billerTileComponentModels.getModel(

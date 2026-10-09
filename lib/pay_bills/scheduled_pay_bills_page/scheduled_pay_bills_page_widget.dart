@@ -266,7 +266,13 @@ class _ScheduledPayBillsPageWidgetState
                                                                           paymentsIndex];
                                                                   return Semantics(
                                                                     label:
-                                                                        'ScheduledPaymentItemComponent',
+                                                                        'Payment',
+                                                                    button:
+                                                                        true,
+                                                                    container:
+                                                                        true,
+                                                                    identifier:
+                                                                        'scheduledpaymentitemcomponent',
                                                                     child:
                                                                         wrapWithModel(
                                                                       model: _model

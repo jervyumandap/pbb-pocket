@@ -97,26 +97,30 @@ class _CardWidgetWidgetState extends State<CardWidgetWidget> {
           children: [
             Opacity(
               opacity: 0.6,
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  await widget.tapAction?.call();
-                },
-                child: Container(
-                  width: 500.0,
-                  height: 135.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: Image.asset(
-                        'assets/images/card-background.png',
-                      ).image,
+              child: Semantics(
+                label: 'Card Image',
+                identifier: 'card_image',
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    await widget.tapAction?.call();
+                  },
+                  child: Container(
+                    width: 500.0,
+                    height: 135.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: Image.asset(
+                          'assets/images/card-background.png',
+                        ).image,
+                      ),
+                      borderRadius: BorderRadius.circular(16.0),
                     ),
-                    borderRadius: BorderRadius.circular(16.0),
                   ),
                 ),
               ),
@@ -353,6 +357,8 @@ class _CardWidgetWidgetState extends State<CardWidgetWidget> {
                                                         label:
                                                             'Show or hide balance',
                                                         container: true,
+                                                        identifier:
+                                                            'hide_toggle_icon',
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -384,6 +390,8 @@ class _CardWidgetWidgetState extends State<CardWidgetWidget> {
                                                         label:
                                                             'Show or hide balance',
                                                         container: true,
+                                                        identifier:
+                                                            'show_toggle_icon',
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,

@@ -371,26 +371,32 @@ class _MobileNavigationBarNOQRWidgetState
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(29.0, 0.0, 16.0, 16.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        FFAppState().isDrawerOpen =
-                            !(FFAppState().isDrawerOpen ?? true);
-                        _model.updatePage(() {});
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          FaIcon(
-                            FontAwesomeIcons.bars,
-                            color: Color(0xFF606A85),
-                            size: 20.0,
-                          ),
-                        ],
+                    child: Semantics(
+                      label: 'Toggle menu',
+                      button: true,
+                      container: true,
+                      identifier: 'navnoqr_drawer_toggle_button',
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          FFAppState().isDrawerOpen =
+                              !(FFAppState().isDrawerOpen ?? true);
+                          _model.updatePage(() {});
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            FaIcon(
+                              FontAwesomeIcons.bars,
+                              color: Color(0xFF606A85),
+                              size: 20.0,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

@@ -84,7 +84,7 @@ class _PrimaryButtonComponentWidgetState
             ))
               Expanded(
                 child: Semantics(
-                  label: 'Primary Button Web',
+                  button: true,
                   child: FFButtonWidget(
                     onPressed: widget.buttonDisabledOption
                         ? null
@@ -141,7 +141,7 @@ class _PrimaryButtonComponentWidgetState
               Align(
                 alignment: AlignmentDirectional(0.0, 0.0),
                 child: Semantics(
-                  label: 'Primary Button Mobile',
+                  button: true,
                   child: FFButtonWidget(
                     onPressed: widget.buttonDisabledOption
                         ? null

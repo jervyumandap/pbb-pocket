@@ -330,7 +330,11 @@ class _QRPaymentHistoryPageWidgetState extends State<QRPaymentHistoryPageWidget>
                                                                       paymentsIndex];
                                                               return Semantics(
                                                                 label:
-                                                                    'TransactionItemComponentV2',
+                                                                    'Transaction',
+                                                                button: true,
+                                                                container: true,
+                                                                identifier:
+                                                                    'transactionitemcomponentv2',
                                                                 child:
                                                                     wrapWithModel(
                                                                   model: _model
